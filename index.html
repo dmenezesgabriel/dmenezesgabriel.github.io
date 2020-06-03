@@ -1,0 +1,45 @@
+---
+layout: base
+---
+
+{% if site.paginate %}
+{% assign posts = paginator.posts %}
+{% else %}
+{% assign posts = site.posts %}
+{% endif %}
+
+{%- if posts.size > 0 -%}
+  {%- if page.list_title -%}
+    <h2 class="post-list-heading">{{ page.list_title }}</h2>
+  {%- endif -%}
+  <div class="posts">
+      <div class="row">
+        {% for post in posts %}
+          <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-content">
+                  <h2 class="card-title">{{ post.title }}</h2>
+                  <p class="card-text text-muted h6">{{ post.author }} | {{ post.date | date: date_format }} </p>
+                  <!-- <p class="card-text">{{post.content|truncatewords:30|safe}}</p> -->
+                  <a href="{{ post.url }}" class="btn btn-secondary">Read More</a>
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+    <hr>
+
+    {% if site.paginate %}
+      <nav aria-label="Page navigation container">
+        <ul class="pagination justify-content-center">
+          {%- if paginator.previous_page %}
+            <li><a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary btn-lg btn-block">&laquo; PREV </a></li>
+          {%- endif %}
+          {%- if paginator.next_page %}
+            <li><a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary btn-lg btn-block"> NEXT &raquo;</a></li>
+          {%- endif %}
+        </ul>
+      </nav>
+      {%- endif %}
+    </div>
+  {%- endif -%}
