@@ -51,3 +51,4 @@ make run-dev
 ## References
 
 - **Jekyll**: https://jekyllrb.com/
+- **Minima**: https://github.com/jekyll/minima

@@ -1,0 +1,9 @@
+- name: Github
+  link: https://github.com/dmenezesgabriel
+  icon: <i class="fab fa-github"></i>
+- name: Twitter
+  link: https://twitter.com/dmenezesgabriel
+  icon: <i class="fab fa-twitter"></i>
+- name: Linkedin
+  link: https://www.linkedin.com/in/dmenezesgabriel/
+  icon: <i class="fab fa-linkedin-in"></i>

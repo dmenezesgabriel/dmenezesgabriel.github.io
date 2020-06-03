@@ -6,12 +6,28 @@
     <title>{{ page.title}} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url}}">
     <link rel="stylesheet" href="{{ 'assets/css/bootstrap.min.css' | relative_url}}">
-    {% seo %}
+    <script src="{{ 'assets/js/barToggle.js' | relative_url}}"></script>
+    <script src="{{ 'assets/js/all.min.js' | relative_url}}"></script>
+    <script src="{{ 'assets/js/bootstrap.min.js' | relative_url}}"></script>
+
 </head>
 <body>
-    {% include navbar.html %}
-    <h1>Lorem Ipsulum</h1>
-    {{ content }}
-    <button class="btn btn-success">Hello</button>
+
+    <div class="container-fluid">
+        <div class="row">
+
+        <!-- Sidebar -->
+        {% include sidebar.html %}
+
+        <!-- Content -->
+        <div class="col-md-9 col-lg-10 pt-3 px-4" id="main">
+            {% include navbar.html %}
+
+            <!-- Content Goes here -->
+            {{ content }}
+
+        </div>
+
+    </div>
 </body>
 </html>
