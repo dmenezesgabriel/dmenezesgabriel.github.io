@@ -31,7 +31,7 @@ gem install jekyll bundler
 
 - **nokogiri**:
 ```sh
-dnf install -y make gcc rpm-build ruby-devel zlib-devel
+dnf install -y make gcc gcc-c++ rpm-build ruby-devel zlib-devel 
 ```
 
 ```sh
