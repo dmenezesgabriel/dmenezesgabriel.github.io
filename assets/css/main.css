@@ -2,7 +2,15 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+html, body {
+    height: 100%;
+}
 
+.fill-height {
+    min-height: 100%;
+    height:auto !important; /* cross-browser */
+    height: 100%; /* cross-browser */
+}
 
 body {
     font-family: "Roboto", sans-serif;
@@ -12,23 +20,15 @@ body {
 
 p {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.1em;
+    font-size: 1rem;
     font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+    color: #6c757d;
 }
 
 a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-}
-
-
-.wrapper {
-    display: flex;
-    width: 100%;
-    /* perspective: 1500px; */
 }
 
 #sidebar {
@@ -43,13 +43,6 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-#sidebar .sidebar-header {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #28a745;
-}
-
 #sidebar ul.components {
     padding: 0;
 }
@@ -61,15 +54,17 @@ a, a:hover, a:focus {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
     display: block;
     height: auto;
+    font-size: 0.85rem;
 }
 
 #sidebar ul li a:hover {
     color: #28a745;
     background: #fff;
     border-radius: 5px;
+
+
 }
 
 #sidebar.active {
@@ -135,19 +130,19 @@ a, a:hover, a:focus {
 .profile-section .profile-image {
     display: block;
     margin: auto;
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
-    margin-bottom: 10px;
 }
 
-.profile-section .bio {
-    font-size: 0.8rem;
+.bio p {
+    font-size: 0.85rem;
 }
 
 
 hr {
     width: 90%;
 }
+
 #sidebar a {
     color: #fff;
     text-decoration: none;
@@ -212,17 +207,9 @@ div {
     padding: 30px;
 }
 
-.post-cover {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 8px;
-}
-
-.portfolio-cover {
-    max-width: auto;
-    height: 200px;
+.card-img img{
+    width: 100%!important;
+    height: 200px!important;
     object-fit: cover;
     margin-bottom: 20px;
     border-radius: 8px;
