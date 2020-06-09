@@ -19,7 +19,7 @@ So live a life you will remember.
 ```
 <br>
 
-It wasn't actually my father who told me that, this is the lyrics for the song `The Nights` by `Avicci`. But i thought that was a nicer start that saying that I like long walks at the beach.
+It wasn't actually my father who told me that, this is the lyrics for the song `The Nights` by `Avicci`. But I thought that was a nicer start that saying that I like long walks at the beach.
 
 First things first, let's keep it simple.
 
