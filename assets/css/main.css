@@ -15,14 +15,13 @@ html, body {
 body {
     font-family: "Roboto", sans-serif;
     font-size: 17px;
-    background-color: #ffffff;
+    background-color: #fafafa !important;
 }
 
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 300;
-    color: #6c757d;
 }
 
 a, a:hover, a:focus {
@@ -162,14 +161,14 @@ a[data-toggle="collapse"] {
 }
 
 .navbar {
-    margin-top: 30px;
+    margin-top: 5px;
     position: relative;
     display: flex;
     padding: 15px 10px;
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -210,6 +209,14 @@ div {
 .card-img img{
     width: 100%!important;
     height: 200px!important;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.card-img img.portfolio-cover{
+    width: 100%!important;
+    height: 150px!important;
     object-fit: cover;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -276,7 +283,6 @@ pre {
     }
 
     #dismiss {
-        margin-top: 40px;
         position: relative;
     }
 

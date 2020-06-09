@@ -1,10 +1,11 @@
 ---
-layout: base
+layout: about
 title: About
 permalink: /about/
+author: Gabriel Menezes
 ---
 
-# Hello World!
+## Hello World!
 
 With this `Hello World!`, I shall break any curse that may hunt me in the darkest night of the coldest winter.
 
