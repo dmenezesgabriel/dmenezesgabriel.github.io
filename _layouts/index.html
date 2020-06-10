@@ -15,16 +15,16 @@ title: Home
   {%- endif -%}
   <div class="posts">
       <div class="row">
-        {% for post in posts %}
+        {% for post in posts reversed %}
           <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-content">
                   <div class="card-img">
                     <img class="post-cover" src="{{ post.cover-img | relative_url}}" alt="Post Cover">
                   </div>
-                  <h2 class="card-title">{{ post.title }}</h2>
+                  <h4 class="card-title">{{ post.title }}</h4>
                   <p class="card-text text-muted h6">{{ post.author }} | {{ post.date | date: "%a, %b %d, %y" }} </p>
-                  <p class="card-text text-dark">{{post.content | truncatewords: 30}}</p>
+                  <p class="card-text text-dark">{{post.content | truncatewords: 20}}</p>
                   <a href="{{ post.url }}" class="btn btn-secondary">Read More</a>
                 </div>
               </div>
