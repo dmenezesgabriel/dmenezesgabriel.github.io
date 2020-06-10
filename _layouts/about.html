@@ -9,7 +9,50 @@ title: About
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm">
-                        <h1>{{ page.author }}</h1>
+                        <h1 class="bg-light p-3 rounded-lg text-dark">{{ site.data.about.author }}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>{{ site.data.about.role}}</p>
+                        <p>{{ site.data.about.introduction }}</p>
+                        <a href="/portfolio/" class="btn btn-success">Portfolio</a>
+                        <a href="/" class="btn btn-secondary">Blog</a>
+                    </div>
+                    <div class="col-sm">
+                        <div class="bg-light rounded p-1 mt-1 mb-3">
+                            <img class="about-image" src="{{ 'assets/img/profile-picture.png' | relative_url}}" alt="My image">
+                        </div>
+                        <h5 class="m-0 font-weight-bold text-dark mb-1">About me</h5>
+                        <ul>
+                            {% for item in site.data.about.likes %}
+                            <li>
+                                {{item}}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <hr>
+                    </div>
+                    <div class="col-sm">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <h5 class="m-0 font-weight-bold text-dark mb-1">Abstract</h5>
+                        <p>{{ site.data.about.resume-introduction }}</p>
+                        <h6 class="m-0 font-weight-bold text-dark mb-1">Skills</h6>
+                        <ul>
+                            {% for item in site.data.about.skills %}
+                            <li>
+                                {{item}}
+                            </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
                 <hr>

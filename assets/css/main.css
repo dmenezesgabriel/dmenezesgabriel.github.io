@@ -236,6 +236,13 @@ pre {
     text-align: justify;
   }
 
+.about-image {
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    display: block;
+}
+
 .pagination .btn-block {
     margin-top: 40px;
     width: 200px;

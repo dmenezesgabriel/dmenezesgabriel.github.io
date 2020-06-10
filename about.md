@@ -2,7 +2,6 @@
 layout: about
 title: About
 permalink: /about/
-author: Gabriel Menezes
 ---
 
 ## Hello World!
