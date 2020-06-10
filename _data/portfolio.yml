@@ -4,3 +4,6 @@
 - name: Tick Track
   link: https://github.com/dmenezesgabriel/tick_track
   cover-img: assets/img/portfolio/tick-track.png
+- name: Django Blog
+  link: https://github.com/dmenezesgabriel/blog
+  cover-img: assets/img/portfolio/dogo-blog.png
