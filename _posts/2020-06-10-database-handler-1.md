@@ -1,8 +1,9 @@
 ---
 title:  "Making a Database Handler"
-date:   2020-06-02 09:58:00 -0300
+date:   2020-06-10 21:00:00 -0300
 categories: databases
 cover-img: assets/img/post-cover/database-handler-1.jpg
+tags: databases, postgresql, database handler, python, psycopg2, docker
 ---
 
 A database handler offers a way to interface with databases of different kinds using code languages as Javascript and Python, so it's possible to bring an query result and manipulate as python dict objects on your ETL script, jupyter notebook analysis and many others.
