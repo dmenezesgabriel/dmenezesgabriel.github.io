@@ -236,6 +236,11 @@ pre {
     text-align: justify;
   }
 
+
+pre code {
+    color: white !important;
+}
+
 .about-image {
     width: 90px;
     height: 90px;
