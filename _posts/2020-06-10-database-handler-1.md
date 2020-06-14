@@ -1,5 +1,5 @@
 ---
-title:  "Making a Database Handler pt.1"
+title:  "Making a Database Handler pt.1 - Docker"
 date:   2020-06-10 21:00:00 -0300
 categories: databases
 cover-img: assets/img/post-cover/database-handler-1.jpg
@@ -7,6 +7,8 @@ tags: databases, postgresql, database handler, python, psycopg2, docker
 ---
 
 A database handler offers a way to interface with databases of different kinds using code languages as Javascript and Python, so it's possible to bring an query result and manipulate as python dict objects on your ETL script, jupyter notebook analysis and many others.
+
+For this tutorial we will build a custom, but yet simple image of PostgreSQL relacional database from where we will collect information with our python based database handler.
 
 **Ingredients**:
 - PostgreSQL
@@ -40,7 +42,7 @@ cd python-database-handler &&\
 touch database_handler.py &&\
 touch Dockerfile &&\
 touch Makefile && \
-init.sql
+touch init.sql
 {% endhighlight %}
 
 ### Getting the flour
@@ -60,7 +62,7 @@ Here we create our own postgres Docker image through a `Dockerfile`
 FROM postgres
 # Set environment variables
 ENV POSTGRES_PASSWORD postgres
-ENV POSTGRES_DB testdb
+ENV POSTGRES_DB postgres
 # By defaults every script located at /docker-entrypoint-initdb.d/
 # will be automatically executed during container startup
 COPY init.sql /docker-entrypoint-initdb.d/
@@ -88,21 +90,42 @@ And then automagically build our image
 docker build -t custom-image .
 {% endhighlight %}
 
+- `build`: Command that builds Docker images from a Dockerfile and a “context”.
+- `--tag , -t`: Name and optionally a tag in the ‘name:tag’ format.
+
+Check for builded images
+
+{% highlight zsh %}
+docker images -a
+{% endhighlight %}
+
+- `images`: This command will show all top level images, their repository and tags, and their size.
+- `--all , -a`: Show all images (default hides intermediate images).
+
 ### Baking the cake
 
 Running it as a container
 
 {% highlight zsh %}
-docker run -d --name custom-image -e POSTGRES_PASSWORD=postgres -p 5555:5432 postgres
+docker run -d --name custom-image-container -p 5555:5432 custom-image
 {% endhighlight %}
+
+- `run`: First it creates a container over the specified image, and then starts it.
+- `--detach , -d`: 	Run container in background and print container ID.
+- `--name`: Assign a name to the container.
+- `-p`: Bounds the container to the specified port.
 
 ### Open the oven and smell it
 
 Execute bash inside the container itself
 
 {% highlight zsh %}
-docker exec -i -t custom-image /bin/bash
+docker exec -i -t custom-image-container /bin/bash
 {% endhighlight %}
+
+- `exec`: Runs a new command in a running container.
+- `--interactive , -i`: Keep STDIN open even if not attached.
+- `--tty , -t`: Allocate a pseudo-TTY.
 
 Connect to the database via `psql`
 
@@ -110,8 +133,42 @@ Connect to the database via `psql`
 psql -h localhost -U postgres -d postgres
 {% endhighlight %}
 
+- `-h`: host.
+- `-U`: User name.
+- `-d`: Database name.
+
+### The cherry on the cake
+
+Insert some data into the table `public.authors`
+
+{% highlight sql %}
+INSERT INTO public.authors
+    (id, name)
+VALUES
+    (1, 'J. k. Rowling'),
+    (2, 'Stephen King'),
+    (3, 'Timothy Ferris');
+{% endhighlight %}
+
+**Query**:
+
+{% highlight sql %}
+SELECT * FROM public.authors;
+{% endhighlight %}
+
+**Output**:
+
+{:.table.table-dark}
+| id |      name      |
+|----|----------------|
+|  1 | J. k. Rowling  |
+|  2 | Stephen King   |
+|  3 | Timothy Ferris |
+
+<br>
+
 ## References
-- https://www.postgresqltutorial.com/
-- https://docs.docker.com/engine/examples/postgresql_service/
-- https://www.psycopg.org/docs/
-- https://medium.com/@wkrzywiec/database-in-a-docker-container-how-to-start-and-whats-it-about-5e3ceea77e50
+- [Postgres Tutorials](https://www.postgresqltutorial.com/)
+- [Docker's documentation](https://docs.docker.com/)
+- [Psycopg's documentation](https://www.psycopg.org/docs/)
+- [Wkrzywiec's medium](https://medium.com/@wkrzywiec/database-in-a-docker-container-how-to-start-and-whats-it-about-5e3ceea77e50)
