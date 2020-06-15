@@ -2,7 +2,7 @@
 title:  "Making a Database Handler pt.1 - Docker"
 date:   2020-06-10 21:00:00 -0300
 categories: databases
-cover-img: assets/img/post-cover/database-handler-1.jpg
+cover-img: assets/img/posts/2020-06-10-database-handler-1/cover.jpg
 tags: databases, postgresql, database handler, python, psycopg2, docker
 ---
 
