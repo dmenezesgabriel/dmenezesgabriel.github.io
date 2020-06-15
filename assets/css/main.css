@@ -164,12 +164,20 @@ a[data-toggle="collapse"] {
     margin-top: 0px;
     position: relative;
     display: flex;
-    padding: 15px 10px;
     background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-header {
+    position: absolute;
+    margin-top: -100px;
+}
+.navbar-brand {
+    float:none;
+    color: #fff
 }
 
 #main {
@@ -263,7 +271,7 @@ pre code {
     }
 
     #main {
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     #sidebar.active {
@@ -288,6 +296,15 @@ pre code {
         border-radius: 0;
         margin-bottom: 10px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        background-color: #28a745;
+    }
+
+    .navbar-header {
+        position: relative;
+        margin-top: 0;
+        float: left;
+        text-align: center;
+        width: 90%;
     }
 
     #main.full-screen{
