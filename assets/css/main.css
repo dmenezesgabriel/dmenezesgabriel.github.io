@@ -213,13 +213,22 @@ div {
     border-radius: 8px;
 }
 
-.card-img img.portfolio-cover{
+.carousel-img img{
     width: 100%!important;
-    height: 150px!important;
+    height: 200px!important;
     object-fit: cover;
-    margin-bottom: 20px;
-    border-radius: 8px;
 }
+
+.carousel-img:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.7);
+  }
 
 .highlight {
     border-radius: 0px;
@@ -284,7 +293,6 @@ pre code {
         display: flex;
         padding: 15px 10px;
         border: none;
-        border-radius: 5px;
         margin-bottom: 10px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         background-color: #28a745;
