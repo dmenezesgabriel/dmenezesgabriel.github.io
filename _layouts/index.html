@@ -24,7 +24,7 @@ title: Home
                   </div>
                   <h4 class="card-title">{{ post.title }}</h4>
                   <p class="card-text text-muted h6">{{ post.author }} | {{ post.date | date: "%a, %b %d, %y" }} </p>
-                  <p class="card-text text-dark">{{post.content | truncatewords: 20}}</p>
+                  <p class="card-text text-dark">{{ post.content | truncate: 20 }}</p>
                   <a href="{{ post.url }}" class="btn btn-secondary">Read More</a>
                 </div>
               </div>
