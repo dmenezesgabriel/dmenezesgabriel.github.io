@@ -176,7 +176,6 @@ a[data-toggle="collapse"] {
     margin-top: -100px;
 }
 .navbar-brand {
-    float:none;
     color: #fff
 }
 
@@ -300,11 +299,8 @@ pre code {
     }
 
     .navbar-header {
-        position: relative;
         margin-top: 0;
-        float: left;
-        text-align: center;
-        width: 90%;
+        width: 100%;
     }
 
     #main.full-screen{
