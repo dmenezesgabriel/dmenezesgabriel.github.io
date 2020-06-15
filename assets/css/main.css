@@ -171,14 +171,6 @@ a[data-toggle="collapse"] {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-header {
-    position: absolute;
-    margin-top: -100px;
-}
-.navbar-brand {
-    color: #fff
-}
-
 #main {
     margin-left: 260px;
     float: left;
@@ -292,15 +284,10 @@ pre code {
         display: flex;
         padding: 15px 10px;
         border: none;
-        border-radius: 0;
+        border-radius: 5px;
         margin-bottom: 10px;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
         background-color: #28a745;
-    }
-
-    .navbar-header {
-        margin-top: 0;
-        width: 100%;
     }
 
     #main.full-screen{
