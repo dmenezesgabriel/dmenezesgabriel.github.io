@@ -277,10 +277,18 @@ pre code {
     #sidebar.active {
         margin-left: 0;
         transform: none;
-        z-index: 1;
+        z-index: 9;
         height: 100%;
         width: auto;
 
+    }
+
+    #carouselIndicators {
+        z-index: 1;
+    }
+
+    #welcome {
+        z-index: 1;
     }
 
     .profile-section .profile-image {
