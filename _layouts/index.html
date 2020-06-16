@@ -20,7 +20,7 @@ title: Home
             <div class="card mb-4">
                 <div class="card-content">
                   <div class="card-img">
-                    <img class="post-cover" src="{{ post.cover-img | relative_url}}" alt="Post Cover">
+                    <img class="post-cover" src="{{ post.image | relative_url}}" alt="Post Cover">
                   </div>
                   <h4 class="card-title">{{ post.title }}</h4>
                   <p class="card-text text-muted h6">{{ post.author }} | {{ post.date | date: "%a, %b %d, %y" }} </p>

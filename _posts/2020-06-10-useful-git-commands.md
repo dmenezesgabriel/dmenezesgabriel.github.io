@@ -1,8 +1,10 @@
 ---
-title:  "Git commands which may help you"
-date:   2020-06-02 22:00:00 -0300
+title: "Git commands which may help you"
+description: "Git commands which may help you."
+date: 2020-06-02 22:00:00 -0300
+last_modified_at: 2020-06-02 22:00:00 -0300
 categories: git
-cover-img: assets/img/posts/2020-06-10-useful-git-commands/cover.jpeg
+image: assets/img/posts/2020-06-10-useful-git-commands/cover.jpeg
 tags: git, github, commands
 ---
 

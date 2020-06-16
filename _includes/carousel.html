@@ -14,7 +14,7 @@
 				{% if forloop.first == true %}
 					<div class="carousel-item active">
 						<div class="carousel-img">
-							<img class="d-block w-100" src="{{ item.cover-img | relative_url}}" alt="slide">
+							<img class="d-block w-100" src="{{ item.image | relative_url}}" alt="slide">
 						</div>
 						<div class="carousel-caption">
 							<h5>{{ item.title }}</h5>
@@ -25,7 +25,7 @@
 				{% else %}
 					<div class="carousel-item">
 						<div class="carousel-img">
-							<img class="d-block w-100" src="{{ item.cover-img | relative_url}}" alt="slide">
+							<img class="d-block w-100" src="{{ item.image | relative_url}}" alt="slide">
 						</div>
 						<div class="carousel-caption">
 							<h5>{{ item.title }}</h5>
