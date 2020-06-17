@@ -2,8 +2,8 @@
 title: "Making a Database Handler pt.1 - Docker"
 description: "Making a Database Handler pt.1 - Docker"
 date: 2020-06-10 21:00:00 -0300
-last_modified_at: 2020-06-10 21:00:00 -0300
-categories: databases
+last_modified_at: 2020-06-17 18:50:00 -0300
+categories: python
 image: assets/img/posts/2020-06-10-database-handler-1/cover.jpg
 tags: databases, postgresql, database handler, python, psycopg2, docker
 ---
@@ -31,6 +31,10 @@ The cursor holds the control of the position in a set of results and allow you t
 ## Psycopg
 
 In psycopg, the connection class handle the transactions and when you perform the first statement to the PostgreSQL database using a cursor object, psycopg creates a new transaction in which all subsequent statements will be contained, in case of any of the statements comes to fail, psycopg will abort the transaction and no register will be altered.
+
+## Docker
+
+Docker is a softwere which offers container units that package up all your code and it's dependencies, so it's possible to create the same environment from one computer to another without massive headaches.
 
 ## Hands-on
 
@@ -168,6 +172,10 @@ SELECT * FROM public.authors;
 |  3 | Timothy Ferris |
 
 <br>
+
+On the next episode we will spice the things a litte with Pipenv, a nice pretty little package manager! :+1:
+
+[Making a Database Handler pt.2 - Docker](https://dmenezesgabriel.github.io/python/2020/06/17/database-handler-2.html)
 
 ## References
 - [Postgres Tutorials](https://www.postgresqltutorial.com/)
