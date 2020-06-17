@@ -28,7 +28,6 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://dmenezesgabriel.github.io/"
 twitter:
   username: dmenezesgabriel
-  card: summary
 social:
   name: Gabriel Menezes
   links:
