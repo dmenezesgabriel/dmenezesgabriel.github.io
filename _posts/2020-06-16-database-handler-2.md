@@ -1,6 +1,6 @@
 ---
 title: "Making a Database Handler pt.2 - Pipenv"
-description: "Making a Database Handler pt.2 - Python"
+description: "Making a Database Handler pt.2 - Pipenv"
 date: 2020-06-17 19:45:00 -0300
 last_modified_at: 2020-06-17 19:45:00 -0300
 categories: python
@@ -68,7 +68,7 @@ Come with me, walk into our project's directory.
 cd python-database-handler
 {% endhighlight %}
 
-Take my hand, code with me! (That was too much isn't)
+Take my hand, code with me! (That was too much wasn't?!)
 
 {% highlight zsh %}
 pipenv install psycopg2
