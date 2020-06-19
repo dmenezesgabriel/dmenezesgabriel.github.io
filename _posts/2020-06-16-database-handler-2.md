@@ -140,6 +140,8 @@ And again, everything updated automagically.
 
 Thank you for reading, thumbs up :+1:, subscribe and all of that youtube stuff.
 
+[Next Episode - Making a Database Handler pt.3 - Psycopg](https://dmenezesgabriel.github.io/python/2020/06/18/database-handler-3.html)
+
 ## References
 - [Real Python](https://realpython.com/pipenv-guide/#pipenv-introduction)
 - [The Hitchhiker's Guide](https://docs.python-guide.org/)
