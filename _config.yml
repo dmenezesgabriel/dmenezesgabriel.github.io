@@ -53,6 +53,7 @@ defaults:
     values:
       layout: "post_detail"
       author: "Gabriel Menezes"
+      comments: true
       lang: en_US
 
 paginate: 3
