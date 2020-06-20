@@ -62,7 +62,9 @@ kramdown:
   input: GFM
   syntax_highlighter_opts:
     default_lang: html
-    css_class: 'syntax'
+    css_class: "syntax"
+
+google_analytics: "UA-169523526-1"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
