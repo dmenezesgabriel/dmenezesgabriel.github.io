@@ -1,9 +1,11 @@
 <nav class="navbar rounded navbar-expand-lg flex">
-  <div class="toggle">
-    <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-  </div>
-</nav>
+  <form class="form-inline">
+      <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      <input id="search" class="form-control mr-sm-2 ml-3 w-auto" type="text" placeholder="Search" />
+    </form>
+  </nav>
+  <div id="search-result" class="card p-3"></div>
