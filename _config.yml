@@ -43,6 +43,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-last-modified-at
 
 defaults:
   -
@@ -63,6 +64,9 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: html
     css_class: "syntax"
+
+last-modified-at:
+    date-format: '%d-%b-%y'
 
 google_analytics: "UA-169523526-1"
 
