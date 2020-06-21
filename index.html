@@ -1,50 +1,271 @@
----
-layout: base
-title: Home
----
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://dmenezesgabriel.github.io//assets/img/chamaleon.png">
+    <title>Home - Gabriel Menezes</title>
+    <link rel="stylesheet" href="https://dmenezesgabriel.github.io//assets/css/main.css">
+    <link rel="stylesheet" href="https://dmenezesgabriel.github.io//assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://dmenezesgabriel.github.io//assets/css/dracula.css">
+    <script src="https://dmenezesgabriel.github.io//assets/js/all.min.js"></script>
+    <script src="https://dmenezesgabriel.github.io//assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://dmenezesgabriel.github.io//assets/js/bootstrap.min.js"></script>
+    <script src="https://dmenezesgabriel.github.io//assets/js/barToggle.js"></script>
+    <script src="https://dmenezesgabriel.github.io//assets/js/searchBar.js"></script>
+    <!-- Only ping google when on production environment -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-{% if site.paginate %}
-{% assign posts = paginator.posts %}
-{% else %}
-{% assign posts = site.posts %}
-{% endif %}
+gtag('config', 'UA-169523526-1');
+</script>
+    
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Home | Gabriel Menezes</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Home" />
+<meta name="author" content="Gabriel Menezes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge." />
+<meta property="og:description" content="This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge." />
+<link rel="canonical" href="https://dmenezesgabriel.github.io//" />
+<meta property="og:url" content="https://dmenezesgabriel.github.io//" />
+<meta property="og:site_name" content="Gabriel Menezes" />
+<link rel="next" href="https://dmenezesgabriel.github.io//page2/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Home" />
+<meta name="twitter:site" content="@dmenezesgabriel" />
+<meta name="twitter:creator" content="@Gabriel Menezes" />
+<script type="application/ld+json">
+{"sameAs":["https://github.com/dmenezesgabriel","https://twitter.com/dmenezesgabriel","https://www.linkedin.com/in/dmenezesgabriel"],"description":"This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge.","@type":"WebSite","author":{"@type":"Person","name":"Gabriel Menezes"},"url":"https://dmenezesgabriel.github.io//","name":"Gabriel Menezes","headline":"Home","dateModified":"2020-06-21T20:06:35+00:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-{%- if posts.size > 0 -%}
-  {%- if page.list_title -%}
-    <h2 class="post-list-heading">{{ page.list_title }}</h2>
-  {%- endif -%}
-  <div class="posts">
+</head>
+<body>
+
+    <div class="container-fluid fill-height">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-md-block sidebar bg-success" id="sidebar">
+    <div class="sidebar-header mt-3 mb-3 text-center">
+        <div class="close-btn">
+            <div class="row">
+                <div class="col-sm">
+                    <button id="dismiss" onClick="closeNav()" class="btn close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <h3>
+            <a class="blog-name h5" href="/">Gabriel Menezes</a>
+        </h3>
+    </div>
+    <div class="profile-section components text-center">
+        <img class="profile-image mb-3" src="https://dmenezesgabriel.github.io//assets/img/profile-picture.png" alt="My image">
+        <div class="bio text-center">
+            <p>
+                Bug developer and my father's son. Night gathers, and now my coding begins. It shall not end until I understand what I wrote at last week.
+            </p>
+        </div>
+            <ul class="list-unstyled components text-center">
+
+                <div class="social-list">
+                    
+                        <li class="list-inline-item">
+                            <a href="https://github.com/dmenezesgabriel" class="list-inline py-1 mx-auto icon" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/dmenezesgabriel" class="list-inline py-1 mx-auto icon" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                    
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/dmenezesgabriel/" class="list-inline py-1 mx-auto icon" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    
+                </div>
+                <hr>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/portfolio/">Portfolio</a>
+                </li>
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+                <li>
+                    <a href="/contact/">Contact</a>
+                </li>
+            </ul>
+        </div>
+</nav>
+
+            <!-- Content -->
+            <div class="col-sm pt-3 px-4" id="main">
+            <nav class="navbar rounded navbar-expand-lg flex">
+  <form class="form-inline">
+    <div class="input-group">
+      <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      <input id="search" class="form-control mr-sm-2 ml-3 w-75" type="text" placeholder="Search" />
+    </div>
+    </form>
+  </nav>
+  <div id="search-result" class="card p-3"></div>
+            <div id="welcome" class="container bg-white rounded">
+    <div class="text-center">
+        <hr>
+        <h4 class="text-dark">Welcome to Gabriel's Blog</h4>
+        <hr>
+    </div>
+</div>
+            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+			
+				
+					<li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+				
+			
+				
+					<li data-target="#carouselIndicators" data-slide-to="1"></li>
+				
+			
+				
+					<li data-target="#carouselIndicators" data-slide-to="2"></li>
+				
+			
+		</ol>
+
+    <div class="carousel-inner rounded mb-3">
+			
+				
+					<div class="carousel-item active">
+						<div class="carousel-img">
+							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-10-database-handler-1/cover.jpg" alt="slide">
+						</div>
+						<div class="carousel-caption">
+							<h5>Making a Database Handler pt.1 - Docker</h5>
+							<p><p>A database handler offers a way to interface...</p>
+							<a href="/python/2020/06/11/database-handler-1.html" class="btn-sm btn-success">Read</a>
+						</div>
+					</div>
+				
+			
+				
+					<div class="carousel-item">
+						<div class="carousel-img">
+							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-16-database-handler-2/cover.jpg" alt="slide">
+						</div>
+						<div class="carousel-caption">
+							<h5>Making a Database Handler pt.2 - Pipenv</h5>
+							<p><p>If you already not, you should check my prev...</p>
+							<a href="/python/2020/06/17/database-handler-2.html" class="btn-sm btn-success">Read</a>
+						</div>
+					</div>
+				
+			
+				
+					<div class="carousel-item">
+						<div class="carousel-img">
+							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-18-database-handler-3/cover.png" alt="slide">
+						</div>
+						<div class="carousel-caption">
+							<h5>Making a Database Handler pt.3 - Psycopg</h5>
+							<p><p>Psycopg is a very popular database driver fo...</p>
+							<a href="/python/2020/06/18/database-handler-3.html" class="btn-sm btn-success">Read</a>
+						</div>
+					</div>
+				
+			
+		</div>
+
+    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+            <hr>
+
+            <!-- Content Goes here -->
+            <div class="posts">
       <div class="row">
-        {% for post in posts %}
+        
           <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-content p-3">
                   <div class="card-img">
-                    <img class="post-cover" src="{{ post.image | relative_url}}" alt="Post Cover">
+                    <img class="post-cover" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-18-database-handler-3/cover.png" alt="Post Cover">
                   </div>
-                  <h2 class="card-title h3">{{ post.title }}</h2>
-                  <p class="card-text text-muted h6">{{ post.author }} | {{ post.date | date: "%a, %b %d, %y" }} </p>
+                  <h2 class="card-title h3">Making a Database Handler pt.3 - Psycopg</h2>
+                  <p class="card-text text-muted h6">Gabriel Menezes | Thu, Jun 18, 20 </p>
                   <hr>
-                  <p class="card-text text-dark">{{ post.content | truncate: 150 }}</p>
-                  <a href="{{ post.url }}" class="btn btn-secondary">Read More</a>
+                  <p class="card-text text-dark"><p>Psycopg is a very popular database driver for PostgreSQL databases in Python programming language, which allow us to connect to the database and...</p>
+                  <a href="/python/2020/06/18/database-handler-3.html" class="btn btn-secondary">Read More</a>
                 </div>
               </div>
           </div>
-        {% endfor %}
+        
+          <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-content p-3">
+                  <div class="card-img">
+                    <img class="post-cover" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-16-database-handler-2/cover.jpg" alt="Post Cover">
+                  </div>
+                  <h2 class="card-title h3">Making a Database Handler pt.2 - Pipenv</h2>
+                  <p class="card-text text-muted h6">Gabriel Menezes | Wed, Jun 17, 20 </p>
+                  <hr>
+                  <p class="card-text text-dark"><p>If you already not, you should check my previous post where we have this project introduction. In this part, A.K.A part 2, we’ll install pipenv ...</p>
+                  <a href="/python/2020/06/17/database-handler-2.html" class="btn btn-secondary">Read More</a>
+                </div>
+              </div>
+          </div>
+        
+          <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-content p-3">
+                  <div class="card-img">
+                    <img class="post-cover" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-10-database-handler-1/cover.jpg" alt="Post Cover">
+                  </div>
+                  <h2 class="card-title h3">Making a Database Handler pt.1 - Docker</h2>
+                  <p class="card-text text-muted h6">Gabriel Menezes | Thu, Jun 11, 20 </p>
+                  <hr>
+                  <p class="card-text text-dark"><p>A database handler offers a way to interface with databases of different kinds using code languages as Javascript and Python, so it’s possible t...</p>
+                  <a href="/python/2020/06/11/database-handler-1.html" class="btn btn-secondary">Read More</a>
+                </div>
+              </div>
+          </div>
+        
     </div>
     <hr>
 
-    {% if site.paginate %}
+    
       <nav aria-label="Page navigation container">
         <ul class="pagination justify-content-center">
-          {%- if paginator.previous_page %}
-            <li><a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary btn-lg btn-block">&laquo; PREV </a></li>
-          {%- endif %}
-          {%- if paginator.next_page %}
-            <li><a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary btn-lg btn-block"> NEXT &raquo;</a></li>
-          {%- endif %}
+            <li><a href="https://dmenezesgabriel.github.io//page2/" class="btn btn-secondary btn-lg btn-block"> NEXT &raquo;</a></li>
         </ul>
       </nav>
-    {%- endif %}
   </div>
-{%- endif -%}
+        </div>
+    </div>
+</body>
+</html>
