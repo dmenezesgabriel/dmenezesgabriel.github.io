@@ -32,9 +32,9 @@ $(function () {
     } else {
       for (var i = 0; i < searchResult.length; i++) {
         $('#search-result').append(
-          '<a class="result-item" href="' +
-            searchResult[i].url +
-            '"><div class="title">【' + searchResult[i].category + '】' +
+          '<a class="card border rounded result-item p-3" href="' +
+            searchResult[i].url + '">' +
+            '<div class="title"> [' + searchResult[i].category + '] ' +
             searchResult[i].title +
             '</div></a>'
         );

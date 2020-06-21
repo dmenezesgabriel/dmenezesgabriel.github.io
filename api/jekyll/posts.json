@@ -4,29 +4,34 @@
       "description": "Making a Database Handler pt.3 - Psycopg",
       "url": "https://dmenezesgabriel.github.io///python/2020/06/18/database-handler-3.html",
       "date": "2020-06-18T11:49:00+00:00",
-      "category": "python"
+      "category": "python",
+      "image": "assets/img/posts/2020-06-18-database-handler-3/cover.png"
   },{
       "title": "Making a Database Handler pt.2 - Pipenv",
       "description": "Making a Database Handler pt.2 - Pipenv",
       "url": "https://dmenezesgabriel.github.io///python/2020/06/17/database-handler-2.html",
       "date": "2020-06-17T22:45:00+00:00",
-      "category": "python"
+      "category": "python",
+      "image": "assets/img/posts/2020-06-16-database-handler-2/cover.jpg"
   },{
       "title": "Making a Database Handler pt.1 - Docker",
       "description": "Making a Database Handler pt.1 - Docker",
       "url": "https://dmenezesgabriel.github.io///python/2020/06/11/database-handler-1.html",
       "date": "2020-06-17T21:50:00+00:00",
-      "category": "python"
+      "category": "python",
+      "image": "assets/img/posts/2020-06-10-database-handler-1/cover.jpg"
   },{
       "title": "Git commands which may help you",
       "description": "Git commands which may help you.",
       "url": "https://dmenezesgabriel.github.io///git/2020/06/03/useful-git-commands.html",
       "date": "2020-06-03T01:00:00+00:00",
-      "category": "git"
+      "category": "git",
+      "image": "assets/img/posts/2020-06-10-useful-git-commands/cover.jpeg"
   },{
       "title": "Hello World! Let's break this curse",
       "description": "Hello World! Let's break this curse.",
       "url": "https://dmenezesgabriel.github.io///blog/2020/06/02/hello-world.html",
       "date": "2020-06-02T12:58:00+00:00",
-      "category": "blog"
+      "category": "blog",
+      "image": "assets/img/posts/2020-06-5-hello-world/cover.jpg"
   }]

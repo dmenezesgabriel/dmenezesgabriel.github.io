@@ -265,6 +265,11 @@ pre code {
     border: none;
 }
 
+.search-img {
+    height: 5px;
+    width: 5px;
+}
+
 /* Media query, for smaller screens the side bar should only appers when clicked*/
 @media (max-width: 768px) {
     #sidebar {
