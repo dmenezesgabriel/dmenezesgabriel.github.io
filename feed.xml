@@ -1,4 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://dmenezesgabriel.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io//" rel="alternate" type="text/html" /><updated>2020-06-24T20:57:36+00:00</updated><id>https://dmenezesgabriel.github.io//feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge.</subtitle><author><name>Gabriel Menezes</name></author><entry xml:lang="en_US"><title type="html">Making a Database Handler pt.3 - Psycopg</title><link href="https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3.html" rel="alternate" type="text/html" title="Making a Database Handler pt.3 - Psycopg" /><published>2020-06-18T11:49:00+00:00</published><updated>2020-06-18T11:49:00+00:00</updated><id>https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3</id><content type="html" xml:base="https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3.html">&lt;p&gt;Psycopg is a very popular database driver for PostgreSQL databases in Python programming language, which allow us to connect to the database and perform commands programatically, with this we are able to create scripts and also improve our jupyter’s studies efficience.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://dmenezesgabriel.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io//" rel="alternate" type="text/html" /><updated>2020-06-24T22:47:52+00:00</updated><id>https://dmenezesgabriel.github.io//feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge.</subtitle><author><name>Gabriel Menezes</name></author><entry xml:lang="en_US"><title type="html">Making a Database Handler pt.4 - GitHub</title><link href="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html" rel="alternate" type="text/html" title="Making a Database Handler pt.4 - GitHub" /><published>2020-06-24T12:15:00+00:00</published><updated>2020-06-24T12:15:00+00:00</updated><id>https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4</id><content type="html" xml:base="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html">&lt;p&gt;In this tutorial, I’ll show you how to add an existing project to GitHub! And why is this important?
+So we keep track of the changes in our code, if we make any mistake we can go back for the previous version and also we can open our project to colaboration.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/python/2020/06/18/database-handler-3.html&quot;&gt;Previous episode - Making a Database Handler pt.3 - Psycopg&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;github-what-is-github-where-does-it-lives-what-does-it-eats&quot;&gt;GitHub, what is GitHub? Where does it lives? What does it eats?&lt;/h2&gt;
+
+&lt;p&gt;GitHub is a repository hosting service for colaboration and version control using &lt;strong&gt;Git&lt;/strong&gt;, with GitHub is easier to people anywhere in the world work together in projects.&lt;/p&gt;
+
+&lt;p&gt;GitHub offers professional and enterprise accounts but also offers plans &lt;strong&gt;free&lt;/strong&gt; of charge.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-what-is-git&quot;&gt;But what is Git?&lt;/h3&gt;
+
+&lt;p&gt;It’s an OpenSource project started by &lt;strong&gt;Linux&lt;/strong&gt; creator Linus Torvalds with the purpose, like other version control systems, to manage and store revision projects. Git could be used to manage any type of files, such as word documents, but is mostly used to store code. Think of it like a filing system for any draft or document.&lt;/p&gt;
+
+&lt;p&gt;As an conclusion we chan think of GitHub as a Git repository hosting service.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-a-github-repository&quot;&gt;Creating a GitHub repository&lt;/h2&gt;
+
+&lt;p&gt;Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt; to creat your account clicking on SignIn button, after that just go to your main page that is the same as the previous GitHub link you’ve clicked previously and click on &lt;strong&gt;New&lt;/strong&gt; aside of Repositories like the image below.&lt;/p&gt;
+
+&lt;div class=&quot;container p-5 mb-3 rounded-lg text-center&quot;&gt;
+  &lt;img class=&quot;col-sm post-image border rounded-lg&quot; src=&quot;https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/create-repo-top-left.png&quot; alt=&quot;Creating git repo top left&quot; style=&quot;height: auto; width: 350px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Or at the top right of navbar.&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;container p-5 mb-3 rounded-lg text-center&quot;&gt;
+  &lt;img class=&quot;col-sm post-image border rounded-lg&quot; src=&quot;https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/create-repo-top-right.png&quot; alt=&quot;Creating git repo top right navbar&quot; style=&quot;height: auto; width: 350px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Choose an smart &amp;amp; cool name :sunglasses:&lt;/li&gt;
+  &lt;li&gt;Describe the main idea&lt;/li&gt;
+  &lt;li&gt;Choose if you want to be Public or a Private repository&lt;/li&gt;
+  &lt;li&gt;You may skip the step where does it say at the picture below, but I’ll not, and I’ll show you how to do that.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;: It’s a list of files and folders that should not be send from your local repository to github, like &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;__pycache__/&lt;/code&gt; or production keys for example.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;container p-3 mb-3 rounded-lg text-center&quot;&gt;
+  &lt;img class=&quot;col-sm post-image border rounded-lg&quot; src=&quot;https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/start-new-repo.png&quot; alt=&quot;Creating git repo top right navbar&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And then the created repo :tada:&lt;/p&gt;
+
+&lt;div class=&quot;container p-3 mb-3 rounded-lg text-center&quot;&gt;
+  &lt;img class=&quot;col-sm post-image border rounded-lg&quot; src=&quot;https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/created-repo.png&quot; alt=&quot;Creating git repo top right navbar&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;initialize-a-git-repository&quot;&gt;Initialize a Git repository&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;python-database-handler &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+git init&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;init&lt;/code&gt;: Create an empty git repository or reinitialize an existing one&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ouptput:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;syntax&quot;&gt;&lt;code&gt;Initialized empty Git repository in /home/gmenezes/Documentos/repos/python-database-handler/.git/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add the files&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Adds the files in the local repository and stages them for commit.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# To unstage a file, use 'git reset HEAD &amp;lt;YOUR-FILE&amp;gt;'.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;add&lt;/code&gt;: Add file contents to the index&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;you can check the result with the command below&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git status&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;status&lt;/code&gt;: Show the working tree status&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;syntax&quot;&gt;&lt;code&gt;	new file:   Dockerfile
+	new file:   Makefile
+	new file:   Pipfile
+	new file:   Pipfile.lock
+	new file:   database_handler.py
+	new file:   databases_access.json
+	new file:   init.sql
+	new file:   query.sql
+	new file:   script.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Link your local repository to GitHub repository&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git remote add origin git@github.com:dmenezesgabriel/python-database-handler.git&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;remote add origin&lt;/code&gt;: Add the GitHub repository as &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;origin&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Get the GitHub files (&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;, &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;LICENCE&lt;/code&gt; and &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;README.md&lt;/code&gt;)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git pull &lt;span class=&quot;nt&quot;&gt;--prune&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;pull&lt;/code&gt;: Fetch from and merge with another repository or a local branch&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;--prune&lt;/code&gt;: Clean outdated branches&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Commit the staged files&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;First commit&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Commits the tracked changes and prepares them to be pushed to a remote repository on GitHub.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# To remove the commit and modify the file, use the command 'git reset --soft HEAD~1'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# and commit and add the file again.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;commit&lt;/code&gt;: Record changes to the repository&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;-m&lt;/code&gt;: Use the given &lt;msg&gt; as the commit message.&lt;/msg&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally push the files to GitHub&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;git push origin master
+&lt;span class=&quot;c&quot;&gt;# Pushes the changes in your local repository up to the remote repository you specified as the origin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-html highlighter-rouge&quot;&gt;push&lt;/code&gt;: Update remote repository with local objects&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now Check your repository on GitHub and you shall see all your files stored.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://help.github.com/pt/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line&quot;&gt;GitHub Help&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://explainshell.com/&quot;&gt;Explain Shell&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name></author><category term="databases," /><category term="postgresql," /><category term="database" /><category term="handler," /><category term="python," /><category term="psycopg2," /><category term="docker," /><category term="github" /><summary type="html">In this tutorial, I’ll show you how to add an existing project to GitHub! And why is this important? So we keep track of the changes in our code, if we make any mistake we can go back for the previous version and also we can open our project to colaboration.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/cover.jpg" /><media:content medium="image" url="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en_US"><title type="html">Making a Database Handler pt.3 - Psycopg</title><link href="https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3.html" rel="alternate" type="text/html" title="Making a Database Handler pt.3 - Psycopg" /><published>2020-06-18T11:49:00+00:00</published><updated>2020-06-18T11:49:00+00:00</updated><id>https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3</id><content type="html" xml:base="https://dmenezesgabriel.github.io//python/2020/06/18/database-handler-3.html">&lt;p&gt;Psycopg is a very popular database driver for PostgreSQL databases in Python programming language, which allow us to connect to the database and perform commands programatically, with this we are able to create scripts and also improve our jupyter’s studies efficience.&lt;/p&gt;
 
 &lt;div class=&quot;container p-auto mb-3 rounded-lg text-center w-50&quot; style=&quot;background-color: black;&quot;&gt;
   &lt;img class=&quot;col-sm post-image rounded-lg w-100&quot; src=&quot;https://dmenezesgabriel.github.io//assets/img/posts/2020-06-18-database-handler-3/on-the-rod-so-far.gif&quot; alt=&quot;On the road so far supernatural&quot; /&gt;
@@ -348,6 +489,8 @@ code script.py&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Thank you for reading! :raised_hands: :pray:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/github/2020/06/24/database-handler-4.html&quot;&gt;Next Episode - Making a Database Handler pt.4 - GitHub&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
