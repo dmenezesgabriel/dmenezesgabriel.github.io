@@ -352,6 +352,14 @@ pre code {
         margin-top: -10;
     }
 
+    .carousel-caption p {
+        font-size: 0rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.2rem;
+    }
+
     /* Reversing the behavior of the bars:
     Removing the rotation from the first,
     last bars and reappear the second bar on default state,

@@ -8,6 +8,6 @@ fetch(fetchURL)
       const background = document.querySelector('#bg');
       // Then create a local URL for that image and print it
       outside = URL.createObjectURL(images)
-      console.log(outside)
+      // console.log(outside)
       background.style.backgroundImage = 'url("' + outside + '")';
   })
