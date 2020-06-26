@@ -13,9 +13,23 @@ html, body {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    font-size: 17px;
-    background-color: #fafafa !important;
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  background-color: #fafafa !important;
+}
+
+.bg {
+  /* The image used */
+  background-image: url('/assets/img/default-background-l.jpg');
+
+  /* Full height */
+  height: 500px;
+
+  /* Center and scale the image nicely */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 p {
@@ -267,6 +281,12 @@ pre code {
 .search-img {
     height: 5px;
     width: 5px;
+}
+
+@media (max-width: 950px) {
+  #main {
+    margin-left: 200px;
+  }
 }
 
 /* Media query, for smaller screens the side bar should only appers when clicked*/

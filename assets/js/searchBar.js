@@ -32,8 +32,8 @@ $(function () {
     } else {
       for (var i = 0; i < searchResult.length; i++) {
         $('#search-result').append(
-          '<a class="card border rounded result-item p-3" href="' +
-            searchResult[i].url + '">' +
+          '<a class="card border-bottom result-item p-3" href="' +
+            searchResult[i].url + '" style="color: #f74094;">' +
             '<div class="title"> [' + searchResult[i].category + '] ' +
             searchResult[i].title +
             '</div></a>'

@@ -51,7 +51,7 @@ gtag('config', 'UA-169523526-1');
 </head>
 <body>
 
-    <div class="container-fluid fill-height">
+    <div class="container-fluid fill-height bg" id="bg">
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-2 d-md-block sidebar bg-success" id="sidebar">
@@ -118,7 +118,7 @@ gtag('config', 'UA-169523526-1');
 
             <!-- Content -->
             <div class="col-sm pt-3 px-4" id="main">
-            <nav class="navbar rounded navbar-expand-lg flex  bg-white border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
+                <nav class="navbar rounded navbar-expand-lg flex bg-white border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
   <form class="form-inline">
     <div class="input-group">
       <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
@@ -130,15 +130,17 @@ gtag('config', 'UA-169523526-1');
     </div>
     </form>
   </nav>
-  <div id="search-result" class="card p-3"></div>
-            <div id="welcome" class="container bg-white rounded">
+  <div id="search-result" class="card p-3 mb-3">
+  </div>
+                <div class="bg-light p-3 mb-3 rounded border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
+                    <div id="welcome" class="container bg-white rounded">
     <div class="text-center">
         <hr>
         <h4 class="text-dark">Welcome to Gabriel's Blog</h4>
         <hr>
     </div>
 </div>
-            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
 			
 				
@@ -207,7 +209,7 @@ gtag('config', 'UA-169523526-1');
       <span class="sr-only">Next</span>
     </a>
 </div>
-            <hr>
+                </div>
 
             <!-- Content Goes here -->
             <div class="container">
@@ -227,9 +229,7 @@ gtag('config', 'UA-169523526-1');
     <span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span></code></pre></figure>
 </p>
       </div>
-    </div>
-  </div>
-  <div class="text-center">
+      <div class="text-center">
   <div class="title">
     <h6 class="font-weight-bold text-dark">Share this</h6>
     <hr class="w-25">
@@ -243,25 +243,28 @@ gtag('config', 'UA-169523526-1');
       </a>
   </div>
 </div>
-  <hr>
-  
-    <div id="disqus_thread"></div>
-    <script>
-    var disqus_config = function () {
-    this.page.url = 'https://dmenezesgabriel.github.io//blog/2020/06/02/hello-world.html';  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = 'https://dmenezesgabriel.github.io//blog/2020/06/02/hello-world.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-  
+      <hr>
+      
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = 'https://dmenezesgabriel.github.io//blog/2020/06/02/hello-world.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://dmenezesgabriel.github.io//blog/2020/06/02/hello-world.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+      
+    </div>
+  </div>
 </div>
 
         </div>
     </div>
+    <script src="https://dmenezesgabriel.github.io//assets/js/dynamicBackground.js"></script>
 </body>
 </html>

@@ -47,7 +47,7 @@ gtag('config', 'UA-169523526-1');
 </head>
 <body>
 
-    <div class="container-fluid fill-height">
+    <div class="container-fluid fill-height bg" id="bg">
         <div class="row">
             <!-- Sidebar -->
             <nav class="col-md-2 d-md-block sidebar bg-success" id="sidebar">
@@ -114,7 +114,7 @@ gtag('config', 'UA-169523526-1');
 
             <!-- Content -->
             <div class="col-sm pt-3 px-4" id="main">
-            <nav class="navbar rounded navbar-expand-lg flex  bg-white border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
+                <nav class="navbar rounded navbar-expand-lg flex bg-white border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
   <form class="form-inline">
     <div class="input-group">
       <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
@@ -126,15 +126,17 @@ gtag('config', 'UA-169523526-1');
     </div>
     </form>
   </nav>
-  <div id="search-result" class="card p-3"></div>
-            <div id="welcome" class="container bg-white rounded">
+  <div id="search-result" class="card p-3 mb-3">
+  </div>
+                <div class="bg-light p-3 mb-3 rounded border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
+                    <div id="welcome" class="container bg-white rounded">
     <div class="text-center">
         <hr>
         <h4 class="text-dark">Welcome to Gabriel's Blog</h4>
         <hr>
     </div>
 </div>
-            <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
 			
 				
@@ -203,10 +205,10 @@ gtag('config', 'UA-169523526-1');
       <span class="sr-only">Next</span>
     </a>
 </div>
-            <hr>
+                </div>
 
             <!-- Content Goes here -->
-            <div class="container p-3 mb-5">
+            <div class="container p-5 mb-5 bg-white rounded">
   <div class="header text-dark">
     <h1>Contact me</h1>
     <p class="text-muted">If you want to ask something, please contact me with the form below</p>
@@ -230,5 +232,6 @@ gtag('config', 'UA-169523526-1');
 </div>
         </div>
     </div>
+    <script src="https://dmenezesgabriel.github.io//assets/js/dynamicBackground.js"></script>
 </body>
 </html>
