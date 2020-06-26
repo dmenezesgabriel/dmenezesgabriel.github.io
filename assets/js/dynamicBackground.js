@@ -1,8 +1,13 @@
-// const background = document.querySelector('#bg');
-// background.style.backgroundImage = 'url("/assets/img/default-background-l.jpg")';
+var outside
+var fetchURL = "https://source.unsplash.com/1920x2880/?' + 'nature' + '"
 
-// function changeImage() {
-//   background.style.backgroundImage = 'url("https://source.unsplash.com/1920x2880/?' + 'nature' + '")';
-// }
-
-// setTimeout(changeImage(), 3000)
+fetch(fetchURL)
+  //                         vvvv
+  .then(response => response.blob())
+  .then(images => {
+      const background = document.querySelector('#bg');
+      // Then create a local URL for that image and print it
+      outside = URL.createObjectURL(images)
+      console.log(outside)
+      background.style.backgroundImage = 'url("' + outside + '")';
+  })
