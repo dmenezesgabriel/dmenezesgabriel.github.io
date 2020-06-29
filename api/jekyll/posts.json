@@ -1,5 +1,12 @@
 [
   {
+      "title": "Pandas with partition by window function, and timestamp tips",
+      "description": "Pandas with partition by window function and timestamp tips.",
+      "url": "https://dmenezesgabriel.github.io///python/2020/06/28/pandas-window-function-timestamp.html",
+      "date": "2020-06-28T22:27:00+00:00",
+      "category": "python",
+      "image": "assets/img/posts/2020-06-28-pandas-window-function-timestamps/cover.png"
+  },{
       "title": "Making a Database Handler pt.4 - GitHub",
       "description": "Making a Database Handler pt.4 - GitHub",
       "url": "https://dmenezesgabriel.github.io///github/2020/06/24/database-handler-4.html",

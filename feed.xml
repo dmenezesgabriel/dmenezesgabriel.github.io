@@ -1,4 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://dmenezesgabriel.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io//" rel="alternate" type="text/html" /><updated>2020-06-28T22:17:37+00:00</updated><id>https://dmenezesgabriel.github.io//feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge.</subtitle><author><name>Gabriel Menezes</name></author><entry xml:lang="en_US"><title type="html">Making a Database Handler pt.4 - GitHub</title><link href="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html" rel="alternate" type="text/html" title="Making a Database Handler pt.4 - GitHub" /><published>2020-06-24T12:15:00+00:00</published><updated>2020-06-24T12:15:00+00:00</updated><id>https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4</id><content type="html" xml:base="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html">&lt;p&gt;In this tutorial, I’ll show you how to add an existing project to GitHub! And why is this important?
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://dmenezesgabriel.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io//" rel="alternate" type="text/html" /><updated>2020-06-29T00:14:39+00:00</updated><id>https://dmenezesgabriel.github.io//feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>This blog was created in order to register and demonstrate my learnings, thus being able to help other people with the acquired knowledge.</subtitle><author><name>Gabriel Menezes</name></author><entry xml:lang="en_US"><title type="html">Pandas with partition by window function, and timestamp tips</title><link href="https://dmenezesgabriel.github.io//python/2020/06/28/pandas-window-function-timestamp.html" rel="alternate" type="text/html" title="Pandas with partition by window function, and timestamp tips" /><published>2020-06-28T22:27:00+00:00</published><updated>2020-06-28T22:27:00+00:00</updated><id>https://dmenezesgabriel.github.io//python/2020/06/28/pandas-window-function-timestamp</id><content type="html" xml:base="https://dmenezesgabriel.github.io//python/2020/06/28/pandas-window-function-timestamp.html">&lt;p&gt;If like I, you’re used to SQL’s window functions with partition by, group by and that kind of stuff you may want to check some useful simple tips that can be hard to find on the internet.&lt;/p&gt;
+
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+
+&lt;p&gt;The only thing you need to start is to have &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;Pandas&lt;/code&gt; installed on your environment, you can also check how to install a nice package and environment manager here &lt;a href=&quot;https://dmenezesgabriel.github.io/python/2020/06/17/database-handler-2.html&quot;&gt;Making a Database Handler pt.2 - Pipenv&lt;/a&gt;. But if you already have &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;Pandas&lt;/code&gt; installed you can skip the step below.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pandas&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;importing-pandas&quot;&gt;Importing pandas&lt;/h2&gt;
+
+&lt;p&gt;Create a &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;test.py&lt;/code&gt;, &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;example.py&lt;/code&gt; or any of that tutorials’s file cliche names.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example.py
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;mocking-up-our-data&quot;&gt;Mocking up our data&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example.py
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Create table
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Jack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jack'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jill'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Jill'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'2020-01-31 23:56:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-02-29 20:57:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-02-29 19:20:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-02-29 09:57:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-02-29 03:12:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-01-31 22:50:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'2020-02-29 18:30:00'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;table class=&quot;table table-dark&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;date&lt;/td&gt;
+      &lt;td&gt;amount&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-01-31 23:56:00&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 20:57:00&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 19:20:00&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 09:57:00&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 03:12:00&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jill&lt;/td&gt;
+      &lt;td&gt;2020-01-31 22:50:00&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jill&lt;/td&gt;
+      &lt;td&gt;2020-02-29 18:30:00&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;dealing-with-timestamps&quot;&gt;Dealing with timestamps&lt;/h2&gt;
+
+&lt;p&gt;First, our date is a strig, let’s convert into timestamp format&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date_to_timestamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now go ahead and add a time zone&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'timestamp_to_utc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date_to_timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tz_localize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now you should see &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;+00:00&lt;/code&gt; reference to &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;utc&lt;/code&gt;’s time zone, or you may choose another location as &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;america/sao_paulo&lt;/code&gt; and you would’ve got &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;-03:00&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Or you may want to convert it later&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'convert_timestamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timestamp_to_utc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tz_convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'america/sao_paulo'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now you may want to &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;date_trunc&lt;/code&gt; the date to day&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date_trunc_day'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convert_timestamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'D'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and then the final result would be the output below&lt;/p&gt;
+
+&lt;table class=&quot;table table-dark&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;date&lt;/td&gt;
+      &lt;td&gt;amount&lt;/td&gt;
+      &lt;td&gt;date_to_timestamp&lt;/td&gt;
+      &lt;td&gt;timestamp_to_utc&lt;/td&gt;
+      &lt;td&gt;convert_timestamp&lt;/td&gt;
+      &lt;td&gt;date_trunc_day&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-01-31 23:56:00&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;2020-01-31 23:56:00&lt;/td&gt;
+      &lt;td&gt;2020-01-31 23:56:00+00:00&lt;/td&gt;
+      &lt;td&gt;2020-01-31 20:56:00-03:00&lt;/td&gt;
+      &lt;td&gt;2020-02-01 00:00:00-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 20:57:00&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;2020-02-29 20:57:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 20:57:00+00:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 17:57:00-03:00&lt;/td&gt;
+      &lt;td&gt;2020-03-01 00:00:00-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 19:20:00&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;2020-02-29 19:20:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 19:20:00+00:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 16:20:00-03:00&lt;/td&gt;
+      &lt;td&gt;2020-03-01 00:00:00-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 09:57:00&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;2020-02-29 09:57:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 09:57:00+00:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 06:57:00-03:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 00:00:00-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 03:12:00&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;2020-02-29 03:12:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 03:12:00+00:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 00:12:00-03:00&lt;/td&gt;
+      &lt;td&gt;2020-02-29 00:00:00-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;calculating-window-sum-partitioned-by&quot;&gt;Calculating window sum partitioned by&lt;/h2&gt;
+
+&lt;p&gt;Here we calculate the amount’s sum by windows of 120 minutes partitioned by name&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Separating unique names and setting date_to_timestamp as index
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date_to_timestamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Calculating windowed fields
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount_window_sum'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'120min'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_periods&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Resenting date_trunc_day index
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Putting all the &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;DataFrames&lt;/code&gt; together&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Putting all dataframes from    dict's values together
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_windowed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;per_names_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'date_to_timestamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'amount_window_sum'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'date_to_timestamp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;df_windowed&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;p&gt;You will see that only jack’s rows from &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;2020-02-29 19:20:00&lt;/code&gt; to &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;2020-02-29 20:57:00&lt;/code&gt; were within 120 minutes window interval and for that we’ve the sum of amounts &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;8&lt;/code&gt; + &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;5&lt;/code&gt; resulting on a window of amount &lt;code class=&quot;language-html highlighter-rouge&quot;&gt;13&lt;/code&gt;.&lt;/p&gt;
+
+&lt;table class=&quot;table table-dark&quot;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;date_to_timestamp&lt;/td&gt;
+      &lt;td&gt;amount&lt;/td&gt;
+      &lt;td&gt;amount_window_sum&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-01-31 23:56:00&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 03:12:00&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 09:57:00&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 19:20:00&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;8.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jack&lt;/td&gt;
+      &lt;td&gt;2020-02-29 20:57:00&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;13.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jill&lt;/td&gt;
+      &lt;td&gt;2020-01-31 22:50:00&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;10.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jill&lt;/td&gt;
+      &lt;td&gt;2020-02-29 18:30:00&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Thank you for reading! :clap:&lt;/p&gt;</content><author><name>Gabriel Menezes</name></author><summary type="html">If like I, you’re used to SQL’s window functions with partition by, group by and that kind of stuff you may want to check some useful simple tips that can be hard to find on the internet.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-28-pandas-window-function-timestamps/cover.png" /><media:content medium="image" url="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-28-pandas-window-function-timestamps/cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en_US"><title type="html">Making a Database Handler pt.4 - GitHub</title><link href="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html" rel="alternate" type="text/html" title="Making a Database Handler pt.4 - GitHub" /><published>2020-06-24T12:15:00+00:00</published><updated>2020-06-24T12:15:00+00:00</updated><id>https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4</id><content type="html" xml:base="https://dmenezesgabriel.github.io//github/2020/06/24/database-handler-4.html">&lt;p&gt;In this tutorial, I’ll show you how to add an existing project to GitHub! And why is this important?
 So we keep track of the changes in our code, if we make any mistake we can go back for the previous version and also we can open our project to colaboration.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/python/2020/06/18/database-handler-3.html&quot;&gt;Previous episode - Making a Database Handler pt.3 - Psycopg&lt;/a&gt;&lt;/p&gt;
@@ -151,7 +390,7 @@ git init&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-zsh&quot; data-lang=&quot;zsh&quot;&gt;pipenv &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;psycopg2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/python/2020/06/17/database-handler-2.html&quot;&gt;Previous episode - Making a Database Handler pt.2 - Docker&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/python/2020/06/17/database-handler-2.html&quot;&gt;Previous episode - Making a Database Handler pt.2 - Pipenv&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;time-to-write-the-code&quot;&gt;Time to write the code&lt;/h2&gt;
 
