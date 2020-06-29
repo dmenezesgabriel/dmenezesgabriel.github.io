@@ -20,7 +20,9 @@ $(function () {
       var post = posts[i];
       if (
         post.title.toLowerCase().indexOf(keyword) >= 0 ||
-        post.description.toLowerCase().indexOf(keyword) >= 0
+        post.description.toLowerCase().indexOf(keyword) >= 0 ||
+        post.category.toLowerCase().indexOf(keyword) >= 0 ||
+        post.date.toLowerCase().indexOf(keyword) >= 0
       ) {
         searchResult.push(post);
       }
