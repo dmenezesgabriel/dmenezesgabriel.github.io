@@ -2,7 +2,6 @@ var outside
 var fetchURL = "https://source.unsplash.com/1920x2880/?' + 'nature' + '"
 
 fetch(fetchURL)
-  //                         vvvv
   .then(response => response.blob())
   .then(images => {
       const background = document.querySelector('#bg');

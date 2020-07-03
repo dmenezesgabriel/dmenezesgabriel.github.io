@@ -32,6 +32,10 @@ body {
   background-size: cover;
 }
 
+.black-transparency {
+    background: rgba(0, 0, 0, 0.5)!important;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
@@ -283,6 +287,10 @@ pre code {
     width: 5px;
 }
 
+.resume-image img {
+    width: 90px;
+}
+
 @media (max-width: 950px) {
   #main {
     margin-left: 200px;
@@ -291,6 +299,22 @@ pre code {
 
 .zoom:hover {
   transform: scale(1.01);
+}
+
+.resume {
+    font-size: 0.9rem;
+}
+
+.resume-contact {
+    font-size: 0.7rem;
+}
+
+.resume-section-heading {
+    color: #28a745;
+}
+
+.font-size-sm {
+    font-size: 0.7rem;
 }
 
 /* Media query, for smaller screens the side bar should only appers when clicked*/
