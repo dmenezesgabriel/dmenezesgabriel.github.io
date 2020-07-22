@@ -33,7 +33,7 @@ body {
 }
 
 .black-transparency {
-    background: rgba(0, 0, 0, 0.5)!important;
+    background: rgba(0, 0, 0, 0.3)!important;
 }
 
 p {
@@ -179,13 +179,8 @@ a[data-toggle="collapse"] {
 }
 
 .navbar {
-    margin-top: 0px;
     position: relative;
     display: flex;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 

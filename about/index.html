@@ -48,9 +48,10 @@ gtag('config', 'UA-169523526-1');
 <body>
 
     <div class="container-fluid fill-height bg" id="bg">
-        <div class="row">
-            <!-- Sidebar -->
-            <nav class="col-md-2 d-md-block sidebar bg-success" id="sidebar">
+        <div class="">
+            <div class="row">
+                <!-- Sidebar -->
+                <nav class="col-md-2 d-md-block sidebar bg-success" id="sidebar">
     <div class="sidebar-header mt-3 mb-3 text-center">
         <div class="close-btn">
             <div class="row">
@@ -115,9 +116,9 @@ gtag('config', 'UA-169523526-1');
         </div>
 </nav>
 
-            <!-- Content -->
-            <div class="col-sm pt-3 px-4 black-transparency rounded border border-success border-top-0 border-right-0 border-right-0 border-bottom-0" id="main">
-                <nav class="navbar rounded navbar-expand-lg flex bg-white border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
+                <!-- Content -->
+                <div class="col-sm pt-3 px-4 black-transparency" id="main">
+                    <nav class="navbar rounded navbar-expand-lg flex bg-dark mb-3">
   <form class="form-inline">
     <div class="input-group">
       <button type="button" id="sidebarCollapse" onClick="toggleNav()" class="btn">
@@ -131,87 +132,16 @@ gtag('config', 'UA-169523526-1');
   </nav>
   <div id="search-result" class="card p-3 mb-3">
   </div>
-                <div class="bg-light p-3 mb-3 rounded border border-success border-top-0 border-right-0 border-right-0 border-bottom-0">
-                    <div id="welcome" class="container bg-white rounded">
+                    <div id="welcome" class="jumbotron rounded">
     <div class="text-center">
         <hr>
-        <h4 class="text-dark">Welcome to Gabriel's Blog</h4>
+        <h4 class="text-dark">🎉 Welcome to Gabriel's Blog 🎉</h4>
         <hr>
     </div>
 </div>
-                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-			
-				
-					<li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-				
-			
-				
-					<li data-target="#carouselIndicators" data-slide-to="1"></li>
-				
-			
-				
-					<li data-target="#carouselIndicators" data-slide-to="2"></li>
-				
-			
-		</ol>
 
-    <div class="carousel-inner zoom rounded mb-3">
-			
-				
-					<div class="carousel-item active">
-						<div class="carousel-img">
-							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-18-database-handler-3/cover.png" alt="slide">
-						</div>
-						<div class="carousel-caption">
-							<h5>Making a Database Handler pt.3 - Psycopg</h5>
-							<p><p>Psycopg is a very popular database driver fo...</p>
-							<a href="/python/2020/06/18/database-handler-3.html" class="btn-sm btn-success">Read</a>
-						</div>
-					</div>
-				
-			
-				
-					<div class="carousel-item">
-						<div class="carousel-img">
-							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-24-database-handler-4/cover.jpg" alt="slide">
-						</div>
-						<div class="carousel-caption">
-							<h5>Making a Database Handler pt.4 - GitHub</h5>
-							<p><p>In this tutorial, I’ll show you how to add a...</p>
-							<a href="/github/2020/06/24/database-handler-4.html" class="btn-sm btn-success">Read</a>
-						</div>
-					</div>
-				
-			
-				
-					<div class="carousel-item">
-						<div class="carousel-img">
-							<img class="d-block w-100" src="https://dmenezesgabriel.github.io//assets/img/posts/2020-06-28-pandas-window-function-timestamps/cover.png" alt="slide">
-						</div>
-						<div class="carousel-caption">
-							<h5>Pandas with partition by window function, and timestamp tips</h5>
-							<p><p>If like I, you’re used to SQL’s window funct...</p>
-							<a href="/python/2020/06/28/pandas-window-function-timestamp.html" class="btn-sm btn-success">Read</a>
-						</div>
-					</div>
-				
-			
-		</div>
-
-    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-                </div>
-
-            <!-- Content Goes here -->
-            <div class="container">
+                <!-- Content Goes here -->
+                <div class="container">
     <div class="row">
         <div class="col-md-12 card mb-4  mt-3 left  top">
             <div class="card-body">
@@ -315,8 +245,9 @@ tomorrow I'll have to debug something for sure.
     </div>
   </div>
 
+            </div>
         </div>
-    </div>
-    <script src="https://dmenezesgabriel.github.io//assets/js/dynamicBackground.js"></script>
+        <script src="https://dmenezesgabriel.github.io//assets/js/dynamicBackground.js"></script>
+        </div>
 </body>
 </html>
