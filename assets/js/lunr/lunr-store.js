@@ -3,5 +3,5 @@ var store = [{
         "excerpt":"Hello World!!  ","categories": [],
         "tags": [],
         "url": "https://dmenezesgabriel.github.io/hello-world/",
-        "teaser": null
+        "teaser": "https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpg"
       }]
