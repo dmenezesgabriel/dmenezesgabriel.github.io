@@ -1,4 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-08-21T20:09:32-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Hello World!</title><link href="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/" rel="alternate" type="text/html" title="Hello World!" /><published>2020-08-19T00:00:00-03:00</published><updated>2020-08-19T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/">&lt;p&gt;Tradicionalmente, programas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-08-25T08:34:25-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Git: Manual de sobrevivência do iniciante</title><link href="https://dmenezesgabriel.github.io/git/git-starter-survival-guide/" rel="alternate" type="text/html" title="Git: Manual de sobrevivência do iniciante" /><published>2020-08-25T00:00:00-03:00</published><updated>2020-06-02T22:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/git/git-starter-survival-guide</id><content type="html" xml:base="https://dmenezesgabriel.github.io/git/git-starter-survival-guide/">&lt;h2 id=&quot;o-que-é-o-git&quot;&gt;O que é o Git?&lt;/h2&gt;
+&lt;p&gt;O &lt;strong&gt;Git&lt;/strong&gt; é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.&lt;/p&gt;
+
+&lt;p&gt;Diferente das outras opções de sistemas similares como o &lt;strong&gt;CSV&lt;/strong&gt; e &lt;strong&gt;SVN&lt;/strong&gt;, a arquitetura do git é descentralizada, ou seja, não existe um repositório oficial, apesar de existir esta possibilidade, então em cada repositório incluindo o da maquina do contribuidor, existira uma cópia completa e funcional, permitindo a utilização das operações do Git sem a necessidade de estar online.&lt;/p&gt;
+
+&lt;p&gt;Quando se trata de trabalho em equipe, e a maior parte do tempo as equipes estarão trabalhando em paralelo, um sistema como o Git se torna mais do que essêncial, para que não hajam conflitos entre as alterações realizadas por cada colaborador.&lt;/p&gt;
+
+&lt;p&gt;Também é comum que no constante desenvolvimento dos projetos hajam alterações que comprometam o seu funcionamento, neste caso o Git permite que essas alterações sejam revertidas de maneira rápida e simples.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-isso-funciona&quot;&gt;Como isso funciona?&lt;/h2&gt;
+&lt;p&gt;O Git trabalha em uma estrutura de ramificações, onde cada alteração de código cria um novo ponto na ramificação atual, essas ramificações, mais conhecidas como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branchs&lt;/code&gt; são criadas no desenvolvimento de novas funcionalidades, e baseadas em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branchs&lt;/code&gt; já existentes.&lt;/p&gt;
+
+&lt;p&gt;Cada contribuidor faz uma cópia local do repositório remoto original e cria as modificações necessárias, essa cópia será enviada novamente para o repositório remoto.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Passos no fluxo de contribuição de um projeto utilizando Git&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;HTTPS ou SSH&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Criar uma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt;, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git branch &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Alterar para a ramificação criada&lt;/span&gt;
+git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Conforme vamos criando e modificando os arquivos, adicionamos essas modificações
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;E as dividimos em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;commits&lt;/code&gt;, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:&lt;/p&gt;
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Uma vez que todas alterações forem finalizadas, vamos enviar a nossa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--set-upstream&lt;/span&gt; origin &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:&lt;/p&gt;
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; with lease
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Então é aberto um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pull Request&lt;/code&gt;, onde você pede ao dono do repositório que suas contribuições sejam incluídas nele.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; que atualizara o repositório original com as suas modificações.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;comandos-mais-utilizados&quot;&gt;Comandos mais utilizados&lt;/h2&gt;
+
+&lt;h3 id=&quot;iniciando-um-repositório&quot;&gt;Iniciando um repositório&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local&quot;&gt;Buscar e aplicar modificações do repositório remoto no repositório local&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git pull &lt;span class=&quot;nt&quot;&gt;--prune&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--prune&lt;/code&gt; deleta &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branchs&lt;/code&gt; locais cujas modificações já foram aplicadas na &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; original. Algumas vezes essas modificações podem gerar conflitos que necessitam de interação humana para serem corrigidos.&lt;/p&gt;
+
+&lt;h3 id=&quot;resetando-um-commit&quot;&gt;Resetando um commit&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset &lt;span class=&quot;nt&quot;&gt;--soft&lt;/span&gt; HEAD~1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--soft&lt;/code&gt; garante que as alterações desfeitas sejam preservadas. Após executar o comando, você encontrará as mudanças como modificações locais não confirmadas em sua cópia local.&lt;/p&gt;
+
+&lt;p&gt;Se você não quiser manter essas alterações, simplesmente use a flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--hard&lt;/code&gt;. Faça isso apenas quando tiver certeza de que não precisa mais dessas alterações.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; HEAD~1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add&quot;&gt;Removendo um arquivo da área de staging ou desfazendo um git add&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset &amp;lt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;rebase&quot;&gt;Rebase&lt;/h3&gt;
+&lt;p&gt;As modificações que você está fazendo em sua &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; local podem ficar defasadas em relação ao repositório remoto, então é possível alterar a base de sua ramificação local para a mais atual com o comando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rebase&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase origin/master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;histórico-de-commits&quot;&gt;Histórico de commits:&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git log &lt;span class=&quot;nt&quot;&gt;--graph&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--decorate&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--oneline&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log&lt;/code&gt;: Mostra o histórico de commits.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--all&lt;/code&gt;: Apresenta todas referências.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--graph&lt;/code&gt;: Cria uma representação gráfica do histórico de commits.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--decorate&lt;/code&gt;: Traz o nome da referência para cada commit mostrado.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--oneline&lt;/code&gt;: Esta é uma abreviação para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--pretty=oneline --abbrev-commi&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master&quot;&gt;Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”&lt;/h4&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git branch &lt;span class=&quot;nt&quot;&gt;--merged&lt;/span&gt; | egrep &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(^&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;|master|dev)&quot;&lt;/span&gt; | xargs git branch &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt;: Listar, criar ou deletar ramificações.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--merged&lt;/code&gt;: Ramificações as quais suas modificações já foram aplicadas ao repositório original.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; | &lt;/code&gt;: Sequência de um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ou&lt;/code&gt; mais comandos.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;egrep&lt;/code&gt;: Mostrar linhas que correspondem a um padrão.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d, --delete:&lt;/code&gt; Deletar ramificação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;arquivar-modificações&quot;&gt;Arquivar modificações&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual&quot;&gt;Mostrar diferenças entre as modificações armazenadas e a ramificação atual&lt;/h3&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash show -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stash&lt;/code&gt;: Arquivar as alterações.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show&lt;/code&gt;: Mostrar as alterações arquivadas e suas diferenças em relação a ramificação original.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-p, --patch&lt;/code&gt;: Seleciona as diferenças entre o ponteiro &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HEAD&lt;/code&gt; e a branch atual.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;o-que-é-github&quot;&gt;O que é GitHub&lt;/h2&gt;
+&lt;p&gt;Enquanto o Git é um sistema de versionamento, o &lt;strong&gt;GitHub&lt;/strong&gt; é uma plataforma para criação de repositórios remotos Git, possibilitando que outras pessoas possam clonar esse repositório localmente, realizar alterações e enviar essas alterações de volta ao repositório remoto.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternativas&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;GitLab&lt;/li&gt;
+  &lt;li&gt;BitBucket&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://explainshell.com/explain?cmd=git+log+--all+--graph+--decorate+--oneline+--simplify-by-decoration&quot;&gt;Explain Shell&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="git" /><category term="Git" /><category term="Github" /><category term="Iniciante" /><category term="Comandos" /><summary type="html">O que é o Git? O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.</summary></entry><entry><title type="html">Você conhece a origem do “Hello World!”?</title><link href="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/" rel="alternate" type="text/html" title="Você conhece a origem do “Hello World!”?" /><published>2020-08-19T00:00:00-03:00</published><updated>2020-08-19T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/">&lt;p&gt;Tradicionalmente, programas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.&lt;/p&gt;
 
 &lt;p&gt;Geralmente estes programas são os primeiros desenvolvidos por novos programadores, porque mesmo com pouca ou nenhuma experiência são fáceis para se executar, e por sua simplicidade são utilizados para garantir que os componentes de uma linguagem (seu compilador, ambiente de desenvolvimento e tempo de execução) foram instalados corretamente.&lt;/p&gt;
 
