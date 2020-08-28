@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Você conhece a origem do “Hello World!”? - Gabriel Menezes</title>
-<meta name="description" content="Hello World! Olá, Mundo!">
+<!-- begin _includes/seo.html --><title>Como monitorar fluxos de negócios digitais - Gabriel Menezes</title>
+<meta name="description" content="Como monitorar fluxos de negócios digitais">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -19,33 +19,33 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Você conhece a origem do “Hello World!”?">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/">
+<meta property="og:title" content="Como monitorar fluxos de negócios digitais">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/telemetria/monitoring-good-practices/">
 
 
-  <meta property="og:description" content="Hello World! Olá, Mundo!">
+  <meta property="og:description" content="Como monitorar fluxos de negócios digitais">
 
 
 
-  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpeg">
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/alert.jpeg">
 
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Você conhece a origem do “Hello World!”?">
-  <meta name="twitter:description" content="Hello World! Olá, Mundo!">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/">
+  <meta name="twitter:title" content="Como monitorar fluxos de negócios digitais">
+  <meta name="twitter:description" content="Como monitorar fluxos de negócios digitais">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/telemetria/monitoring-good-practices/">
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpeg">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/alert.jpeg">
   
 
   
 
 
 
-  <meta property="article:published_time" content="2020-08-19T00:00:00-03:00">
+  <meta property="article:published_time" content="2020-08-27T00:00:00-03:00">
 
 
 
@@ -56,7 +56,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/telemetria/monitoring-good-practices/">
 
 
 
@@ -303,15 +303,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Você conhece a origem do “Hello World!”?">
-    <meta itemprop="description" content="Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.">
-    <meta itemprop="datePublished" content="2020-08-19T00:00:00-03:00">
+    <meta itemprop="headline" content="Como monitorar fluxos de negócios digitais">
+    <meta itemprop="description" content="Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como LogEntries e Datadog ou a stack ELK.">
+    <meta itemprop="datePublished" content="2020-08-27T00:00:00-03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Você conhece a origem do “Hello World!”?
+          <h1 id="page-title" class="page__title" itemprop="headline">Como monitorar fluxos de negócios digitais
 </h1>
           
 
@@ -321,7 +321,7 @@
     
       
       <i class="far fa-calendar-alt" aria-hidden="true"></i>
-      <time datetime="2020-08-19T00:00:00-03:00">August 19, 2020</time>
+      <time datetime="2020-08-27T00:00:00-03:00">August 27, 2020</time>
     
 
     
@@ -336,7 +336,7 @@
 
       <i class="far fa-clock" aria-hidden="true"></i>
       
-        1 minuto(s) de leitura
+        3 minuto(s) de leitura
       
     
 
@@ -347,36 +347,49 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Tradicionalmente, programas <code class="language-plaintext highlighter-rouge">Olá, Mundo!</code> são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.</p>
+        <p>Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como <em>LogEntries</em> e <em>Datadog</em> ou a stack <em>ELK</em>.</p>
 
-<p>Geralmente estes programas são os primeiros desenvolvidos por novos programadores, porque mesmo com pouca ou nenhuma experiência são fáceis para se executar, e por sua simplicidade são utilizados para garantir que os componentes de uma linguagem (seu compilador, ambiente de desenvolvimento e tempo de execução) foram instalados corretamente.</p>
+<p>O que eu realmente tenho feito não é nada disso, quero dizer, tem um pouco disso. O que monitoro são regras de negócio, em um provedor de serviços de pagamento, claro assim como em outros meios, precisamos garantir a integridade das informações e do comportamento de nossas ferramentas, afinal erros humanos são possíveis e prováveis, e dívidas técnicas de produto, inevitáveis.</p>
 
-<p>Estes programas também são utilizados pelos hackers como prova de conceito de que um código arbitrário pode ser executado por meio de um exploit onde os designers do sistema não pretendiam que o código pudesse ser executado.</p>
+<p>Também não é necessário acompanhar a alteração das curvaturas em um monitor, temos uma aplicação interna construída em <code class="language-plaintext highlighter-rouge">python</code>, algo próximo de um agendador/orquestrador que irá disparar um alerta apenas quando for necessária a tomada de ação.</p>
 
-<p>Outro uso popular do <code class="language-plaintext highlighter-rouge">Olá, Mundo!</code> é como base de comparação de tamanho do executável que a linguagem gera e quanta infraestrutura de suporte deve existir por trás do programa para que este seja executado.</p>
+<p>Hoje existem monitoramentos que verificam queda de conversão, comportamentos inesperados em outros players do fluxo de pagamentos, integridade de diversos serviços internos e fluxos financeiros. Mas a quais características devemos nos atentar para sermos eficientes?</p>
 
-<h2 id="mas-de-onde-ou-melhor-quando-tudo-isso-começou">Mas de onde, ou melhor, quando tudo isso começou?</h2>
+<h3 id="um-monitoramento-deve-possuir-um-dono">Um monitoramento deve possuir um dono</h3>
+<p>Quando é encontrado algum problema, é necessário que haja uma pessoa, um time, ou times de pessoas responsáveis para soluciona-lo, se não é algo crítico que necessite de resolução ou que seja possível de resolver, não há motivo de tirar a atenção das pessoas de outras tarefas mais relevantes.</p>
 
-<p><strong>Brian Kernighan</strong>, autor de um dos livros de programação mais lidos, “C Programming Language”, também criou <code class="language-plaintext highlighter-rouge">Hello, World</code>. Ele fez referência pela primeira vez a <code class="language-plaintext highlighter-rouge">Hello World</code> no predecessor do livro <em>C Programming Language: A Tutorial Introduction to the Programming Language B publicado</em> em 1973.</p>
+<h3 id="o-problema-monitorado-precisa-de-um-fluxo-de-resolução-definido">O problema monitorado precisa de um fluxo de resolução definido</h3>
+<p>Quando nos depararmos com um alerta, eu vou olhar para você, você vai olhar para mim e o que vamos fazer? Está não é a situação na qual queremos nos encontrar uma vez que sabemos o que estamos procurando, é bem provável que se existe um alerta já tenhamos presenciado o cenário do problema anteriormente.</p>
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">main</span><span class="p">(</span> <span class="p">)</span> <span class="p">{</span>
-<span class="n">extrn</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-<span class="n">putchar</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="n">b</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="n">c</span><span class="p">);</span> <span class="n">putchar</span><span class="p">(</span><span class="err">’</span><span class="o">!*</span><span class="n">n</span><span class="err">’</span><span class="p">);</span>
-<span class="p">}</span> <span class="mi">1</span> <span class="err">’</span><span class="n">hell</span><span class="err">’</span><span class="p">;</span>
-<span class="n">b</span> <span class="err">’</span><span class="n">o</span><span class="p">,</span> <span class="n">w</span><span class="err">’</span><span class="p">;</span>
-<span class="n">c</span> <span class="err">’</span><span class="n">orld</span><span class="err">’</span><span class="p">;</span>
+<h3 id="um-monitoramento-deve-se-atentar-apenas-a-um-único-problema">Um monitoramento deve se atentar apenas a um único problema</h3>
+<p>Quanto mais problemas tentamos cercar em um único monitoramento, ou módulo responsável pela busca de problemas, maior a complexidade, dificuldade de manutenção, revisão e entendimento, não precisamos procurar pelo problema dentro do alerta quando no olho do furacão, não é mesmo? Quanto mais claro e explicito melhor!</p>
+
+<h3 id="foco-na-performance">Foco na performance</h3>
+<p>A ferramenta que você utiliza é performática o suficiente para conseguir buscar pelo problema que você está buscando? Ela consegue percorrer o volume de dados necessário, e também no tempo necessário para que as pessoas certas sejam mobilizadas para atacar o prolema antes que ele se torne crítico, ou não seja mais passível de solução?</p>
+
+<h3 id="assertividade">Assertividade</h3>
+<p>Você conhece a história do menino e lobo? Havia um menino que morava com sua familia nas entranhas bosque, onde habitavam alguns animais selvagens. Certo dia esse menino resolveu pregar uma peça em seu irmão mais velho, adentrou em meio as arvores e gritou:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Socorro, socorro, há um lobo tentando me devorar!"
 </code></pre></div></div>
 
-<p>Infelizmente, Kernighan não consegue identificar com certeza quando ou por que escolheu as palavras “Olá, Mundo!”. Quando questionado sobre o que gerou a ideia do nome “Olá, Mundo” em uma entrevista para a Forbes Índia, ele disse que sua memória está turva.</p>
+<p>Seu irmão empunhou um machado e correu em sua direção, mas para a sua surpresa não havia lobo algum. O menino então caiu na gargalhada e essa cena se repetiu mais algumas vezes, até que seu irmão não mais apareceu, mas o lobo faminto sim.</p>
 
-<blockquote>
-  <p>“O que me lembro é que vi um cartoon que mostrava um ovo e um pintinho e o pintinho dizia:“ Olá, mundo ”.</p>
-</blockquote>
+<p>Em algum momento a alta incidência de falsos positivos fará com que os alertas percam a credibilidade e não recebam a devida atenção.</p>
 
-<p>E você, já escreveu seu <code class="language-plaintext highlighter-rouge">Olá, Mundo!</code> ou melhor, seu <code class="language-plaintext highlighter-rouge">Hello, World!</code> hoje?</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">'Hello World!'</span><span class="p">)</span></code></pre></figure>
+<h2 id="por-onde-começar">Por onde começar?</h2>
+<ol>
+  <li>Entenda o real problema por qual você está buscando, uma vez que tenha isso claro fica fácil de encontra-lo uma vez que aparecer.</li>
+  <li>Garanta que o problema tenha um dono, responsável pela resolução.</li>
+  <li>Faça uma análise histórica para definir que de fato, os gatilhos que irão disparar o alerta serão assertivos. Muitas vezes estática básica pode ser uma solução simples e eficiente.</li>
+  <li>Teste, faça <em>mocks</em> e se assegure que tudo está funcionando corretamente antes de ir para produção, uma revisão também é sempre bem vinda, e também necessária.</li>
+  <li>Garanta que as pessoas certas, estão recebendo os alertas no momento certo.</li>
+  <li>Atente-se a <em>edge cases</em>, muitas vezes eles vão intervir na incidência tanto de <strong>falsos positivos</strong> como <strong>falsos negativos</strong>.</li>
+  <li>Faça um acompanhamento da efetividade dos alertas, extraia métricas, verifique se os resultados foram os esperados, assim como os problemas detectados com uma baixa incidência de falsos positivos.</li>
+  <li>Pense em escala, em algum momento poderá haver diversos problemas mapeados e a sua ferramenta pode não suportar buscar por todos eles.</li>
+  <li>Peça feedbacks dos consumidores dos monitoramentos, algum fluxo pode ter sido alterado e seu monitoramento precisará de uma atualização.</li>
+  <li>Não se esqueça que as visualizações de indicadores são complementares aos alertas, e também são ferramentas muito úteis para auxiliar o usuário final na investigação.</li>
+</ol>
 
         
       </section>
@@ -397,11 +410,7 @@
     
       
       
-      <a href="/tags/#curiosidades" class="page__taxonomy-item" rel="tag">Curiosidades</a><span class="sep">, </span>
-    
-      
-      
-      <a href="/tags/#programa%C3%A7%C3%A3o" class="page__taxonomy-item" rel="tag">Programação</a><span class="sep">, </span>
+      <a href="/tags/#monitoramento" class="page__taxonomy-item" rel="tag">Monitoramento</a><span class="sep">, </span>
     
       
       
@@ -426,14 +435,14 @@
     
       
       
-      <a href="/categories/#programa%C3%A7%C3%A3o" class="page__taxonomy-item" rel="tag">Programação</a>
+      <a href="/categories/#telemetria" class="page__taxonomy-item" rel="tag">Telemetria</a>
     
     </span>
   </p>
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-08-19T00:00:00-03:00">August 19, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-08-27T00:00:00-03:00">August 27, 2020</time></p>
 
 
       </footer>
@@ -443,22 +452,22 @@
     <h4 class="page__share-title">Compartilhe</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Voc%C3%AA+conhece+a+origem+do+%22Hello+World%21%22%3F%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fprograma%25C3%25A7%25C3%25A3o%2Fhello-world%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Como+monitorar+fluxos+de+neg%C3%B3cios+digitais%20https%3A%2F%2Fdmenezesgabriel.github.io%2Ftelemetria%2Fmonitoring-good-practices%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprograma%25C3%25A7%25C3%25A3o%2Fhello-world%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Ftelemetria%2Fmonitoring-good-practices%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprograma%25C3%25A7%25C3%25A3o%2Fhello-world%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Ftelemetria%2Fmonitoring-good-practices%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Anterior</a>
-    
-    
       <a href="/git/git-starter-survival-guide/" class="pagination--pager" title="Git: Manual de sobrevivência do iniciante
-">Próxima</a>
+">Anterior</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Próxima</a>
     
   </nav>
 
@@ -481,57 +490,6 @@
     <div class="page__related">
       <h4 class="page__related-title">Talvez você também goste</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-      <div class="archive__item-teaser">
-        <img src="/assets/images/alert.jpeg" alt="">
-      </div>
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/telemetria/monitoring-good-practices/" rel="permalink">Como monitorar fluxos de negócios digitais
-</a>
-      
-    </h2>
-    
-
-
-  <p class="page__meta">
-
-    
-      
-      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-      <time datetime="2020-08-27T00:00:00-03:00">August 27, 2020</time>
-    
-
-    
-      
-        <br \>
-      
-    
-
-    
-      
-      
-
-      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-      
-        3 minuto(s) de leitura
-      
-    
-
-  </p>
-
-    <p class="archive__item-excerpt" itemprop="description">Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de...</p>
-  </article>
-</div>
-
         
           
 
@@ -581,6 +539,57 @@
 
     <p class="archive__item-excerpt" itemprop="description">O que é o Git?
 O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/fallback-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programa%C3%A7%C3%A3o/hello-world/" rel="permalink">Você conhece a origem do “Hello World!”?
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-08-19T00:00:00-03:00">August 19, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem ...</p>
   </article>
 </div>
 
@@ -681,8 +690,8 @@ O Git é um sistema de controle de versão distribuído, criado por Linus Torval
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/programa%C3%A7%C3%A3o/hello-world"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://dmenezesgabriel.github.io/telemetria/monitoring-good-practices/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/telemetria/monitoring-good-practices"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
