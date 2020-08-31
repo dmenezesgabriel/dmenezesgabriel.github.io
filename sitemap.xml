@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/hello-world/</loc>
-<lastmod>2020-08-19T00:00:00-03:00</lastmod>
+<loc>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/origem-hello-world/</loc>
+<lastmod>2020-08-31T00:00:00-03:00</lastmod>
 </url>
 <url>
-<loc>https://dmenezesgabriel.github.io/git/git-starter-survival-guide/</loc>
-<lastmod>2020-08-25T00:00:00-03:00</lastmod>
+<loc>https://dmenezesgabriel.github.io/git/git-manual-sobrevivencia-iniciante/</loc>
+<lastmod>2020-08-31T00:00:00-03:00</lastmod>
 </url>
 <url>
-<loc>https://dmenezesgabriel.github.io/telemetria/monitoring-good-practices/</loc>
-<lastmod>2020-08-27T00:00:00-03:00</lastmod>
+<loc>https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-de-negocios-digitais/</loc>
+<lastmod>2020-08-31T00:00:00-03:00</lastmod>
 </url>
 <url>
 <loc>https://dmenezesgabriel.github.io/categories/</loc>
