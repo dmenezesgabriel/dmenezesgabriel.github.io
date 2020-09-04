@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-01T07:12:48-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como monitorar fluxos de negócios digitais</title><link href="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/" rel="alternate" type="text/html" title="Como monitorar fluxos de negócios digitais" /><published>2020-08-27T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais</id><content type="html" xml:base="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/">&lt;p&gt;Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como &lt;em&gt;LogEntries&lt;/em&gt; e &lt;em&gt;Datadog&lt;/em&gt; ou a stack &lt;em&gt;ELK&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-04T08:20:51-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">SEO: Gerando tráfego orgânico com seu site estático em Jekyll</title><link href="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/" rel="alternate" type="text/html" title="SEO: Gerando tráfego orgânico com seu site estático em Jekyll" /><published>2020-09-04T00:00:00-03:00</published><updated>2020-09-04T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll</id><content type="html" xml:base="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/">&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; é a única maneira pela qual conseguimos gerar tráfego orgânico, o que é costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.&lt;/p&gt;
+
+&lt;p&gt;Atualmente existem diversos motores de busca, onde é considerada uma cadeia de diferentes fatores para indexar e ranquear uma página. Grande parte destas pesquisas é feita através do &lt;strong&gt;Google&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;notice--warning&quot;&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt;: Apenas páginas indexadas podem ser ranqueadas!&lt;/p&gt;
+
+&lt;h2 id=&quot;como-saber-se-a-sua-página-está-indexada-no-google&quot;&gt;Como saber se a sua página está indexada no Google?&lt;/h2&gt;
+&lt;p&gt;Simplesmente vá até a página do &lt;strong&gt;Google&lt;/strong&gt; em seu navegador e digite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site:seu-site.com.br&lt;/code&gt;, se você conseguir visualizar o seu site nos resultados, significa que ele já está indexado.&lt;/p&gt;
+
+&lt;h2 id=&quot;fatores-que-deverão-ser-indexados&quot;&gt;Fatores que deverão ser indexados&lt;/h2&gt;
+&lt;p&gt;Há aproximadamente 200 parâmetros que são utilizados para melhorar a indexação de uma página, contudo vamos selecionar alguns dos principais, se tratando não de conteúdo, mas estrutura.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Título e Descrição&lt;/li&gt;
+  &lt;li&gt;Estrutura de URL&lt;/li&gt;
+  &lt;li&gt;Mapa do site&lt;/li&gt;
+  &lt;li&gt;Tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alt&lt;/code&gt; para imagens&lt;/li&gt;
+  &lt;li&gt;Conectores de mídias sociais&lt;/li&gt;
+  &lt;li&gt;Open graph e cards do Twitter&lt;/li&gt;
+  &lt;li&gt;Favicon&lt;/li&gt;
+  &lt;li&gt;URL canônica&lt;/li&gt;
+  &lt;li&gt;Responsividade&lt;/li&gt;
+  &lt;li&gt;Velocidade&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Estes fatores garantirão 60% da otimização de &lt;strong&gt;SEO&lt;/strong&gt; da página, o restante depende de criação de conteúdo, construção de links, marketing e etc…&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Dica&lt;/strong&gt;: A maioria dos itens listados podem ser implementados com a tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt; % SEO % &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt; dentro da sessão &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt; do site, onde o único requisito é a utilização dos plugins: jekyll-paginate, jekyll-seo-tag em seu arquivo de configuração (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;). Este plugin irá acrescentar a maioria das tags necessárias para um bom SEO.&lt;/p&gt;
+
+&lt;h3 id=&quot;título-e-descrição&quot;&gt;Título e Descrição&lt;/h3&gt;
+&lt;p&gt;O Título deve corresponder à sua descrição e ao conteúdo do artigo, toda página de seu site deve conter título e descrição única. Caso você não especifique uma descrição, o primeiro parágrafo de sua página será considerado nos resultados de busca.&lt;/p&gt;
+
+&lt;p&gt;O primeiro parágrafo pode muitas vezes não apresentar um conteúdo relevante e correspondente ao título da página, a recomendação é que se utilize uma descrição breve que forneça a ideia geral do artigo, e assim como o título contenha algumas das palavras chave. A descrição deve respeitar o limite de 160 caracteres, um volume maior pode ser considerado spam pelos motores de busca.&lt;/p&gt;
+
+&lt;p&gt;A descrição não é levada em conta para o ranqueamento do site, mas fará com que o usuário se interesse em seu conteúdo e clique em seu link dentre os resultados encontrados pelo motor de busca.&lt;/p&gt;
+
+&lt;p&gt;Os robôs do motor de busca procuram pelo seu Título e Descrição dentro da tag head primeiro. Portanto, certifique-se de mantê-lo lá para que eles consigam encontra-los.&lt;/p&gt;
+
+&lt;p class=&quot;notice--warning&quot;&gt;Lembre-se: Você deve explicitamente adicionar o título e descrição ao &lt;strong&gt;Front Matter&lt;/strong&gt; presente em todas as suas páginas, e sua descrição deverá ser truncada em 160 caracteres. Adicione as palavras chave ao ínicio da descrição para que os usuários encontrem sua página mais rapidamente em suas buscas no Google.&lt;/p&gt;
+
+&lt;h3 id=&quot;estrutura-de-url&quot;&gt;Estrutura de URL&lt;/h3&gt;
+&lt;p&gt;Uma URL transmite muitas informações sobre o conteúdo, tanto usuários como robôs esperam que ela esteja em sincronia com o assunto abordado, portanto faça que ela seja legível. Uma boa estrutura de URL gera maior taxa de cliques.&lt;/p&gt;
+
+&lt;p&gt;Atualmente motores de busca são inteligentes o suficiente para detectar se a URL possui relação com o conteúdo da página, e muitos sites útilizam &lt;strong&gt;ids&lt;/strong&gt; em suas estrutura, o que prejudica tanto a transmissão de informação ao usuário quanto aos robôs de busca.&lt;/p&gt;
+
+&lt;p&gt;Incluir a data é opcional, e somente será útil se as datas realmente importam para o seu conteúdo.&lt;/p&gt;
+
+&lt;p&gt;Não útilize &lt;strong&gt;StopWords&lt;/strong&gt;, palavras como de, a, o, que, e, do, da, em, um, para, é, com, não, uma, … não precisam ser indexadas e apenas aumentarão o tamanho da &lt;strong&gt;URL&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;No Jekyll, um URL pode ser alterado renomeando o arquivo na pasta _posts.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mapa-do-site&quot;&gt;Mapa do site&lt;/h2&gt;
+&lt;p&gt;Um mapa do site é uma lista de links que contém todas suas páginas, ele estará no formato &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt;. Isso ajuda os robôs de mecanismos de pesquisa a rastrearem facilmente seu site. Ele também terá metadados como datas de postagens, páginas, data da última modificação e frequência de atualização.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/sitemap.xml&quot;&gt;Mapa deste site&lt;/a&gt;&lt;/p&gt;
+
+&lt;p class=&quot;notice--warning&quot;&gt;Se o seu site não tiver postagens ou páginas, talvez você não precise de um mapa do site.&lt;/p&gt;
+
+&lt;p&gt;Você pode enviar seu sitemap para os principais mecanismos de pesquisa, como Google, Bing, Yahoo e etc, para que seus respectivos robôs indexem seu site.&lt;/p&gt;
+
+&lt;p&gt;Deixar um link para o mapa do site disponível também é uma boa ideia. Digamos que alguém faça uma referência a uma postagem sua em um blog bem classificado, há possibilidade de um bot rastrear esse link e chegar à sua postagem.&lt;/p&gt;
+
+&lt;h2 id=&quot;tag-alt-para-imagens&quot;&gt;Tag alt para imagens&lt;/h2&gt;
+&lt;p&gt;as tags alternativas de uma imagem não são nada mais que o texto que é mostrado caso uma imagem não carregue. Esta tag é lida pelos robôs, o que ajuda os mecanismos de pesquisa a saber sobre o que se trata a imagem.&lt;/p&gt;
+
+&lt;h2 id=&quot;conexão-com-mídias-sociais&quot;&gt;Conexão com mídias sociais&lt;/h2&gt;
+&lt;p&gt;A conexão com redes sociais pode ser conseguida através de botões de compartilhamento na parte inferior de suas postagens.&lt;/p&gt;
+
+&lt;h2 id=&quot;open-graph-e-cartões-do-twitter&quot;&gt;Open graph e cartões do Twitter&lt;/h2&gt;
+&lt;p&gt;O Open Graph é uma forma de tornar mais fácil o entendimento de um link compartilhado, é possível que algumas informações sejam perdidas, ou dados indesejados sejam detectados. Para evitar que isso ocorra e para que seu link seja melhor reconhecido pelas redes sociais, a implementação do Open graph é necessária, e pode ser realizada através de plugins como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-seo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;favicon&quot;&gt;Favicon&lt;/h2&gt;
+&lt;p&gt;Um favicon é um arquivo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ico&lt;/code&gt; geralmente com as dimensões de 16x16. Este ícone é o que a maioria dos visitantes lembrará do seu site, ele deve representar o seu site de algum modo, para que quando um usuário se depare com ele em sua barra de favoritos, consiga o assimilar a sua página.&lt;/p&gt;
+
+&lt;h1 id=&quot;responsividade&quot;&gt;Responsividade&lt;/h1&gt;
+&lt;p&gt;Após 21 de abril de 2015, o Google tornou a responsividade um parâmetro de indexação e ranqueamento essêncial para SEO. Quase todos os temas Jekyll, mesmo o tema default, são responsivos. Caso você esteja desenvolvendo um novo tema considere um layout responsivo que se ajuste a tamanhos menores de tela.&lt;/p&gt;
+
+&lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/jekyll-sitemap/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/optimize-jekyll-seo/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="SEO" /><category term="SEO" /><category term="Jekyll" /><category term="GitHub" /><summary type="html">SEO é a única maneira pela qual conseguimos gerar tráfego orgânico, o que é costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.</summary></entry><entry><title type="html">Como monitorar fluxos de negócios digitais</title><link href="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/" rel="alternate" type="text/html" title="Como monitorar fluxos de negócios digitais" /><published>2020-08-27T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais</id><content type="html" xml:base="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/">&lt;p&gt;Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como &lt;em&gt;LogEntries&lt;/em&gt; e &lt;em&gt;Datadog&lt;/em&gt; ou a stack &lt;em&gt;ELK&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;O que eu realmente tenho feito não é nada disso, quero dizer, tem um pouco disso. O que monitoro são regras de negócio, em um provedor de serviços de pagamento, claro assim como em outros meios, precisamos garantir a integridade das informações e do comportamento de nossas ferramentas, afinal erros humanos são possíveis e prováveis, e dívidas técnicas de produto, inevitáveis.&lt;/p&gt;
 
