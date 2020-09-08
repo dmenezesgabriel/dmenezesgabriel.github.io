@@ -1,4 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-04T18:35:05-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">SEO: Gerando tráfego orgânico com seu site estático em Jekyll</title><link href="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/" rel="alternate" type="text/html" title="SEO: Gerando tráfego orgânico com seu site estático em Jekyll" /><published>2020-09-04T00:00:00-03:00</published><updated>2020-09-04T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll</id><content type="html" xml:base="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/">&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-08T19:33:10-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Seleção de fundos de investimento imobiliário utilizando Python</title><link href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/" rel="alternate" type="text/html" title="Seleção de fundos de investimento imobiliário utilizando Python" /><published>2020-09-08T00:00:00-03:00</published><updated>2020-09-08T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">&lt;h1 id=&quot;como-escolher-fundos-de-investimento-imobiliário&quot;&gt;Como escolher Fundos de Investimento Imobiliário&lt;/h1&gt;
+
+&lt;h2 id=&quot;o-que-são-fundos-de-investimento-imobiliário-fiis&quot;&gt;O que são Fundos de investimento imobiliário (FIIs)?&lt;/h2&gt;
+&lt;p&gt;São fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.&lt;/p&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;&lt;em&gt;Fundos de investimento imobiliários não são o mesmo que crowdfunding imobiliário&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Seus investidores recebem retorno via dividendos ou na valorização de cotas. Os dividendos recebidos, também conhecidos como aluguéis, são distribuídos mensalmente e &lt;em&gt;isêntos de imposto de renda&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alguns de seus benefícios são:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Não há incidência de imposto sobre proventos, diferente do aluguél comum.&lt;/li&gt;
+  &lt;li&gt;Não há custo com reformas.&lt;/li&gt;
+  &lt;li&gt;Não há necessidade de lidar com inquilinos.&lt;/li&gt;
+  &lt;li&gt;Mais acessível, por dispensar um alto investimento inicial.&lt;/li&gt;
+  &lt;li&gt;Menos burocrático.&lt;/li&gt;
+  &lt;li&gt;Alta liquidez devido à agilidade e à praticidade de vender os ativos quando necessário.&lt;/li&gt;
+  &lt;li&gt;Baixa exposição de capital devido à diversificação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tipos&quot;&gt;Tipos&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de renda&lt;/strong&gt;: São aqueles constituídos por imóveis comprados, ou construídos com fins de aluguel. A renda líquida é distribuída para os cotistas. Seus contratos tendem a ser mais longos conferindo maior segurança.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de compra e venda&lt;/strong&gt;: Tem por objetivo comprar imóveis a um valor mais baixo, que possuam expectativa de valorização e vende-lôs realizando lucro.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de desenvolvimento&lt;/strong&gt;: Consistem na compra de terrenos para construção de empreendimentos para venda ou aluguél, as vezes com o objetivo de ganho na valorização dos imóveis. Os riscos podem surgir do embargo nas obras ou do próprio gerenciamento da construção, de imprevistos com o orçamento, problemas com licenças ambientais ou atrasos na entrega.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de recebíveis imobiliários&lt;/strong&gt;: Também conhecidos como fundos de papéis, tem como principais representantes em seu portfolio de ativos os Certificados de Recebíveis Imobiliários (“CRI”), Letras Hipotecárias (“LH”) e Letras de Crédito Imobiliário (“LCI”).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de fundos&lt;/strong&gt;: São similares a fundos de ações. Este tipo de fundo conta com maior taxa administrativa devido as taxas dos fundos em que este tipo de fundo tem participação, fora a sua própria, contudo possui maior diversificação.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de tijolo&lt;/strong&gt;: Apresentam os imóveis físicos, essa aplicação tem como objetivo adquirir as propriedades para alugar,  considerando o potencial de valorização ao longo do tempo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;setores-de-fundos-de-investimento-imobiliários&quot;&gt;Setores de fundos de investimento imobiliários&lt;/h2&gt;
+
+&lt;h3 id=&quot;shoppings&quot;&gt;Shoppings&lt;/h3&gt;
+&lt;p&gt;Apesar do mercado digital (E-commerce - Comércio eletrônico) ter se desenvolvido bastante, as pessoas ainda não deixaram de se dirigir aos shoppings tanto para comprar produtos como ir ao cinema, ou comer em um restaurante.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Shoppings são uma das principais opções de entretenimento familiar no Brasil.&lt;/li&gt;
+  &lt;li&gt;São &lt;strong&gt;Multi Ativos&lt;/strong&gt; e &lt;strong&gt;Multi inquilinos&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;titulos-e-valores-imobiliários&quot;&gt;Titulos e valores imobiliários&lt;/h3&gt;
+&lt;p&gt;Os fundos de recebíveis, também conhecidos como fundos de papéis, trabalham predominantemente com ativos de renda fixa, mas com maior risco. Assim, as rentabilidades oferecidas costumam superar o CDI (O que é um requisito essêncial para ser considerado como opção viável de investimento).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Principáis tipos de pápeis&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;CRI (Certificado de Recebíveis Imobiliários).&lt;/li&gt;
+  &lt;li&gt;LCI (Letras de Crédito Imobiliário).&lt;/li&gt;
+  &lt;li&gt;Letras Hipotecárias (LH).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;lajes-corporativas&quot;&gt;Lajes Corporativas&lt;/h3&gt;
+&lt;p&gt;O segmento de lajes corporativas, ou seja, predominantemente composto de edifícios comerciais, é o segundo maior no Brasil considerando o patrimônio somado de todos os fundos com cotas negociadas em bolsa.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Os contratos de locatários das lajes corporativas são em geral de longo prazo, em média cinco anos, com possibilidade de revisão depois de três anos. O rompimento antecipado de contrato é passível de multa multa.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hibrído&quot;&gt;Hibrído&lt;/h3&gt;
+&lt;p&gt;Os FIIs híbridos podem investir em diferentes aplicações, expondo-se em todos os setores de imóveis, recebíveis imobiliários (CRI, LCI) ou em outros fundos imobiliários (cotas de FIIs).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Oferece maior diversificação comparado a uma categoria isolada.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;residêncial&quot;&gt;Residêncial&lt;/h3&gt;
+&lt;p&gt;Podem abranger a incorporação de novos edifícios, a compra e venda de imóveis e a renda gerada pelo aluguel das unidades.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Grande parte desses produtos de nicho têm baixa liquidez.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hotel&quot;&gt;Hotel&lt;/h3&gt;
+&lt;p&gt;Este setor gera lucro das seguintes maneiras:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compra de participação em hotéis, explorando a renda das locações de quartos, assim como fazem outros FIIs.&lt;/li&gt;
+  &lt;li&gt;Realizando a comercialização de unidades hoteleiras.&lt;/li&gt;
+  &lt;li&gt;Por meio da valorização dos ativos.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hospital&quot;&gt;Hospital&lt;/h3&gt;
+&lt;p&gt;Todos os fundos são monoativos, ou seja, possuem apenas um imóvel. Eventualmente, os locatários podem optar pela saída do imóvel ou não renovar o contrato. Assim, até encontrar um novo inquilino, o fundo perderia totalmente a sua receita de aluguel, além de precisar lidar com os gastos do imóvel.&lt;/p&gt;
+
+&lt;p&gt;Além disso, esse é um formato de imóvel muito personalizado para hospitais. Portanto, um novo locatário acabaria sendo, necessariamente, do mesmo segmento.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, há outro risco que é a inadimplência. Claro que ela afeta outros setores, mas para os hospitais há um desafio adicional. Caso o locatário passe a não cumprir com os pagamentos, o despejo pode ser dificultado pelo juiz em função da função social de um hospital. Prova disso é que os fundos de hospitais têm enfrentado decisões judiciais e os seus resultados foram favoráveis aos locatários.&lt;/p&gt;
+
+&lt;h3 id=&quot;logística&quot;&gt;Logística&lt;/h3&gt;
+&lt;p&gt;Ao contrário de outros tipos de negócio físico, os fundos logísticos apresentam uma demanda crescente. Isso deve-se predominantemente ao crescimento do e-commerce, apesar de suas vendas serem realizada em ambiente digital, ainda é necessário garantir a entrega dos produtos fisicamente.&lt;/p&gt;
+
+&lt;h2 id=&quot;características&quot;&gt;Características&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mono ativo: Possuem apenas um único ativo.&lt;/li&gt;
+  &lt;li&gt;Multi ativo: Seu portfólio possui diversos ativos.&lt;/li&gt;
+  &lt;li&gt;Mono inquilino: Seus imóveis possem apenas um inquilino.&lt;/li&gt;
+  &lt;li&gt;Multi inquilino: Seus imóveis são alugados para diversos inquilinos.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;localização&quot;&gt;Localização&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;O imóvel está em um local que é pertinente ao setor de atuação?&lt;/li&gt;
+  &lt;li&gt;O imóvel está conservado e possui fácil acesso?&lt;/li&gt;
+  &lt;li&gt;Shoppings estarão melhor localizados quando próximos de centros urbanos.&lt;/li&gt;
+  &lt;li&gt;Galpões logísticos necessitam de boa acessibilidade, devem estar perto de boas estradas.&lt;/li&gt;
+  &lt;li&gt;Lages corporativas tem preferência a centros financeiros.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;taxa-de-vacânciaocupação&quot;&gt;Taxa de vacância/ocupação&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Quanto maior a taxa de vacância, há menos inquilinos para pagar aluguel, consequentemente o valor de aluguel a ser recebido pode diminuir.&lt;/li&gt;
+  &lt;li&gt;Uma taxa de vacância baixa pode significar que os imóveis são bem localizados, e o fundo possui boa gestão.&lt;/li&gt;
+  &lt;li&gt;É necessário analisar não só a vacância atual, mas seu histórico.&lt;/li&gt;
+  &lt;li&gt;Quem são os inquilinos? Empresas grandes listadas em bolsa? (Verifica relatório gerencial do fundo)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dividend-yield&quot;&gt;Dividend Yield&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;A renda é recorrente?&lt;/li&gt;
+  &lt;li&gt;Os valores apresentam baixa volatilidade?&lt;/li&gt;
+  &lt;li&gt;Renda média anual real acima dos títulos públicos?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;padrão-construtivo&quot;&gt;Padrão construtivo&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Possui certificação AAA? (Opcional)&lt;/li&gt;
+  &lt;li&gt;Os empreendimentos apresentam uma aparência atrativa?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;diversificação&quot;&gt;Diversificação&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Multi ativos&lt;/li&gt;
+  &lt;li&gt;Multi inquilino&lt;/li&gt;
+  &lt;li&gt;Ativos distribuídos em diversas regiões&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;líquidez&quot;&gt;Líquidez&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;As cotas do fundo devem possuir negociação diária acima de R$100.000,00.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;valuation&quot;&gt;Valuation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;P/VPA&lt;/strong&gt;: Este indicador relaciona o preço da cota ao valor patrimonial proporcional a ela, e indica quanto os cotistas aceitam pagar pelo patrimônio líquido da fundo. Este valor é obtido através da divisão entre o preço da ação e Valor Patrimonial por Ação (VPA).&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Um valor baixo pode apresentar uma oportunidade, mas também pode ser um indicativo de que este fundo tem problemas estruturais.&lt;/li&gt;
+      &lt;li&gt;Um valor acima pode representar que o valor está mais caro ou uma expectativa de que o gestor do fundo comprará mais imóveis aumentando os proventos que serão recebidos.&lt;/li&gt;
+      &lt;li&gt;Considerar valor &amp;lt; 1,1.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;relação-com-investidores&quot;&gt;Relação com investidores&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Divulgação de relatórios é consistente, e seus relatório são claros e explicativos?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;demais-fatores&quot;&gt;Demais fatores&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;O fundo possui pelo menos um ano de idade?&lt;/li&gt;
+  &lt;li&gt;Fundos em fase de renda minima garantida podem apresentar valores de proventos insustentáveis a longo prazo.&lt;/li&gt;
+  &lt;li&gt;O fundo performa melhor que o &lt;strong&gt;IFIX&lt;/strong&gt;?&lt;/li&gt;
+  &lt;li&gt;Verificar o histórico de gestão do fundo imobiliário.&lt;/li&gt;
+  &lt;li&gt;Evitar fundos de desenvolvimento ou incorporação, porque há imóveis que ainda estão em construção, como o imóvel não está pronto, não foi vendido ou alugado, todo risco vai para o cotista.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;constituição-de-carteira&quot;&gt;Constituição de carteira&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Diversificação de 4 ~ 10 fundos para facilitar a administração.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bônus&quot;&gt;Bônus&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fique atento aos eventos de &lt;strong&gt;subscrição&lt;/strong&gt; para poder realizar &lt;strong&gt;arbitragem&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/b2bf3eb049d48d1315d83db9e5fcad36.js&quot;&gt; &lt;/script&gt;
+
+&lt;h2 id=&quot;links-úteis&quot;&gt;Links úteis&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.fundsexplorer.com.br/&quot;&gt;Funds Exploer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://trademap.com.br/&quot;&gt;Trademap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fiis.com.br/&quot;&gt;Fiis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.clubefii.com.br/&quot;&gt;Clube fii&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://statusinvest.com.br/&quot;&gt;Status Invest&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.b3.com.br/pt_br/&quot;&gt;B3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Investimentos" /><summary type="html">Como escolher Fundos de Investimento Imobiliário</summary></entry><entry><title type="html">SEO: Gerando tráfego orgânico com seu site estático em Jekyll</title><link href="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/" rel="alternate" type="text/html" title="SEO: Gerando tráfego orgânico com seu site estático em Jekyll" /><published>2020-09-04T00:00:00-03:00</published><updated>2020-09-04T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll</id><content type="html" xml:base="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/">&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.&lt;/p&gt;
 
 &lt;p&gt;Atualmente existem diversos mecanismos de busca, onde é considerada uma cadeia de diferentes fatores para indexar e ranquear uma página. Grande parte destas pesquisas é feita através do &lt;strong&gt;Google&lt;/strong&gt;.&lt;/p&gt;
 

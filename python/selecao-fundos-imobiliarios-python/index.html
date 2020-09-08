@@ -1,0 +1,1051 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Seleção de fundos de investimento imobiliário utilizando Python - Gabriel Menezes</title>
+<meta name="description" content="Como escolher Fundos de Investimento Imobiliário">
+
+
+  <meta name="author" content="Gabriel Menezes">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="Seleção de fundos de investimento imobiliário utilizando Python">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">
+
+
+  <meta property="og:description" content="Como escolher Fundos de Investimento Imobiliário">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/fiis.jpeg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="Seleção de fundos de investimento imobiliário utilizando Python">
+  <meta name="twitter:description" content="Como escolher Fundos de Investimento Imobiliário">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/fiis.jpeg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-09-08T00:00:00-03:00">
+
+
+
+  <meta property="article:modified_time" content="2020-09-08T00:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Buscar</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Seleção de fundos de investimento imobiliário utilizando Python</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Gabriel Menezes" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gabriel Menezes</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Criando bugs e compartilhando conhecimento.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Acompanhe no</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Brasil</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linked in</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dmenezesgabriel.gabriel@gmail.com">
+            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">E-mail</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Seleção de fundos de investimento imobiliário utilizando Python">
+    <meta itemprop="description" content="Como escolher Fundos de Investimento Imobiliário">
+    <meta itemprop="datePublished" content="2020-09-08T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2020-09-08T00:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Seleção de fundos de investimento imobiliário utilizando Python
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-08T00:00:00-03:00">September 8, 2020</time>
+    
+
+    
+      
+      <span class="post__meta-sep"></span>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        5 minuto(s) de leitura
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Nesta página</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#como-escolher-fundos-de-investimento-imobiliário">Como escolher Fundos de Investimento Imobiliário</a>
+    <ul>
+      <li><a href="#o-que-são-fundos-de-investimento-imobiliário-fiis">O que são Fundos de investimento imobiliário (FIIs)?</a></li>
+      <li><a href="#tipos">Tipos</a></li>
+      <li><a href="#setores-de-fundos-de-investimento-imobiliários">Setores de fundos de investimento imobiliários</a>
+        <ul>
+          <li><a href="#shoppings">Shoppings</a></li>
+          <li><a href="#titulos-e-valores-imobiliários">Titulos e valores imobiliários</a></li>
+          <li><a href="#lajes-corporativas">Lajes Corporativas</a></li>
+          <li><a href="#hibrído">Hibrído</a></li>
+          <li><a href="#residêncial">Residêncial</a></li>
+          <li><a href="#hotel">Hotel</a></li>
+          <li><a href="#hospital">Hospital</a></li>
+          <li><a href="#logística">Logística</a></li>
+        </ul>
+      </li>
+      <li><a href="#características">Características</a>
+        <ul>
+          <li><a href="#localização">Localização</a></li>
+          <li><a href="#taxa-de-vacânciaocupação">Taxa de vacância/ocupação</a></li>
+          <li><a href="#dividend-yield">Dividend Yield</a></li>
+          <li><a href="#padrão-construtivo">Padrão construtivo</a></li>
+          <li><a href="#diversificação">Diversificação</a></li>
+        </ul>
+      </li>
+      <li><a href="#líquidez">Líquidez</a>
+        <ul>
+          <li><a href="#valuation">Valuation</a></li>
+        </ul>
+      </li>
+      <li><a href="#relação-com-investidores">Relação com investidores</a></li>
+      <li><a href="#demais-fatores">Demais fatores</a></li>
+      <li><a href="#constituição-de-carteira">Constituição de carteira</a></li>
+      <li><a href="#bônus">Bônus</a></li>
+      <li><a href="#links-úteis">Links úteis</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="como-escolher-fundos-de-investimento-imobiliário">Como escolher Fundos de Investimento Imobiliário</h1>
+
+<h2 id="o-que-são-fundos-de-investimento-imobiliário-fiis">O que são Fundos de investimento imobiliário (FIIs)?</h2>
+<p>São fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.</p>
+
+<p class="notice--info"><em>Fundos de investimento imobiliários não são o mesmo que crowdfunding imobiliário</em></p>
+
+<p>Seus investidores recebem retorno via dividendos ou na valorização de cotas. Os dividendos recebidos, também conhecidos como aluguéis, são distribuídos mensalmente e <em>isêntos de imposto de renda</em>.</p>
+
+<p>Alguns de seus benefícios são:</p>
+<ul>
+  <li>Não há incidência de imposto sobre proventos, diferente do aluguél comum.</li>
+  <li>Não há custo com reformas.</li>
+  <li>Não há necessidade de lidar com inquilinos.</li>
+  <li>Mais acessível, por dispensar um alto investimento inicial.</li>
+  <li>Menos burocrático.</li>
+  <li>Alta liquidez devido à agilidade e à praticidade de vender os ativos quando necessário.</li>
+  <li>Baixa exposição de capital devido à diversificação.</li>
+</ul>
+
+<h2 id="tipos">Tipos</h2>
+<ul>
+  <li><strong>Fundos de renda</strong>: São aqueles constituídos por imóveis comprados, ou construídos com fins de aluguel. A renda líquida é distribuída para os cotistas. Seus contratos tendem a ser mais longos conferindo maior segurança.</li>
+  <li><strong>Fundos de compra e venda</strong>: Tem por objetivo comprar imóveis a um valor mais baixo, que possuam expectativa de valorização e vende-lôs realizando lucro.</li>
+  <li><strong>Fundos de desenvolvimento</strong>: Consistem na compra de terrenos para construção de empreendimentos para venda ou aluguél, as vezes com o objetivo de ganho na valorização dos imóveis. Os riscos podem surgir do embargo nas obras ou do próprio gerenciamento da construção, de imprevistos com o orçamento, problemas com licenças ambientais ou atrasos na entrega.</li>
+  <li><strong>Fundos de recebíveis imobiliários</strong>: Também conhecidos como fundos de papéis, tem como principais representantes em seu portfolio de ativos os Certificados de Recebíveis Imobiliários (“CRI”), Letras Hipotecárias (“LH”) e Letras de Crédito Imobiliário (“LCI”).</li>
+  <li><strong>Fundos de fundos</strong>: São similares a fundos de ações. Este tipo de fundo conta com maior taxa administrativa devido as taxas dos fundos em que este tipo de fundo tem participação, fora a sua própria, contudo possui maior diversificação.</li>
+  <li><strong>Fundos de tijolo</strong>: Apresentam os imóveis físicos, essa aplicação tem como objetivo adquirir as propriedades para alugar,  considerando o potencial de valorização ao longo do tempo.</li>
+</ul>
+
+<h2 id="setores-de-fundos-de-investimento-imobiliários">Setores de fundos de investimento imobiliários</h2>
+
+<h3 id="shoppings">Shoppings</h3>
+<p>Apesar do mercado digital (E-commerce - Comércio eletrônico) ter se desenvolvido bastante, as pessoas ainda não deixaram de se dirigir aos shoppings tanto para comprar produtos como ir ao cinema, ou comer em um restaurante.</p>
+
+<ul>
+  <li>Shoppings são uma das principais opções de entretenimento familiar no Brasil.</li>
+  <li>São <strong>Multi Ativos</strong> e <strong>Multi inquilinos</strong></li>
+</ul>
+
+<h3 id="titulos-e-valores-imobiliários">Titulos e valores imobiliários</h3>
+<p>Os fundos de recebíveis, também conhecidos como fundos de papéis, trabalham predominantemente com ativos de renda fixa, mas com maior risco. Assim, as rentabilidades oferecidas costumam superar o CDI (O que é um requisito essêncial para ser considerado como opção viável de investimento).</p>
+
+<p><strong>Principáis tipos de pápeis</strong>:</p>
+<ul>
+  <li>CRI (Certificado de Recebíveis Imobiliários).</li>
+  <li>LCI (Letras de Crédito Imobiliário).</li>
+  <li>Letras Hipotecárias (LH).</li>
+</ul>
+
+<h3 id="lajes-corporativas">Lajes Corporativas</h3>
+<p>O segmento de lajes corporativas, ou seja, predominantemente composto de edifícios comerciais, é o segundo maior no Brasil considerando o patrimônio somado de todos os fundos com cotas negociadas em bolsa.</p>
+
+<ul>
+  <li>Os contratos de locatários das lajes corporativas são em geral de longo prazo, em média cinco anos, com possibilidade de revisão depois de três anos. O rompimento antecipado de contrato é passível de multa multa.</li>
+</ul>
+
+<h3 id="hibrído">Hibrído</h3>
+<p>Os FIIs híbridos podem investir em diferentes aplicações, expondo-se em todos os setores de imóveis, recebíveis imobiliários (CRI, LCI) ou em outros fundos imobiliários (cotas de FIIs).</p>
+
+<ul>
+  <li>Oferece maior diversificação comparado a uma categoria isolada.</li>
+</ul>
+
+<h3 id="residêncial">Residêncial</h3>
+<p>Podem abranger a incorporação de novos edifícios, a compra e venda de imóveis e a renda gerada pelo aluguel das unidades.</p>
+
+<ul>
+  <li>Grande parte desses produtos de nicho têm baixa liquidez.</li>
+</ul>
+
+<h3 id="hotel">Hotel</h3>
+<p>Este setor gera lucro das seguintes maneiras:</p>
+
+<ul>
+  <li>Compra de participação em hotéis, explorando a renda das locações de quartos, assim como fazem outros FIIs.</li>
+  <li>Realizando a comercialização de unidades hoteleiras.</li>
+  <li>Por meio da valorização dos ativos.</li>
+</ul>
+
+<h3 id="hospital">Hospital</h3>
+<p>Todos os fundos são monoativos, ou seja, possuem apenas um imóvel. Eventualmente, os locatários podem optar pela saída do imóvel ou não renovar o contrato. Assim, até encontrar um novo inquilino, o fundo perderia totalmente a sua receita de aluguel, além de precisar lidar com os gastos do imóvel.</p>
+
+<p>Além disso, esse é um formato de imóvel muito personalizado para hospitais. Portanto, um novo locatário acabaria sendo, necessariamente, do mesmo segmento.</p>
+
+<p>Finalmente, há outro risco que é a inadimplência. Claro que ela afeta outros setores, mas para os hospitais há um desafio adicional. Caso o locatário passe a não cumprir com os pagamentos, o despejo pode ser dificultado pelo juiz em função da função social de um hospital. Prova disso é que os fundos de hospitais têm enfrentado decisões judiciais e os seus resultados foram favoráveis aos locatários.</p>
+
+<h3 id="logística">Logística</h3>
+<p>Ao contrário de outros tipos de negócio físico, os fundos logísticos apresentam uma demanda crescente. Isso deve-se predominantemente ao crescimento do e-commerce, apesar de suas vendas serem realizada em ambiente digital, ainda é necessário garantir a entrega dos produtos fisicamente.</p>
+
+<h2 id="características">Características</h2>
+<ul>
+  <li>Mono ativo: Possuem apenas um único ativo.</li>
+  <li>Multi ativo: Seu portfólio possui diversos ativos.</li>
+  <li>Mono inquilino: Seus imóveis possem apenas um inquilino.</li>
+  <li>Multi inquilino: Seus imóveis são alugados para diversos inquilinos.</li>
+</ul>
+
+<h3 id="localização">Localização</h3>
+<ul>
+  <li>O imóvel está em um local que é pertinente ao setor de atuação?</li>
+  <li>O imóvel está conservado e possui fácil acesso?</li>
+  <li>Shoppings estarão melhor localizados quando próximos de centros urbanos.</li>
+  <li>Galpões logísticos necessitam de boa acessibilidade, devem estar perto de boas estradas.</li>
+  <li>Lages corporativas tem preferência a centros financeiros.</li>
+</ul>
+
+<h3 id="taxa-de-vacânciaocupação">Taxa de vacância/ocupação</h3>
+<ul>
+  <li>Quanto maior a taxa de vacância, há menos inquilinos para pagar aluguel, consequentemente o valor de aluguel a ser recebido pode diminuir.</li>
+  <li>Uma taxa de vacância baixa pode significar que os imóveis são bem localizados, e o fundo possui boa gestão.</li>
+  <li>É necessário analisar não só a vacância atual, mas seu histórico.</li>
+  <li>Quem são os inquilinos? Empresas grandes listadas em bolsa? (Verifica relatório gerencial do fundo)</li>
+</ul>
+
+<h3 id="dividend-yield">Dividend Yield</h3>
+<ul>
+  <li>A renda é recorrente?</li>
+  <li>Os valores apresentam baixa volatilidade?</li>
+  <li>Renda média anual real acima dos títulos públicos?</li>
+</ul>
+
+<h3 id="padrão-construtivo">Padrão construtivo</h3>
+<ul>
+  <li>Possui certificação AAA? (Opcional)</li>
+  <li>Os empreendimentos apresentam uma aparência atrativa?</li>
+</ul>
+
+<h3 id="diversificação">Diversificação</h3>
+<ul>
+  <li>Multi ativos</li>
+  <li>Multi inquilino</li>
+  <li>Ativos distribuídos em diversas regiões</li>
+</ul>
+
+<h2 id="líquidez">Líquidez</h2>
+<ul>
+  <li>As cotas do fundo devem possuir negociação diária acima de R$100.000,00.</li>
+</ul>
+
+<h3 id="valuation">Valuation</h3>
+<ul>
+  <li>
+    <p><strong>P/VPA</strong>: Este indicador relaciona o preço da cota ao valor patrimonial proporcional a ela, e indica quanto os cotistas aceitam pagar pelo patrimônio líquido da fundo. Este valor é obtido através da divisão entre o preço da ação e Valor Patrimonial por Ação (VPA).</p>
+
+    <ul>
+      <li>Um valor baixo pode apresentar uma oportunidade, mas também pode ser um indicativo de que este fundo tem problemas estruturais.</li>
+      <li>Um valor acima pode representar que o valor está mais caro ou uma expectativa de que o gestor do fundo comprará mais imóveis aumentando os proventos que serão recebidos.</li>
+      <li>Considerar valor &lt; 1,1.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="relação-com-investidores">Relação com investidores</h2>
+<ul>
+  <li>Divulgação de relatórios é consistente, e seus relatório são claros e explicativos?</li>
+</ul>
+
+<h2 id="demais-fatores">Demais fatores</h2>
+<ul>
+  <li>O fundo possui pelo menos um ano de idade?</li>
+  <li>Fundos em fase de renda minima garantida podem apresentar valores de proventos insustentáveis a longo prazo.</li>
+  <li>O fundo performa melhor que o <strong>IFIX</strong>?</li>
+  <li>Verificar o histórico de gestão do fundo imobiliário.</li>
+  <li>Evitar fundos de desenvolvimento ou incorporação, porque há imóveis que ainda estão em construção, como o imóvel não está pronto, não foi vendido ou alugado, todo risco vai para o cotista.</li>
+</ul>
+
+<h2 id="constituição-de-carteira">Constituição de carteira</h2>
+<ul>
+  <li>Diversificação de 4 ~ 10 fundos para facilitar a administração.</li>
+</ul>
+
+<h2 id="bônus">Bônus</h2>
+<ul>
+  <li>Fique atento aos eventos de <strong>subscrição</strong> para poder realizar <strong>arbitragem</strong>.</li>
+</ul>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/b2bf3eb049d48d1315d83db9e5fcad36.js"> </script>
+
+<h2 id="links-úteis">Links úteis</h2>
+<ul>
+  <li><a href="https://www.fundsexplorer.com.br/">Funds Exploer</a></li>
+  <li><a href="https://trademap.com.br/">Trademap</a></li>
+  <li><a href="https://fiis.com.br/">Fiis</a></li>
+  <li><a href="https://www.clubefii.com.br/">Clube fii</a></li>
+  <li><a href="https://statusinvest.com.br/">Status Invest</a></li>
+  <li><a href="http://www.b3.com.br/pt_br/">B3</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#investimentos" class="page__taxonomy-item" rel="tag">Investimentos</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorias: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-09-08">September 8, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Compartilhe</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Sele%C3%A7%C3%A3o+de+fundos+de+investimento+imobili%C3%A1rio+utilizando+Python%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fselecao-fundos-imobiliarios-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fselecao-fundos-imobiliarios-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fselecao-fundos-imobiliarios-python%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/seo/otimizar-seo-jekyll/" class="pagination--pager" title="SEO: Gerando tráfego orgânico com seu site estático em Jekyll
+">Anterior</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Próxima</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Deixe um comentário</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">Talvez você também goste</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/seo.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/seo/otimizar-seo-jekyll/" rel="permalink">SEO: Gerando tráfego orgânico com seu site estático em Jekyll
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-04T00:00:00-03:00">September 4, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        4 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">SEO é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/alert.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/telemetria/como-monitorar-fluxos-digitais/" rel="permalink">Como monitorar fluxos de negócios digitais
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-08-27T00:00:00-03:00">August 27, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        3 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/git-log.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/git/git-manual-de-sobrevivencia-do-iniciante/" rel="permalink">Git: Manual de sobrevivência do iniciante
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-08-25T00:00:00-03:00">August 25, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        3 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/fallback-teaser.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programa%C3%A7%C3%A3o/origens-do-hello-world/" rel="permalink">Você conhece a origem do “Hello World!”?
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-08-19T00:00:00-03:00">August 19, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Pesquisar..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Acompanhe no</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gabriel Menezes. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/python/selecao-fundos-imobiliarios-python"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
