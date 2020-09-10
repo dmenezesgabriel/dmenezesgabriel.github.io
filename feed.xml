@@ -1,4 +1,194 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-08T19:33:10-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Seleção de fundos de investimento imobiliário utilizando Python</title><link href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/" rel="alternate" type="text/html" title="Seleção de fundos de investimento imobiliário utilizando Python" /><published>2020-09-08T00:00:00-03:00</published><updated>2020-09-08T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">&lt;h1 id=&quot;como-escolher-fundos-de-investimento-imobiliário&quot;&gt;Como escolher Fundos de Investimento Imobiliário&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-10T09:26:27-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Download de uma playlist Youtube Mix com Python, Selenium e Docker</title><link href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/" rel="alternate" type="text/html" title="Download de uma playlist Youtube Mix com Python, Selenium e Docker" /><published>2020-09-10T00:00:00-03:00</published><updated>2020-09-10T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/youtube-mix-download-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">&lt;h2 id=&quot;motivação&quot;&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.&lt;/p&gt;
+
+&lt;p&gt;O que seria do treino de cada dia sem uma trilha sonora, não é mesmo?&lt;/p&gt;
+
+&lt;p&gt;O smartwatch que utilizo não suporta aplicativos como Amazon Music ou Spotify, logo optei por baixar as músicas do Youtube e transferir para o armazenamento interno do relógio. A única questão é que selecionar as músicas uma a uma não é uma opção, hoje em dia há vários algorítimos de sugestão e a minha preferência é usufruir das playlists “Mix” geradas automáticamente, a partir de uma música especifica.&lt;/p&gt;
+
+&lt;h3 id=&quot;e-qual-é-o-problema&quot;&gt;E qual é o problema?&lt;/h3&gt;
+
+&lt;p&gt;Atualmente a maioria dos aplicativos de download de videos/audio do Youtube não suporta e não reconhece essas playlists como playlists de fato, então optei pelo seguinte fluxo:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Fornecer a url de uma playlist Youtube Mix como argumento;&lt;/li&gt;
+  &lt;li&gt;Este argumento será passado a uma função que irá buscar os links das músicas no código fonte da página da pseudo playlist;&lt;/li&gt;
+  &lt;li&gt;Cada uma das músicas sera baixada para o meu diretório local, na pasta &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;downloads/&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;python-selenium-e-docker&quot;&gt;Python, Selenium e Docker&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;: Oferece simplicidade no desenvolvimento do código, e é bastante útilizado para realização de web scrapping.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Selenium&lt;/strong&gt;: Framework de automação web, optei por sua utilização devido a biblioteca &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requests&lt;/code&gt; do python não ser capaz de lidar com o javascript utilizado para gerar o conteúdo da página.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;: Ué, mas na minha máquina funciona? Vamos evitar isso!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;código&quot;&gt;Código&lt;/h2&gt;
+
+&lt;p&gt;Se você preferir ir direto ao código:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/dmenezesgabriel/youtube-downloader&quot;&gt;Repositório&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Se não, vamos começar pela estrutura do diretório:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Geralmente apenas o código fonte, ou seja, apenas o que está dentro da past &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt; é levado para dentro do container, que por sua vez, simulará um sistema operacional isolado.
+Um dos motivos para tal prática é a segurança, neste exemplo não utilizamos variáveis de ambiente sensíveis como chaves de API e etc, mas caso fossem utilizadas elas não deveriam ir para dentro do container uma vez que você exponha as suas portas a internet, ele está passível de invasões, mas neste caso estamos rodando localmente então considere apenas como uma curiosidade.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── requirements.txt
+└── src
+    ├── downloads
+    └── youtube.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;requirements.txt&lt;/strong&gt;: Dependências para executar o código escrito em python neste cenário.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl==2020.9.6
+bs4==0.0.1
+selenium==3.141.0
+PyVirtualDisplay==1.3.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;youtube.py&lt;/strong&gt;: Este arquivo carrega as funções auxiliares tanto para baixar o aúdio através do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;youtube-dl&lt;/code&gt; quanto realizar a busca dos links utilizando o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Selenium&lt;/code&gt; para interação com o navegador &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Firefox&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-py highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;logging&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;subprocess&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.common.by&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;By&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.support&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected_conditions&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EC&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium.webdriver.support.ui&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pyvirtualdisplay&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Display&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DOMAIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://www.youtube.com'&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;800&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Initialized virtual display..'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FirefoxProfile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_preference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'browser.download.folderList'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_preference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'browser.download.manager.showWhenStarting'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_preference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'browser.download.dir'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getcwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_preference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'browser.helperApps.neverAsk.saveToDisk'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'text/csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Prepared firefox profile..'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Firefox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;firefox_profile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Initialized firefox browser..'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Accessed %s ..'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Page title: %s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;WebDriverWait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;until&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;presence_of_element_located&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                           &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;By&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wc-endpoint'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# soup = BeautifulSoup(html, 'html.parser')
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_source&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;html.parser&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attrs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wc-endpoint'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'href'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startswith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/watch?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DOMAIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'%s items found'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;download_from_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;destination_folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'youtube-dl'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'-i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'--no-playlist'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'--extract-audio'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;'--audio-format'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'mp3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'--audio-quality'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'-o'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;destination_folder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'%(title)s.%(ext)s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Popen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Wait for process to terminate.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;communicate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;returncode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Successful download'&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Download Failed'&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_links&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;links_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;download_from_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'./downloads/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Dockerfile&lt;/strong&gt;: É básicamente a receita do bolo, ou seja, contém todas as dependências necessárias para gerar uma abstração do sistema operacional, em forma de imagem, e utilizando os recursos disponíveis em sua maquina.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;c&quot;&gt;# Pull official base image&lt;/span&gt;
+FROM python:3.8.1-slim-buster
+&lt;span class=&quot;c&quot;&gt;# Set envrionment variables&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Prevents Python from writing pyc files to disc (equivalent to python -B option)&lt;/span&gt;
+ENV PYTHONDONTWRITEBYTECODE 1
+&lt;span class=&quot;c&quot;&gt;# Prevents Python from buffering stdout and stderr (equivalent to python -u option)&lt;/span&gt;
+ENV PYTHONBUFFERED 1
+&lt;span class=&quot;c&quot;&gt;# Language&lt;/span&gt;
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+&lt;span class=&quot;c&quot;&gt;# Install system dependencies&lt;/span&gt;
+RUN apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    curl unzip wget &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    xvfb &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    ffmpeg
+&lt;span class=&quot;c&quot;&gt;# install geckodriver and firefox&lt;/span&gt;
+RUN &lt;span class=&quot;nv&quot;&gt;GECKODRIVER_VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;curl https://github.com/mozilla/geckodriver/releases/latest | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-Po&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'v[0-9]+.[0-9]+.[0-9]+'&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    wget https://github.com/mozilla/geckodriver/releases/download/&lt;span class=&quot;nv&quot;&gt;$GECKODRIVER_VERSION&lt;/span&gt;/geckodriver-&lt;span class=&quot;nv&quot;&gt;$GECKODRIVER_VERSION&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-linux64&lt;/span&gt;.tar.gz &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-zxf&lt;/span&gt; geckodriver-&lt;span class=&quot;nv&quot;&gt;$GECKODRIVER_VERSION&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-linux64&lt;/span&gt;.tar.gz &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; /usr/local/bin &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x /usr/local/bin/geckodriver &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;rm &lt;/span&gt;geckodriver-&lt;span class=&quot;nv&quot;&gt;$GECKODRIVER_VERSION&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-linux64&lt;/span&gt;.tar.gz
+
+RUN &lt;span class=&quot;nv&quot;&gt;FIREFOX_SETUP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;firefox-setup.tar.bz2 &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    apt-get purge firefox &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$FIREFOX_SETUP&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://download.mozilla.org/?product=firefox-latest&amp;amp;os=linux64&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;xjf &lt;span class=&quot;nv&quot;&gt;$FIREFOX_SETUP&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; /opt/ &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /opt/firefox/firefox /usr/bin/firefox &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$FIREFOX_SETUP&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Set working directory&lt;/span&gt;
+ENV APP_HOME /usr/src/app
+WORKDIR /&lt;span class=&quot;nv&quot;&gt;$APP_HOME&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Install python dependencies&lt;/span&gt;
+RUN pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt; pip
+COPY ./requirements.txt /usr/src/app/requirements.txt
+RUN pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt
+&lt;span class=&quot;c&quot;&gt;# Copy project&lt;/span&gt;
+COPY &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$APP_HOME&lt;/span&gt;/
+
+CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="Selenium" /><category term="Youtube" /><summary type="html">Motivação Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.</summary></entry><entry><title type="html">Seleção de fundos de investimento imobiliário utilizando Python</title><link href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/" rel="alternate" type="text/html" title="Seleção de fundos de investimento imobiliário utilizando Python" /><published>2020-09-08T00:00:00-03:00</published><updated>2020-09-08T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">&lt;h1 id=&quot;como-escolher-fundos-de-investimento-imobiliário&quot;&gt;Como escolher Fundos de Investimento Imobiliário&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-são-fundos-de-investimento-imobiliário-fiis&quot;&gt;O que são Fundos de investimento imobiliário (FIIs)?&lt;/h2&gt;
 &lt;p&gt;São fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.&lt;/p&gt;
