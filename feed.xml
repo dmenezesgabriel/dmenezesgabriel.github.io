@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-10T09:26:27-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Download de uma playlist Youtube Mix com Python, Selenium e Docker</title><link href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/" rel="alternate" type="text/html" title="Download de uma playlist Youtube Mix com Python, Selenium e Docker" /><published>2020-09-10T00:00:00-03:00</published><updated>2020-09-10T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/youtube-mix-download-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">&lt;h2 id=&quot;motivação&quot;&gt;Motivação&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-14T07:46:47-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Docker e Docker Compose no Raspberry Pi</title><link href="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/" rel="alternate" type="text/html" title="Como instalar Docker e Docker Compose no Raspberry Pi" /><published>2020-09-14T00:00:00-03:00</published><updated>2020-09-14T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/">&lt;h2 id=&quot;o-que-é-docker-e-porque-docker&quot;&gt;O que é Docker, e porque Docker?&lt;/h2&gt;
+&lt;p&gt;O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.&lt;/p&gt;
+
+&lt;p&gt;Para os desenvolvedores, não há mais a desculpa “mas na minha máquina funcionou! Deve ser algum problema na sua…”.&lt;/p&gt;
+
+&lt;h2 id=&quot;alem-da-segurança-qual-é-a-vantagem-desse-isolamento&quot;&gt;Alem da segurança, qual é a vantagem desse isolamento?&lt;/h2&gt;
+&lt;p&gt;O Docker permite a exclusão de seus containers e imagens sem que isso afete qualquer outro componente da maquina em que está instalado.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalando-o-docker&quot;&gt;Instalando o Docker&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Atualize o sistema
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Instale os pré requisitos
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apt-transport-https ca-certificates software-properties-common &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Baixe e instale o Docker
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; get.docker.com &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-docker.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sh get-docker.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Depois da instalação, é necessário adicionarmos o usuário &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pi&lt;/code&gt; ao grupo docker, para podermos executar imagens sem sudo
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker pi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Importe a chave GPG
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;curl https://download.docker.com/linux/raspbian/gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Configure o repositório Docker
+    &lt;ul&gt;
+      &lt;li&gt;Abra o arquivo com o editor de texto
+        &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Adicione a linha
+        &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://download.docker.com/linux/raspbian/ stretch stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Habilite o Docker para executar sempre que o sistema for iniciado
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reinicie o sistema para que as alterações tenham efeito
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;E verifique se tudo deu certo com o comando abaixo:
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; hello-world
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;instalando-o-docker-compose&quot;&gt;Instalando o Docker Compose&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Instalando as dependências necessárias
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3-pip libffi-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Instalando o Docker Compose
+    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker-compose
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;observações&quot;&gt;Observações&lt;/h2&gt;
+&lt;p&gt;Dependendo da arquitetura do modelo, e do sistema operacional instalado no Raspberry Pi você terá que utilizar imagens ARM, no caso do python por exemplo:&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FROM arm32v7/python:3.7-slim-buster
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="RaspberryPi" /><summary type="html">O que é Docker, e porque Docker? O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.</summary></entry><entry><title type="html">Download de uma playlist Youtube Mix com Python, Selenium e Docker</title><link href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/" rel="alternate" type="text/html" title="Download de uma playlist Youtube Mix com Python, Selenium e Docker" /><published>2020-09-10T00:00:00-03:00</published><updated>2020-09-10T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/youtube-mix-download-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">&lt;h2 id=&quot;motivação&quot;&gt;Motivação&lt;/h2&gt;
 &lt;p&gt;Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.&lt;/p&gt;
 
 &lt;p&gt;O que seria do treino de cada dia sem uma trilha sonora, não é mesmo?&lt;/p&gt;
