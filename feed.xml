@@ -1,79 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-16T08:58:05-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Docker e Docker Compose no Raspberry Pi</title><link href="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/" rel="alternate" type="text/html" title="Como instalar Docker e Docker Compose no Raspberry Pi" /><published>2020-09-14T00:00:00-03:00</published><updated>2020-09-14T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/">&lt;h2 id=&quot;o-que-é-docker-e-porque-docker&quot;&gt;O que é Docker, e porque Docker?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-17T07:30:12-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Docker e Docker Compose no Raspberry Pi</title><link href="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/" rel="alternate" type="text/html" title="Como instalar Docker e Docker Compose no Raspberry Pi" /><published>2020-09-14T00:00:00-03:00</published><updated>2020-09-14T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/">&lt;h2 id=&quot;o-que-é-docker-e-porque-docker&quot;&gt;O que é Docker, e porque Docker?&lt;/h2&gt;
+
 &lt;p&gt;O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.&lt;/p&gt;
 
 &lt;p&gt;Para os desenvolvedores, não há mais a desculpa “mas na minha máquina funcionou! Deve ser algum problema na sua…”.&lt;/p&gt;
 
 &lt;h2 id=&quot;além-da-segurança-qual-é-a-vantagem-desse-isolamento&quot;&gt;Além da segurança, qual é a vantagem desse isolamento?&lt;/h2&gt;
+
 &lt;p&gt;O Docker permite a exclusão de seus containers e imagens sem que isso afete qualquer outro componente da maquina em que está instalado.&lt;/p&gt;
 
 &lt;h2 id=&quot;instalando-o-docker&quot;&gt;Instalando o Docker&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Atualize o sistema
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Instale os pré requisitos
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apt-transport-https ca-certificates software-properties-common &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Baixe e instale o Docker
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; get.docker.com &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-docker.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sh get-docker.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Depois da instalação, é necessário adicionarmos o usuário &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pi&lt;/code&gt; ao grupo docker, para podermos executar imagens sem sudo
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker pi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Importe a chave GPG
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;curl https://download.docker.com/linux/raspbian/gpg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Configure o repositório Docker
-    &lt;ul&gt;
-      &lt;li&gt;Abra o arquivo com o editor de texto
-        &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Adicione a linha
-        &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://download.docker.com/linux/raspbian/ stretch stable
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Habilite o Docker para executar sempre que o sistema for iniciado
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Reinicie o sistema para que as alterações tenham efeito
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; now
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;E verifique se tudo deu certo com o comando abaixo:
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; hello-world
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Atualize o sistema&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Instale os pré requisitos&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apt-transport-https ca-certificates software-properties-common &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Baixe e instale o Docker&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-fsSL&lt;/span&gt; get.docker.com &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; get-docker.sh &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sh get-docker.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Depois da instalação, é necessário adicionarmos o usuário &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pi&lt;/code&gt; ao grupo docker, para podermos executar imagens sem sudo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker pi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Importe a chave GPG&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;curl https://download.docker.com/linux/raspbian/gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Configure o repositório Docker&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Abra o arquivo com o editor de texto&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adicione a linha&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://download.docker.com/linux/raspbian/ stretch stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Habilite o Docker para executar sempre que o sistema for iniciado&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl &lt;span class=&quot;nb&quot;&gt;enable &lt;/span&gt;docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Reinicie o sistema para que as alterações tenham efeito&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;E verifique se tudo deu certo com o comando abaixo:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; hello-world
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;instalando-o-docker-compose&quot;&gt;Instalando o Docker Compose&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Instalando as dependências necessárias
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3-pip libffi-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Instalando o Docker Compose
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker-compose
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Instalando as dependências necessárias&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3-pip libffi-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Instalando o Docker Compose&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;docker-compose
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;observações&quot;&gt;Observações&lt;/h2&gt;
+
 &lt;p&gt;Dependendo da arquitetura do modelo, e do sistema operacional instalado no Raspberry Pi você terá que utilizar imagens ARM, no caso do python por exemplo:&lt;/p&gt;
+
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FROM arm32v7/python:3.7-slim-buster
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="RaspberryPi" /><summary type="html">O que é Docker, e porque Docker? O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.</summary></entry><entry><title type="html">Download de uma playlist Youtube Mix com Python, Selenium e Docker</title><link href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/" rel="alternate" type="text/html" title="Download de uma playlist Youtube Mix com Python, Selenium e Docker" /><published>2020-09-10T00:00:00-03:00</published><updated>2020-09-10T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/youtube-mix-download-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">&lt;h2 id=&quot;motivação&quot;&gt;Motivação&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="RaspberryPi" /><summary type="html">O que é Docker, e porque Docker?</summary></entry><entry><title type="html">Download de uma playlist Youtube Mix com Python, Selenium e Docker</title><link href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/" rel="alternate" type="text/html" title="Download de uma playlist Youtube Mix com Python, Selenium e Docker" /><published>2020-09-10T00:00:00-03:00</published><updated>2020-09-10T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/youtube-mix-download-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">&lt;h2 id=&quot;motivação&quot;&gt;Motivação&lt;/h2&gt;
+
 &lt;p&gt;Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.&lt;/p&gt;
 
 &lt;p&gt;O que seria do treino de cada dia sem uma trilha sonora, não é mesmo?&lt;/p&gt;
@@ -91,6 +126,7 @@
 &lt;/ol&gt;
 
 &lt;h1 id=&quot;python-selenium-e-docker&quot;&gt;Python, Selenium e Docker&lt;/h1&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;: Oferece simplicidade no desenvolvimento do código, e é bastante útilizado para realização de web scrapping.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Selenium&lt;/strong&gt;: Framework de automação web, optei por sua utilização devido a biblioteca &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requests&lt;/code&gt; do python não ser capaz de lidar com o javascript utilizado para gerar o conteúdo da página.&lt;/li&gt;
@@ -263,9 +299,10 @@ RUN pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&qu
 COPY &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$APP_HOME&lt;/span&gt;/
 
 CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /dev/null
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="Selenium" /><category term="Youtube" /><summary type="html">Motivação Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.</summary></entry><entry><title type="html">Seleção de fundos de investimento imobiliário utilizando Python</title><link href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/" rel="alternate" type="text/html" title="Seleção de fundos de investimento imobiliário utilizando Python" /><published>2020-09-08T00:00:00-03:00</published><updated>2020-09-08T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">&lt;h1 id=&quot;como-escolher-fundos-de-investimento-imobiliário&quot;&gt;Como escolher Fundos de Investimento Imobiliário&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Docker" /><category term="Selenium" /><category term="Youtube" /><summary type="html">Motivação</summary></entry><entry><title type="html">Seleção de fundos de investimento imobiliário utilizando Python</title><link href="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/" rel="alternate" type="text/html" title="Seleção de fundos de investimento imobiliário utilizando Python" /><published>2020-09-08T00:00:00-03:00</published><updated>2020-09-08T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/selecao-fundos-imobiliarios-python/">&lt;h1 id=&quot;como-escolher-fundos-de-investimento-imobiliário&quot;&gt;Como escolher Fundos de Investimento Imobiliário&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-são-fundos-de-investimento-imobiliário-fiis&quot;&gt;O que são Fundos de investimento imobiliário (FIIs)?&lt;/h2&gt;
+
 &lt;p&gt;São fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.&lt;/p&gt;
 
 &lt;p class=&quot;notice--info&quot;&gt;&lt;em&gt;Fundos de investimento imobiliários não são o mesmo que crowdfunding imobiliário&lt;/em&gt;&lt;/p&gt;
@@ -273,6 +310,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Seus investidores recebem retorno via dividendos ou na valorização de cotas. Os dividendos recebidos, também conhecidos como aluguéis, são distribuídos mensalmente e &lt;em&gt;isêntos de imposto de renda&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Alguns de seus benefícios são:&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Não há incidência de imposto sobre proventos, diferente do aluguél comum.&lt;/li&gt;
   &lt;li&gt;Não há custo com reformas.&lt;/li&gt;
@@ -284,18 +322,20 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;tipos&quot;&gt;Tipos&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Fundos de renda&lt;/strong&gt;: São aqueles constituídos por imóveis comprados, ou construídos com fins de aluguel. A renda líquida é distribuída para os cotistas. Seus contratos tendem a ser mais longos conferindo maior segurança.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Fundos de compra e venda&lt;/strong&gt;: Tem por objetivo comprar imóveis a um valor mais baixo, que possuam expectativa de valorização e vende-lôs realizando lucro.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Fundos de desenvolvimento&lt;/strong&gt;: Consistem na compra de terrenos para construção de empreendimentos para venda ou aluguél, as vezes com o objetivo de ganho na valorização dos imóveis. Os riscos podem surgir do embargo nas obras ou do próprio gerenciamento da construção, de imprevistos com o orçamento, problemas com licenças ambientais ou atrasos na entrega.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Fundos de recebíveis imobiliários&lt;/strong&gt;: Também conhecidos como fundos de papéis, tem como principais representantes em seu portfolio de ativos os Certificados de Recebíveis Imobiliários (“CRI”), Letras Hipotecárias (“LH”) e Letras de Crédito Imobiliário (“LCI”).&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Fundos de fundos&lt;/strong&gt;: São similares a fundos de ações. Este tipo de fundo conta com maior taxa administrativa devido as taxas dos fundos em que este tipo de fundo tem participação, fora a sua própria, contudo possui maior diversificação.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Fundos de tijolo&lt;/strong&gt;: Apresentam os imóveis físicos, essa aplicação tem como objetivo adquirir as propriedades para alugar,  considerando o potencial de valorização ao longo do tempo.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Fundos de tijolo&lt;/strong&gt;: Apresentam os imóveis físicos, essa aplicação tem como objetivo adquirir as propriedades para alugar, considerando o potencial de valorização ao longo do tempo.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;setores-de-fundos-de-investimento-imobiliários&quot;&gt;Setores de fundos de investimento imobiliários&lt;/h2&gt;
 
 &lt;h3 id=&quot;shoppings&quot;&gt;Shoppings&lt;/h3&gt;
+
 &lt;p&gt;Apesar do mercado digital (E-commerce - Comércio eletrônico) ter se desenvolvido bastante, as pessoas ainda não deixaram de se dirigir aos shoppings tanto para comprar produtos como ir ao cinema, ou comer em um restaurante.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -304,9 +344,11 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;titulos-e-valores-imobiliários&quot;&gt;Titulos e valores imobiliários&lt;/h3&gt;
+
 &lt;p&gt;Os fundos de recebíveis, também conhecidos como fundos de papéis, trabalham predominantemente com ativos de renda fixa, mas com maior risco. Assim, as rentabilidades oferecidas costumam superar o CDI (O que é um requisito essêncial para ser considerado como opção viável de investimento).&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Principáis tipos de pápeis&lt;/strong&gt;:&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;CRI (Certificado de Recebíveis Imobiliários).&lt;/li&gt;
   &lt;li&gt;LCI (Letras de Crédito Imobiliário).&lt;/li&gt;
@@ -314,6 +356,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;lajes-corporativas&quot;&gt;Lajes Corporativas&lt;/h3&gt;
+
 &lt;p&gt;O segmento de lajes corporativas, ou seja, predominantemente composto de edifícios comerciais, é o segundo maior no Brasil considerando o patrimônio somado de todos os fundos com cotas negociadas em bolsa.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -321,6 +364,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;hibrído&quot;&gt;Hibrído&lt;/h3&gt;
+
 &lt;p&gt;Os FIIs híbridos podem investir em diferentes aplicações, expondo-se em todos os setores de imóveis, recebíveis imobiliários (CRI, LCI) ou em outros fundos imobiliários (cotas de FIIs).&lt;/p&gt;
 
 &lt;ul&gt;
@@ -328,6 +372,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;residêncial&quot;&gt;Residêncial&lt;/h3&gt;
+
 &lt;p&gt;Podem abranger a incorporação de novos edifícios, a compra e venda de imóveis e a renda gerada pelo aluguel das unidades.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -335,6 +380,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;hotel&quot;&gt;Hotel&lt;/h3&gt;
+
 &lt;p&gt;Este setor gera lucro das seguintes maneiras:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -344,6 +390,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;hospital&quot;&gt;Hospital&lt;/h3&gt;
+
 &lt;p&gt;Todos os fundos são monoativos, ou seja, possuem apenas um imóvel. Eventualmente, os locatários podem optar pela saída do imóvel ou não renovar o contrato. Assim, até encontrar um novo inquilino, o fundo perderia totalmente a sua receita de aluguel, além de precisar lidar com os gastos do imóvel.&lt;/p&gt;
 
 &lt;p&gt;Além disso, esse é um formato de imóvel muito personalizado para hospitais. Portanto, um novo locatário acabaria sendo, necessariamente, do mesmo segmento.&lt;/p&gt;
@@ -351,9 +398,11 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Finalmente, há outro risco que é a inadimplência. Claro que ela afeta outros setores, mas para os hospitais há um desafio adicional. Caso o locatário passe a não cumprir com os pagamentos, o despejo pode ser dificultado pelo juiz em função da função social de um hospital. Prova disso é que os fundos de hospitais têm enfrentado decisões judiciais e os seus resultados foram favoráveis aos locatários.&lt;/p&gt;
 
 &lt;h3 id=&quot;logística&quot;&gt;Logística&lt;/h3&gt;
+
 &lt;p&gt;Ao contrário de outros tipos de negócio físico, os fundos logísticos apresentam uma demanda crescente. Isso deve-se predominantemente ao crescimento do e-commerce, apesar de suas vendas serem realizada em ambiente digital, ainda é necessário garantir a entrega dos produtos fisicamente.&lt;/p&gt;
 
 &lt;h2 id=&quot;características&quot;&gt;Características&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Mono ativo: Possuem apenas um único ativo.&lt;/li&gt;
   &lt;li&gt;Multi ativo: Seu portfólio possui diversos ativos.&lt;/li&gt;
@@ -362,6 +411,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;localização&quot;&gt;Localização&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;O imóvel está em um local que é pertinente ao setor de atuação?&lt;/li&gt;
   &lt;li&gt;O imóvel está conservado e possui fácil acesso?&lt;/li&gt;
@@ -371,6 +421,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;taxa-de-vacânciaocupação&quot;&gt;Taxa de vacância/ocupação&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Quanto maior a taxa de vacância, há menos inquilinos para pagar aluguel, consequentemente o valor de aluguel a ser recebido pode diminuir.&lt;/li&gt;
   &lt;li&gt;Uma taxa de vacância baixa pode significar que os imóveis são bem localizados, e o fundo possui boa gestão.&lt;/li&gt;
@@ -379,6 +430,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;dividend-yield&quot;&gt;Dividend Yield&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;A renda é recorrente?&lt;/li&gt;
   &lt;li&gt;Os valores apresentam baixa volatilidade?&lt;/li&gt;
@@ -386,12 +438,14 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;padrão-construtivo&quot;&gt;Padrão construtivo&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Possui certificação AAA? (Opcional)&lt;/li&gt;
   &lt;li&gt;Os empreendimentos apresentam uma aparência atrativa?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;diversificação&quot;&gt;Diversificação&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Multi ativos&lt;/li&gt;
   &lt;li&gt;Multi inquilino&lt;/li&gt;
@@ -399,11 +453,13 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;líquidez&quot;&gt;Líquidez&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;As cotas do fundo devem possuir negociação diária acima de R$100.000,00.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;valuation&quot;&gt;Valuation&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;P/VPA&lt;/strong&gt;: Este indicador relaciona o preço da cota ao valor patrimonial proporcional a ela, e indica quanto os cotistas aceitam pagar pelo patrimônio líquido da fundo. Este valor é obtido através da divisão entre o preço da ação e Valor Patrimonial por Ação (VPA).&lt;/p&gt;
@@ -417,11 +473,13 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;relação-com-investidores&quot;&gt;Relação com investidores&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Divulgação de relatórios é consistente, e seus relatório são claros e explicativos?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;demais-fatores&quot;&gt;Demais fatores&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;O fundo possui pelo menos um ano de idade?&lt;/li&gt;
   &lt;li&gt;Fundos em fase de renda minima garantida podem apresentar valores de proventos insustentáveis a longo prazo.&lt;/li&gt;
@@ -431,11 +489,13 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;constituição-de-carteira&quot;&gt;Constituição de carteira&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Diversificação de 4 ~ 10 fundos para facilitar a administração.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;bônus&quot;&gt;Bônus&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Fique atento aos eventos de &lt;strong&gt;subscrição&lt;/strong&gt; para poder realizar &lt;strong&gt;arbitragem&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -444,6 +504,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;script src=&quot;https://gist.github.com/b2bf3eb049d48d1315d83db9e5fcad36.js&quot;&gt; &lt;/script&gt;
 
 &lt;h2 id=&quot;links-úteis&quot;&gt;Links úteis&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.fundsexplorer.com.br/&quot;&gt;Funds Exploer&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://trademap.com.br/&quot;&gt;Trademap&lt;/a&gt;&lt;/li&gt;
@@ -458,9 +519,11 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p class=&quot;notice--warning&quot;&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt;: Apenas páginas indexadas podem ser ranqueadas!&lt;/p&gt;
 
 &lt;h2 id=&quot;como-saber-se-a-sua-página-está-indexada-no-google&quot;&gt;Como saber se a sua página está indexada no Google?&lt;/h2&gt;
+
 &lt;p&gt;Simplesmente vá até a página do &lt;strong&gt;Google&lt;/strong&gt; em seu navegador e digite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site:seu-site.com.br&lt;/code&gt;, se você conseguir visualizar o seu site nos resultados, significa que ele já está indexado.&lt;/p&gt;
 
 &lt;h2 id=&quot;fatores-que-deverão-ser-indexados&quot;&gt;Fatores que deverão ser indexados&lt;/h2&gt;
+
 &lt;p&gt;Há aproximadamente 200 parâmetros que são utilizados para melhorar a indexação de uma página, contudo vamos selecionar alguns dos principais, se tratando não de conteúdo, mas estrutura.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -481,6 +544,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Dica&lt;/strong&gt;: A maioria dos itens listados podem ser implementados com a tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt; % SEO % &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt; dentro da sessão &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt; do site, onde o único requisito é a utilização dos plugins: jekyll-paginate e jekyll-seo-tag em seu arquivo de configuração (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;). Estes plugins acrescentarão a maioria das tags necessárias para um bom SEO.&lt;/p&gt;
 
 &lt;h3 id=&quot;título-e-descrição&quot;&gt;Título e Descrição&lt;/h3&gt;
+
 &lt;p&gt;O Título deve corresponder à sua descrição e ao conteúdo do artigo, toda página de seu site deve conter título e descrição única. Caso você não especifique uma descrição, o primeiro parágrafo de sua página será considerado nos resultados de busca.&lt;/p&gt;
 
 &lt;p&gt;O primeiro parágrafo pode muitas vezes não apresentar um conteúdo relevante e correspondente ao título da página, a recomendação é que se utilize uma descrição breve que forneça a ideia geral do artigo, e assim como o título contenha algumas das palavras chave. A descrição deve respeitar o limite de 160 caracteres, um volume maior pode ser considerado spam pelos mecanismos de busca.&lt;/p&gt;
@@ -492,6 +556,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p class=&quot;notice--warning&quot;&gt;Lembre-se: Você deve explicitamente adicionar o título e descrição ao &lt;strong&gt;Front Matter&lt;/strong&gt; presente em todas as suas páginas, e sua descrição deverá ser truncada em 160 caracteres. Adicione as palavras chave ao ínicio da descrição para que os usuários encontrem sua página mais rapidamente em suas buscas no Google.&lt;/p&gt;
 
 &lt;h3 id=&quot;estrutura-de-url&quot;&gt;Estrutura de URL&lt;/h3&gt;
+
 &lt;p&gt;Uma URL transmite muitas informações sobre o conteúdo, tanto usuários como robôs esperam que ela esteja em sincronia com o assunto abordado, portanto faça que ela seja legível. Uma boa estrutura de URL gera maior taxa de cliques.&lt;/p&gt;
 
 &lt;p&gt;Atualmente mecanismos de busca são inteligentes o suficiente para detectar se a URL possui relação com o conteúdo da página, e muitos sites útilizam &lt;strong&gt;ids&lt;/strong&gt; em suas estrutura, o que prejudica tanto a transmissão de informação ao usuário quanto aos robôs de busca.&lt;/p&gt;
@@ -503,6 +568,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;&lt;em&gt;No Jekyll, uma URL pode ser alterada renomeando o arquivo na pasta _posts.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;mapa-do-site&quot;&gt;Mapa do site&lt;/h2&gt;
+
 &lt;p&gt;Um mapa do site é uma lista de links que contém todas suas páginas, ele estará no formato &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt;. Isso ajuda os robôs de mecanismos de pesquisa a rastrearem facilmente seu site. Ele também terá metadados como datas de postagens, páginas, data da última modificação e frequência de atualização.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/sitemap.xml&quot;&gt;Mapa deste site&lt;/a&gt;&lt;/p&gt;
@@ -514,21 +580,27 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Deixar um link para o mapa do site disponível também é uma boa ideia. Digamos que alguém faça uma referência a uma postagem sua em um blog bem classificado, há possibilidade de um robô rastrear esse link e chegar à sua postagem.&lt;/p&gt;
 
 &lt;h2 id=&quot;tag-alt-para-imagens&quot;&gt;Tag alt para imagens&lt;/h2&gt;
+
 &lt;p&gt;As tags alternativas de uma imagem não são nada mais que o texto que é mostrado caso uma imagem não carregue. Esta tag é lida pelos robôs, o que ajuda os mecanismos de pesquisa a saber sobre o que se trata a imagem.&lt;/p&gt;
 
 &lt;h2 id=&quot;conexão-com-mídias-sociais&quot;&gt;Conexão com mídias sociais&lt;/h2&gt;
+
 &lt;p&gt;A conexão com redes sociais pode ser conseguida através de robôões de compartilhamento na parte inferior de suas postagens.&lt;/p&gt;
 
 &lt;h2 id=&quot;open-graph-e-cartões-do-twitter&quot;&gt;Open graph e cartões do Twitter&lt;/h2&gt;
+
 &lt;p&gt;O Open Graph é uma forma de tornar mais fácil o entendimento de um link compartilhado, é possível que algumas informações sejam perdidas, ou dados indesejados sejam detectados. Para evitar que isso ocorra e para que seu link seja melhor reconhecido pelas redes sociais, a implementação do Open graph é necessária, e pode ser realizada através de plugins como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-seo&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;favicon&quot;&gt;Favicon&lt;/h2&gt;
+
 &lt;p&gt;Um favicon é um arquivo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ico&lt;/code&gt; geralmente com as dimensões de 16x16. Este ícone é o que a maioria dos visitantes lembrará do seu site, ele deve representar o seu site de algum modo, para que quando um usuário se depare com ele em sua barra de favoritos, consiga o assimilar a sua página.&lt;/p&gt;
 
 &lt;h1 id=&quot;responsividade&quot;&gt;Responsividade&lt;/h1&gt;
+
 &lt;p&gt;Após 21 de abril de 2015, o Google tornou a responsividade um parâmetro de indexação e ranqueamento essêncial para SEO. Quase todos os temas Jekyll, mesmo o tema default, são responsivos. Caso você esteja desenvolvendo um novo tema considere um layout responsivo que se ajuste a tamanhos menores de tela.&lt;/p&gt;
 
 &lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/jekyll-sitemap/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/optimize-jekyll-seo/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
@@ -541,18 +613,23 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Hoje existem monitoramentos que verificam queda de conversão, comportamentos inesperados em outros players do fluxo de pagamentos, integridade de diversos serviços internos e fluxos financeiros. Mas a quais características devemos nos atentar para sermos eficientes?&lt;/p&gt;
 
 &lt;h3 id=&quot;um-monitoramento-deve-possuir-um-dono&quot;&gt;Um monitoramento deve possuir um dono&lt;/h3&gt;
+
 &lt;p&gt;Quando é encontrado algum problema, é necessário que haja uma pessoa, um time, ou times de pessoas responsáveis para soluciona-lo, se não é algo crítico que necessite de resolução ou que seja possível de resolver, não há motivo de tirar a atenção das pessoas de outras tarefas mais relevantes.&lt;/p&gt;
 
 &lt;h3 id=&quot;o-problema-monitorado-precisa-de-um-fluxo-de-resolução-definido&quot;&gt;O problema monitorado precisa de um fluxo de resolução definido&lt;/h3&gt;
+
 &lt;p&gt;Quando nos depararmos com um alerta, eu vou olhar para você, você vai olhar para mim e o que vamos fazer? Está não é a situação na qual queremos nos encontrar uma vez que sabemos o que estamos procurando, é bem provável que se existe um alerta já tenhamos presenciado o cenário do problema anteriormente.&lt;/p&gt;
 
 &lt;h3 id=&quot;um-monitoramento-deve-se-atentar-apenas-a-um-único-problema&quot;&gt;Um monitoramento deve se atentar apenas a um único problema&lt;/h3&gt;
+
 &lt;p&gt;Quanto mais problemas tentamos cercar em um único monitoramento, ou módulo responsável pela busca de problemas, maior a complexidade, dificuldade de manutenção, revisão e entendimento, não precisamos procurar pelo problema dentro do alerta quando no olho do furacão, não é mesmo? Quanto mais claro e explicito melhor!&lt;/p&gt;
 
 &lt;h3 id=&quot;foco-na-performance&quot;&gt;Foco na performance&lt;/h3&gt;
+
 &lt;p&gt;A ferramenta que você utiliza é performática o suficiente para conseguir buscar pelo problema que você está buscando? Ela consegue percorrer o volume de dados necessário, e também no tempo necessário para que as pessoas certas sejam mobilizadas para atacar o prolema antes que ele se torne crítico, ou não seja mais passível de solução?&lt;/p&gt;
 
 &lt;h3 id=&quot;assertividade&quot;&gt;Assertividade&lt;/h3&gt;
+
 &lt;p&gt;Você conhece a história do menino e lobo? Havia um menino que morava com sua familia nas entranhas bosque, onde habitavam alguns animais selvagens. Certo dia esse menino resolveu pregar uma peça em seu irmão mais velho, adentrou em meio as arvores e gritou:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Socorro, socorro, há um lobo tentando me devorar!&quot;
@@ -563,6 +640,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Em algum momento a alta incidência de falsos positivos fará com que os alertas percam a credibilidade e não recebam a devida atenção.&lt;/p&gt;
 
 &lt;h2 id=&quot;por-onde-começar&quot;&gt;Por onde começar?&lt;/h2&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Entenda o real problema por qual você está buscando, uma vez que tenha isso claro fica fácil de encontra-lo uma vez que aparecer.&lt;/li&gt;
   &lt;li&gt;Garanta que o problema tenha um dono, responsável pela resolução.&lt;/li&gt;
@@ -577,6 +655,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;/ol&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Telemetria" /><category term="Monitoramento" /><category term="Python" /><summary type="html">Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como LogEntries e Datadog ou a stack ELK.</summary></entry><entry><title type="html">Git: Manual de sobrevivência do iniciante</title><link href="https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/" rel="alternate" type="text/html" title="Git: Manual de sobrevivência do iniciante" /><published>2020-08-25T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante</id><content type="html" xml:base="https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/">&lt;hr /&gt;
 
 &lt;h2 id=&quot;o-que-é-o-git&quot;&gt;O que é o Git?&lt;/h2&gt;
+
 &lt;p&gt;O &lt;strong&gt;Git&lt;/strong&gt; é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.&lt;/p&gt;
 
 &lt;p&gt;Diferente das outras opções de sistemas similares como o &lt;strong&gt;CSV&lt;/strong&gt; e &lt;strong&gt;SVN&lt;/strong&gt;, a arquitetura do git é descentralizada, ou seja, não existe um repositório oficial, apesar de existir esta possibilidade, então em cada repositório incluindo o da maquina do contribuidor, existira uma cópia completa e funcional, permitindo a utilização das operações do Git sem a necessidade de estar online.&lt;/p&gt;
@@ -586,6 +665,7 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;Também é comum que no constante desenvolvimento dos projetos hajam alterações que comprometam o seu funcionamento, neste caso o Git permite que essas alterações sejam revertidas de maneira rápida e simples.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-isso-funciona&quot;&gt;Como isso funciona?&lt;/h2&gt;
+
 &lt;p&gt;O Git trabalha em uma estrutura de ramificações, onde cada alteração de código cria um novo ponto na ramificação atual, essas ramificações, mais conhecidas como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branchs&lt;/code&gt; são criadas no desenvolvimento de novas funcionalidades, e baseadas em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branchs&lt;/code&gt; já existentes.&lt;/p&gt;
 
 &lt;p&gt;Cada contribuidor faz uma cópia local do repositório remoto original e cria as modificações necessárias, essa cópia será enviada novamente para o repositório remoto.&lt;/p&gt;
@@ -593,47 +673,70 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;p&gt;&lt;strong&gt;Passos no fluxo de contribuição de um projeto utilizando Git&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;HTTPS ou SSH&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Criar uma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt;, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git branch &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
+  &lt;li&gt;Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone &amp;lt;HTTPS ou SSH&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Criar uma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt;, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git branch &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# Alterar para a ramificação criada&lt;/span&gt;
 git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Conforme vamos criando e modificando os arquivos, adicionamos essas modificações
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;E as dividimos em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;commits&lt;/code&gt;, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:&lt;/p&gt;
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Uma vez que todas alterações forem finalizadas, vamos enviar a nossa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--set-upstream&lt;/span&gt; origin &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:&lt;/p&gt;
-    &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; with lease
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Conforme vamos criando e modificando os arquivos, adicionamos essas modificações&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;E as dividimos em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;commits&lt;/code&gt;, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Uma vez que todas alterações forem finalizadas, vamos enviar a nossa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--set-upstream&lt;/span&gt; origin &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;branch&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; with lease
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
   &lt;li&gt;
     &lt;p&gt;Então é aberto um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pull Request&lt;/code&gt;, onde você pede ao dono do repositório que suas contribuições sejam incluídas nele.&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; que atualizara o repositório original com as suas modificações.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;merge&lt;/code&gt; que atualizara o repositório original com as suas modificações.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;comandos-mais-utilizados&quot;&gt;Comandos mais utilizados&lt;/h2&gt;
 
 &lt;h3 id=&quot;iniciando-um-repositório&quot;&gt;Iniciando um repositório&lt;/h3&gt;
+
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local&quot;&gt;Buscar e aplicar modificações do repositório remoto no repositório local&lt;/h3&gt;
+
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git pull &lt;span class=&quot;nt&quot;&gt;--prune&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -652,10 +755,12 @@ git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add&quot;&gt;Removendo um arquivo da área de staging ou desfazendo um git add&lt;/h3&gt;
+
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git reset &amp;lt;nome &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;arquivo&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;rebase&quot;&gt;Rebase&lt;/h3&gt;
+
 &lt;p&gt;As modificações que você está fazendo em sua &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt; local podem ficar defasadas em relação ao repositório remoto, então é possível alterar a base de sua ramificação local para a mais atual com o comando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rebase&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase origin/master
@@ -682,16 +787,18 @@ git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;branch&lt;/code&gt;: Listar, criar ou deletar ramificações.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--merged&lt;/code&gt;: Ramificações as quais suas modificações já foram aplicadas ao repositório original.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; | &lt;/code&gt;: Sequência de um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ou&lt;/code&gt; mais comandos.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt;: Sequência de um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ou&lt;/code&gt; mais comandos.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;egrep&lt;/code&gt;: Mostrar linhas que correspondem a um padrão.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d, --delete:&lt;/code&gt; Deletar ramificação.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;arquivar-modificações&quot;&gt;Arquivar modificações&lt;/h3&gt;
+
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual&quot;&gt;Mostrar diferenças entre as modificações armazenadas e a ramificação atual&lt;/h3&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git stash show -p
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -702,15 +809,18 @@ git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;o-que-é-github&quot;&gt;O que é GitHub&lt;/h2&gt;
+
 &lt;p&gt;Enquanto o Git é um sistema de versionamento, o &lt;strong&gt;GitHub&lt;/strong&gt; é uma plataforma para criação de repositórios remotos Git, possibilitando que outras pessoas possam clonar esse repositório localmente, realizar alterações e enviar essas alterações de volta ao repositório remoto.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Alternativas&lt;/strong&gt;&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;GitLab&lt;/li&gt;
   &lt;li&gt;BitBucket&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://explainshell.com/explain?cmd=git+log+--all+--graph+--decorate+--oneline+--simplify-by-decoration&quot;&gt;Explain Shell&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="Github" /><category term="Iniciante" /><category term="Comandos" /><summary type="html"></summary></entry><entry><title type="html">Você conhece a origem do “Hello World!”?</title><link href="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/origens-do-hello-world/" rel="alternate" type="text/html" title="Você conhece a origem do “Hello World!”?" /><published>2020-08-19T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/origens-do-hello-world</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/origens-do-hello-world/">&lt;p&gt;Tradicionalmente, programas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.&lt;/p&gt;
@@ -742,4 +852,4 @@ git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;
 &lt;p&gt;E você, já escreveu seu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; ou melhor, seu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hello, World!&lt;/code&gt; hoje?&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Hello World!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programação" /><category term="Python" /><category term="Programação" /><category term="Curiosidades" /><summary type="html">Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.</summary></entry></feed>
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Hello World!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programação" /><category term="Python" /><category term="Programação" /><category term="Curiosidades" /><summary type="html">Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.</summary></entry></feed>

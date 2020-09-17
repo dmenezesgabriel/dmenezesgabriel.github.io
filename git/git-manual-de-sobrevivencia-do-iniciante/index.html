@@ -155,7 +155,9 @@
           Gabriel Menezes
           <span class="site-subtitle"></span>
         </a>
-        <ul class="visible-links"></ul>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://dmenezesgabriel.github.io/datadriven/">DataDriven</a>
+            </li></ul>
         
         <button class="search__toggle" type="button">
           <span class="visually-hidden">Buscar</span>
@@ -425,6 +427,7 @@
         <hr />
 
 <h2 id="o-que-é-o-git">O que é o Git?</h2>
+
 <p>O <strong>Git</strong> é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.</p>
 
 <p>Diferente das outras opções de sistemas similares como o <strong>CSV</strong> e <strong>SVN</strong>, a arquitetura do git é descentralizada, ou seja, não existe um repositório oficial, apesar de existir esta possibilidade, então em cada repositório incluindo o da maquina do contribuidor, existira uma cópia completa e funcional, permitindo a utilização das operações do Git sem a necessidade de estar online.</p>
@@ -434,6 +437,7 @@
 <p>Também é comum que no constante desenvolvimento dos projetos hajam alterações que comprometam o seu funcionamento, neste caso o Git permite que essas alterações sejam revertidas de maneira rápida e simples.</p>
 
 <h2 id="como-isso-funciona">Como isso funciona?</h2>
+
 <p>O Git trabalha em uma estrutura de ramificações, onde cada alteração de código cria um novo ponto na ramificação atual, essas ramificações, mais conhecidas como <code class="language-plaintext highlighter-rouge">branchs</code> são criadas no desenvolvimento de novas funcionalidades, e baseadas em <code class="language-plaintext highlighter-rouge">branchs</code> já existentes.</p>
 
 <p>Cada contribuidor faz uma cópia local do repositório remoto original e cria as modificações necessárias, essa cópia será enviada novamente para o repositório remoto.</p>
@@ -441,47 +445,70 @@
 <p><strong>Passos no fluxo de contribuição de um projeto utilizando Git</strong>:</p>
 
 <ol>
-  <li>Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone &lt;HTTPS ou SSH&gt;
-</code></pre></div>    </div>
-  </li>
-  <li>Criar uma <code class="language-plaintext highlighter-rouge">branch</code>, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
+  <li>Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone &lt;HTTPS ou SSH&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>Criar uma <code class="language-plaintext highlighter-rouge">branch</code>, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
 <span class="c"># Alterar para a ramificação criada</span>
 git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
-</code></pre></div>    </div>
-  </li>
-  <li>Conforme vamos criando e modificando os arquivos, adicionamos essas modificações
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-p</span>
-</code></pre></div>    </div>
-  </li>
-  <li>E as dividimos em <code class="language-plaintext highlighter-rouge">commits</code>, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit
-</code></pre></div>    </div>
-    <p>Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:</p>
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">--amend</span>
-</code></pre></div>    </div>
-  </li>
-  <li>Uma vez que todas alterações forem finalizadas, vamos enviar a nossa <code class="language-plaintext highlighter-rouge">branch</code> contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--set-upstream</span> origin &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
-</code></pre></div>    </div>
-    <p>Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:</p>
-    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--force</span> with lease
-</code></pre></div>    </div>
-  </li>
+</code></pre></div></div>
+
+<ol>
+  <li>Conforme vamos criando e modificando os arquivos, adicionamos essas modificações</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-p</span>
+</code></pre></div></div>
+
+<ol>
+  <li>E as dividimos em <code class="language-plaintext highlighter-rouge">commits</code>, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit
+</code></pre></div></div>
+
+<p>Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">--amend</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Uma vez que todas alterações forem finalizadas, vamos enviar a nossa <code class="language-plaintext highlighter-rouge">branch</code> contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--set-upstream</span> origin &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
+</code></pre></div></div>
+
+<p>Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--force</span> with lease
+</code></pre></div></div>
+
+<ol>
   <li>
     <p>Então é aberto um <code class="language-plaintext highlighter-rouge">Pull Request</code>, onde você pede ao dono do repositório que suas contribuições sejam incluídas nele.</p>
   </li>
-  <li>Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o <code class="language-plaintext highlighter-rouge">merge</code> que atualizara o repositório original com as suas modificações.</li>
+  <li>
+    <p>Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o <code class="language-plaintext highlighter-rouge">merge</code> que atualizara o repositório original com as suas modificações.</p>
+  </li>
 </ol>
 
 <h2 id="comandos-mais-utilizados">Comandos mais utilizados</h2>
 
 <h3 id="iniciando-um-repositório">Iniciando um repositório</h3>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div></div>
 
 <h3 id="buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</h3>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull <span class="nt">--prune</span>
 </code></pre></div></div>
 
@@ -500,10 +527,12 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 </code></pre></div></div>
 
 <h3 id="removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</h3>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset &lt;nome <span class="k">do </span>arquivo&gt;
 </code></pre></div></div>
 
 <h3 id="rebase">Rebase</h3>
+
 <p>As modificações que você está fazendo em sua <code class="language-plaintext highlighter-rouge">branch</code> local podem ficar defasadas em relação ao repositório remoto, então é possível alterar a base de sua ramificação local para a mais atual com o comando <code class="language-plaintext highlighter-rouge">rebase</code>.</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase origin/master
@@ -530,16 +559,18 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 <ul>
   <li><code class="language-plaintext highlighter-rouge">branch</code>: Listar, criar ou deletar ramificações.</li>
   <li><code class="language-plaintext highlighter-rouge">--merged</code>: Ramificações as quais suas modificações já foram aplicadas ao repositório original.</li>
-  <li><code class="language-plaintext highlighter-rouge"> | </code>: Sequência de um <code class="language-plaintext highlighter-rouge">ou</code> mais comandos.</li>
+  <li><code class="language-plaintext highlighter-rouge">|</code>: Sequência de um <code class="language-plaintext highlighter-rouge">ou</code> mais comandos.</li>
   <li><code class="language-plaintext highlighter-rouge">egrep</code>: Mostrar linhas que correspondem a um padrão.</li>
   <li><code class="language-plaintext highlighter-rouge">-d, --delete:</code> Deletar ramificação.</li>
 </ul>
 
 <h3 id="arquivar-modificações">Arquivar modificações</h3>
+
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
 </code></pre></div></div>
 
 <h3 id="mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</h3>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash show -p
 </code></pre></div></div>
 
@@ -550,15 +581,18 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 </ul>
 
 <h2 id="o-que-é-github">O que é GitHub</h2>
+
 <p>Enquanto o Git é um sistema de versionamento, o <strong>GitHub</strong> é uma plataforma para criação de repositórios remotos Git, possibilitando que outras pessoas possam clonar esse repositório localmente, realizar alterações e enviar essas alterações de volta ao repositório remoto.</p>
 
 <p><strong>Alternativas</strong></p>
+
 <ul>
   <li>GitLab</li>
   <li>BitBucket</li>
 </ul>
 
 <h2 id="referências">Referências</h2>
+
 <ul>
   <li><a href="https://explainshell.com/explain?cmd=git+log+--all+--graph+--decorate+--oneline+--simplify-by-decoration">Explain Shell</a></li>
 </ul>
@@ -719,7 +753,7 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
   </p>
 
     <p class="archive__item-excerpt" itemprop="description">O que é Docker, e porque Docker?
-O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura...</p>
+</p>
   </article>
 </div>
 
@@ -771,7 +805,7 @@ O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele 
   </p>
 
     <p class="archive__item-excerpt" itemprop="description">Motivação
-Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de ...</p>
+</p>
   </article>
 </div>
 
