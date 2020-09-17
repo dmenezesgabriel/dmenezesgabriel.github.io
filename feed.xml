@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-17T07:30:12-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Docker e Docker Compose no Raspberry Pi</title><link href="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/" rel="alternate" type="text/html" title="Como instalar Docker e Docker Compose no Raspberry Pi" /><published>2020-09-14T00:00:00-03:00</published><updated>2020-09-14T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/">&lt;h2 id=&quot;o-que-é-docker-e-porque-docker&quot;&gt;O que é Docker, e porque Docker?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-09-17T07:53:29-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada</title><link href="https://dmenezesgabriel.github.io/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada/" rel="alternate" type="text/html" title="Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada" /><published>2020-09-17T00:00:00-03:00</published><updated>2020-09-17T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada</id><content type="html" xml:base="https://dmenezesgabriel.github.io/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada/">&lt;h2 id=&quot;tesouro-direto&quot;&gt;Tesouro Direto&lt;/h2&gt;
+
+&lt;p&gt;Oposta a crença popular, o Tesouro Direto não é um produto do mercado financeiro, na verdade, é o nome dado ao programa do Tesouro Nacional para incentivar investimentos em papéis da dívida publica do Governo Federal&lt;/p&gt;
+
+&lt;p&gt;O Tesouro Direto possui o maior nível de segurança do país entre todos investimentos disponíveis, Mesmo sem garantias do FGC(Fundo Garantidor de Crédito) o seu risco se da apenas no evento de quebra do Estado.&lt;/p&gt;
+
+&lt;p&gt;O portfolio do Tesouro Direto é composto por três tipos de títulos públicos:&lt;/p&gt;
+
+&lt;h3 id=&quot;prefixados&quot;&gt;Prefixados&lt;/h3&gt;
+
+&lt;p&gt;A rentabilidade do titulo é definida em contrato, e o investidor sabe no momento da aplicação qual será o montante final a ser recebido com seu investimento.&lt;/p&gt;
+
+&lt;p&gt;Títulos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tesouro Prefixado (LTN)&lt;/li&gt;
+  &lt;li&gt;Tesouro Prefixado com Juros Semestrais (NTN-F)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pós-fixados&quot;&gt;Pós-fixados&lt;/h3&gt;
+
+&lt;p&gt;A rentabilidade está atrelada a algum indicador econômico, como a taxa básica de juros (Selic), por este motivo não é possível prever suas variações até o momento do resgate do título.&lt;/p&gt;
+
+&lt;p&gt;Títulos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Tesouro Selic (LFT)&lt;/strong&gt;: No momento desta publicação é altamente indicado para reservas de emergência, onde se aplica de 6 a 12 meses de seus custos de vida contando com todas regalias. Neste investimento você possuirá líquidez em &lt;strong&gt;D+1&lt;/strong&gt;, contudo espere &lt;strong&gt;31 dias&lt;/strong&gt; para realizar o primeiro saque senão estará sujeito ao pagamento de &lt;strong&gt;IOF&lt;/strong&gt;, e devemos considerar que alíquota de IR é regressiva de 22,5% até 15%, ou seja, quanto mais tempo ficar aplicado menos imposto será pago.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;híbrido&quot;&gt;Híbrido&lt;/h3&gt;
+
+&lt;p&gt;A rentabilidade é formada por uma parte fixa definida em contrato e outra parte que varia conforme as oscilações do indicador ao qual o titulo esta atrelado, é muito comum encontrarmos títulos atrelados a inflação e mais algum percentual fixo.&lt;/p&gt;
+
+&lt;p&gt;Títulos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tesouro IPCA+ (NTN-B Principal)&lt;/li&gt;
+  &lt;li&gt;Tesouro IPCA+ com Juros Semestrais (NTN-B)&lt;/li&gt;
+  &lt;li&gt;Tesouro IGPM+ com Juros Semestrais (NTN-C)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;O Tesouro IPCA é um bom candidato para aposentadoria&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;vantagens-do-tesouro-direto&quot;&gt;Vantagens do Tesouro Direto&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rendimento&lt;/li&gt;
+  &lt;li&gt;Flexibilidade&lt;/li&gt;
+  &lt;li&gt;Líquidez&lt;/li&gt;
+  &lt;li&gt;Baixo risco&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;desvantagens-do-tesouro-direto&quot;&gt;Desvantagens do Tesouro Direto&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Taxa de custódia da B3 (0,25% a.a)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;previdência-privada&quot;&gt;Previdência Privada&lt;/h2&gt;
+
+&lt;p&gt;Os planos de Previdência Privada, que podem ser &lt;strong&gt;abertos&lt;/strong&gt; ou &lt;strong&gt;fechados&lt;/strong&gt;, são aplicações indicadas para objetivos de longo prazo, como complemento de renda para aposentadoria.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Planos fechados&lt;/strong&gt;:
+Os planos fechados, também conhecidos como fundos de pensão, recebem esse nome por serem acessíveis apenas para funcionários vinculados a uma determinada empresa.
+Esse tipo de previdência não tem fins lucrativos. Por isso, geralmente possui um custo menor que os demais fundos ofertados no mercado, muitas vezes não possuem taxas ou apenas uma &lt;strong&gt;taxa de administração&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Planos abertos&lt;/strong&gt;:
+Os planos abertos de previdência privada estão disponíveis para qualquer pessoa, eles são emitidos por instituições financeiras, e distribuídos por corretoras de valores, corretoras de seguros e bancos.
+Os dois principais tipos de previdência privada aberta são &lt;strong&gt;PGBL&lt;/strong&gt; e &lt;strong&gt;VGBL&lt;/strong&gt;, onde a principal diferença é tida no modelo de tributação.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;pgbl---plano-gerador-de-benefício-livre&quot;&gt;PGBL - Plano Gerador de Benefício Livre&lt;/h3&gt;
+
+&lt;p&gt;Este plano é mais indicado para quem faz declaração de Imposto de Renda por meio do formulário &lt;strong&gt;completo&lt;/strong&gt;. Neste tipo de previdência, é possível abater seus aportes no IR, respeitando o limite de até 12% da renda do ano. Ou seja, este plano serve melhor a quem é CLT, e possui muitas despesas dedutíveis.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Optar por este modelo caso faça declaração de Imposto de Renda por meio do formulário &lt;strong&gt;completo&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Contribuir com até 12% da renda anual tributável, a fim de usufruir da dedução na base de cálculo do imposto de renda.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;notice--warning&quot;&gt;O montante acumulado no plano será tributado em sua totalidade, e não apenas em seus rendimentos.&lt;/p&gt;
+
+&lt;h3 id=&quot;vgbl---vida-gerador-de-benefício-livre&quot;&gt;VGBL - Vida Gerador de Benefício Livre&lt;/h3&gt;
+
+&lt;p&gt;Esta modalidade é classificada como seguro de pessoas, e é mais indicada para aqueles que usam o formulário &lt;strong&gt;simples&lt;/strong&gt; na declaração do IR, ou seja, quem não possui tantas despesas.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Optar por este modelo caso faça declaração de Imposto de Renda &lt;strong&gt;simplificada&lt;/strong&gt; ou seja isento.&lt;/li&gt;
+  &lt;li&gt;Caso haja pretensão de aplicar mais que 12% de sua renda bruta anual.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;Os valores depositados não podem ser deduzidos da base de cálculo do IR. Contudo a tributação incide apenas nos rendimentos.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Parecido com o fundo de investimento convencional&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;tributação-regressiva&quot;&gt;Tributação regressiva&lt;/h3&gt;
+
+&lt;p&gt;O regime progressivo segue a tabela da alíquota do IR incidente sobre a renda anual tributável.&lt;/p&gt;
+
+&lt;p&gt;Este regime, em geral, é uma boa escolha para quem tem a perspectiva de utilizar os recursos a longo prazo, em um período superior a dez anos.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Prazo do Aporte&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Alíquota (%)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Até 2 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;35&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 2 a 4 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 4 a 6 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 6 a 8 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 8 a 10 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acima de 10 anos&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;10&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;tributação-progressiva&quot;&gt;Tributação progressiva&lt;/h3&gt;
+
+&lt;p&gt;A tributação vinculada ao tempo da aplicação e possui uma tabela própria, quanto maior for o prazo de permanência dos recursos, menor será a alíquota de imposto de renda na hora do resgate ou recebimento da renda.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Anual&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Base de cálculo (R$)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Alíquota (%)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Parcela a deduzir do IRPF (R$)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Até 22.847,76&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 22.847,77 até 33.919,80&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.713,58&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 33.919,81 até 45.012,60&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.257,57&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 45.012,61 até 55.976,16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.633,51&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acima de 55.976,16&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;27,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.432,32&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Mensal&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Base de cálculo (R$)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Alíquota (%)&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Parcela a deduzir do IRPF (R$)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Até 1.903,98&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 1.903,99 até 2.826,65&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;7,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;142,80&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 2.826,66 até 3.751,05&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;354,80&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;De 3.751,06 até 4.664,68&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;22,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;636,13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acima de 4.664,68&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;27,5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;869,36&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Fonte: Receita Federal do Brasil, 2020&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;taxas&quot;&gt;Taxas&lt;/h3&gt;
+
+&lt;p&gt;Caso inexistentes ou mais próximas de zero melhor.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Taxa de carregamento&lt;/strong&gt;: Taxas descontadas geralmente a cada aplicação ou retirada (de 0% a 6%). Atualmente muitas instituições não cobram mais taxa de carregamento, negocie!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Taxa de administração&lt;/strong&gt;: Todo fundo possui taxas de administração (De 0.x% a 5%).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Taxa de saída&lt;/strong&gt;: Multa cobrada na saida antes do prazo minimo estabelecido.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;vantagens-da-previdência-privada&quot;&gt;Vantagens da previdência privada&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Abatimento do IR (PGBL)&lt;/li&gt;
+  &lt;li&gt;Menor alíquota a longo prazo (10 anos de aplicação)&lt;/li&gt;
+  &lt;li&gt;Fundo sem come-cotas&lt;/li&gt;
+  &lt;li&gt;Flexibilidade (portabilidade)&lt;/li&gt;
+  &lt;li&gt;Diversificação&lt;/li&gt;
+  &lt;li&gt;Caso não esteja satisfeito com a sua previdência é possível realizar portabilidade para outro plano sem pagar taxas.&lt;/li&gt;
+  &lt;li&gt;Sucessão patrimonial (Não passa por inventário)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;desvantagens-da-previdência-privada&quot;&gt;Desvantagens da previdência privada&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Taxas (Administração e Carregamento)&lt;/li&gt;
+  &lt;li&gt;Não há a cobertura do FGC (Fundo Garantidor de Crédito)&lt;/li&gt;
+  &lt;li&gt;Período de carência&lt;/li&gt;
+  &lt;li&gt;Investimento Inicial&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;notice--danger&quot;&gt;&lt;em&gt;Evite fundos de previdência que possuem taxa de carregamento e taxa de custódia, como os oferecidos pelos grandes bancos de varejo&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;observações&quot;&gt;Observações&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Analisar histórico de desempenho do fundo vinculado ao plano&lt;/li&gt;
+  &lt;li&gt;Verificar histórico de rentabilidade&lt;/li&gt;
+  &lt;li&gt;Avaliar a qualidade da gestão&lt;/li&gt;
+  &lt;li&gt;É importante que os rendimentos superem o CDI&lt;/li&gt;
+  &lt;li&gt;A tributação de retirada é calculada sobre a data de cada aplicação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;links-úteis&quot;&gt;Links úteis&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://infofundos.com.br/&quot;&gt;Info Fundos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Investimentos" /><category term="Investimentos" /><summary type="html">Tesouro Direto</summary></entry><entry><title type="html">Como instalar Docker e Docker Compose no Raspberry Pi</title><link href="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/" rel="alternate" type="text/html" title="Como instalar Docker e Docker Compose no Raspberry Pi" /><published>2020-09-14T00:00:00-03:00</published><updated>2020-09-14T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/python/como-instalar-docker-docker-compose-raspberrypi/">&lt;h2 id=&quot;o-que-é-docker-e-porque-docker&quot;&gt;O que é Docker, e porque Docker?&lt;/h2&gt;
 
 &lt;p&gt;O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.&lt;/p&gt;
 
