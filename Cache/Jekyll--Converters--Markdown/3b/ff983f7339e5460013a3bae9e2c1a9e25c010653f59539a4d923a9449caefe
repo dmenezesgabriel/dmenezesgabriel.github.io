@@ -1,0 +1,109 @@
+I"<p>O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambiente que aceite containers Docker. Basicamente podemos criar uma rede de máquinas virtuais isoladas logicamente do host, permitindo a representação fiel tanto em modo de desenvolvimento, quanto em modo de produção.</p>
+
+<p>Para os desenvolvedores, não há mais a desculpa “mas na minha máquina funcionou! Deve ser algum problema na sua…”.</p>
+
+<h2 id="além-da-segurança-qual-é-a-vantagem-desse-isolamento">Além da segurança, qual é a vantagem desse isolamento?</h2>
+
+<p>O Docker permite a exclusão de seus containers e imagens sem que isso afete qualquer outro componente da maquina em que está instalado.</p>
+
+<h2 id="instalando-o-docker">Instalando o Docker</h2>
+
+<ol>
+  <li>Atualize o sistema</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>apt-get upgrade
+</code></pre></div></div>
+
+<ol>
+  <li>Instale os pré requisitos</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>apt-transport-https ca-certificates software-properties-common <span class="nt">-y</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Baixe e instale o Docker</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-fsSL</span> get.docker.com <span class="nt">-o</span> get-docker.sh <span class="o">&amp;&amp;</span> sh get-docker.sh
+</code></pre></div></div>
+
+<ol>
+  <li>Depois da instalação, é necessário adicionarmos o usuário <code class="language-plaintext highlighter-rouge">pi</code> ao grupo docker, para podermos executar imagens sem sudo</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker pi
+</code></pre></div></div>
+
+<ol>
+  <li>Importe a chave GPG</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>curl https://download.docker.com/linux/raspbian/gpg
+</code></pre></div></div>
+
+<ol>
+  <li>Configure o repositório Docker</li>
+</ol>
+
+<ul>
+  <li>Abra o arquivo com o editor de texto</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim /etc/apt/sources.list
+</code></pre></div></div>
+
+<ul>
+  <li>Adicione a linha</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deb https://download.docker.com/linux/raspbian/ stretch stable
+</code></pre></div></div>
+
+<ol>
+  <li>Habilite o Docker para executar sempre que o sistema for iniciado</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl <span class="nb">enable </span>docker
+</code></pre></div></div>
+
+<ol>
+  <li>Reinicie o sistema para que as alterações tenham efeito</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>reboot <span class="nt">-h</span> now
+</code></pre></div></div>
+
+<ol>
+  <li>E verifique se tudo deu certo com o comando abaixo:</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker run <span class="nt">--rm</span> hello-world
+</code></pre></div></div>
+
+<h2 id="instalando-o-docker-compose">Instalando o Docker Compose</h2>
+
+<ol>
+  <li>Instalando as dependências necessárias</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> python3-pip libffi-dev
+</code></pre></div></div>
+
+<ol>
+  <li>Instalando o Docker Compose</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pip3 <span class="nb">install </span>docker-compose
+</code></pre></div></div>
+
+<h2 id="observações">Observações</h2>
+
+<p>Dependendo da arquitetura do modelo, e do sistema operacional instalado no Raspberry Pi você terá que utilizar imagens ARM, no caso do python por exemplo:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM arm32v7/python:3.7-slim-buster
+</code></pre></div></div>
+:ET

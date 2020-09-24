@@ -1,0 +1,192 @@
+I"|J<p>Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.</p>
+
+<p>O que seria do treino de cada dia sem uma trilha sonora, não é mesmo?</p>
+
+<p>O smartwatch que utilizo não suporta aplicativos como Amazon Music ou Spotify, logo optei por baixar as músicas do Youtube e transferir para o armazenamento interno do relógio. A única questão é que selecionar as músicas uma a uma não é uma opção, hoje em dia há vários algorítimos de sugestão e a minha preferência é usufruir das playlists “Mix” geradas automáticamente, a partir de uma música especifica.</p>
+
+<h3 id="e-qual-é-o-problema">E qual é o problema?</h3>
+
+<p>Atualmente a maioria dos aplicativos de download de videos/audio do Youtube não suporta e não reconhece essas playlists como playlists de fato, então optei pelo seguinte fluxo:</p>
+
+<ol>
+  <li>Fornecer a url de uma playlist Youtube Mix como argumento;</li>
+  <li>Este argumento será passado a uma função que irá buscar os links das músicas no código fonte da página da pseudo playlist;</li>
+  <li>Cada uma das músicas sera baixada para o meu diretório local, na pasta <code class="language-plaintext highlighter-rouge">downloads/</code>.</li>
+</ol>
+
+<h1 id="python-selenium-e-docker">Python, Selenium e Docker</h1>
+
+<ul>
+  <li><strong>Python</strong>: Oferece simplicidade no desenvolvimento do código, e é bastante útilizado para realização de web scrapping.</li>
+  <li><strong>Selenium</strong>: Framework de automação web, optei por sua utilização devido a biblioteca <code class="language-plaintext highlighter-rouge">requests</code> do python não ser capaz de lidar com o javascript utilizado para gerar o conteúdo da página.</li>
+  <li><strong>Docker</strong>: Ué, mas na minha máquina funciona? Vamos evitar isso!</li>
+</ul>
+
+<h2 id="código">Código</h2>
+
+<p>Se você preferir ir direto ao código:</p>
+
+<ul>
+  <li><a href="https://github.com/dmenezesgabriel/youtube-downloader">Repositório</a></li>
+</ul>
+
+<p>Se não, vamos começar pela estrutura do diretório:</p>
+
+<ul>
+  <li>Geralmente apenas o código fonte, ou seja, apenas o que está dentro da past <code class="language-plaintext highlighter-rouge">src</code> é levado para dentro do container, que por sua vez, simulará um sistema operacional isolado.
+Um dos motivos para tal prática é a segurança, neste exemplo não utilizamos variáveis de ambiente sensíveis como chaves de API e etc, mas caso fossem utilizadas elas não deveriam ir para dentro do container uma vez que você exponha as suas portas a internet, ele está passível de invasões, mas neste caso estamos rodando localmente então considere apenas como uma curiosidade.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── requirements.txt
+└── src
+    ├── downloads
+    └── youtube.py
+</code></pre></div></div>
+
+<p><strong>requirements.txt</strong>: Dependências para executar o código escrito em python neste cenário.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl==2020.9.6
+bs4==0.0.1
+selenium==3.141.0
+PyVirtualDisplay==1.3.2
+</code></pre></div></div>
+
+<p><strong>youtube.py</strong>: Este arquivo carrega as funções auxiliares tanto para baixar o aúdio através do <code class="language-plaintext highlighter-rouge">youtube-dl</code> quanto realizar a busca dos links utilizando o <code class="language-plaintext highlighter-rouge">Selenium</code> para interação com o navegador <code class="language-plaintext highlighter-rouge">Firefox</code>.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+
+<span class="kn">from</span> <span class="nn">pyvirtualdisplay</span> <span class="kn">import</span> <span class="n">Display</span>
+
+<span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">().</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'https://www.youtube.com'</span>
+
+
+<span class="k">def</span> <span class="nf">get_links</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Initialized virtual display..'</span><span class="p">)</span>
+
+    <span class="n">firefox_profile</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">FirefoxProfile</span><span class="p">()</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s">'browser.download.folderList'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span>
+        <span class="s">'browser.download.manager.showWhenStarting'</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s">'browser.download.dir'</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span>
+        <span class="s">'browser.helperApps.neverAsk.saveToDisk'</span><span class="p">,</span> <span class="s">'text/csv'</span><span class="p">)</span>
+
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Prepared firefox profile..'</span><span class="p">)</span>
+
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Firefox</span><span class="p">(</span><span class="n">firefox_profile</span><span class="o">=</span><span class="n">firefox_profile</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Initialized firefox browser..'</span><span class="p">)</span>
+
+    <span class="n">browser</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Accessed %s ..'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Page title: %s'</span><span class="p">,</span> <span class="n">browser</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">(</span>
+                           <span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">'wc-endpoint'</span><span class="p">))).</span><span class="n">text</span>
+    <span class="c1"># soup = BeautifulSoup(html, 'html.parser')
+</span>    <span class="n">html</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="n">page_source</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+    <span class="n">links_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="s">'wc-endpoint'</span><span class="p">}):</span>
+        <span class="n">href</span> <span class="o">=</span> <span class="n">link</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">href</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">'/watch?'</span><span class="p">):</span>
+            <span class="n">links_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">DOMAIN</span> <span class="o">+</span> <span class="n">href</span><span class="p">)</span>
+
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'%s items found'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">links_list</span><span class="p">))</span>
+    <span class="n">browser</span><span class="p">.</span><span class="n">quit</span><span class="p">()</span>
+    <span class="n">display</span><span class="p">.</span><span class="n">stop</span><span class="p">()</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">links_list</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">links_list</span>
+
+
+<span class="k">def</span> <span class="nf">download_from_url</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">destination_folder</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s">'youtube-dl'</span><span class="p">,</span> <span class="s">'-i'</span><span class="p">,</span> <span class="s">'--no-playlist'</span><span class="p">,</span> <span class="s">'--extract-audio'</span><span class="p">,</span>
+            <span class="s">'--audio-format'</span><span class="p">,</span> <span class="s">'mp3'</span><span class="p">,</span> <span class="s">'--audio-quality'</span><span class="p">,</span> <span class="s">'0'</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="s">'-o'</span><span class="p">,</span>
+            <span class="n">destination_folder</span><span class="o">+</span><span class="s">'%(title)s.%(ext)s'</span><span class="p">]</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Wait for process to terminate.
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Successful download'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Download Failed'</span>
+
+
+<span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">links_list</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links_list</span><span class="p">:</span>
+        <span class="n">download_from_url</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="s">'./downloads/'</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">download</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Dockerfile</strong>: É básicamente a receita do bolo, ou seja, contém todas as dependências necessárias para gerar uma abstração do sistema operacional, em forma de imagem, e utilizando os recursos disponíveis em sua maquina.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Pull official base image</span>
+FROM python:3.8.1-slim-buster
+<span class="c"># Set envrionment variables</span>
+<span class="c"># Prevents Python from writing pyc files to disc (equivalent to python -B option)</span>
+ENV PYTHONDONTWRITEBYTECODE 1
+<span class="c"># Prevents Python from buffering stdout and stderr (equivalent to python -u option)</span>
+ENV PYTHONBUFFERED 1
+<span class="c"># Language</span>
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+<span class="c"># Install system dependencies</span>
+RUN apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\</span>
+    fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 <span class="se">\</span>
+    libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 <span class="se">\</span>
+    curl unzip wget <span class="se">\</span>
+    xvfb <span class="se">\</span>
+    ffmpeg
+<span class="c"># install geckodriver and firefox</span>
+RUN <span class="nv">GECKODRIVER_VERSION</span><span class="o">=</span><span class="sb">`</span>curl https://github.com/mozilla/geckodriver/releases/latest | <span class="nb">grep</span> <span class="nt">-Po</span> <span class="s1">'v[0-9]+.[0-9]+.[0-9]+'</span><span class="sb">`</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget https://github.com/mozilla/geckodriver/releases/download/<span class="nv">$GECKODRIVER_VERSION</span>/geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">tar</span> <span class="nt">-zxf</span> geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz <span class="nt">-C</span> /usr/local/bin <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">chmod</span> +x /usr/local/bin/geckodriver <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">rm </span>geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz
+
+RUN <span class="nv">FIREFOX_SETUP</span><span class="o">=</span>firefox-setup.tar.bz2 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get purge firefox <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget <span class="nt">-O</span> <span class="nv">$FIREFOX_SETUP</span> <span class="s2">"https://download.mozilla.org/?product=firefox-latest&amp;os=linux64"</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">tar </span>xjf <span class="nv">$FIREFOX_SETUP</span> <span class="nt">-C</span> /opt/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">ln</span> <span class="nt">-s</span> /opt/firefox/firefox /usr/bin/firefox <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">rm</span> <span class="nv">$FIREFOX_SETUP</span>
+
+<span class="c"># Set working directory</span>
+ENV APP_HOME /usr/src/app
+WORKDIR /<span class="nv">$APP_HOME</span>
+<span class="c"># Install python dependencies</span>
+RUN pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+COPY ./requirements.txt /usr/src/app/requirements.txt
+RUN pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+<span class="c"># Copy project</span>
+COPY <span class="nb">.</span> <span class="nv">$APP_HOME</span>/
+
+CMD <span class="nb">tail</span> <span class="nt">-f</span> /dev/null
+</code></pre></div></div>
+:ET

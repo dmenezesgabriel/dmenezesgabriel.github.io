@@ -1,0 +1,94 @@
+I"<p><strong>SEO</strong> é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.</p>
+
+<p>Atualmente existem diversos mecanismos de busca, onde é considerada uma cadeia de diferentes fatores para indexar e ranquear uma página. Grande parte destas pesquisas é feita através do <strong>Google</strong>.</p>
+
+<p class="notice--warning"><strong>Lembre-se</strong>: Apenas páginas indexadas podem ser ranqueadas!</p>
+
+<h2 id="como-saber-se-a-sua-página-está-indexada-no-google">Como saber se a sua página está indexada no Google?</h2>
+
+<p>Simplesmente vá até a página do <strong>Google</strong> em seu navegador e digite <code class="language-plaintext highlighter-rouge">site:seu-site.com.br</code>, se você conseguir visualizar o seu site nos resultados, significa que ele já está indexado.</p>
+
+<h2 id="fatores-que-deverão-ser-indexados">Fatores que deverão ser indexados</h2>
+
+<p>Há aproximadamente 200 parâmetros que são utilizados para melhorar a indexação de uma página, contudo vamos selecionar alguns dos principais, se tratando não de conteúdo, mas estrutura.</p>
+
+<ol>
+  <li>Título e Descrição</li>
+  <li>Estrutura de URL</li>
+  <li>Mapa do site</li>
+  <li>Tag <code class="language-plaintext highlighter-rouge">alt</code> para imagens</li>
+  <li>Conectores de mídias sociais</li>
+  <li>Open graph e cards do Twitter</li>
+  <li>Favicon</li>
+  <li>URL única</li>
+  <li>Responsividade</li>
+  <li>Velocidade</li>
+</ol>
+
+<p>Estes fatores garantirão 60% da otimização de <strong>SEO</strong> da página, o restante depende de criação de conteúdo, construção de links, marketing e etc…</p>
+
+<p class="notice--info"><strong>Dica</strong>: A maioria dos itens listados podem ser implementados com a tag <code class="language-plaintext highlighter-rouge">{</code> % SEO % <code class="language-plaintext highlighter-rouge">}</code> dentro da sessão <code class="language-plaintext highlighter-rouge">head</code> do site, onde o único requisito é a utilização dos plugins: jekyll-paginate e jekyll-seo-tag em seu arquivo de configuração (<code class="language-plaintext highlighter-rouge">_config.yml</code>). Estes plugins acrescentarão a maioria das tags necessárias para um bom SEO.</p>
+
+<h3 id="título-e-descrição">Título e Descrição</h3>
+
+<p>O Título deve corresponder à sua descrição e ao conteúdo do artigo, toda página de seu site deve conter título e descrição única. Caso você não especifique uma descrição, o primeiro parágrafo de sua página será considerado nos resultados de busca.</p>
+
+<p>O primeiro parágrafo pode muitas vezes não apresentar um conteúdo relevante e correspondente ao título da página, a recomendação é que se utilize uma descrição breve que forneça a ideia geral do artigo, e assim como o título contenha algumas das palavras chave. A descrição deve respeitar o limite de 160 caracteres, um volume maior pode ser considerado spam pelos mecanismos de busca.</p>
+
+<p>A descrição não é levada em conta para o ranqueamento do site, mas fará com que o usuário se interesse em seu conteúdo e clique em seu link dentre os resultados encontrados pelo mecanismo de busca.</p>
+
+<p>Os robôs do mecanismo de busca procuram pelo seu Título e Descrição dentro da tag head primeiro. Portanto, certifique-se de mantê-lo lá para que eles consigam encontra-los.</p>
+
+<p class="notice--warning">Lembre-se: Você deve explicitamente adicionar o título e descrição ao <strong>Front Matter</strong> presente em todas as suas páginas, e sua descrição deverá ser truncada em 160 caracteres. Adicione as palavras chave ao ínicio da descrição para que os usuários encontrem sua página mais rapidamente em suas buscas no Google.</p>
+
+<h3 id="estrutura-de-url">Estrutura de URL</h3>
+
+<p>Uma URL transmite muitas informações sobre o conteúdo, tanto usuários como robôs esperam que ela esteja em sincronia com o assunto abordado, portanto faça que ela seja legível. Uma boa estrutura de URL gera maior taxa de cliques.</p>
+
+<p>Atualmente mecanismos de busca são inteligentes o suficiente para detectar se a URL possui relação com o conteúdo da página, e muitos sites útilizam <strong>ids</strong> em suas estrutura, o que prejudica tanto a transmissão de informação ao usuário quanto aos robôs de busca.</p>
+
+<p>Incluir a data é opcional, e somente será útil se as datas realmente importam para o seu conteúdo.</p>
+
+<p>Não útilize <strong>StopWords</strong>, palavras como de, a, o, que, e, do, da, em, um, para, é, com, não, uma, … não precisam ser indexadas e apenas aumentarão o tamanho da <strong>URL</strong>.</p>
+
+<p><em>No Jekyll, uma URL pode ser alterada renomeando o arquivo na pasta _posts.</em></p>
+
+<h2 id="mapa-do-site">Mapa do site</h2>
+
+<p>Um mapa do site é uma lista de links que contém todas suas páginas, ele estará no formato <code class="language-plaintext highlighter-rouge">.xml</code>. Isso ajuda os robôs de mecanismos de pesquisa a rastrearem facilmente seu site. Ele também terá metadados como datas de postagens, páginas, data da última modificação e frequência de atualização.</p>
+
+<p><a href="http://0.0.0.0:4000/sitemap.xml">Mapa deste site</a></p>
+
+<p class="notice--warning">Se o seu site não tiver postagens ou páginas, talvez você não precise de um mapa do site.</p>
+
+<p>Você pode enviar seu sitemap para os principais mecanismos de pesquisa, como Google, Bing, Yahoo e etc, para que seus respectivos robôs indexem seu site.</p>
+
+<p>Deixar um link para o mapa do site disponível também é uma boa ideia. Digamos que alguém faça uma referência a uma postagem sua em um blog bem classificado, há possibilidade de um robô rastrear esse link e chegar à sua postagem.</p>
+
+<h2 id="tag-alt-para-imagens">Tag alt para imagens</h2>
+
+<p>As tags alternativas de uma imagem não são nada mais que o texto que é mostrado caso uma imagem não carregue. Esta tag é lida pelos robôs, o que ajuda os mecanismos de pesquisa a saber sobre o que se trata a imagem.</p>
+
+<h2 id="conexão-com-mídias-sociais">Conexão com mídias sociais</h2>
+
+<p>A conexão com redes sociais pode ser conseguida através de robôões de compartilhamento na parte inferior de suas postagens.</p>
+
+<h2 id="open-graph-e-cartões-do-twitter">Open graph e cartões do Twitter</h2>
+
+<p>O Open Graph é uma forma de tornar mais fácil o entendimento de um link compartilhado, é possível que algumas informações sejam perdidas, ou dados indesejados sejam detectados. Para evitar que isso ocorra e para que seu link seja melhor reconhecido pelas redes sociais, a implementação do Open graph é necessária, e pode ser realizada através de plugins como <code class="language-plaintext highlighter-rouge">jekyll-seo</code>.</p>
+
+<h2 id="favicon">Favicon</h2>
+
+<p>Um favicon é um arquivo <code class="language-plaintext highlighter-rouge">.ico</code> geralmente com as dimensões de 16x16. Este ícone é o que a maioria dos visitantes lembrará do seu site, ele deve representar o seu site de algum modo, para que quando um usuário se depare com ele em sua barra de favoritos, consiga o assimilar a sua página.</p>
+
+<h1 id="responsividade">Responsividade</h1>
+
+<p>Após 21 de abril de 2015, o Google tornou a responsividade um parâmetro de indexação e ranqueamento essêncial para SEO. Quase todos os temas Jekyll, mesmo o tema default, são responsivos. Caso você esteja desenvolvendo um novo tema considere um layout responsivo que se ajuste a tamanhos menores de tela.</p>
+
+<h2 id="referências">Referências</h2>
+
+<ul>
+  <li><a href="https://blog.webjeda.com/jekyll-sitemap/">webjeda</a></li>
+  <li><a href="https://blog.webjeda.com/optimize-jekyll-seo/">webjeda</a></li>
+</ul>
+:ET
