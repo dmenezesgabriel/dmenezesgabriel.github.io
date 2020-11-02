@@ -1,0 +1,1024 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Git: Manual de sobrevivência do iniciante - Gabriel Menezes</title>
+<meta name="description" content="Git se tornou uma ferramenta indispensável para desenvolvedores, seja trabalhando individualmente ou em equipes, estes sistema de controle de versionamentos é capaz de salvar algumas horas de sua rotina, conheça os passos básicos para sobrevivência neste ambiente nada hostil.">
+
+
+  <meta name="author" content="Gabriel Menezes">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="Git: Manual de sobrevivência do iniciante">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/">
+
+
+  <meta property="og:description" content="Git se tornou uma ferramenta indispensável para desenvolvedores, seja trabalhando individualmente ou em equipes, estes sistema de controle de versionamentos é capaz de salvar algumas horas de sua rotina, conheça os passos básicos para sobrevivência neste ambiente nada hostil.">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/covers/git-log.jpeg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="Git: Manual de sobrevivência do iniciante">
+  <meta name="twitter:description" content="Git se tornou uma ferramenta indispensável para desenvolvedores, seja trabalhando individualmente ou em equipes, estes sistema de controle de versionamentos é capaz de salvar algumas horas de sua rotina, conheça os passos básicos para sobrevivência neste ambiente nada hostil.">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/covers/git-log.jpeg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-08-25T00:00:00-03:00">
+
+
+
+  <meta property="article:modified_time" content="2020-08-31T00:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categorias</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Buscar</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#git" itemprop="item"><span itemprop="name">Git</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Git: Manual de sobrevivência do iniciante</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Gabriel Menezes" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gabriel Menezes</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Criando bugs e compartilhando conhecimento.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Acompanhe no</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Brasil</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linked in</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dmenezesgabriel.gabriel@gmail.com">
+            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">E-mail</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Git: Manual de sobrevivência do iniciante">
+    <meta itemprop="description" content="O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.">
+    <meta itemprop="datePublished" content="2020-08-25T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2020-08-31T00:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Git: Manual de sobrevivência do iniciante
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-08-25T00:00:00-03:00">August 25, 2020</time>
+    
+
+    
+      
+      <span class="post__meta-sep"></span>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        3 minuto(s) de leitura
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Nesta página</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#como-isso-funciona">Como isso funciona?</a></li>
+  <li><a href="#comandos-mais-utilizados">Comandos mais utilizados</a>
+    <ul>
+      <li><a href="#iniciando-um-repositório">Iniciando um repositório</a></li>
+      <li><a href="#buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</a></li>
+      <li><a href="#resetando-um-commit">Resetando um commit</a></li>
+      <li><a href="#removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</a></li>
+      <li><a href="#rebase">Rebase</a></li>
+      <li><a href="#histórico-de-commits">Histórico de commits:</a>
+        <ul>
+          <li><a href="#deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</a></li>
+        </ul>
+      </li>
+      <li><a href="#arquivar-modificações">Arquivar modificações</a></li>
+      <li><a href="#mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</a></li>
+    </ul>
+  </li>
+  <li><a href="#o-que-é-github">O que é GitHub</a></li>
+  <li><a href="#referências">Referências</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>O <strong>Git</strong> é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.</p>
+
+<p>Diferente das outras opções de sistemas similares como o <strong>CSV</strong> e <strong>SVN</strong>, a arquitetura do git é descentralizada, ou seja, não existe um repositório oficial, apesar de existir esta possibilidade, então em cada repositório incluindo o da maquina do contribuidor, existira uma cópia completa e funcional, permitindo a utilização das operações do Git sem a necessidade de estar online.</p>
+
+<p>Quando se trata de trabalho em equipe, e a maior parte do tempo as equipes estarão trabalhando em paralelo, um sistema como o Git se torna mais do que essêncial, para que não hajam conflitos entre as alterações realizadas por cada colaborador.</p>
+
+<p>Também é comum que no constante desenvolvimento dos projetos hajam alterações que comprometam o seu funcionamento, neste caso o Git permite que essas alterações sejam revertidas de maneira rápida e simples.</p>
+
+<h2 id="como-isso-funciona">Como isso funciona?</h2>
+
+<p>O Git trabalha em uma estrutura de ramificações, onde cada alteração de código cria um novo ponto na ramificação atual, essas ramificações, mais conhecidas como <code class="language-plaintext highlighter-rouge">branchs</code> são criadas no desenvolvimento de novas funcionalidades, e baseadas em <code class="language-plaintext highlighter-rouge">branchs</code> já existentes.</p>
+
+<p>Cada contribuidor faz uma cópia local do repositório remoto original e cria as modificações necessárias, essa cópia será enviada novamente para o repositório remoto.</p>
+
+<p><strong>Passos no fluxo de contribuição de um projeto utilizando Git</strong>:</p>
+
+<ol>
+  <li>Clonar o repositório para que uma cópia contendo todos os arquivos originais esteja disponível localmente.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone &lt;HTTPS ou SSH&gt;
+</code></pre></div></div>
+
+<ol>
+  <li>Criar uma <code class="language-plaintext highlighter-rouge">branch</code>, onde podemos alterar os arquivos do projeto sem interferir nos arquivos originais</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
+<span class="c"># Alterar para a ramificação criada</span>
+git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Conforme vamos criando e modificando os arquivos, adicionamos essas modificações</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-p</span>
+</code></pre></div></div>
+
+<ol>
+  <li>E as dividimos em <code class="language-plaintext highlighter-rouge">commits</code>, é importante que a descrição do commit seja objetiva e clara quanto ao motivo das alterações, remoções ou inclusões, porque ela ficará salva no histórico das alterações.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit
+</code></pre></div></div>
+
+<p>Caso seja necessário realizar alguma alteração posterior ao primeiro commit já realizado, é possível adicionar as novas alterações e utilizar o comando:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">--amend</span>
+</code></pre></div></div>
+
+<ol>
+  <li>Uma vez que todas alterações forem finalizadas, vamos enviar a nossa <code class="language-plaintext highlighter-rouge">branch</code> contendo todas as alterações de volta para o repositório remoto, para que ela fique disponível para os demais contribuidores do projeto poderem ver e alterar.</li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--set-upstream</span> origin &lt;nome da ramificação <span class="o">(</span>branch<span class="o">)&gt;</span>
+</code></pre></div></div>
+
+<p>Caso você tenha adicionado alterações posteriores, basta utilizar o seguinte comando:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">--force</span> with lease
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Então é aberto um <code class="language-plaintext highlighter-rouge">Pull Request</code>, onde você pede ao dono do repositório que suas contribuições sejam incluídas nele.</p>
+  </li>
+  <li>
+    <p>Geralmente após a revisão das modificações ser realizada por algum dos outros contribuidores, você pode dar o <code class="language-plaintext highlighter-rouge">merge</code> que atualizara o repositório original com as suas modificações.</p>
+  </li>
+</ol>
+
+<h2 id="comandos-mais-utilizados">Comandos mais utilizados</h2>
+
+<h3 id="iniciando-um-repositório">Iniciando um repositório</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
+
+<h3 id="buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull <span class="nt">--prune</span>
+</code></pre></div></div>
+
+<p>A flag <code class="language-plaintext highlighter-rouge">--prune</code> deleta <code class="language-plaintext highlighter-rouge">branchs</code> locais cujas modificações já foram aplicadas na <code class="language-plaintext highlighter-rouge">branch</code> original. Algumas vezes essas modificações podem gerar conflitos que necessitam de interação humana para serem corrigidos.</p>
+
+<h3 id="resetando-um-commit">Resetando um commit</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--soft</span> HEAD~1
+</code></pre></div></div>
+
+<p>A flag <code class="language-plaintext highlighter-rouge">--soft</code> garante que as alterações desfeitas sejam preservadas. Após executar o comando, você encontrará as mudanças como modificações locais não confirmadas em sua cópia local.</p>
+
+<p>Se você não quiser manter essas alterações, simplesmente use a flag <code class="language-plaintext highlighter-rouge">--hard</code>. Faça isso apenas quando tiver certeza de que não precisa mais dessas alterações.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset <span class="nt">--hard</span> HEAD~1
+</code></pre></div></div>
+
+<h3 id="removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset &lt;nome <span class="k">do </span>arquivo&gt;
+</code></pre></div></div>
+
+<h3 id="rebase">Rebase</h3>
+
+<p>As modificações que você está fazendo em sua <code class="language-plaintext highlighter-rouge">branch</code> local podem ficar defasadas em relação ao repositório remoto, então é possível alterar a base de sua ramificação local para a mais atual com o comando <code class="language-plaintext highlighter-rouge">rebase</code>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase origin/master
+</code></pre></div></div>
+
+<h3 id="histórico-de-commits">Histórico de commits:</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git log <span class="nt">--graph</span> <span class="nt">--all</span> <span class="nt">--decorate</span> <span class="nt">--oneline</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">log</code>: Mostra o histórico de commits.</li>
+  <li><code class="language-plaintext highlighter-rouge">--all</code>: Apresenta todas referências.</li>
+  <li><code class="language-plaintext highlighter-rouge">--graph</code>: Cria uma representação gráfica do histórico de commits.</li>
+  <li><code class="language-plaintext highlighter-rouge">--decorate</code>: Traz o nome da referência para cada commit mostrado.</li>
+  <li><code class="language-plaintext highlighter-rouge">--oneline</code>: Esta é uma abreviação para <code class="language-plaintext highlighter-rouge">--pretty=oneline --abbrev-commi</code>.</li>
+</ul>
+
+<h4 id="deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</h4>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">--merged</span> | egrep <span class="nt">-v</span> <span class="s2">"(^</span><span class="se">\*</span><span class="s2">|master|dev)"</span> | xargs git branch <span class="nt">-d</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">branch</code>: Listar, criar ou deletar ramificações.</li>
+  <li><code class="language-plaintext highlighter-rouge">--merged</code>: Ramificações as quais suas modificações já foram aplicadas ao repositório original.</li>
+  <li><code class="language-plaintext highlighter-rouge">|</code>: Sequência de um <code class="language-plaintext highlighter-rouge">ou</code> mais comandos.</li>
+  <li><code class="language-plaintext highlighter-rouge">egrep</code>: Mostrar linhas que correspondem a um padrão.</li>
+  <li><code class="language-plaintext highlighter-rouge">-d, --delete:</code> Deletar ramificação.</li>
+</ul>
+
+<h3 id="arquivar-modificações">Arquivar modificações</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash
+</code></pre></div></div>
+
+<h3 id="mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git stash show -p
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">stash</code>: Arquivar as alterações.</li>
+  <li><code class="language-plaintext highlighter-rouge">show</code>: Mostrar as alterações arquivadas e suas diferenças em relação a ramificação original.</li>
+  <li><code class="language-plaintext highlighter-rouge">-p, --patch</code>: Seleciona as diferenças entre o ponteiro <code class="language-plaintext highlighter-rouge">HEAD</code> e a branch atual.</li>
+</ul>
+
+<h2 id="o-que-é-github">O que é GitHub</h2>
+
+<p>Enquanto o Git é um sistema de versionamento, o <strong>GitHub</strong> é uma plataforma para criação de repositórios remotos Git, possibilitando que outras pessoas possam clonar esse repositório localmente, realizar alterações e enviar essas alterações de volta ao repositório remoto.</p>
+
+<p><strong>Alternativas</strong></p>
+
+<ul>
+  <li>GitLab</li>
+  <li>BitBucket</li>
+</ul>
+
+<h2 id="referências">Referências</h2>
+
+<ul>
+  <li><a href="https://explainshell.com/explain?cmd=git+log+--all+--graph+--decorate+--oneline+--simplify-by-decoration">Explain Shell</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#comandos" class="page__taxonomy-item" rel="tag">Comandos</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#github" class="page__taxonomy-item" rel="tag">Github</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#git" class="page__taxonomy-item" rel="tag">Git</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#iniciante" class="page__taxonomy-item" rel="tag">Iniciante</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorias: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#git" class="page__taxonomy-item" rel="tag">Git</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-08-31">August 31, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Compartilhe</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Git%3A+Manual+de+sobreviv%C3%AAncia+do+iniciante%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fgit%2Fgit-manual-de-sobrevivencia-do-iniciante%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fgit%2Fgit-manual-de-sobrevivencia-do-iniciante%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fgit%2Fgit-manual-de-sobrevivencia-do-iniciante%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programacao/origens-do-hello-world/" class="pagination--pager" title="Você conhece a origem do “Hello World!”?
+">Anterior</a>
+    
+    
+      <a href="/telemetria/como-monitorar-fluxos-digitais/" class="pagination--pager" title="Como monitorar fluxos de negócios digitais
+">Próxima</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Deixe um comentário</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">Talvez você também goste</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/ferramentas-qualidade-codigo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" rel="permalink">Ferramentas para melhorar a qualidade do seu código
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-26T00:00:00-03:00">September 26, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/docker-commands.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-comandos-procura-diaria-google/" rel="permalink">Docker, eliminando a procura diária por esses comandos no Google.
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        menos que 1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Quando você utiliza muitos containers Docker em seu dia a dia para diversos programas diferentes, containers antigos podem ficar “pendurados”, juntando poeir...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/treasure.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada/" rel="permalink">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        5 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada, dois dos investimentos mais conhecidos e conservadores para auxiliar na sua ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/docker-pi.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/como-instalar-docker-docker-compose-raspberrypi/" rel="permalink">Como instalar Docker e Docker Compose no Raspberry Pi
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-14T00:00:00-03:00">September 14, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambi...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Pesquisar..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Acompanhe no</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gabriel Menezes. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://dmenezesgabriel.github.io/git/git-manual-de-sobrevivencia-do-iniciante/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/git/git-manual-de-sobrevivencia-do-iniciante"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

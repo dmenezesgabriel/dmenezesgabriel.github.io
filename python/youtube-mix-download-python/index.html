@@ -1,0 +1,1029 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Download de uma playlist Youtube Mix com Python, Selenium e Docker - Gabriel Menezes</title>
+<meta name="description" content="Baixando músicas de uma playlist Youtube Mix com Python, Selenium e Docker. Uma playlist Youtube Mix, é uma lista de músicas gerada automáticamente a partir de uma música especifica, atualmente, muitos dos programas de download do Youtube não tem a funcionalidade de baixar esse tipo de playlist, saiba como fazê-lo.">
+
+
+  <meta name="author" content="Gabriel Menezes">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="Download de uma playlist Youtube Mix com Python, Selenium e Docker">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">
+
+
+  <meta property="og:description" content="Baixando músicas de uma playlist Youtube Mix com Python, Selenium e Docker. Uma playlist Youtube Mix, é uma lista de músicas gerada automáticamente a partir de uma música especifica, atualmente, muitos dos programas de download do Youtube não tem a funcionalidade de baixar esse tipo de playlist, saiba como fazê-lo.">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/covers/youtube-mix.jpeg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="Download de uma playlist Youtube Mix com Python, Selenium e Docker">
+  <meta name="twitter:description" content="Baixando músicas de uma playlist Youtube Mix com Python, Selenium e Docker. Uma playlist Youtube Mix, é uma lista de músicas gerada automáticamente a partir de uma música especifica, atualmente, muitos dos programas de download do Youtube não tem a funcionalidade de baixar esse tipo de playlist, saiba como fazê-lo.">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/covers/youtube-mix.jpeg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-09-10T00:00:00-03:00">
+
+
+
+  <meta property="article:modified_time" content="2020-09-10T00:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/python/youtube-mix-download-python/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categorias</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Buscar</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#python" itemprop="item"><span itemprop="name">Python</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Download de uma playlist Youtube Mix com Python, Selenium e Docker</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Gabriel Menezes" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gabriel Menezes</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Criando bugs e compartilhando conhecimento.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Acompanhe no</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Brasil</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linked in</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dmenezesgabriel.gabriel@gmail.com">
+            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">E-mail</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Download de uma playlist Youtube Mix com Python, Selenium e Docker">
+    <meta itemprop="description" content="Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.">
+    <meta itemprop="datePublished" content="2020-09-10T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2020-09-10T00:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Download de uma playlist Youtube Mix com Python, Selenium e Docker
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-10T00:00:00-03:00">September 10, 2020</time>
+    
+
+    
+      
+      <span class="post__meta-sep"></span>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        3 minuto(s) de leitura
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Nesta página</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#e-qual-é-o-problema">E qual é o problema?</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Recentemente comecei a utilizar um smartwatch para realizar a minha rotina de exercícios ao ar live. Apenas com ele, ou seja, sem a necessidade de carregar meu celular consigo os dados de trajeto, tempo, frequência cardíaca, entre outros indicadores para mensurar o meu desempenho, além de que ele possui espaço de armazenamento suficiente para que eu possa carregar algumas músicas.</p>
+
+<p>O que seria do treino de cada dia sem uma trilha sonora, não é mesmo?</p>
+
+<p>O smartwatch que utilizo não suporta aplicativos como Amazon Music ou Spotify, logo optei por baixar as músicas do Youtube e transferir para o armazenamento interno do relógio. A única questão é que selecionar as músicas uma a uma não é uma opção, hoje em dia há vários algorítimos de sugestão e a minha preferência é usufruir das playlists “Mix” geradas automáticamente, a partir de uma música especifica.</p>
+
+<h3 id="e-qual-é-o-problema">E qual é o problema?</h3>
+
+<p>Atualmente a maioria dos aplicativos de download de videos/audio do Youtube não suporta e não reconhece essas playlists como playlists de fato, então optei pelo seguinte fluxo:</p>
+
+<ol>
+  <li>Fornecer a url de uma playlist Youtube Mix como argumento;</li>
+  <li>Este argumento será passado a uma função que irá buscar os links das músicas no código fonte da página da pseudo playlist;</li>
+  <li>Cada uma das músicas sera baixada para o meu diretório local, na pasta <code class="language-plaintext highlighter-rouge">downloads/</code>.</li>
+</ol>
+
+<h1 id="python-selenium-e-docker">Python, Selenium e Docker</h1>
+
+<ul>
+  <li><strong>Python</strong>: Oferece simplicidade no desenvolvimento do código, e é bastante útilizado para realização de web scrapping.</li>
+  <li><strong>Selenium</strong>: Framework de automação web, optei por sua utilização devido a biblioteca <code class="language-plaintext highlighter-rouge">requests</code> do python não ser capaz de lidar com o javascript utilizado para gerar o conteúdo da página.</li>
+  <li><strong>Docker</strong>: Ué, mas na minha máquina funciona? Vamos evitar isso!</li>
+</ul>
+
+<h2 id="código">Código</h2>
+
+<p>Se você preferir ir direto ao código:</p>
+
+<ul>
+  <li><a href="https://github.com/dmenezesgabriel/youtube-downloader">Repositório</a></li>
+</ul>
+
+<p>Se não, vamos começar pela estrutura do diretório:</p>
+
+<ul>
+  <li>Geralmente apenas o código fonte, ou seja, apenas o que está dentro da past <code class="language-plaintext highlighter-rouge">src</code> é levado para dentro do container, que por sua vez, simulará um sistema operacional isolado.
+Um dos motivos para tal prática é a segurança, neste exemplo não utilizamos variáveis de ambiente sensíveis como chaves de API e etc, mas caso fossem utilizadas elas não deveriam ir para dentro do container uma vez que você exponha as suas portas a internet, ele está passível de invasões, mas neste caso estamos rodando localmente então considere apenas como uma curiosidade.</li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── requirements.txt
+└── src
+    ├── downloads
+    └── youtube.py
+</code></pre></div></div>
+
+<p><strong>requirements.txt</strong>: Dependências para executar o código escrito em python neste cenário.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>youtube-dl==2020.9.6
+bs4==0.0.1
+selenium==3.141.0
+PyVirtualDisplay==1.3.2
+</code></pre></div></div>
+
+<p><strong>youtube.py</strong>: Este arquivo carrega as funções auxiliares tanto para baixar o aúdio através do <code class="language-plaintext highlighter-rouge">youtube-dl</code> quanto realizar a busca dos links utilizando o <code class="language-plaintext highlighter-rouge">Selenium</code> para interação com o navegador <code class="language-plaintext highlighter-rouge">Firefox</code>.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+
+<span class="kn">from</span> <span class="nn">pyvirtualdisplay</span> <span class="kn">import</span> <span class="n">Display</span>
+
+<span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">().</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="n">DOMAIN</span> <span class="o">=</span> <span class="s">'https://www.youtube.com'</span>
+
+
+<span class="k">def</span> <span class="nf">get_links</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Initialized virtual display..'</span><span class="p">)</span>
+
+    <span class="n">firefox_profile</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">FirefoxProfile</span><span class="p">()</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s">'browser.download.folderList'</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span>
+        <span class="s">'browser.download.manager.showWhenStarting'</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span><span class="s">'browser.download.dir'</span><span class="p">,</span> <span class="n">os</span><span class="p">.</span><span class="n">getcwd</span><span class="p">())</span>
+    <span class="n">firefox_profile</span><span class="p">.</span><span class="n">set_preference</span><span class="p">(</span>
+        <span class="s">'browser.helperApps.neverAsk.saveToDisk'</span><span class="p">,</span> <span class="s">'text/csv'</span><span class="p">)</span>
+
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Prepared firefox profile..'</span><span class="p">)</span>
+
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">webdriver</span><span class="p">.</span><span class="n">Firefox</span><span class="p">(</span><span class="n">firefox_profile</span><span class="o">=</span><span class="n">firefox_profile</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Initialized firefox browser..'</span><span class="p">)</span>
+
+    <span class="n">browser</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Accessed %s ..'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'Page title: %s'</span><span class="p">,</span> <span class="n">browser</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="mi">3</span><span class="p">).</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="p">.</span><span class="n">presence_of_element_located</span><span class="p">(</span>
+                           <span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">'wc-endpoint'</span><span class="p">))).</span><span class="n">text</span>
+    <span class="c1"># soup = BeautifulSoup(html, 'html.parser')
+</span>    <span class="n">html</span> <span class="o">=</span> <span class="n">browser</span><span class="p">.</span><span class="n">page_source</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>
+    <span class="n">links_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">.</span><span class="n">findAll</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="s">'wc-endpoint'</span><span class="p">}):</span>
+        <span class="n">href</span> <span class="o">=</span> <span class="n">link</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'href'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">href</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">'/watch?'</span><span class="p">):</span>
+            <span class="n">links_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">DOMAIN</span> <span class="o">+</span> <span class="n">href</span><span class="p">)</span>
+
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">'%s items found'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">links_list</span><span class="p">))</span>
+    <span class="n">browser</span><span class="p">.</span><span class="n">quit</span><span class="p">()</span>
+    <span class="n">display</span><span class="p">.</span><span class="n">stop</span><span class="p">()</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">links_list</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">links_list</span>
+
+
+<span class="k">def</span> <span class="nf">download_from_url</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">destination_folder</span><span class="p">):</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s">'youtube-dl'</span><span class="p">,</span> <span class="s">'-i'</span><span class="p">,</span> <span class="s">'--no-playlist'</span><span class="p">,</span> <span class="s">'--extract-audio'</span><span class="p">,</span>
+            <span class="s">'--audio-format'</span><span class="p">,</span> <span class="s">'mp3'</span><span class="p">,</span> <span class="s">'--audio-quality'</span><span class="p">,</span> <span class="s">'0'</span><span class="p">,</span> <span class="n">link</span><span class="p">,</span> <span class="s">'-o'</span><span class="p">,</span>
+            <span class="n">destination_folder</span><span class="o">+</span><span class="s">'%(title)s.%(ext)s'</span><span class="p">]</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="c1"># Wait for process to terminate.
+</span>    <span class="n">p</span><span class="p">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">p</span><span class="p">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Successful download'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Download Failed'</span>
+
+
+<span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">links_list</span> <span class="o">=</span> <span class="n">get_links</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links_list</span><span class="p">:</span>
+        <span class="n">download_from_url</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="s">'./downloads/'</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="n">download</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Dockerfile</strong>: É básicamente a receita do bolo, ou seja, contém todas as dependências necessárias para gerar uma abstração do sistema operacional, em forma de imagem, e utilizando os recursos disponíveis em sua maquina.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Pull official base image</span>
+FROM python:3.8.1-slim-buster
+<span class="c"># Set envrionment variables</span>
+<span class="c"># Prevents Python from writing pyc files to disc (equivalent to python -B option)</span>
+ENV PYTHONDONTWRITEBYTECODE 1
+<span class="c"># Prevents Python from buffering stdout and stderr (equivalent to python -u option)</span>
+ENV PYTHONBUFFERED 1
+<span class="c"># Language</span>
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+<span class="c"># Install system dependencies</span>
+RUN apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> <span class="se">\</span>
+    fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 <span class="se">\</span>
+    libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 <span class="se">\</span>
+    curl unzip wget <span class="se">\</span>
+    xvfb <span class="se">\</span>
+    ffmpeg
+<span class="c"># install geckodriver and firefox</span>
+RUN <span class="nv">GECKODRIVER_VERSION</span><span class="o">=</span><span class="sb">`</span>curl https://github.com/mozilla/geckodriver/releases/latest | <span class="nb">grep</span> <span class="nt">-Po</span> <span class="s1">'v[0-9]+.[0-9]+.[0-9]+'</span><span class="sb">`</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget https://github.com/mozilla/geckodriver/releases/download/<span class="nv">$GECKODRIVER_VERSION</span>/geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">tar</span> <span class="nt">-zxf</span> geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz <span class="nt">-C</span> /usr/local/bin <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">chmod</span> +x /usr/local/bin/geckodriver <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">rm </span>geckodriver-<span class="nv">$GECKODRIVER_VERSION</span><span class="nt">-linux64</span>.tar.gz
+
+RUN <span class="nv">FIREFOX_SETUP</span><span class="o">=</span>firefox-setup.tar.bz2 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    apt-get purge firefox <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget <span class="nt">-O</span> <span class="nv">$FIREFOX_SETUP</span> <span class="s2">"https://download.mozilla.org/?product=firefox-latest&amp;os=linux64"</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">tar </span>xjf <span class="nv">$FIREFOX_SETUP</span> <span class="nt">-C</span> /opt/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">ln</span> <span class="nt">-s</span> /opt/firefox/firefox /usr/bin/firefox <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">rm</span> <span class="nv">$FIREFOX_SETUP</span>
+
+<span class="c"># Set working directory</span>
+ENV APP_HOME /usr/src/app
+WORKDIR /<span class="nv">$APP_HOME</span>
+<span class="c"># Install python dependencies</span>
+RUN pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+COPY ./requirements.txt /usr/src/app/requirements.txt
+RUN pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+<span class="c"># Copy project</span>
+COPY <span class="nb">.</span> <span class="nv">$APP_HOME</span>/
+
+CMD <span class="nb">tail</span> <span class="nt">-f</span> /dev/null
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#docker" class="page__taxonomy-item" rel="tag">Docker</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">Python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#selenium" class="page__taxonomy-item" rel="tag">Selenium</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#youtube" class="page__taxonomy-item" rel="tag">Youtube</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorias: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-09-10">September 10, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Compartilhe</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Download+de+uma+playlist+Youtube+Mix+com+Python%2C+Selenium+e+Docker%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fyoutube-mix-download-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fyoutube-mix-download-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fpython%2Fyoutube-mix-download-python%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/python/selecao-fundos-imobiliarios-python/" class="pagination--pager" title="Seleção de fundos de investimento imobiliário utilizando Python
+">Anterior</a>
+    
+    
+      <a href="/python/como-instalar-docker-docker-compose-raspberrypi/" class="pagination--pager" title="Como instalar Docker e Docker Compose no Raspberry Pi
+">Próxima</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Deixe um comentário</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">Talvez você também goste</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/ferramentas-qualidade-codigo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" rel="permalink">Ferramentas para melhorar a qualidade do seu código
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-26T00:00:00-03:00">September 26, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/docker-commands.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-comandos-procura-diaria-google/" rel="permalink">Docker, eliminando a procura diária por esses comandos no Google.
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        menos que 1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Quando você utiliza muitos containers Docker em seu dia a dia para diversos programas diferentes, containers antigos podem ficar “pendurados”, juntando poeir...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/treasure.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada/" rel="permalink">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        5 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada, dois dos investimentos mais conhecidos e conservadores para auxiliar na sua ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/docker-pi.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/python/como-instalar-docker-docker-compose-raspberrypi/" rel="permalink">Como instalar Docker e Docker Compose no Raspberry Pi
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-14T00:00:00-03:00">September 14, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">O Docker é bastante utilizado no mundo de desenvolvimento de software, com ele é possível virtualizar a mesma infraestrutura de sua máquina, em qualquer ambi...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Pesquisar..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Acompanhe no</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gabriel Menezes. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://dmenezesgabriel.github.io/python/youtube-mix-download-python/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/python/youtube-mix-download-python"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
