@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-01T23:06:33-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Ferramentas para melhorar a qualidade do seu código</title><link href="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/" rel="alternate" type="text/html" title="Ferramentas para melhorar a qualidade do seu código" /><published>2020-09-26T00:00:00-03:00</published><updated>2020-09-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">&lt;p&gt;Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda &lt;strong&gt;PEP 8&lt;/strong&gt; no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-02T22:24:52-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Configurando setup básico para programar no Ubuntu</title><link href="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/" rel="alternate" type="text/html" title="Configurando setup básico para programar no Ubuntu" /><published>2020-11-02T00:00:00-03:00</published><updated>2020-11-02T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">&lt;p&gt;A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?&lt;/p&gt;
+
+&lt;h2 id=&quot;oh-my-zsh&quot;&gt;Oh my Zsh&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;Oh My Zsh GithubPage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# ~/.zshrc&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=(&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# Autocomplete suggestions based in your history&lt;/span&gt;
+  zsh-autosuggestions
+  &lt;span class=&quot;c&quot;&gt;# Basically it make the command green if typed right, red if doesn’t&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;# and underline existent folders/files.&lt;/span&gt;
+  zsh-syntax-highlighting
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;## Custom ##&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Activate Python general virtual environment&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;generalenv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;source ~/environments/general/bin/activate&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Always require python environment&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PIP_REQUIRE_VIRTUALENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Don't write __pycache__, *.pyc and similar files&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PYTHONDONTWRITEBYTECODE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
+
+&lt;h3 id=&quot;virtual-environment&quot;&gt;Virtual Environment&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; python3-venv &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+python3 &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; venv ~/environments/general
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Activate&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; ~/environments/general/bin/activate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Essential libs&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;black isort pylama flake8 pytest wheel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;snap-store&quot;&gt;Snap Store&lt;/h2&gt;
+
+&lt;p&gt;App store for linux&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;snapd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;visual-studio-code&quot;&gt;Visual Studio Code&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;code &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Turn on &lt;strong&gt;Settings Sync&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;firefox&quot;&gt;Firefox&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://draculatheme.com/firefox/&quot;&gt;Dracula Theme&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Default Search Engine: DuckDuckGo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;last-pass&quot;&gt;Last Pass&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lastpass.com/pt&quot;&gt;Official Last Pass site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;docker&quot;&gt;Docker&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Via Snap&lt;/strong&gt;:
+sudo snap install docker&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;-&lt;a href=&quot;https://docs.docker.com/engine/install/ubuntu/&quot;&gt;Docker Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Print architecture&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg &lt;span class=&quot;nt&quot;&gt;--print-architecture&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;groupadd docker
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gpasswd &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt; docker
+newgrp docker
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker &lt;span class=&quot;nv&quot;&gt;$USER&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Restart docker&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;docker-compose&quot;&gt;Docker Compose&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/compose/install/&quot;&gt;Docker Compose Docs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;slack&quot;&gt;Slack&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;slack &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://slack.com/intl/pt-br/help/articles/212924728-Baixar-Slack-para-Linux--Beta-&quot;&gt;Slack Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://draculatheme.com/slack&quot;&gt;Dracula Theme&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;vim&quot;&gt;Vim&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;vim &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Choose /usr/bin/vim.basic&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;update-alternatives &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; editor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;make&quot;&gt;Make&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;github&quot;&gt;GitHub&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&quot;&gt;SSH&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;openvpn&quot;&gt;OpenVPN&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openvpn &lt;span class=&quot;nt&quot;&gt;--config&lt;/span&gt; sample.ovpn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;insomnia&quot;&gt;Insomnia&lt;/h2&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;insomnia
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programacao" /><category term="linter" /><category term="formatter" /><category term="syntax" /><category term="tema" /><category term="extensões" /><category term="ubuntu" /><category term="setup" /><summary type="html">A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?</summary></entry><entry><title type="html">Ferramentas para melhorar a qualidade do seu código</title><link href="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/" rel="alternate" type="text/html" title="Ferramentas para melhorar a qualidade do seu código" /><published>2020-09-26T00:00:00-03:00</published><updated>2020-09-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">&lt;p&gt;Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda &lt;strong&gt;PEP 8&lt;/strong&gt; no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.&lt;/p&gt;
 
 &lt;p&gt;Porque não utilizar a tecnologia a nosso favor?&lt;/p&gt;
 
@@ -1392,33 +1545,4 @@ git checkout &amp;lt;nome da ramificação &lt;span class=&quot;o&quot;&gt;(&lt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://explainshell.com/explain?cmd=git+log+--all+--graph+--decorate+--oneline+--simplify-by-decoration&quot;&gt;Explain Shell&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="Github" /><category term="Iniciante" /><category term="Comandos" /><summary type="html">O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.</summary></entry><entry><title type="html">Você conhece a origem do “Hello World!”?</title><link href="https://dmenezesgabriel.github.io/programacao/origens-do-hello-world/" rel="alternate" type="text/html" title="Você conhece a origem do “Hello World!”?" /><published>2020-08-19T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/origens-do-hello-world</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/origens-do-hello-world/">&lt;p&gt;Tradicionalmente, programas &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.&lt;/p&gt;
-
-&lt;p&gt;Geralmente estes programas são os primeiros desenvolvidos por novos programadores, porque mesmo com pouca ou nenhuma experiência são fáceis para se executar, e por sua simplicidade são utilizados para garantir que os componentes de uma linguagem (seu compilador, ambiente de desenvolvimento e tempo de execução) foram instalados corretamente.&lt;/p&gt;
-
-&lt;p&gt;Estes programas também são utilizados pelos hackers como prova de conceito de que um código arbitrário pode ser executado por meio de um exploit onde os designers do sistema não pretendiam que o código pudesse ser executado.&lt;/p&gt;
-
-&lt;p&gt;Outro uso popular do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; é como base de comparação de tamanho do executável que a linguagem gera e quanta infraestrutura de suporte deve existir por trás do programa para que este seja executado.&lt;/p&gt;
-
-&lt;h2 id=&quot;mas-de-onde-ou-melhor-quando-tudo-isso-começou&quot;&gt;Mas de onde, ou melhor, quando tudo isso começou?&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Brian Kernighan&lt;/strong&gt;, autor de um dos livros de programação mais lidos, “C Programming Language”, também criou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hello, World&lt;/code&gt;. Ele fez referência pela primeira vez a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hello World&lt;/code&gt; no predecessor do livro &lt;em&gt;C Programming Language: A Tutorial Introduction to the Programming Language B publicado&lt;/em&gt; em 1973.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;extrn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hell&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orld&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Infelizmente, Kernighan não consegue identificar com certeza quando ou por que escolheu as palavras “Olá, Mundo!”. Quando questionado sobre o que gerou a ideia do nome “Olá, Mundo” em uma entrevista para a Forbes Índia, ele disse que sua memória está turva.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“O que me lembro é que vi um cartoon que mostrava um ovo e um pintinho e o pintinho dizia:“ Olá, mundo ”.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;E você, já escreveu seu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Olá, Mundo!&lt;/code&gt; ou melhor, seu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hello, World!&lt;/code&gt; hoje?&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Hello World!'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programacao" /><category term="Python" /><category term="Programação" /><category term="Curiosidades" /><summary type="html">Tradicionalmente, programas Olá, Mundo! são utilizados para demonstrações no desenvolvimento de programas, assim como para assegurar que tanto uma linguagem como o sistema operacional estão funcionando corretamente.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Git" /><category term="Git" /><category term="Github" /><category term="Iniciante" /><category term="Comandos" /><summary type="html">O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.</summary></entry></feed>

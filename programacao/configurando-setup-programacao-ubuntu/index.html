@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Ferramentas para melhorar a qualidade do seu código - Gabriel Menezes</title>
-<meta name="description" content="Ferramentas para melhorar a qualidade do seu código, sua produtividade e tempo de revisão">
+<!-- begin _includes/seo.html --><title>Configurando setup básico para programar no Ubuntu - Gabriel Menezes</title>
+<meta name="description" content="Como configurar o Ubuntu para desenvolver com python">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -19,37 +19,37 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Ferramentas para melhorar a qualidade do seu código">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">
+<meta property="og:title" content="Configurando setup básico para programar no Ubuntu">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">
 
 
-  <meta property="og:description" content="Ferramentas para melhorar a qualidade do seu código, sua produtividade e tempo de revisão">
+  <meta property="og:description" content="Como configurar o Ubuntu para desenvolver com python">
 
 
 
-  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/covers/ferramentas-qualidade-codigo.jpg">
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/covers/2020-08-25-configurando-setup-programacao-ubuntu.jpeg">
 
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Ferramentas para melhorar a qualidade do seu código">
-  <meta name="twitter:description" content="Ferramentas para melhorar a qualidade do seu código, sua produtividade e tempo de revisão">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">
+  <meta name="twitter:title" content="Configurando setup básico para programar no Ubuntu">
+  <meta name="twitter:description" content="Como configurar o Ubuntu para desenvolver com python">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">
 
   
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/covers/ferramentas-qualidade-codigo.jpg">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/covers/2020-08-25-configurando-setup-programacao-ubuntu.jpeg">
   
 
   
 
 
 
-  <meta property="article:published_time" content="2020-09-26T00:00:00-03:00">
+  <meta property="article:published_time" content="2020-11-02T00:00:00-03:00">
 
 
 
-  <meta property="article:modified_time" content="2020-09-26T00:00:00-03:00">
+  <meta property="article:modified_time" content="2020-11-02T00:00:00-03:00">
 
 
 
@@ -58,7 +58,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">
 
 
 
@@ -209,7 +209,7 @@
     
       
       
-        <li class="current">Ferramentas para melhorar a qualidade do seu código</li>
+        <li class="current">Configurando setup básico para programar no Ubuntu</li>
       
     
   </ol>
@@ -351,15 +351,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Ferramentas para melhorar a qualidade do seu código">
-    <meta itemprop="description" content="Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda PEP 8 no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.">
-    <meta itemprop="datePublished" content="2020-09-26T00:00:00-03:00">
-    <meta itemprop="dateModified" content="2020-09-26T00:00:00-03:00">
+    <meta itemprop="headline" content="Configurando setup básico para programar no Ubuntu">
+    <meta itemprop="description" content="A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?">
+    <meta itemprop="datePublished" content="2020-11-02T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2020-11-02T00:00:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Ferramentas para melhorar a qualidade do seu código
+          <h1 id="page-title" class="page__title" itemprop="headline">Configurando setup básico para programar no Ubuntu
 </h1>
           
 
@@ -369,7 +369,7 @@
     
       
       <i class="far fa-calendar-alt" aria-hidden="true"></i>
-      <time datetime="2020-09-26T00:00:00-03:00">September 26, 2020</time>
+      <time datetime="2020-11-02T00:00:00-03:00">November 2, 2020</time>
     
 
     
@@ -399,309 +399,183 @@
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Nesta página</h4></header>
               <ul class="toc__menu">
-  <li><a href="#ferramentas-para-melhorar-a-qualidade-do-seu-código">Ferramentas para melhorar a qualidade do seu código</a>
+  <li><a href="#oh-my-zsh">Oh my Zsh</a></li>
+  <li><a href="#python">Python</a>
     <ul>
-      <li><a href="#suporte-a-linguagem">Suporte a linguagem</a>
-        <ul>
-          <li><a href="#python">Python</a></li>
-        </ul>
-      </li>
-      <li><a href="#análise-de-qualidade-e-segurança">Análise de qualidade e segurança</a>
-        <ul>
-          <li><a href="#deepcode">DeepCode</a></li>
-          <li><a href="#sonarcloud">Sonarcloud</a></li>
-          <li><a href="#sonarqube">Sonarqube</a></li>
-          <li><a href="#snyk">Snyk</a></li>
-          <li><a href="#codacy">Codacy</a></li>
-          <li><a href="#codeinspector">Codeinspector</a></li>
-          <li><a href="#codeguru-aws">CodeGuru AWS</a></li>
-          <li><a href="#sonarlint">Sonarlint</a></li>
-          <li><a href="#codescan">CodeScan</a></li>
-          <li><a href="#deepscan">DeepScan</a></li>
-        </ul>
-      </li>
-      <li><a href="#linters">Linters</a>
-        <ul>
-          <li><a href="#python-1">Python</a>
-            <ul>
-              <li><a href="#pylama">Pylama</a></li>
-              <li><a href="#flake8">Flake8</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#formatadores-automáticos">Formatadores automáticos</a>
-        <ul>
-          <li><a href="#python-2">Python</a>
-            <ul>
-              <li><a href="#autopep8">autopep8</a></li>
-              <li><a href="#yapf">yapf</a></li>
-              <li><a href="#black">black</a></li>
-              <li><a href="#isort">isort</a></li>
-            </ul>
-          </li>
-          <li><a href="#sql">SQL</a>
-            <ul>
-              <li><a href="#sql-server">SQL Server</a></li>
-            </ul>
-          </li>
-          <li><a href="#javascript">Javascript</a>
-            <ul>
-              <li><a href="#prettier">Prettier</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#corretores-ortográficos">Corretores ortográficos</a>
-        <ul>
-          <li><a href="#code-spell-checker">Code Spell Checker</a></li>
-        </ul>
-      </li>
-      <li><a href="#syntax-highlighters">Syntax Highlighters</a>
-        <ul>
-          <li><a href="#viml">VimL</a></li>
-          <li><a href="#terraform">Terraform</a></li>
-          <li><a href="#dotenv">DotEnv</a></li>
-          <li><a href="#docker">Docker</a></li>
-          <li><a href="#trailing-spaces">Trailing spaces</a></li>
-          <li><a href="#cor-dos-brackets">Cor dos brackets</a></li>
-          <li><a href="#toml">TOML</a></li>
-        </ul>
-      </li>
-      <li><a href="#auto-complete">Auto Complete</a>
-        <ul>
-          <li><a href="#visual-studio-intellicode">Visual Studio IntelliCode</a></li>
-        </ul>
-      </li>
-      <li><a href="#suporte-ao-git">Suporte ao Git</a></li>
-      <li><a href="#temas">Temas</a>
-        <ul>
-          <li><a href="#dracula">Dracula</a></li>
-        </ul>
-      </li>
-      <li><a href="#links-úteis">Links úteis</a></li>
+      <li><a href="#virtual-environment">Virtual Environment</a></li>
     </ul>
   </li>
+  <li><a href="#snap-store">Snap Store</a></li>
+  <li><a href="#visual-studio-code">Visual Studio Code</a></li>
+  <li><a href="#firefox">Firefox</a></li>
+  <li><a href="#last-pass">Last Pass</a></li>
+  <li><a href="#docker">Docker</a></li>
+  <li><a href="#docker-compose">Docker Compose</a></li>
+  <li><a href="#slack">Slack</a></li>
+  <li><a href="#vim">Vim</a></li>
+  <li><a href="#make">Make</a></li>
+  <li><a href="#github">GitHub</a></li>
+  <li><a href="#openvpn">OpenVPN</a></li>
+  <li><a href="#insomnia">Insomnia</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <p>Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda <strong>PEP 8</strong> no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.</p>
+        <p>A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?</p>
 
-<p>Porque não utilizar a tecnologia a nosso favor?</p>
-
-<h1 id="ferramentas-para-melhorar-a-qualidade-do-seu-código">Ferramentas para melhorar a qualidade do seu código</h1>
-
-<h2 id="suporte-a-linguagem">Suporte a linguagem</h2>
-
-<h3 id="python">Python</h3>
+<h2 id="oh-my-zsh">Oh my Zsh</h2>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Extensão Visual Studio Code</a></li>
+  <li><a href="https://github.com/ohmyzsh/ohmyzsh">Oh My Zsh GithubPage</a></li>
 </ul>
 
-<h2 id="análise-de-qualidade-e-segurança">Análise de qualidade e segurança</h2>
-
-<h3 id="deepcode">DeepCode</h3>
-
-<ul>
-  <li><a href="https://www.deepcode.ai/">Site Oficial</a></li>
-</ul>
-
-<h3 id="sonarcloud">Sonarcloud</h3>
-
-<ul>
-  <li><a href="https://sonarcloud.io/">Site Oficial</a></li>
-</ul>
-
-<h3 id="sonarqube">Sonarqube</h3>
-
-<ul>
-  <li><a href="https://www.sonarqube.org/">Site Oficial</a></li>
-</ul>
-
-<h3 id="snyk">Snyk</h3>
-
-<ul>
-  <li><a href="https://snyk.io/">Site Oficial</a></li>
-</ul>
-
-<h3 id="codacy">Codacy</h3>
-
-<ul>
-  <li><a href="https://www.codacy.com/">Site Oficial</a></li>
-</ul>
-
-<h3 id="codeinspector">Codeinspector</h3>
-
-<ul>
-  <li><a href="https://www.code-inspector.com/">Site Oficial</a></li>
-</ul>
-
-<h3 id="codeguru-aws">CodeGuru AWS</h3>
-
-<ul>
-  <li><a href="https://aws.amazon.com/pt/codeguru/">Site Oficial</a></li>
-</ul>
-
-<h3 id="sonarlint">Sonarlint</h3>
-
-<ul>
-  <li>
-    <p><a href="https://www.sonarlint.org/">Site Oficial</a></p>
-  </li>
-  <li>
-    <p><a href="https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode">Extensão Visual Studio Code</a></p>
-  </li>
-</ul>
-
-<h3 id="codescan">CodeScan</h3>
-
-<ul>
-  <li><a href="https://www.codescan.io/">Site Oficial</a></li>
-</ul>
-
-<h3 id="deepscan">DeepScan</h3>
-
-<ul>
-  <li><a href="https://deepscan.io/home/">Site Oficial</a></li>
-</ul>
-
-<h2 id="linters">Linters</h2>
-
-<h3 id="python-1">Python</h3>
-
-<h4 id="pylama">Pylama</h4>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>pylama
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions <span class="o">&amp;&amp;</span> <span class="se">\</span>
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 </code></pre></div></div>
 
-<h4 id="flake8">Flake8</h4>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ~/.zshrc</span>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>flake8
+<span class="nv">plugins</span><span class="o">=(</span>
+  <span class="c"># Autocomplete suggestions based in your history</span>
+  zsh-autosuggestions
+  <span class="c"># Basically it make the command green if typed right, red if doesn’t</span>
+  <span class="c"># and underline existent folders/files.</span>
+  zsh-syntax-highlighting
+<span class="o">)</span>
+
+<span class="c">## Custom ##</span>
+<span class="c"># Activate Python general virtual environment</span>
+<span class="nb">alias </span><span class="nv">generalenv</span><span class="o">=</span><span class="s2">"source ~/environments/general/bin/activate"</span>
+<span class="c"># Always require python environment</span>
+<span class="nb">export </span><span class="nv">PIP_REQUIRE_VIRTUALENV</span><span class="o">=</span><span class="nb">true</span>
+<span class="c"># Don't write __pycache__, *.pyc and similar files</span>
+<span class="nb">export </span><span class="nv">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span>1
 </code></pre></div></div>
 
-<h2 id="formatadores-automáticos">Formatadores automáticos</h2>
+<h2 id="python">Python</h2>
 
-<h3 id="python-2">Python</h3>
+<h3 id="virtual-environment">Virtual Environment</h3>
 
-<h4 id="autopep8">autopep8</h4>
+<ul>
+  <li><strong>Create</strong>:</li>
+</ul>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>autopep8
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> python3-venv <span class="o">&amp;&amp;</span> <span class="se">\</span>
+python3 <span class="nt">-m</span> venv ~/environments/general
 </code></pre></div></div>
 
-<h4 id="yapf">yapf</h4>
+<ul>
+  <li><strong>Activate</strong>:</li>
+</ul>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>yapf
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">source</span> ~/environments/general/bin/activate
 </code></pre></div></div>
 
-<h4 id="black">black</h4>
+<ul>
+  <li><strong>Essential libs</strong>:</li>
+</ul>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>black
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 <span class="nb">install </span>black isort pylama flake8 pytest wheel
 </code></pre></div></div>
 
-<h4 id="isort">isort</h4>
+<h2 id="snap-store">Snap Store</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>isort
+<p>App store for linux</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nb">install </span>snapd
 </code></pre></div></div>
 
-<h3 id="sql">SQL</h3>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
 
-<h4 id="sql-server">SQL Server</h4>
-
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql">Extensão Visual Studio Code</a></li>
-</ul>
-
-<h3 id="javascript">Javascript</h3>
-
-<h4 id="prettier">Prettier</h4>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>code <span class="nt">--classic</span>
+</code></pre></div></div>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Extensão Visual Studio Code</a></li>
+  <li>Turn on <strong>Settings Sync</strong></li>
 </ul>
 
-<h2 id="corretores-ortográficos">Corretores ortográficos</h2>
-
-<h3 id="code-spell-checker">Code Spell Checker</h3>
+<h2 id="firefox">Firefox</h2>
 
 <ul>
-  <li>pt_BR: <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-portuguese-brazilian">Extensão Visual Studio Code</a></li>
-  <li>en_US: <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">Extensão Visual Studio Code</a></li>
+  <li><a href="https://draculatheme.com/firefox/">Dracula Theme</a></li>
+  <li>Default Search Engine: DuckDuckGo</li>
 </ul>
 
-<h2 id="syntax-highlighters">Syntax Highlighters</h2>
-
-<h3 id="viml">VimL</h3>
+<h2 id="last-pass">Last Pass</h2>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=XadillaX.viml">Extensão Visual Studio Code</a></li>
+  <li><a href="https://www.lastpass.com/pt">Official Last Pass site</a></li>
 </ul>
 
-<h3 id="terraform">Terraform</h3>
+<h2 id="docker">Docker</h2>
+
+<p><strong>Via Snap</strong>:
+sudo snap install docker</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p>-<a href="https://docs.docker.com/engine/install/ubuntu/">Docker Docs</a></p>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform">Extensão Visual Studio Code</a></li>
+  <li><strong>Print architecture</strong>:</li>
 </ul>
 
-<h3 id="dotenv">DotEnv</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg <span class="nt">--print-architecture</span>
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd docker
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker
+newgrp docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+<span class="c"># Restart docker</span>
+</code></pre></div></div>
+
+<h2 id="docker-compose">Docker Compose</h2>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv">Extensão Visual Studio Code</a></li>
+  <li><a href="https://docs.docker.com/compose/install/">Docker Compose Docs</a></li>
 </ul>
 
-<h3 id="docker">Docker</h3>
+<h2 id="slack">Slack</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>slack <span class="nt">--classic</span>
+</code></pre></div></div>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Extensão Visual Studio Code</a></li>
+  <li><a href="https://slack.com/intl/pt-br/help/articles/212924728-Baixar-Slack-para-Linux--Beta-">Slack Docs</a></li>
+  <li><a href="https://draculatheme.com/slack">Dracula Theme</a></li>
 </ul>
 
-<h3 id="trailing-spaces">Trailing spaces</h3>
+<h2 id="vim">Vim</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>vim <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="c"># Choose /usr/bin/vim.basic</span>
+<span class="nb">sudo </span>update-alternatives <span class="nt">--config</span> editor
+</code></pre></div></div>
+
+<h2 id="make">Make</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>make
+</code></pre></div></div>
+
+<h2 id="github">GitHub</h2>
 
 <ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces">Extensão Visual Studio Code</a></li>
+  <li><a href="https://docs.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">SSH</a></li>
 </ul>
 
-<h3 id="cor-dos-brackets">Cor dos brackets</h3>
+<h2 id="openvpn">OpenVPN</h2>
 
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2">Extensão Visual Studio Code</a></li>
-</ul>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openvpn <span class="nt">--config</span> sample.ovpn
+</code></pre></div></div>
 
-<h3 id="toml">TOML</h3>
+<h2 id="insomnia">Insomnia</h2>
 
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml">Extensão Visual Studio Code</a></li>
-</ul>
-
-<h2 id="auto-complete">Auto Complete</h2>
-
-<h3 id="visual-studio-intellicode">Visual Studio IntelliCode</h3>
-
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode">Extensão Visual Studio Code</a></li>
-</ul>
-
-<h2 id="suporte-ao-git">Suporte ao Git</h2>
-
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">Extensão Visual Studio Code</a></li>
-</ul>
-
-<h2 id="temas">Temas</h2>
-
-<h3 id="dracula">Dracula</h3>
-
-<ul>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula">Extensão Visual Studio Code</a></li>
-</ul>
-
-<h2 id="links-úteis">Links úteis</h2>
-
-<ul>
-  <li><a href="https://medium.com/@cereblanco/setup-black-and-isort-in-vscode-514804590bf9">Setup Black and Isort in VSCode</a></li>
-</ul>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>snap <span class="nb">install </span>insomnia
+</code></pre></div></div>
 
         
       </section>
@@ -734,11 +608,19 @@
     
       
       
+      <a href="/tags/#setup" class="page__taxonomy-item" rel="tag">setup</a><span class="sep">, </span>
+    
+      
+      
       <a href="/tags/#syntax" class="page__taxonomy-item" rel="tag">syntax</a><span class="sep">, </span>
     
       
       
-      <a href="/tags/#tema" class="page__taxonomy-item" rel="tag">tema</a>
+      <a href="/tags/#tema" class="page__taxonomy-item" rel="tag">tema</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#ubuntu" class="page__taxonomy-item" rel="tag">ubuntu</a>
     
     </span>
   </p>
@@ -766,7 +648,7 @@
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-09-26">September 26, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-11-02">November 2, 2020</time></p>
 
 
       </footer>
@@ -776,23 +658,22 @@
     <h4 class="page__share-title">Compartilhe</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Ferramentas+para+melhorar+a+qualidade+do+seu+c%C3%B3digo%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fferramentas-melhorar-qualidade-codigo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Configurando+setup+b%C3%A1sico+para+programar+no+Ubuntu%20https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fconfigurando-setup-programacao-ubuntu%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fferramentas-melhorar-qualidade-codigo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fconfigurando-setup-programacao-ubuntu%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fferramentas-melhorar-qualidade-codigo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Fprogramacao%2Fconfigurando-setup-programacao-ubuntu%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/docker/docker-comandos-procura-diaria-google/" class="pagination--pager" title="Docker, eliminando a procura diária por esses comandos no Google.
+      <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" class="pagination--pager" title="Ferramentas para melhorar a qualidade do seu código
 ">Anterior</a>
     
     
-      <a href="/programacao/configurando-setup-programacao-ubuntu/" class="pagination--pager" title="Configurando setup básico para programar no Ubuntu
-">Próxima</a>
+      <a href="#" class="pagination--pager disabled">Próxima</a>
     
   </nav>
 
@@ -824,12 +705,12 @@
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
     
       <div class="archive__item-teaser">
-        <img src="/assets/images/covers/2020-08-25-configurando-setup-programacao-ubuntu.jpeg" alt="">
+        <img src="/assets/images/covers/ferramentas-qualidade-codigo.jpg" alt="">
       </div>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/programacao/configurando-setup-programacao-ubuntu/" rel="permalink">Configurando setup básico para programar no Ubuntu
+        <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" rel="permalink">Ferramentas para melhorar a qualidade do seu código
 </a>
       
     </h2>
@@ -841,7 +722,7 @@
     
       
       <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-      <time datetime="2020-11-02T00:00:00-03:00">November 2, 2020</time>
+      <time datetime="2020-09-26T00:00:00-03:00">September 26, 2020</time>
     
 
     
@@ -862,7 +743,7 @@
 
   </p>
 
-    <p class="archive__item-excerpt" itemprop="description">A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não...</p>
+    <p class="archive__item-excerpt" itemprop="description">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e...</p>
   </article>
 </div>
 
@@ -1116,8 +997,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "/programacao/ferramentas-melhorar-qualidade-codigo"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+      this.page.url = "https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/programacao/configurando-setup-programacao-ubuntu"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
     };
     (function() { /* DON'T EDIT BELOW THIS LINE */
       var d = document, s = d.createElement('script');
