@@ -1,0 +1,1402 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Python para finanças: Obtendo cotações pelo yahoo finance - Gabriel Menezes</title>
+<meta name="description" content="Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.">
+
+
+  <meta name="author" content="Gabriel Menezes">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="Python para finanças: Obtendo cotações pelo yahoo finance">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/financas/python-financas-cotacoes-yahoo-finance/">
+
+
+  <meta property="og:description" content="Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/covers/2020-10-20-python-financas-cotacoes-yahoo-finance.jpg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="Python para finanças: Obtendo cotações pelo yahoo finance">
+  <meta name="twitter:description" content="Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/financas/python-financas-cotacoes-yahoo-finance/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/covers/2020-10-20-python-financas-cotacoes-yahoo-finance.jpg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-10-20T00:00:00-03:00">
+
+
+
+  <meta property="article:modified_time" content="2020-11-02T00:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/financas/python-financas-cotacoes-yahoo-finance/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categorias</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Buscar</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#financas" itemprop="item"><span itemprop="name">Financas</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Python para finanças: Obtendo cotações pelo yahoo finance</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpg" alt="Gabriel Menezes" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Gabriel Menezes</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Criando bugs e compartilhando conhecimento.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Acompanhe no</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Brasil</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linked in</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:dmenezesgabriel.gabriel@gmail.com">
+            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">E-mail</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Python para finanças: Obtendo cotações pelo yahoo finance">
+    <meta itemprop="description" content="Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.">
+    <meta itemprop="datePublished" content="2020-10-20T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2020-11-02T00:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Python para finanças: Obtendo cotações pelo yahoo finance
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-10-20T00:00:00-03:00">October 20, 2020</time>
+    
+
+    
+      
+      <span class="post__meta-sep"></span>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Nesta página</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#requerimentos">Requerimentos</a></li>
+  <li><a href="#bibliotecas">Bibliotecas</a></li>
+  <li><a href="#obtendo-dados-do-mercado">Obtendo dados do mercado</a>
+    <ul>
+      <li><a href="#bovespa">BOVESPA</a></li>
+      <li><a href="#itaú">Itaú</a></li>
+    </ul>
+  </li>
+  <li><a href="#correlação-ibov-e-dolar">Correlação ibov e dolar</a></li>
+  <li><a href="#referências">Referências</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.</p>
+
+<h2 id="requerimentos">Requerimentos</h2>
+
+<ul>
+  <li>Docker</li>
+  <li>Docker Compose</li>
+  <li>Makefile</li>
+  <li><a href="https://github.com/dmenezesgabriel/jupyter-analytics">Jupyter lab dockerizado</a></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.19</span><span class="p">.</span><span class="mi">2</span>
+<span class="n">pandas</span><span class="o">==</span><span class="mf">1.1</span><span class="p">.</span><span class="mi">3</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.3</span><span class="p">.</span><span class="mi">2</span>
+<span class="n">pandas</span><span class="o">-</span><span class="n">datareader</span><span class="o">==</span><span class="mf">0.9</span><span class="p">.</span><span class="mi">0</span>
+<span class="n">yfinance</span><span class="o">==</span><span class="mf">0.1</span><span class="p">.</span><span class="mi">55</span>
+<span class="n">seaborn</span><span class="o">==</span><span class="mf">0.11</span><span class="p">.</span><span class="mi">0</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Overwriting requirements.txt
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div></div>
+
+<h2 id="bibliotecas">Bibliotecas</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="n">web</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="n">yf</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="p">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s">'ignore'</span><span class="p">)</span>
+
+<span class="n">yf</span><span class="p">.</span><span class="n">pdr_override</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="obtendo-dados-do-mercado">Obtendo dados do mercado</h2>
+
+<h3 id="bovespa">BOVESPA</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Obtenção de dados do Bovespa
+</span><span class="n">df_ibov</span> <span class="o">=</span> <span class="n">web</span><span class="p">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">"^BVSP"</span><span class="p">)</span>
+<span class="n">df_ibov</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Adj Close</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-11-05</th>
+      <td>48061.0</td>
+      <td>47430.0</td>
+      <td>47712.0</td>
+      <td>48047.0</td>
+      <td>3189000.0</td>
+      <td>48047.0</td>
+    </tr>
+    <tr>
+      <th>2015-11-06</th>
+      <td>48046.0</td>
+      <td>46397.0</td>
+      <td>48046.0</td>
+      <td>46919.0</td>
+      <td>3091100.0</td>
+      <td>46919.0</td>
+    </tr>
+    <tr>
+      <th>2015-11-09</th>
+      <td>47001.0</td>
+      <td>46057.0</td>
+      <td>46915.0</td>
+      <td>46195.0</td>
+      <td>2278500.0</td>
+      <td>46195.0</td>
+    </tr>
+    <tr>
+      <th>2015-11-10</th>
+      <td>46195.0</td>
+      <td>45397.0</td>
+      <td>46195.0</td>
+      <td>46179.0</td>
+      <td>2401800.0</td>
+      <td>46179.0</td>
+    </tr>
+    <tr>
+      <th>2015-11-11</th>
+      <td>47231.0</td>
+      <td>46207.0</td>
+      <td>46207.0</td>
+      <td>47065.0</td>
+      <td>3071700.0</td>
+      <td>47065.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Ordenando os valores dos mais atuais aos mais antigos
+</span><span class="n">df_ibov</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">"Date"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">).</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Adj Close</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-11-03</th>
+      <td>96350.226562</td>
+      <td>93967.640625</td>
+      <td>93967.640625</td>
+      <td>95979.710938</td>
+      <td>0.0</td>
+      <td>95979.710938</td>
+    </tr>
+    <tr>
+      <th>2020-10-30</th>
+      <td>96579.000000</td>
+      <td>93559.000000</td>
+      <td>96579.000000</td>
+      <td>93952.000000</td>
+      <td>10643200.0</td>
+      <td>93952.000000</td>
+    </tr>
+    <tr>
+      <th>2020-10-29</th>
+      <td>96688.000000</td>
+      <td>93387.000000</td>
+      <td>95368.000000</td>
+      <td>96582.000000</td>
+      <td>12704400.0</td>
+      <td>96582.000000</td>
+    </tr>
+    <tr>
+      <th>2020-10-28</th>
+      <td>99598.000000</td>
+      <td>95369.000000</td>
+      <td>99598.000000</td>
+      <td>95369.000000</td>
+      <td>11051600.0</td>
+      <td>95369.000000</td>
+    </tr>
+    <tr>
+      <th>2020-10-27</th>
+      <td>101660.000000</td>
+      <td>99414.000000</td>
+      <td>101017.000000</td>
+      <td>99606.000000</td>
+      <td>8672300.0</td>
+      <td>99606.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Preço de fechamento
+</span><span class="n">df_ibov</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">"ibov"</span><span class="p">)</span>
+<span class="c1"># Média móvel 21 dias
+</span><span class="n">df_ibov</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">21</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-21"</span><span class="p">)</span>
+<span class="c1"># Média móvel 200 dias
+</span><span class="n">df_ibov</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-200"</span><span class="p">)</span>
+<span class="c1"># Legendas
+</span><span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_12_0.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Fatia dos dados referente a 2020
+</span><span class="n">df_ibov_slice</span> <span class="o">=</span> <span class="n">df_ibov</span><span class="p">[(</span><span class="n">df_ibov</span><span class="p">.</span><span class="n">index</span><span class="p">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="mi">2020</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df_ibov</span><span class="p">.</span><span class="n">index</span><span class="p">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2021</span><span class="p">)]</span>
+<span class="c1"># Preço de fechamento
+</span><span class="n">df_ibov_slice</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">"ibov"</span><span class="p">)</span>
+<span class="c1"># Média móvel 21 dias
+</span><span class="n">df_ibov_slice</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">21</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-21"</span><span class="p">)</span>
+<span class="c1"># Média móvel 200 dias
+</span><span class="n">df_ibov_slice</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">90</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-90"</span><span class="p">)</span>
+<span class="c1"># Legendas
+</span><span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_13_0.png" alt="png" /></p>
+
+<h3 id="itaú">Itaú</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Utilizando parametros de inicio e fim de intervalo
+</span><span class="n">df_itub</span> <span class="o">=</span> <span class="n">web</span><span class="p">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="s">"ITUB3.SA"</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s">"2019-01-01"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">"2020-10-01"</span><span class="p">)</span>
+<span class="n">df_itub</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Adj Close</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2019-01-02</th>
+      <td>32.270000</td>
+      <td>30.049999</td>
+      <td>30.049999</td>
+      <td>31.959999</td>
+      <td>976900.0</td>
+      <td>29.444265</td>
+    </tr>
+    <tr>
+      <th>2019-01-03</th>
+      <td>32.299999</td>
+      <td>31.309999</td>
+      <td>31.309999</td>
+      <td>32.250000</td>
+      <td>283000.0</td>
+      <td>29.711435</td>
+    </tr>
+    <tr>
+      <th>2019-01-04</th>
+      <td>32.400002</td>
+      <td>31.629999</td>
+      <td>32.250000</td>
+      <td>31.709999</td>
+      <td>336400.0</td>
+      <td>29.213940</td>
+    </tr>
+    <tr>
+      <th>2019-01-07</th>
+      <td>32.299999</td>
+      <td>31.900000</td>
+      <td>31.950001</td>
+      <td>32.119999</td>
+      <td>222800.0</td>
+      <td>29.591665</td>
+    </tr>
+    <tr>
+      <th>2019-01-08</th>
+      <td>32.290001</td>
+      <td>31.709999</td>
+      <td>32.119999</td>
+      <td>32.200001</td>
+      <td>266600.0</td>
+      <td>29.665379</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Preço de fechamento
+</span><span class="n">df_itub</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s">"ibov"</span><span class="p">)</span>
+<span class="c1"># Média móvel 21 dias
+</span><span class="n">df_itub</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">21</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-21"</span><span class="p">)</span>
+<span class="c1"># Média móvel 200 dias
+</span><span class="n">df_itub</span><span class="p">[</span><span class="s">"Close"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="n">mean</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s">"mm-200"</span><span class="p">)</span>
+<span class="c1"># Legendas
+</span><span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_16_0.png" alt="png" /></p>
+
+<h2 id="correlação-ibov-e-dolar">Correlação ibov e dolar</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span><span class="s">"^BVSP"</span><span class="p">,</span> <span class="s">"USDBRL=x"</span><span class="p">]</span>
+<span class="n">df_wallet</span> <span class="o">=</span> <span class="n">web</span><span class="p">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">tickers</span><span class="p">)[</span><span class="s">"Close"</span><span class="p">]</span>
+<span class="n">df_wallet</span><span class="p">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Symbols</th>
+      <th>^BVSP</th>
+      <th>USDBRL=x</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-11-05</th>
+      <td>48047.0</td>
+      <td>3.7956</td>
+    </tr>
+    <tr>
+      <th>2015-11-06</th>
+      <td>46919.0</td>
+      <td>3.7801</td>
+    </tr>
+    <tr>
+      <th>2015-11-09</th>
+      <td>46195.0</td>
+      <td>3.7663</td>
+    </tr>
+    <tr>
+      <th>2015-11-10</th>
+      <td>46179.0</td>
+      <td>3.7991</td>
+    </tr>
+    <tr>
+      <th>2015-11-11</th>
+      <td>47065.0</td>
+      <td>3.7454</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_wallet</span><span class="p">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"ibov"</span><span class="p">,</span> <span class="s">"usd"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Utilizando a biblioteca seaborn para aprimorar a visualização
+</span><span class="n">sns</span><span class="p">.</span><span class="nb">set</span><span class="p">()</span>
+<span class="n">df_wallet</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_20_0.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_wallet</span> <span class="o">=</span> <span class="n">df_wallet</span><span class="p">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df_wallet</span><span class="p">.</span><span class="n">info</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 1085 entries, 2015-11-05 to 2020-11-03
+Data columns (total 2 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   ibov    1085 non-null   float64
+ 1   usd     1085 non-null   float64
+dtypes: float64(2)
+memory usage: 25.4 KB
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Correlação
+</span><span class="n">df_wallet_corr</span> <span class="o">=</span> <span class="n">df_wallet</span><span class="p">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">df_wallet_corr</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ibov</th>
+      <th>usd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ibov</th>
+      <td>1.000000</td>
+      <td>0.446715</td>
+    </tr>
+    <tr>
+      <th>usd</th>
+      <td>0.446715</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sns</span><span class="p">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_wallet_corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">df_wallet_corr</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ibov</th>
+      <th>usd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ibov</th>
+      <td>1.000000</td>
+      <td>0.446715</td>
+    </tr>
+    <tr>
+      <th>usd</th>
+      <td>0.446715</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_23_1.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Janela móvel anual da correlação entre dolar e bovespa
+</span><span class="n">df_wallet</span><span class="p">[</span><span class="s">"usd"</span><span class="p">].</span><span class="n">rolling</span><span class="p">(</span><span class="mi">252</span><span class="p">).</span><span class="n">corr</span><span class="p">(</span><span class="n">df_wallet</span><span class="p">[</span><span class="s">"ibov"</span><span class="p">]).</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;function matplotlib.pyplot.show(close=None, block=None)&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_24_1.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_wallet</span><span class="p">[</span><span class="s">"ibov_usd_currency"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_wallet</span><span class="p">[</span><span class="s">"ibov"</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_wallet</span><span class="p">[</span><span class="s">"usd"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sns</span><span class="p">.</span><span class="nb">set</span><span class="p">()</span>
+<span class="n">df_wallet</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/posts/2020-10-20-python-financas-cotacoes-yahoo-finance/2020-10-20-python-financas-cotacoes-yahoo-finance_26_0.png" alt="png" /></p>
+
+<h2 id="referências">Referências</h2>
+
+<ul>
+  <li><a href="https://www.youtube.com/channel/UCzCrdOO2GLYVnNhZUvG03lg">Código Quant - Finanças Quantitativas</a></li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#financas" class="page__taxonomy-item" rel="tag">Financas</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#python" class="page__taxonomy-item" rel="tag">Python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categorias: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#financas" class="page__taxonomy-item" rel="tag">Financas</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Atualizado em:</strong> <time datetime="2020-11-02">November 2, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Compartilhe</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Python+para+finan%C3%A7as%3A+Obtendo+cota%C3%A7%C3%B5es+pelo+yahoo+finance%20https%3A%2F%2Fdmenezesgabriel.github.io%2Ffinancas%2Fpython-financas-cotacoes-yahoo-finance%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Ffinancas%2Fpython-financas-cotacoes-yahoo-finance%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Ffinancas%2Fpython-financas-cotacoes-yahoo-finance%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Compartilhe LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" class="pagination--pager" title="Ferramentas para melhorar a qualidade do seu código
+">Anterior</a>
+    
+    
+      <a href="/programacao/configurando-setup-programacao-ubuntu/" class="pagination--pager" title="Configurando setup básico para programar no Ubuntu
+">Próxima</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Deixe um comentário</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">Talvez você também goste</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/2020-08-25-configurando-setup-programacao-ubuntu.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programacao/configurando-setup-programacao-ubuntu/" rel="permalink">Configurando setup básico para programar no Ubuntu
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-11-02T00:00:00-03:00">November 2, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/ferramentas-qualidade-codigo.jpg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/programacao/ferramentas-melhorar-qualidade-codigo/" rel="permalink">Ferramentas para melhorar a qualidade do seu código
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-26T00:00:00-03:00">September 26, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/docker-commands.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/docker/docker-comandos-procura-diaria-google/" rel="permalink">Docker, eliminando a procura diária por esses comandos no Google.
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        menos que 1 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Quando você utiliza muitos containers Docker em seu dia a dia para diversos programas diferentes, containers antigos podem ficar “pendurados”, juntando poeir...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/covers/treasure.jpeg" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/investimentos/conheca-vantagens-desvantagens-tesouro-direto-previdencia-privada/" rel="permalink">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada
+</a>
+      
+    </h2>
+    
+
+
+  <p class="page__meta">
+
+    
+      
+      <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+      <time datetime="2020-09-17T00:00:00-03:00">September 17, 2020</time>
+    
+
+    
+      
+        <br \>
+      
+    
+
+    
+      
+      
+
+      <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+      
+        4 minuto(s) de leitura
+      
+    
+
+  </p>
+
+    <p class="archive__item-excerpt" itemprop="description">Conheça as vantagens e desvantagens do Tesouro Direto, e da Previdência Privada, dois dos investimentos mais conhecidos e conservadores para auxiliar na sua ...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Pesquisar..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Acompanhe no</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Gabriel Menezes. Desenvolvido com <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://dmenezesgabriel.github.io/financas/python-financas-cotacoes-yahoo-finance/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/financas/python-financas-cotacoes-yahoo-finance"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://dmenezesgabriel.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
