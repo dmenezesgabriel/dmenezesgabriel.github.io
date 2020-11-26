@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-03T19:48:36-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Configurando setup básico para programar no Ubuntu</title><link href="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/" rel="alternate" type="text/html" title="Configurando setup básico para programar no Ubuntu" /><published>2020-11-02T00:00:00-03:00</published><updated>2020-11-02T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">&lt;p&gt;A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-26T19:16:01-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Ubuntu server no RaspberryPi</title><link href="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/" rel="alternate" type="text/html" title="Como instalar Ubuntu server no RaspberryPi" /><published>2020-11-26T00:00:00-03:00</published><updated>2020-11-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/">&lt;p&gt;O &lt;a href=&quot;https://www.raspbian.org/&quot;&gt;Raspbian&lt;/a&gt;, na data desta publicação conhecido como &lt;a href=&quot;https://www.raspberrypi.org/software/&quot;&gt;Raspberry Pi OS&lt;/a&gt;, é um ótimo sistema operacional, contudo existem outras opções para instalarmos no Raspberry Pi e uma delas, sim senhoras e senhores, é o Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;Abaixo um passo a passo da instalação e resolução de eventuais problemas que encontrei pelo caminho.&lt;/p&gt;
+
+&lt;h2 id=&quot;ubuntu-server-2004-lts&quot;&gt;Ubuntu server 20.04 LTS&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Donwload da imagem &lt;a href=&quot;https://ubuntu.com/download/raspberry-pi&quot;&gt;Ubuntu - Downloads&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Gravar a imagem em um cartão SD, recomendo a utilização do &lt;a href=&quot;https://www.balena.io/etcher/&quot;&gt;Balena Etcher&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Para configurar o wifi basta acessar arquivo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;network-config&lt;/code&gt;, remover o comentário das linhas e preencher com os dados de sua rede colocando tanto o nome da rede quanto a senha entre aspas (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#wifis:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#  wlan0:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#    dhcp4: true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#    optional: true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#    access-points:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#      myhomewifi:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#        password: &quot;S3kr1t&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#      myworkwifi:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#        password: &quot;correct battery horse staple&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Para problemas de distorção no display adicionar as seguintes linhas em seus respectivos arquivos:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;No arquivo &lt;strong&gt;/system-boot/config.txt&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#/system-boot/config.txt&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# uncomment if hdmi display is not detected and composite is being output&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;hdmi_force_hotplug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+
+&lt;span class=&quot;c&quot;&gt;# uncomment to force a specific HDMI mode (this will force VGA)&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;hdmi_group&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2
+&lt;span class=&quot;nv&quot;&gt;hdmi_mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;16
+
+&lt;span class=&quot;c&quot;&gt;# uncomment to force a HDMI mode rather than DVI. This can make audio work in&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# DMT (computer monitor) modes&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;hdmi_drive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2
+
+&lt;span class=&quot;c&quot;&gt;# uncomment to increase signal to HDMI, if you have interference, blanking, or&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# no display&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;config_hdmi_boost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;e também no arquivo &lt;strong&gt;/system-boot/usercfg.txt&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# /system-boot/usercfg.txt&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;dtoverlay&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;vc4-fkms-v3d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Insira o cartão SD em seu raspberrypi e para logar utilize &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubuntu&lt;/code&gt; como forma de login e senha&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;para mudar configuração de teclado utilize o comando&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg-reconfigure keyboard-configuration
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;libs-para-python&quot;&gt;Libs para python&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;build-essential libssl-dev libffi-dev python-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;desktop&quot;&gt;Desktop&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Instalação&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;lubuntu-desktop &lt;span class=&quot;nt&quot;&gt;--fix-missing&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;comandos&quot;&gt;Comandos&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Verificando a temperatura&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;paste&lt;/span&gt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /sys/class/thermal/thermal_zone&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/type&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /sys/class/thermal/thermal_zone&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/temp&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | column &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;$'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/\(.\)..$/.\1°C/'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Descobrindo IP com display&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nb&quot;&gt;hostname&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt; on raspberyy terminal
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Desligando graciosamente&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;shutdown &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ou&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;poweroff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.raspberrypi.org/documentation/remote-access/ssh/ios.md&quot;&gt;Raspberrypi.org - IOS ssh&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://iot4beginners.com/installing-ubuntu-in-raspberry-pi-4-normal-and-headless/&quot;&gt;Iot4Beginners&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/62337574/screen-distortion-during-install-ubuntu-server-20-04-on-raspberry-pi-3-model-b&quot;&gt;Screen distortion during install ubuntu server&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://raspberrypi.stackexchange.com/questions/107943/weird-display-on-vga-monitor-ubuntu-server-19-10-on-raspberry-pi-4&quot;&gt;Weird display&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/1199378/rpi4-ubuntu-19-10-64bit-temperature-monitoring&quot;&gt;Temperature Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="raspberrypi" /><category term="ubuntu" /><category term="ubuntu" /><category term="raspberry" /><category term="pi" /><summary type="html">O Raspbian, na data desta publicação conhecido como Raspberry Pi OS, é um ótimo sistema operacional, contudo existem outras opções para instalarmos no Raspberry Pi e uma delas, sim senhoras e senhores, é o Ubuntu.</summary></entry><entry><title type="html">Configurando setup básico para programar no Ubuntu</title><link href="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/" rel="alternate" type="text/html" title="Configurando setup básico para programar no Ubuntu" /><published>2020-11-02T00:00:00-03:00</published><updated>2020-11-02T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/configurando-setup-programacao-ubuntu/">&lt;p&gt;A primeira configuração de um novo ambiente, ou até mesmo a preparação do setup após formatar sua maquina pode ser um pouco trabalhosa, ainda mais quando não temos os passos de instalação dos principais programas que utilizamos para seguirmos, então porque não documenta-los para segui-los no próximo setup?&lt;/p&gt;
 
 &lt;h2 id=&quot;oh-my-zsh&quot;&gt;Oh my Zsh&lt;/h2&gt;
 
@@ -220,7 +335,6 @@ newgrp docker
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -310,7 +424,6 @@ newgrp docker
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -431,7 +544,6 @@ newgrp docker
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -537,7 +649,6 @@ newgrp docker
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -600,8 +711,8 @@ newgrp docker
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;class 'pandas.core.frame.DataFrame'&amp;gt;
 DatetimeIndex: 1085 entries, 2015-11-05 to 2020-11-03
 Data columns (total 2 columns):
- #   Column  Non-Null Count  Dtype
----  ------  --------------  -----
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
  0   ibov    1085 non-null   float64
  1   usd     1085 non-null   float64
 dtypes: float64(2)
@@ -626,7 +737,6 @@ memory usage: 25.4 KB
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -668,7 +778,6 @@ memory usage: 25.4 KB
     .dataframe thead th {
         text-align: right;
     }
-
 &lt;/style&gt;
 &lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
   &lt;thead&gt;
@@ -1898,52 +2007,4 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/jekyll-sitemap/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/optimize-jekyll-seo/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="SEO" /><category term="SEO" /><category term="Jekyll" /><category term="GitHub" /><summary type="html">SEO é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.</summary></entry><entry><title type="html">Como monitorar fluxos de negócios digitais</title><link href="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/" rel="alternate" type="text/html" title="Como monitorar fluxos de negócios digitais" /><published>2020-08-27T00:00:00-03:00</published><updated>2020-08-31T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais</id><content type="html" xml:base="https://dmenezesgabriel.github.io/telemetria/como-monitorar-fluxos-digitais/">&lt;p&gt;Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como &lt;em&gt;LogEntries&lt;/em&gt; e &lt;em&gt;Datadog&lt;/em&gt; ou a stack &lt;em&gt;ELK&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;O que eu realmente tenho feito não é nada disso, quero dizer, tem um pouco disso. O que monitoro são regras de negócio, em um provedor de serviços de pagamento, claro assim como em outros meios, precisamos garantir a integridade das informações e do comportamento de nossas ferramentas, afinal erros humanos são possíveis e prováveis, e dívidas técnicas de produto, inevitáveis.&lt;/p&gt;
-
-&lt;p&gt;Também não é necessário acompanhar a alteração das curvaturas em um monitor, temos uma aplicação interna construída em &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python&lt;/code&gt;, algo próximo de um agendador/orquestrador que irá disparar um alerta apenas quando for necessária a tomada de ação.&lt;/p&gt;
-
-&lt;p&gt;Hoje existem monitoramentos que verificam queda de conversão, comportamentos inesperados em outros players do fluxo de pagamentos, integridade de diversos serviços internos e fluxos financeiros. Mas a quais características devemos nos atentar para sermos eficientes?&lt;/p&gt;
-
-&lt;h3 id=&quot;um-monitoramento-deve-possuir-um-dono&quot;&gt;Um monitoramento deve possuir um dono&lt;/h3&gt;
-
-&lt;p&gt;Quando é encontrado algum problema, é necessário que haja uma pessoa, um time, ou times de pessoas responsáveis para soluciona-lo, se não é algo crítico que necessite de resolução ou que seja possível de resolver, não há motivo de tirar a atenção das pessoas de outras tarefas mais relevantes.&lt;/p&gt;
-
-&lt;h3 id=&quot;o-problema-monitorado-precisa-de-um-fluxo-de-resolução-definido&quot;&gt;O problema monitorado precisa de um fluxo de resolução definido&lt;/h3&gt;
-
-&lt;p&gt;Quando nos depararmos com um alerta, eu vou olhar para você, você vai olhar para mim e o que vamos fazer? Está não é a situação na qual queremos nos encontrar uma vez que sabemos o que estamos procurando, é bem provável que se existe um alerta já tenhamos presenciado o cenário do problema anteriormente.&lt;/p&gt;
-
-&lt;h3 id=&quot;um-monitoramento-deve-se-atentar-apenas-a-um-único-problema&quot;&gt;Um monitoramento deve se atentar apenas a um único problema&lt;/h3&gt;
-
-&lt;p&gt;Quanto mais problemas tentamos cercar em um único monitoramento, ou módulo responsável pela busca de problemas, maior a complexidade, dificuldade de manutenção, revisão e entendimento, não precisamos procurar pelo problema dentro do alerta quando no olho do furacão, não é mesmo? Quanto mais claro e explicito melhor!&lt;/p&gt;
-
-&lt;h3 id=&quot;foco-na-performance&quot;&gt;Foco na performance&lt;/h3&gt;
-
-&lt;p&gt;A ferramenta que você utiliza é performática o suficiente para conseguir buscar pelo problema que você está buscando? Ela consegue percorrer o volume de dados necessário, e também no tempo necessário para que as pessoas certas sejam mobilizadas para atacar o prolema antes que ele se torne crítico, ou não seja mais passível de solução?&lt;/p&gt;
-
-&lt;h3 id=&quot;assertividade&quot;&gt;Assertividade&lt;/h3&gt;
-
-&lt;p&gt;Você conhece a história do menino e lobo? Havia um menino que morava com sua familia nas entranhas bosque, onde habitavam alguns animais selvagens. Certo dia esse menino resolveu pregar uma peça em seu irmão mais velho, adentrou em meio as arvores e gritou:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;Socorro, socorro, há um lobo tentando me devorar!&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Seu irmão empunhou um machado e correu em sua direção, mas para a sua surpresa não havia lobo algum. O menino então caiu na gargalhada e essa cena se repetiu mais algumas vezes, até que seu irmão não mais apareceu, mas o lobo faminto sim.&lt;/p&gt;
-
-&lt;p&gt;Em algum momento a alta incidência de falsos positivos fará com que os alertas percam a credibilidade e não recebam a devida atenção.&lt;/p&gt;
-
-&lt;h2 id=&quot;por-onde-começar&quot;&gt;Por onde começar?&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Entenda o real problema por qual você está buscando, uma vez que tenha isso claro fica fácil de encontra-lo uma vez que aparecer.&lt;/li&gt;
-  &lt;li&gt;Garanta que o problema tenha um dono, responsável pela resolução.&lt;/li&gt;
-  &lt;li&gt;Faça uma análise histórica para definir que de fato, os gatilhos que irão disparar o alerta serão assertivos. Muitas vezes estática básica pode ser uma solução simples e eficiente.&lt;/li&gt;
-  &lt;li&gt;Teste, faça &lt;em&gt;mocks&lt;/em&gt; e se assegure que tudo está funcionando corretamente antes de ir para produção, uma revisão também é sempre bem vinda, e também necessária.&lt;/li&gt;
-  &lt;li&gt;Garanta que as pessoas certas, estão recebendo os alertas no momento certo.&lt;/li&gt;
-  &lt;li&gt;Atente-se a &lt;em&gt;edge cases&lt;/em&gt;, muitas vezes eles vão intervir na incidência tanto de &lt;strong&gt;falsos positivos&lt;/strong&gt; como &lt;strong&gt;falsos negativos&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Faça um acompanhamento da efetividade dos alertas, extraia métricas, verifique se os resultados foram os esperados, assim como os problemas detectados com uma baixa incidência de falsos positivos.&lt;/li&gt;
-  &lt;li&gt;Pense em escala, em algum momento poderá haver diversos problemas mapeados e a sua ferramenta pode não suportar buscar por todos eles.&lt;/li&gt;
-  &lt;li&gt;Peça feedbacks dos consumidores dos monitoramentos, algum fluxo pode ter sido alterado e seu monitoramento precisará de uma atualização.&lt;/li&gt;
-  &lt;li&gt;Não se esqueça que as visualizações de indicadores são complementares aos alertas, e também são ferramentas muito úteis para auxiliar o usuário final na investigação.&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Telemetria" /><category term="Monitoramento" /><category term="Python" /><summary type="html">Já faz algum tempo que venho trabalhado no desenvolvimento de monitoramentos, e quando digo monitoramentos a primeira imagem que costuma-se visualizar é a de diversos monitores com indicadores em tempo real, mensurando evoluções e declínios históricos, e o observador em sua busca de encontrar uma movimentação de uma linha tão acentuada que lhe chame a atenção. Já a segunda imagem é o monitoramento de métricas de infraestrutura, por exemplo, acompanhamento de logs de aplicação em ferramentas como LogEntries e Datadog ou a stack ELK.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="SEO" /><category term="SEO" /><category term="Jekyll" /><category term="GitHub" /><summary type="html">SEO é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.</summary></entry></feed>
