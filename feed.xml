@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-26T19:16:01-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Como instalar Ubuntu server no RaspberryPi</title><link href="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/" rel="alternate" type="text/html" title="Como instalar Ubuntu server no RaspberryPi" /><published>2020-11-26T00:00:00-03:00</published><updated>2020-11-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/">&lt;p&gt;O &lt;a href=&quot;https://www.raspbian.org/&quot;&gt;Raspbian&lt;/a&gt;, na data desta publicação conhecido como &lt;a href=&quot;https://www.raspberrypi.org/software/&quot;&gt;Raspberry Pi OS&lt;/a&gt;, é um ótimo sistema operacional, contudo existem outras opções para instalarmos no Raspberry Pi e uma delas, sim senhoras e senhores, é o Ubuntu.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2020-11-27T07:41:52-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Code Signal Arcade - Desafio 1</title><link href="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/code-signal-arcade-1/" rel="alternate" type="text/html" title="Code Signal Arcade - Desafio 1" /><published>2020-11-26T00:00:00-03:00</published><updated>2020-11-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/code-signal-arcade-1</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programa%C3%A7%C3%A3o/code-signal-arcade-1/">&lt;p&gt;Quando começamos a programar, pode ter certeza que o nosso código não é dos mais eficientes ou mais legíveis, e realmente no começo o que precisamos de fato é fazer com que ele funcione conforme o esperado e nada mais que isso.&lt;/p&gt;
+
+&lt;p&gt;Mas e depois que já fizemos alguns projetos, não seria legal se as pessoas entendessem o que escrevemos? Mais do que legal, extremamente necessário, ainda mais para trabalharmos em equipe.&lt;/p&gt;
+
+&lt;p&gt;E sim, vou lhes dizer uma das formas de fazer isso, alem de copiar muitos bons projetos no github, há sites com desafios que nos ajudam a melhorar nosso código, e podemos até acessar a resposta de outros usuários. Nestes sites temos desde os desafios mais básicos, aos mais avançados, e mesmo nos mais básicos as vezes podemos nos surpreender com soluções mais eficientes que não haviamos pensando anteriormente.&lt;/p&gt;
+
+&lt;p&gt;Porque soluções mais eficientes, com menos linhas de código, onde isso é necessário na vida real? Bem, no exemplo mais simples, até um laço de repetição as vezes pode estar consumindo recursos do sistema desnecessáriamente e só sentimos isso quando o nosso programa ou aplicação precisa de escala.&lt;/p&gt;
+
+&lt;p&gt;Vamos começar do ínicio, no &lt;a href=&quot;https://codesignal.com/&quot;&gt;Code Signal&lt;/a&gt;, por exemplo, temos o modo arcade, onde podemos escolher a linguagem que queremos treinar e contamos com uma introdução de 60 desafios, podendo ver soluções para o mesmo problema escritas em diversas outras linguagens.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/2020-11-26-code-signal-arcade-1/intro.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-journey-begins&quot;&gt;The Journey Begins&lt;/h2&gt;
+
+&lt;h3 id=&quot;desafio-1&quot;&gt;Desafio 1&lt;/h3&gt;
+
+&lt;p&gt;Write a function that returns the sum of two numbers.&lt;/p&gt;
+
+&lt;p&gt;Example&lt;/p&gt;
+
+&lt;p&gt;For param1 = 1 and param2 = 2, the output should be
+add(param1, param2) = 3.&lt;/p&gt;
+
+&lt;p&gt;Input/Output&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[execution time limit] 4 seconds (py3)
+
+[input] integer param1
+
+Guaranteed constraints:
+-1000 ≤ param1 ≤ 1000.
+
+[input] integer param2
+
+Guaranteed constraints:
+-1000 ≤ param2 ≤ 1000.
+
+[output] integer
+
+The sum of the two inputs.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;solução&quot;&gt;Solução&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;param1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Return the sum of two numbers
+    :param1: Number type
+    :param2: Number type
+    :return: Sum of param1 and param2
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;param2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programação" /><category term="Python" /><summary type="html">Quando começamos a programar, pode ter certeza que o nosso código não é dos mais eficientes ou mais legíveis, e realmente no começo o que precisamos de fato é fazer com que ele funcione conforme o esperado e nada mais que isso.</summary></entry><entry><title type="html">Como instalar Ubuntu server no RaspberryPi</title><link href="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/" rel="alternate" type="text/html" title="Como instalar Ubuntu server no RaspberryPi" /><published>2020-11-26T00:00:00-03:00</published><updated>2020-11-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi</id><content type="html" xml:base="https://dmenezesgabriel.github.io/raspberrypi/ubuntu/como-instalar-ubuntu-raspberry-pi/">&lt;p&gt;O &lt;a href=&quot;https://www.raspbian.org/&quot;&gt;Raspbian&lt;/a&gt;, na data desta publicação conhecido como &lt;a href=&quot;https://www.raspberrypi.org/software/&quot;&gt;Raspberry Pi OS&lt;/a&gt;, é um ótimo sistema operacional, contudo existem outras opções para instalarmos no Raspberry Pi e uma delas, sim senhoras e senhores, é o Ubuntu.&lt;/p&gt;
 
 &lt;p&gt;Abaixo um passo a passo da instalação e resolução de eventuais problemas que encontrei pelo caminho.&lt;/p&gt;
 
@@ -1915,96 +1967,4 @@ CMD &lt;span class=&quot;nb&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;nt&q
   &lt;li&gt;&lt;a href=&quot;https://www.clubefii.com.br/&quot;&gt;Clube fii&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://statusinvest.com.br/&quot;&gt;Status Invest&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.b3.com.br/pt_br/&quot;&gt;B3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Investimentos" /><summary type="html">Os Fundos de investimento imobiliário (FIIs) são fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.</summary></entry><entry><title type="html">SEO: Gerando tráfego orgânico com seu site estático em Jekyll</title><link href="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/" rel="alternate" type="text/html" title="SEO: Gerando tráfego orgânico com seu site estático em Jekyll" /><published>2020-09-04T00:00:00-03:00</published><updated>2020-09-04T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll</id><content type="html" xml:base="https://dmenezesgabriel.github.io/seo/otimizar-seo-jekyll/">&lt;p&gt;&lt;strong&gt;SEO&lt;/strong&gt; é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.&lt;/p&gt;
-
-&lt;p&gt;Atualmente existem diversos mecanismos de busca, onde é considerada uma cadeia de diferentes fatores para indexar e ranquear uma página. Grande parte destas pesquisas é feita através do &lt;strong&gt;Google&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p class=&quot;notice--warning&quot;&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt;: Apenas páginas indexadas podem ser ranqueadas!&lt;/p&gt;
-
-&lt;h2 id=&quot;como-saber-se-a-sua-página-está-indexada-no-google&quot;&gt;Como saber se a sua página está indexada no Google?&lt;/h2&gt;
-
-&lt;p&gt;Simplesmente vá até a página do &lt;strong&gt;Google&lt;/strong&gt; em seu navegador e digite &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;site:seu-site.com.br&lt;/code&gt;, se você conseguir visualizar o seu site nos resultados, significa que ele já está indexado.&lt;/p&gt;
-
-&lt;h2 id=&quot;fatores-que-deverão-ser-indexados&quot;&gt;Fatores que deverão ser indexados&lt;/h2&gt;
-
-&lt;p&gt;Há aproximadamente 200 parâmetros que são utilizados para melhorar a indexação de uma página, contudo vamos selecionar alguns dos principais, se tratando não de conteúdo, mas estrutura.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Título e Descrição&lt;/li&gt;
-  &lt;li&gt;Estrutura de URL&lt;/li&gt;
-  &lt;li&gt;Mapa do site&lt;/li&gt;
-  &lt;li&gt;Tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alt&lt;/code&gt; para imagens&lt;/li&gt;
-  &lt;li&gt;Conectores de mídias sociais&lt;/li&gt;
-  &lt;li&gt;Open graph e cards do Twitter&lt;/li&gt;
-  &lt;li&gt;Favicon&lt;/li&gt;
-  &lt;li&gt;URL única&lt;/li&gt;
-  &lt;li&gt;Responsividade&lt;/li&gt;
-  &lt;li&gt;Velocidade&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Estes fatores garantirão 60% da otimização de &lt;strong&gt;SEO&lt;/strong&gt; da página, o restante depende de criação de conteúdo, construção de links, marketing e etc…&lt;/p&gt;
-
-&lt;p class=&quot;notice--info&quot;&gt;&lt;strong&gt;Dica&lt;/strong&gt;: A maioria dos itens listados podem ser implementados com a tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt; % SEO % &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt; dentro da sessão &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;head&lt;/code&gt; do site, onde o único requisito é a utilização dos plugins: jekyll-paginate e jekyll-seo-tag em seu arquivo de configuração (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;). Estes plugins acrescentarão a maioria das tags necessárias para um bom SEO.&lt;/p&gt;
-
-&lt;h3 id=&quot;título-e-descrição&quot;&gt;Título e Descrição&lt;/h3&gt;
-
-&lt;p&gt;O Título deve corresponder à sua descrição e ao conteúdo do artigo, toda página de seu site deve conter título e descrição única. Caso você não especifique uma descrição, o primeiro parágrafo de sua página será considerado nos resultados de busca.&lt;/p&gt;
-
-&lt;p&gt;O primeiro parágrafo pode muitas vezes não apresentar um conteúdo relevante e correspondente ao título da página, a recomendação é que se utilize uma descrição breve que forneça a ideia geral do artigo, e assim como o título contenha algumas das palavras chave. A descrição deve respeitar o limite de 160 caracteres, um volume maior pode ser considerado spam pelos mecanismos de busca.&lt;/p&gt;
-
-&lt;p&gt;A descrição não é levada em conta para o ranqueamento do site, mas fará com que o usuário se interesse em seu conteúdo e clique em seu link dentre os resultados encontrados pelo mecanismo de busca.&lt;/p&gt;
-
-&lt;p&gt;Os robôs do mecanismo de busca procuram pelo seu Título e Descrição dentro da tag head primeiro. Portanto, certifique-se de mantê-lo lá para que eles consigam encontra-los.&lt;/p&gt;
-
-&lt;p class=&quot;notice--warning&quot;&gt;Lembre-se: Você deve explicitamente adicionar o título e descrição ao &lt;strong&gt;Front Matter&lt;/strong&gt; presente em todas as suas páginas, e sua descrição deverá ser truncada em 160 caracteres. Adicione as palavras chave ao ínicio da descrição para que os usuários encontrem sua página mais rapidamente em suas buscas no Google.&lt;/p&gt;
-
-&lt;h3 id=&quot;estrutura-de-url&quot;&gt;Estrutura de URL&lt;/h3&gt;
-
-&lt;p&gt;Uma URL transmite muitas informações sobre o conteúdo, tanto usuários como robôs esperam que ela esteja em sincronia com o assunto abordado, portanto faça que ela seja legível. Uma boa estrutura de URL gera maior taxa de cliques.&lt;/p&gt;
-
-&lt;p&gt;Atualmente mecanismos de busca são inteligentes o suficiente para detectar se a URL possui relação com o conteúdo da página, e muitos sites útilizam &lt;strong&gt;ids&lt;/strong&gt; em suas estrutura, o que prejudica tanto a transmissão de informação ao usuário quanto aos robôs de busca.&lt;/p&gt;
-
-&lt;p&gt;Incluir a data é opcional, e somente será útil se as datas realmente importam para o seu conteúdo.&lt;/p&gt;
-
-&lt;p&gt;Não útilize &lt;strong&gt;StopWords&lt;/strong&gt;, palavras como de, a, o, que, e, do, da, em, um, para, é, com, não, uma, … não precisam ser indexadas e apenas aumentarão o tamanho da &lt;strong&gt;URL&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;No Jekyll, uma URL pode ser alterada renomeando o arquivo na pasta _posts.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;mapa-do-site&quot;&gt;Mapa do site&lt;/h2&gt;
-
-&lt;p&gt;Um mapa do site é uma lista de links que contém todas suas páginas, ele estará no formato &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xml&lt;/code&gt;. Isso ajuda os robôs de mecanismos de pesquisa a rastrearem facilmente seu site. Ele também terá metadados como datas de postagens, páginas, data da última modificação e frequência de atualização.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://dmenezesgabriel.github.io/sitemap.xml&quot;&gt;Mapa deste site&lt;/a&gt;&lt;/p&gt;
-
-&lt;p class=&quot;notice--warning&quot;&gt;Se o seu site não tiver postagens ou páginas, talvez você não precise de um mapa do site.&lt;/p&gt;
-
-&lt;p&gt;Você pode enviar seu sitemap para os principais mecanismos de pesquisa, como Google, Bing, Yahoo e etc, para que seus respectivos robôs indexem seu site.&lt;/p&gt;
-
-&lt;p&gt;Deixar um link para o mapa do site disponível também é uma boa ideia. Digamos que alguém faça uma referência a uma postagem sua em um blog bem classificado, há possibilidade de um robô rastrear esse link e chegar à sua postagem.&lt;/p&gt;
-
-&lt;h2 id=&quot;tag-alt-para-imagens&quot;&gt;Tag alt para imagens&lt;/h2&gt;
-
-&lt;p&gt;As tags alternativas de uma imagem não são nada mais que o texto que é mostrado caso uma imagem não carregue. Esta tag é lida pelos robôs, o que ajuda os mecanismos de pesquisa a saber sobre o que se trata a imagem.&lt;/p&gt;
-
-&lt;h2 id=&quot;conexão-com-mídias-sociais&quot;&gt;Conexão com mídias sociais&lt;/h2&gt;
-
-&lt;p&gt;A conexão com redes sociais pode ser conseguida através de robôões de compartilhamento na parte inferior de suas postagens.&lt;/p&gt;
-
-&lt;h2 id=&quot;open-graph-e-cartões-do-twitter&quot;&gt;Open graph e cartões do Twitter&lt;/h2&gt;
-
-&lt;p&gt;O Open Graph é uma forma de tornar mais fácil o entendimento de um link compartilhado, é possível que algumas informações sejam perdidas, ou dados indesejados sejam detectados. Para evitar que isso ocorra e para que seu link seja melhor reconhecido pelas redes sociais, a implementação do Open graph é necessária, e pode ser realizada através de plugins como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-seo&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;favicon&quot;&gt;Favicon&lt;/h2&gt;
-
-&lt;p&gt;Um favicon é um arquivo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ico&lt;/code&gt; geralmente com as dimensões de 16x16. Este ícone é o que a maioria dos visitantes lembrará do seu site, ele deve representar o seu site de algum modo, para que quando um usuário se depare com ele em sua barra de favoritos, consiga o assimilar a sua página.&lt;/p&gt;
-
-&lt;h1 id=&quot;responsividade&quot;&gt;Responsividade&lt;/h1&gt;
-
-&lt;p&gt;Após 21 de abril de 2015, o Google tornou a responsividade um parâmetro de indexação e ranqueamento essêncial para SEO. Quase todos os temas Jekyll, mesmo o tema default, são responsivos. Caso você esteja desenvolvendo um novo tema considere um layout responsivo que se ajuste a tamanhos menores de tela.&lt;/p&gt;
-
-&lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/jekyll-sitemap/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.webjeda.com/optimize-jekyll-seo/&quot;&gt;webjeda&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="SEO" /><category term="SEO" /><category term="Jekyll" /><category term="GitHub" /><summary type="html">SEO é a única maneira pela qual conseguimos gerar tráfego orgânico, o que costuma a ser melhor do que trafego pago, porque significa que o usuário realmente está interessado em seu produto ou serviço, e chegou a buscar pelo seu conteúdo de alguma forma.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Python" /><category term="Python" /><category term="Investimentos" /><summary type="html">Os Fundos de investimento imobiliário (FIIs) são fundos constituídos por grupos de investidores com o objetivo de aplicar recursos em diversos tipos de investimentos imobiliários como shoppings centers, lages corporativas, galpões logísticos, ou até empreendimentos ainda em desenvolvimento. Ou seja, nada mais é do que investir no mercado imobiliário sem ter que comprar um imóvel.</summary></entry></feed>
