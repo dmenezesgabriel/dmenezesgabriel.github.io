@@ -52,7 +52,7 @@
 
 
 
-  <meta property="article:modified_time" content="2020-08-31T00:00:00-03:00">
+  <meta property="article:modified_time" content="2021-04-13T00:00:00-03:00">
 
 
 
@@ -360,7 +360,7 @@
     <meta itemprop="headline" content="Git: Manual de sobrevivência do iniciante">
     <meta itemprop="description" content="O Git é um sistema de controle de versão distribuído, criado por Linus Torvalds, nada mais nada menos que o criador do linux. Um software que tem por objetivo gerenciar diferentes versões no desenvolvimento de um documento qualquer, comumente utilizado no desenvolvimento de software para controlar diferentes versões dos códigos fonte e de sua documentação.">
     <meta itemprop="datePublished" content="2020-08-25T00:00:00-03:00">
-    <meta itemprop="dateModified" content="2020-08-31T00:00:00-03:00">
+    <meta itemprop="dateModified" content="2021-04-13T00:00:00-03:00">
 
     <div class="page__inner-wrap">
       
@@ -402,7 +402,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#como-isso-funciona">Como isso funciona?</a></li><li><a href="#comandos-mais-utilizados">Comandos mais utilizados</a><ul><li><a href="#iniciando-um-repositório">Iniciando um repositório</a></li><li><a href="#buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</a></li><li><a href="#resetando-um-commit">Resetando um commit</a></li><li><a href="#removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</a></li><li><a href="#rebase">Rebase</a></li><li><a href="#histórico-de-commits">Histórico de commits:</a><ul><li><a href="#deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</a></li></ul></li><li><a href="#arquivar-modificações">Arquivar modificações</a></li><li><a href="#mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</a></li><li><a href="#alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</a></li></ul></li><li><a href="#o-que-é-github">O que é GitHub</a></li><li><a href="#referências">Referências</a></li></ul>
+              <ul class="toc__menu"><li><a href="#como-isso-funciona">Como isso funciona?</a></li><li><a href="#comandos-mais-utilizados">Comandos mais utilizados</a><ul><li><a href="#iniciando-um-repositório">Iniciando um repositório</a></li><li><a href="#buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</a></li><li><a href="#resetando-um-commit">Resetando um commit</a></li><li><a href="#removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</a></li><li><a href="#rebase">Rebase</a></li><li><a href="#histórico-de-commits">Histórico de commits:</a><ul><li><a href="#deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</a></li></ul></li><li><a href="#arquivar-modificações">Arquivar modificações</a></li><li><a href="#mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</a></li><li><a href="#alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</a></li><li><a href="#atualizar-repositório-local-com-o-remoto-incluindo-tags">Atualizar repositório local com o remoto incluindo tags</a></li></ul></li><li><a href="#o-que-é-github">O que é GitHub</a></li><li><a href="#referências">Referências</a></li></ul>
 
             </nav>
           </aside>
@@ -514,7 +514,7 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 
 <p>As modificações que você está fazendo em sua <code class="language-plaintext highlighter-rouge">branch</code> local podem ficar defasadas em relação ao repositório remoto, então é possível alterar a base de sua ramificação local para a mais atual com o comando <code class="language-plaintext highlighter-rouge">rebase</code>.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase origin/master
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase origin/&lt;main branch&gt;
 </code></pre></div></div>
 
 <h3 id="histórico-de-commits">Histórico de commits:</h3>
@@ -562,6 +562,11 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 <h3 id="alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</h3>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="nt">-m</span> &lt;old-name&gt; &lt;new-name&gt;
+</code></pre></div></div>
+
+<h3 id="atualizar-repositório-local-com-o-remoto-incluindo-tags">Atualizar repositório local com o remoto incluindo tags</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull <span class="nt">--prune</span> <span class="o">&amp;&amp;</span> git fetch <span class="nt">--tags</span> <span class="nt">--all</span> <span class="nt">--force</span> <span class="o">&amp;&amp;</span> git branch <span class="nt">--merged</span> | egrep <span class="nt">-v</span> <span class="s2">"(^</span><span class="se">\*</span><span class="s2">|main)"</span> | xargs <span class="nt">--no-run-if-empty</span> git branch <span class="nt">--delete</span>
 </code></pre></div></div>
 
 <h2 id="o-que-é-github">O que é GitHub</h2>
@@ -627,7 +632,7 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 
 
         
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-31">August 31, 2020</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-04-13">April 13, 2021</time></p>
 
 
       </footer>
