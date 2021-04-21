@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2021-04-21T17:26:44-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Porque eu documentaria um diagrama de caso de uso?</title><link href="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/" rel="alternate" type="text/html" title="Porque eu documentaria um diagrama de caso de uso?" /><published>2021-04-21T00:00:00-03:00</published><updated>2021-04-21T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso</id><content type="html" xml:base="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2021-04-21T18:54:00-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Porque eu documentaria um diagrama de caso de uso?</title><link href="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/" rel="alternate" type="text/html" title="Porque eu documentaria um diagrama de caso de uso?" /><published>2021-04-21T00:00:00-03:00</published><updated>2021-04-21T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso</id><content type="html" xml:base="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/">&lt;blockquote&gt;
   &lt;p&gt;Uma imagem vale mais que mil palavras.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -123,7 +123,98 @@ Fluxo que impede que o caso de uso seja concluído como falhas, inconsistência 
 Algo que ocorre após a realização do caso de uso.
 
 Ex: sair do sistema ou voltar ao menu principal.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Documentacao" /><category term="Documentacao" /><category term="Caso" /><category term="Uso" /><summary type="html">Uma imagem vale mais que mil palavras.</summary></entry><entry><title type="html">Github - Listagem de todos emojis</title><link href="https://dmenezesgabriel.github.io/github/github-emojis/" rel="alternate" type="text/html" title="Github - Listagem de todos emojis" /><published>2021-04-20T00:00:00-03:00</published><updated>2021-04-20T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/github/github-emojis</id><content type="html" xml:base="https://dmenezesgabriel.github.io/github/github-emojis/">&lt;p&gt;Apenas uma lista para facilitar a vida! Estes Emojis podem ser usados tanto no GitHub quanto no framework &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; para sites estáticos.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Documentacao" /><category term="Documentacao" /><category term="Caso" /><category term="Uso" /><summary type="html">Uma imagem vale mais que mil palavras.</summary></entry><entry><title type="html">Quem é UX?</title><link href="https://dmenezesgabriel.github.io/ux/introducao-user-experience-ux/" rel="alternate" type="text/html" title="Quem é UX?" /><published>2021-04-21T00:00:00-03:00</published><updated>2021-04-21T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/ux/introducao-user-experience-ux</id><content type="html" xml:base="https://dmenezesgabriel.github.io/ux/introducao-user-experience-ux/">&lt;p&gt;&lt;em&gt;Se o seu usuário está feliz, você está feliz!&lt;/em&gt;. A experiência do usuário é muito importante para redução de custos, e uma boa aceitação do produto.&lt;/p&gt;
+
+&lt;p&gt;A experiência do usuário não depende apenas da usabilidade, mas de como o usuário se sente quando esta usando seu produto, das ferramentas oferecidas e promoções.&lt;/p&gt;
+
+&lt;h2 id=&quot;do-que-se-trata-a-famosa-ux&quot;&gt;Do que se trata a famosa UX?&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“User Experience é tudo! É a forma com que você sente o mundo, é a forma como você experiencia a sua vida, é a forma como você experiencia um serviço, um aplicativo, um sistema de computador. Mas é um sistema. É tudo!”
+Don Norman.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p class=&quot;notice--info&quot;&gt;O termo User Experience doi criado pelo Don Norman, que foi Vice-Presidente do grupo avançado de tecnologia da &lt;em&gt;Apple&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;características-da-ux&quot;&gt;Características da UX&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Aprendizagem&lt;/strong&gt;: O usuário deve ser capaz de cumprir tarefas simples assim que ele esta diante de seu produto.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Eficiência&lt;/strong&gt;: Uma vez que o usuário tem conhecimento de como usar o seu produto, ele tem que fazer isso com agilidade.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Memorabilidade&lt;/strong&gt;: Se o usuário já utilizou o seu produto anteriormente, ele deve lembrar e como fazer isto novamente.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Prevenção de erros&lt;/strong&gt;: Uma boa usabilidade deve guiar o usuário, de forma a reduzir possíveis erros de utilização.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Garantir a satisfação do usuário&lt;/strong&gt;: Se o seu usuário cumprir o seu objetivo, e de maneira simples ele voltará a utilizar o seu produto.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Menos é mais, as vezes muitas funciionalidades podem complicar a vida do usuário&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;como-construir-uma-boa-experiência-para-os-usuários-de-seu-produto&quot;&gt;Como construir uma boa experiência para os usuários de seu produto?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vamos nos colocar no lugar do outro, e entender o que o cliente e não eu desenvolvedor gostaria de ter no produto. Estude o consumidor. &lt;em&gt;Quem é? O que faz? Onde habita?&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Não precisa inventar moda, menos é mais! Tente simplificar ao invés de complicar a vida do usuário.&lt;/li&gt;
+  &lt;li&gt;Faça testes para saber se funciona!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;as-10-heurísticas-de-nielsin&quot;&gt;As 10 heurísticas de Nielsin&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Jakob Nielsen é o pai da usabilidade.&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mantenha o usuário informado de onde ele está, o que está acontecendo e para onde ele vai.&lt;/li&gt;
+  &lt;li&gt;Se mantenha próximo da realidade do usuário, principalmente na comunicação.&lt;/li&gt;
+  &lt;li&gt;Guie o usuário sem restringi-lo (conforme as regras de negócio).&lt;/li&gt;
+  &lt;li&gt;Mantenha consistência, padrões e previsibilidade para facilitar o entendimento das coisas.&lt;/li&gt;
+  &lt;li&gt;Entenda como seu usuário pode errar, para evita que isso aconteça.&lt;/li&gt;
+  &lt;li&gt;Deixe visíveis os caminhos percorridos para acessar as funcionalidades para facilitar a navegação.&lt;/li&gt;
+  &lt;li&gt;Flexibilidade e eficiência de uso. Mais de uma forma para atingir o mesmo fim, agradando todos os gostos.&lt;/li&gt;
+  &lt;li&gt;Mantenha o design simples e minimalista, apenas o necessário.&lt;/li&gt;
+  &lt;li&gt;Ajude a reconhecer e consertar erros de maneira rápida e indolor. Mensagens simples com abstrações técnicas ajudam muito, obrigado.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Santa documentação Batman! Parece que ela nos segue onde quer que vamos&lt;/strong&gt;. Ofereça toda informação necessária para o usuário usufruir do seu produto.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;arquitetura-de-informação&quot;&gt;Arquitetura de informação&lt;/h2&gt;
+
+&lt;p&gt;A arquitetura da informação organiza e categoriza todo conteúdo presente em seu produto.&lt;/p&gt;
+
+&lt;p&gt;Etapas para definição da arquitetura de informação&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Inventário de conteúdo&lt;/strong&gt;: Aqui é levantado e identificado todo conteúdo existente.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Auditoria de conteúdo&lt;/strong&gt;: O conteúdo deve ser verificado para validar a sua utilidade.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Agrupamento de informações&lt;/strong&gt;: O conteúdo deve ser agrupado por temas similares ou relacionados.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Taxonomia&lt;/strong&gt;: Nomenclatura dada aos agrupamentos criados que deve contemplar todo conteúdo do site.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Informações Descritivas&lt;/strong&gt;: Definição de metadados úteis para gerar listas de conteúdo relacionado a outros componentes de navegação, que por sua vez vão ajudar o usuário a encontrar o que está buscando.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;ferramentas-úteis&quot;&gt;Ferramentas úteis&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pencil.evolus.vn/&quot;&gt;Prototipação - Pencil Project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;artigos&quot;&gt;Artigos&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.interaction-design.org/literature/article/the-ultimate-guide-to-understanding-ux-roles-and-which-one-you-should-go-for&quot;&gt;The Ultimate Guide to Understating UX Roles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;manuais-de-design&quot;&gt;Manuais de design&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://design.google/&quot;&gt;Google&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/design/human-interface-guidelines/ios/overview/themes/&quot;&gt;Apple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="UX" /><category term="UX" /><category term="User" /><category term="Experience" /><category term="Usuario" /><category term="Experiencia" /><summary type="html">Se o seu usuário está feliz, você está feliz!. A experiência do usuário é muito importante para redução de custos, e uma boa aceitação do produto.</summary></entry><entry><title type="html">Github - Listagem de todos emojis</title><link href="https://dmenezesgabriel.github.io/github/github-emojis/" rel="alternate" type="text/html" title="Github - Listagem de todos emojis" /><published>2021-04-20T00:00:00-03:00</published><updated>2021-04-20T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/github/github-emojis</id><content type="html" xml:base="https://dmenezesgabriel.github.io/github/github-emojis/">&lt;p&gt;Apenas uma lista para facilitar a vida! Estes Emojis podem ser usados tanto no GitHub quanto no framework &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt; para sites estáticos.&lt;/p&gt;
 
 &lt;h2 id=&quot;lista-de-emojis&quot;&gt;Lista de Emojis&lt;/h2&gt;
 
@@ -2898,90 +2989,4 @@ memory usage: 25.4 KB
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@cereblanco/setup-black-and-isort-in-vscode-514804590bf9&quot;&gt;Setup Black and Isort in VSCode&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programacao" /><category term="linter" /><category term="formatter" /><category term="syntax" /><category term="tema" /><category term="extensões" /><summary type="html">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda PEP 8 no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.</summary></entry><entry><title type="html">Docker, eliminando a procura diária por esses comandos no Google.</title><link href="https://dmenezesgabriel.github.io/docker/docker-comandos-procura-diaria-google/" rel="alternate" type="text/html" title="Docker, eliminando a procura diária por esses comandos no Google." /><published>2020-09-17T00:00:00-03:00</published><updated>2020-09-17T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/docker/docker-comandos-procura-diaria-google</id><content type="html" xml:base="https://dmenezesgabriel.github.io/docker/docker-comandos-procura-diaria-google/">&lt;p&gt;Quando você utiliza muitos containers &lt;strong&gt;Docker&lt;/strong&gt; em seu dia a dia para diversos programas diferentes, containers antigos podem ficar “pendurados”, juntando poeira e acumulando espaço em seu disco. Ou então você pode querer acessar a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shell&lt;/code&gt;, mais conhecida como linha de comando, mas não consegue decorar qual comando utilizar?&lt;/p&gt;
-
-&lt;h2 id=&quot;listas-de-comandos-para-você-não-precisar-mais-acessar-o-google&quot;&gt;Listas de comandos para você não precisar mais acessar o Google&lt;/h2&gt;
-
-&lt;h3 id=&quot;docker&quot;&gt;Docker&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Parar todos containers ativos&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stop &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker ps &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Deletar todos containers&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker ps &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Apagar todas imagens&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker rmi &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker images &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Informações detalhadas sobre um object Docker&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker inspect &amp;lt;CONTAINER ID&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Remove objetos Docker não usados (containers, imagens, redes e volumes)&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker system prune
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Remove apenas os containers parados&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker ps &lt;span class=&quot;nt&quot;&gt;-aq&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;exited&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;docker-compose&quot;&gt;Docker Compose&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Constrói a imagem de um container desconsiderando o cache&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose build &lt;span class=&quot;nt&quot;&gt;--no-cache&lt;/span&gt; &amp;lt;SERVICE NAME&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Acessa a shell de um container&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose run &lt;span class=&quot;nt&quot;&gt;--rm&lt;/span&gt; &amp;lt;SERVICE NAME&amp;gt; /bin/sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;faixa-bônus&quot;&gt;Faixa bônus&lt;/h2&gt;
-
-&lt;p&gt;Abaixo um simples e &lt;strong&gt;não&lt;/strong&gt; otimizado &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose.yml&lt;/code&gt;, que utilizo no desenvolvimento deste blog:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3&quot;&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;jekyll-draft&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll/jekyll:latest&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll serve --watch --draft --livereload&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4000:4000&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/srv/jekyll&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;jekyll-dev&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll/jekyll:latest&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll serve --watch --trace --livereload&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4000:4000&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/srv/jekyll&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Docker" /><category term="Docker" /><category term="Jekyll" /><summary type="html">Quando você utiliza muitos containers Docker em seu dia a dia para diversos programas diferentes, containers antigos podem ficar “pendurados”, juntando poeira e acumulando espaço em seu disco. Ou então você pode querer acessar a shell, mais conhecida como linha de comando, mas não consegue decorar qual comando utilizar?</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programacao" /><category term="linter" /><category term="formatter" /><category term="syntax" /><category term="tema" /><category term="extensões" /><summary type="html">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda PEP 8 no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.</summary></entry></feed>
