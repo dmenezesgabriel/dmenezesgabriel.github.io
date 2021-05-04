@@ -1,4 +1,282 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2021-05-04T19:15:02-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Porque eu documentaria um diagrama de caso de uso?</title><link href="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/" rel="alternate" type="text/html" title="Porque eu documentaria um diagrama de caso de uso?" /><published>2021-04-21T00:00:00-03:00</published><updated>2021-04-21T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso</id><content type="html" xml:base="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://dmenezesgabriel.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dmenezesgabriel.github.io/" rel="alternate" type="text/html" /><updated>2021-05-04T20:25:30-03:00</updated><id>https://dmenezesgabriel.github.io/feed.xml</id><title type="html">Gabriel Menezes</title><subtitle>Python, Flask, Docker, APIs, CI, CD e outras tecnologias</subtitle><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><entry><title type="html">Estimando orçamentos e cálculando custos de projetos</title><link href="https://dmenezesgabriel.github.io/projetos/custos-orcamento-projetos/" rel="alternate" type="text/html" title="Estimando orçamentos e cálculando custos de projetos" /><published>2021-05-03T00:00:00-03:00</published><updated>2021-05-04T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/projetos/custos-orcamento-projetos</id><content type="html" xml:base="https://dmenezesgabriel.github.io/projetos/custos-orcamento-projetos/">&lt;p&gt;Estimar os custos de um projeto não é das tarefas mais fáceis, nem sempre tudo sai como planejado. E quando o projeto está de fato pronto, ou até mesmo quando já se foi meio caminho andado, você sabe dizer qual o valor agregado sobre o que foi entregue?&lt;/p&gt;
+
+&lt;p&gt;Neste cenário a matemática é simples, mas não torna o processo menos complexo, ou as previsões 100% exatas. Porém com algum planejamento é possível minimizar possíveis perdas, mantendo os gastos controlados, sem eventuais surpresas ou impactos negativos no budget.&lt;/p&gt;
+
+&lt;h2 id=&quot;processos-do-gerenciamento-de-custos&quot;&gt;Processos do gerenciamento de custos:&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Planejar&lt;/li&gt;
+  &lt;li&gt;Estimar&lt;/li&gt;
+  &lt;li&gt;Determinar&lt;/li&gt;
+  &lt;li&gt;Controlar&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Trindade de variáveis do projeto&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cronograma&lt;/li&gt;
+  &lt;li&gt;Custos&lt;/li&gt;
+  &lt;li&gt;Escopo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Essas variáveis são interdependentes, por exemplo, para reduzir custos é necessário reduzir o escopo e/ou aumentar o tempo destinado ao projeto.&lt;/p&gt;
+
+&lt;h3 id=&quot;planejar&quot;&gt;Planejar&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Grupos de entregas, relacionadas a contas de controle, geralmente imputadas no ERP da instituição.&lt;/li&gt;
+  &lt;li&gt;Unidades de medidas (horas, reais, etc)&lt;/li&gt;
+  &lt;li&gt;Faixa de variação, ou seja, qual é a variação (para cima ou para baixo) aceitável no orçamento?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;estimar&quot;&gt;Estimar&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Variação&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Análises de &lt;strong&gt;make&lt;/strong&gt; or &lt;strong&gt;buy&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Vale mais a pena fazer internamente ou comprar?&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Análises de &lt;strong&gt;rent&lt;/strong&gt; or &lt;strong&gt;buy&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Vale mais a pena fazer alugar ou comprar?&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estimativa de &lt;strong&gt;Magnitude&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fase conceitual, informação pouco detalhada.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-25% a +75%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estimativa &lt;strong&gt;Análoga&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Comparação com projetos similares já realizados no passados que já foram concluídos.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-10% a +25%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estimativa de &lt;strong&gt;Orçamentação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Realizada para fins de obtenção de financiamento do projeto.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-10% a +25%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Estimativa &lt;strong&gt;Definitiva&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Após todas atividades definidas, de cada atividade até a soma do todo (&lt;em&gt;bottom up&lt;/em&gt;).&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-5% a +10%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Solicitar um alto valor de orçamento e gastar apenas metade não é necessáriamente bom, devido ao custo de oportunidade onde a quantia poderia ter sido empregada em um investimento, empregado em outro projeto, ou então a quantia pode ter sido fruto de um empréstimo gerando altas taxas de juros.&lt;/p&gt;
+
+&lt;h3 id=&quot;determinar&quot;&gt;Determinar&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reserva de contingência (tempo e custo);&lt;/li&gt;
+  &lt;li&gt;Linha de base = custos das atividades + reserva de contingência;&lt;/li&gt;
+  &lt;li&gt;Reserva gerencial (riscos desconhecidos);&lt;/li&gt;
+  &lt;li&gt;Orçamento = Linha de base + reserva gerêncial.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Se todo capital estivesse alocado em uma só carteira, poderia ser gasto sem controle ou critério.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;controle&quot;&gt;Controle&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GVA (Gerênciamento de Valor Agregado).&lt;/li&gt;
+  &lt;li&gt;Manter sob limites aceitáveis os excessos de custos que não foram previstos.&lt;/li&gt;
+  &lt;li&gt;Manter partes interessadas informadas.&lt;/li&gt;
+  &lt;li&gt;Impedir mudanças não aprovadas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;análise-de-valor-agregados&quot;&gt;Análise de valor agregados&lt;/h2&gt;
+
+&lt;p&gt;Medindo o desempenho do projeto em tempo e dinheiro.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PV&lt;/strong&gt; (Planned Value): Valor planejado a ser gasto com o projeto até então.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;RC&lt;/strong&gt; (Real Cost): Valor gasto até o momento com o projeto.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;EV&lt;/strong&gt; (Earned Value): Quanto o trabalho realizado realmente rendeu.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Um pintor tem como tarefa pintar um muro, e para esta atividade foram estimadas 16 horas de duração, dividida em dois dias úteis de 8 horas cadas. Se considerarmos uma remuneração de R$10,00 por hora, teremos um valor total planejado de R$160,00.
+Vamos imaginar que o pintor trabalhou não 8, mas 10 horas ao final do primeiro dia, e pintou apenas 40% do muro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Valor planejado&lt;/strong&gt; = 8 horas x R$10,00/h = R$80,00&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Custo real&lt;/strong&gt; = 10 horas x R$10,00/h = R$100,00&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Valor agregado&lt;/strong&gt;= 0.4 x 16 = 6,4 horas x 10 reais/h = 64 reais, ou seja, o trabalho rendeu apenas 64 reais neste primeiro dia, enquanto que o esperado era R$80,00 (8h x R$10,00).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Se o andamento permanecer constante a atividade irá custar mais caro, porque precisará de mais horas de atividade e atrasará, considerando que a mesma jornada de 8 horas de trabalho seja mantida.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CV&lt;/strong&gt; (Cost Variance): Variação absoluta entre progresso realizado e custo incorrido, mede-se por &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CV = EV - RC&lt;/code&gt;. Se o CV der um valor negativo, o custo está acima do planejado, ou seja, os gastos estão acima do orçamento, em caso de valor positivo, o custo estará abaixo do esperado.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SV&lt;/strong&gt; (Schedule variance): Variação absoluta entre o progresso realizado e progresso planejado, mede-se por &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SV = EV - PV&lt;/code&gt;. Se o SV apresentar valor negativo, a atividade está atrasada, caso contrário adiantada.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Variação de Custo:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CV = EV - RC
+
+CV = 0,4 * R$160,00 - 10h * R$10,00 = -36
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusão&lt;/strong&gt;: Estamos acima do orçamento.&lt;/p&gt;
+
+&lt;p&gt;Variação de Prazo&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SV = EV - PV
+
+SV = 0.4 * R$160,00 - 8h * R$10,00 = -16
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusão&lt;/strong&gt;: Estamos atrasados.&lt;/p&gt;
+
+&lt;p&gt;Utilizando índices:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CPI&lt;/strong&gt; (Cost Performance Index): Onde acima de 1 representa que estamos abaixo do custo, abaixo de um que estouramos o orçamento. Quanto mais próximo de 1 melhor. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CPI = EV / RC&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CPI = EV / RC
+
+CPI = 0.4 * R$160,00 / 10h * R$10,00 = 0,64
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Conclusão: Estamos acima do orçamento.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;SPI&lt;/strong&gt; (Schedule Performance Index): Se o índice está abaixo de 1, significa que a entrega está atrasada, acima que estamos adiantados e quanto mais próximo de 1 mais perto do prazo exato. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SPI = EV / PV&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SPI = EV / PV
+
+SPI = 0.4 * R$160,00 / 8h * R$10,00 = 0,8
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Conclusão: Estamos atrasados.&lt;/p&gt;
+
+&lt;h2 id=&quot;métricas&quot;&gt;Métricas&lt;/h2&gt;
+
+&lt;h3 id=&quot;return-of-investment-roi&quot;&gt;Return of Investment (ROI)&lt;/h3&gt;
+
+&lt;p&gt;Dentre diversos projetos, qualificar se o investimento vale a pena ou não?&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ROI = ((Receita - investimento)/Investimento) x 100&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Desta maneira podemos comparar dois ou mais projetos para, a partir de uma receita esperada, sabermos qual trará maior retorno.&lt;/p&gt;
+
+&lt;h3 id=&quot;net-promoter-score&quot;&gt;Net Promoter Score&lt;/h3&gt;
+
+&lt;p&gt;É uma metodologia de pesquisa de satisfação dos clientes.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;De 0 a 10, o quanto você indicaria nosso serviço para algum amigo ou familiar?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Podemos classificar os respondentes em:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Categoria&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Nota&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Promotores&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9 ou 10&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;São clientes que muito provavelmente indicarão o seu serviço.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Neutros&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;7 ou 8&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Clientes relativamente satisfeitos, mas podem ceder a concorrência.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Detratores&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;0 a 6&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Clientes insatisfeitos que podem danificar a imagem do produto ou serviço.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Para obter o &lt;strong&gt;NPS SCORE&lt;/strong&gt; é necessário subtrair o percentual de Detratores do percentual de Promotores e dividir o resultado por 100&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;O quer seria um bom NPS?&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Classificação&lt;/th&gt;
+      &lt;th&gt;Nota&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Excelência&lt;/td&gt;
+      &lt;td&gt;71 a 100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qualidade&lt;/td&gt;
+      &lt;td&gt;31 a 70&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Aperfeiçoamento&lt;/td&gt;
+      &lt;td&gt;1 a 30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Crítico&lt;/td&gt;
+      &lt;td&gt;-100 a 0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Também é possível solicitar justificativa para a nota dada pelo consumidor.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;churn&quot;&gt;Churn&lt;/h3&gt;
+
+&lt;p&gt;O churn é uma métrica que diz a porcentagem de clientes que deixaram de consumir o produto ou serviço. Sua formula é cálculada a partir de uma janela, ou seja, um período onde se obtém a relação de clientes que abandonaram o produto ou serviço naquele período sobre o total de clientes consumidores no início do período.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Taxa de Churn = Clientes que deixaram de consumir o produto/serviço no mês / Número total de consumidores no início do mês
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Para reduzir a taxa de churn podemos considerar as seguintes ações:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Alinhamento de expectativas;&lt;/li&gt;
+  &lt;li&gt;Entrega de valor;&lt;/li&gt;
+  &lt;li&gt;Boas experiências;&lt;/li&gt;
+  &lt;li&gt;Atenção aos feedbacks;&lt;/li&gt;
+  &lt;li&gt;Correção rápida de eventuais erros ou problemas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ferramentas&quot;&gt;Ferramentas&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MS Project&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Projetos" /><category term="Custo" /><category term="Projeto" /><summary type="html">Estimar os custos de um projeto não é das tarefas mais fáceis, nem sempre tudo sai como planejado. E quando o projeto está de fato pronto, ou até mesmo quando já se foi meio caminho andado, você sabe dizer qual o valor agregado sobre o que foi entregue?</summary></entry><entry><title type="html">Porque eu documentaria um diagrama de caso de uso?</title><link href="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/" rel="alternate" type="text/html" title="Porque eu documentaria um diagrama de caso de uso?" /><published>2021-04-21T00:00:00-03:00</published><updated>2021-04-21T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso</id><content type="html" xml:base="https://dmenezesgabriel.github.io/documentacao/documentacao-de-casos-de-uso/">&lt;blockquote&gt;
   &lt;p&gt;Uma imagem vale mais que mil palavras.&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -2775,218 +3053,4 @@ memory usage: 25.4 KB
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/channel/UCzCrdOO2GLYVnNhZUvG03lg&quot;&gt;Código Quant - Finanças Quantitativas&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Financas" /><category term="Python" /><category term="Financas" /><summary type="html">Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.</summary></entry><entry><title type="html">Ferramentas para melhorar a qualidade do seu código</title><link href="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/" rel="alternate" type="text/html" title="Ferramentas para melhorar a qualidade do seu código" /><published>2020-09-26T00:00:00-03:00</published><updated>2020-09-26T00:00:00-03:00</updated><id>https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo</id><content type="html" xml:base="https://dmenezesgabriel.github.io/programacao/ferramentas-melhorar-qualidade-codigo/">&lt;p&gt;Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda &lt;strong&gt;PEP 8&lt;/strong&gt; no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.&lt;/p&gt;
-
-&lt;p&gt;Porque não utilizar a tecnologia a nosso favor?&lt;/p&gt;
-
-&lt;h1 id=&quot;ferramentas-para-melhorar-a-qualidade-do-seu-código&quot;&gt;Ferramentas para melhorar a qualidade do seu código&lt;/h1&gt;
-
-&lt;h2 id=&quot;suporte-a-linguagem&quot;&gt;Suporte a linguagem&lt;/h2&gt;
-
-&lt;h3 id=&quot;python&quot;&gt;Python&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;análise-de-qualidade-e-segurança&quot;&gt;Análise de qualidade e segurança&lt;/h2&gt;
-
-&lt;h3 id=&quot;deepcode&quot;&gt;DeepCode&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.deepcode.ai/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;sonarcloud&quot;&gt;Sonarcloud&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://sonarcloud.io/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;sonarqube&quot;&gt;Sonarqube&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.sonarqube.org/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;snyk&quot;&gt;Snyk&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://snyk.io/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;codacy&quot;&gt;Codacy&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.codacy.com/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;codeinspector&quot;&gt;Codeinspector&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.code-inspector.com/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;codeguru-aws&quot;&gt;CodeGuru AWS&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/pt/codeguru/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;sonarlint&quot;&gt;Sonarlint&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.sonarlint.org/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;codescan&quot;&gt;CodeScan&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.codescan.io/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;deepscan&quot;&gt;DeepScan&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://deepscan.io/home/&quot;&gt;Site Oficial&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;linters&quot;&gt;Linters&lt;/h2&gt;
-
-&lt;h3 id=&quot;python-1&quot;&gt;Python&lt;/h3&gt;
-
-&lt;h4 id=&quot;pylama&quot;&gt;Pylama&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;pylama
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;flake8&quot;&gt;Flake8&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;flake8
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;formatadores-automáticos&quot;&gt;Formatadores automáticos&lt;/h2&gt;
-
-&lt;h3 id=&quot;python-2&quot;&gt;Python&lt;/h3&gt;
-
-&lt;h4 id=&quot;autopep8&quot;&gt;autopep8&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;autopep8
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;yapf&quot;&gt;yapf&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;yapf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;black&quot;&gt;black&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;black
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;isort&quot;&gt;isort&lt;/h4&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;isort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;sql&quot;&gt;SQL&lt;/h3&gt;
-
-&lt;h4 id=&quot;sql-server&quot;&gt;SQL Server&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;javascript&quot;&gt;Javascript&lt;/h3&gt;
-
-&lt;h4 id=&quot;prettier&quot;&gt;Prettier&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;corretores-ortográficos&quot;&gt;Corretores ortográficos&lt;/h2&gt;
-
-&lt;h3 id=&quot;code-spell-checker&quot;&gt;Code Spell Checker&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;pt_BR: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-portuguese-brazilian&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;en_US: &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;syntax-highlighters&quot;&gt;Syntax Highlighters&lt;/h2&gt;
-
-&lt;h3 id=&quot;viml&quot;&gt;VimL&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=XadillaX.viml&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;terraform&quot;&gt;Terraform&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;dotenv&quot;&gt;DotEnv&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;docker&quot;&gt;Docker&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;trailing-spaces&quot;&gt;Trailing spaces&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;cor-dos-brackets&quot;&gt;Cor dos brackets&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;toml&quot;&gt;TOML&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;auto-complete&quot;&gt;Auto Complete&lt;/h2&gt;
-
-&lt;h3 id=&quot;visual-studio-intellicode&quot;&gt;Visual Studio IntelliCode&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;suporte-ao-git&quot;&gt;Suporte ao Git&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;temas&quot;&gt;Temas&lt;/h2&gt;
-
-&lt;h3 id=&quot;dracula&quot;&gt;Dracula&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula&quot;&gt;Extensão Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;links-úteis&quot;&gt;Links úteis&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@cereblanco/setup-black-and-isort-in-vscode-514804590bf9&quot;&gt;Setup Black and Isort in VSCode&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Programacao" /><category term="linter" /><category term="formatter" /><category term="syntax" /><category term="tema" /><category term="extensões" /><summary type="html">Uma das dores que comecei a sentir no inicio da minha trajetória como programador, e acredito que seja a dor de muitos, gira em torno de revisões demoradas e cansativas por conta de espaços a mais, e padrões de escrita. Acredito que dificilmente vamos decorar toda PEP 8 no caso do Python, e além disso que mesmo após uma boa revisão de código algumas brechas de segurança como atualização de dependências pode acabar passando desapercebidas.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Gabriel Menezes</name><email>dmenezesgabriel.gabriel@gmail.com</email></author><category term="Financas" /><category term="Python" /><category term="Financas" /><summary type="html">Em algum momento, todos procuramos como obter as cotações da bolsa programaticamente, e realmente é muito simples uma vez que já existem bibliotécas que fazem todo o trabalho pesado.</summary></entry></feed>
