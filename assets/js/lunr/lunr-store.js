@@ -112,4 +112,10 @@ var store = [{
         "tags": ["Custo","Projeto"],
         "url": "/projetos/custos-orcamento-projetos/",
         "teaser": "/assets/images/covers/custos-orcamento-projeto.jpg"
+      },{
+        "title": "Explanando com Tableau: Porquê alguns países são mais felizes que outros?",
+        "excerpt":"O Relatório de Felicidade Mundial é uma pesquisa histórica sobre o estado de felicidade global. O relatório continua a ganhar reconhecimento global à medida que governos, organizações e sociedade civil usam cada vez mais os indicadores de felicidade para informar suas decisões de formulação de políticas. Os principais especialistas em todos os campos - economia, psicologia, análise de pesquisas, estatísticas nacionais, saúde, políticas públicas e muito mais - descrevem como as medições de bem-estar podem ser usadas de forma eficaz para avaliar o progresso das nações. Os relatórios analisam o estado da felicidade no mundo hoje e mostram como a nova ciência da felicidade explica as variações pessoais e nacionais da felicidade.   Fonte de dados: Gallup World Poll                                                                                 ","categories": ["Tableau"],
+        "tags": ["Tableau","Viz","Analytics","BI"],
+        "url": "/tableau/tableau-porque-paises-mais-felizes-que-outros/",
+        "teaser": "/assets/images/covers/2021-06-12-tableau-porque-paises-mais-felizes-que-outros.png"
       }]
