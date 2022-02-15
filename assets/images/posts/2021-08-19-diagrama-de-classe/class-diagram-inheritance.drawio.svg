@@ -1,0 +1,36 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="391px" height="195px" viewBox="-0.5 -0.5 391 195" content="&lt;mxfile&gt;&lt;diagram id=&quot;m-dhS8e1V_48lYOelo37&quot; name=&quot;Page-1&quot;&gt;7VhRb9owEP41PG4iCaHwWKDdNLUSGpO2PrqJSaw6vsgxEPrrd47thBAYqKtaHnhBuc93Z99990k2vWCald8kydNHiCnv+f247AWznu+H3hh/NbA1wGAQGCCRLDaQ1wAL9kot2LfoisW0aDkqAK5Y3gYjEIJGqoURKWHTdlsCb++ak4R2gEVEeBf9zWKVGnTc7zf4d8qS1O4cuoWMOF8LFCmJYbMDBXe9YCoBlPnKyinlunWuLSbu/shqfS5JhTonwDcBa8JXtrQ5LQog9nRq6youNizjRKA1WYJQC7vioU04SwR+R7gnlQisqVQMm3VrFxTkiEYp4/ED2cJKn6xQJHpx1iQFyV4xLeE2Jy5LZXn3hy2PhY5EuI+opAX6zF253h70SMqW4wMplAUi4JzkBXuuy8iITJiYgFKQWSfbHCyHlkcb7NW04bRTyKiSW3RxAUPL9NbNiDE3zdjULunOyAQDO612UpM6c8MmflhCD5M76JDboZWzitJCSXipR1l3Y8k4nwIH5HMmoHJyPHO6VAdYzlgc8ypZTiImkl+a9dkXr0EeqsBZ0CA/bcEakqCIIoYP3XxOnimfQ8EUA51fGt9JDkyoqivhpBfOKkSqKQgsgrCKFYo8b6jm+jwK/cMUWspw/s6ibPT/jA2PyPGeFdjqqyjfSZRhW5O1/RGivLmK8jwKh5ciytERUf5Y4d3kKsv3k6U/+kRdjq+6PI/D0aXo0vNOU0ZFfKvv+2hBTrEzE0TuGXfaQcsqx/O1clRWr5RM/dHd/Rpa68n2Wn/Pyl1j6wyBJZggP3T2U70VGk1cZblAc24ad14de9LB2mAlI9q6LaD8E/rvm8whNiTlRLF1e8dDfNh0cz1KOxfb/p5Yne1SmJPaqN0nyF4if3gikamvk6gaj7rG8yam+9y5nIm5+YCJGX3mxPhBm+hg8MaJCcYnEr15YtBs3t7Gvfn/Irj7Cw==&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <path d="M 110 26 L 110 0 L 270 0 L 270 26" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 110 26 L 110 34 L 270 34 L 270 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 110 26 L 270 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="189.5" y="17.5">
+                Pessoa
+            </text>
+        </g>
+        <path d="M 110 30 L 270 30" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 186 L 0 160 L 160 160 L 160 186" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 186 L 0 194 L 160 194 L 160 186" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 186 L 160 186" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="79.5" y="177.5">
+                PessoaFisica
+            </text>
+        </g>
+        <path d="M 0 190 L 160 190" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 230 186 L 230 160 L 390 160 L 390 186" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 230 186 L 230 194 L 390 194 L 390 186" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 230 186 L 390 186" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" pointer-events="none" text-anchor="middle" font-size="12px">
+            <text x="309.5" y="177.5">
+                PessoaJuridica
+            </text>
+        </g>
+        <path d="M 230 190 L 390 190" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 80 160 L 148.91 35.95" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 148.83 49.5 L 149.46 34.98 L 137.46 43.18" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 310 160 L 231.2 35.89" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 243.05 42.43 L 230.6 34.94 L 232.08 49.4" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>
