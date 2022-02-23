@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Java Hello, World! - Gabriel Menezes</title>
-<meta name="description" content="Java Hello, World!">
+<!-- begin _includes/seo.html --><title>Configuração Bash Windows - Gabriel Menezes</title>
+<meta name="description" content="Configuração Bash Windows">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Java Hello, World!">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/java-hello-world/">
+<meta property="og:title" content="Configuração Bash Windows">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/bash-windows-configuracao/">
 
 
-  <meta property="og:description" content="Java Hello, World!">
+  <meta property="og:description" content="Configuração Bash Windows">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Java Hello, World!">
-  <meta name="twitter:description" content="Java Hello, World!">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/java-hello-world/">
+  <meta name="twitter:title" content="Configuração Bash Windows">
+  <meta name="twitter:description" content="Configuração Bash Windows">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/bash-windows-configuracao/">
 
   
     <meta name="twitter:card" content="summary">
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/java-hello-world/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/bash-windows-configuracao/">
 
 
 
@@ -204,7 +204,7 @@
     
       
       
-        <li class="current">Java Hello, World!</li>
+        <li class="current">Configuração Bash Windows</li>
       
     
   </ol>
@@ -241,7 +241,7 @@
         
         <ul>
           
-            <li><a href="/recipes/java-hello-world/" class="active">Hello, World!</a></li>
+            <li><a href="/recipes/java-hello-world/">Hello, World!</a></li>
           
             <li><a href="/recipes/java-oop-heranca/">OOP Herança</a></li>
           
@@ -257,7 +257,7 @@
         
         <ul>
           
-            <li><a href="/recipes/bash-windows-configuracao/">Configuração Windows</a></li>
+            <li><a href="/recipes/bash-windows-configuracao/" class="active">Configuração Windows</a></li>
           
         </ul>
         
@@ -273,15 +273,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Java Hello, World!">
-    <meta itemprop="description" content="Java Hello, World!">
+    <meta itemprop="headline" content="Configuração Bash Windows">
+    <meta itemprop="description" content="Configuração Bash Windows">
     <meta itemprop="datePublished" content="2022-02-23T13:56:50-03:00">
     <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Java Hello, World!
+          <h1 id="page-title" class="page__title" itemprop="headline">Configuração Bash Windows
 </h1>
           
 
@@ -294,65 +294,49 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#executar">Executar</a></li></ul>
+              <ul class="toc__menu"><li><a href="#bashrc">.bashrc</a></li></ul>
 
             </nav>
           </aside>
         
-        <blockquote>
-  <p>Hello, Java!</p>
-</blockquote>
+        <p>Configurações para bash no Windows.</p>
 
-<p>Iniciando com a linguagem Java!</p>
+<h2 id="bashrc">.bashrc</h2>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Linux</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Hello.java</span>
-<span class="c1">// Install java</span>
-<span class="c1">// sudo apt update</span>
-<span class="c1">// sudo apt upgrade</span>
-<span class="c1">// sudo apt install default-jre</span>
-<span class="c1">// sudo apt install default-jdk</span>
-<span class="c1">// 1.Compile:</span>
-<span class="c1">// javac Hello.java</span>
-<span class="c1">// 2. java Hello</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Windows</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// https://www.oracle.com/java/technologies/javase-downloads.html</span>
-<span class="c1">// alias java="/c/'Program Files'/java/jdk-16.0.2/bin/java.exe"</span>
-<span class="c1">// Hello.java</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="o">~/.</span><span class="na">bashrc</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="n">export</span> <span class="no">USER</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="n">whoami</span><span class="o">)</span> <span class="o">&amp;&amp;</span><span class="err">\</span>
+<span class="err">#</span> <span class="n">source</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="nc">Users</span><span class="o">/</span><span class="err">$</span><span class="o">{</span><span class="no">USER</span><span class="o">}/</span><span class="nc">Documents</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">blog</span><span class="o">-</span><span class="n">source</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">snippets</span><span class="o">/</span><span class="n">shell</span><span class="o">/</span><span class="n">win_bash_config</span><span class="o">.</span><span class="na">sh</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="nc">Environment</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="n">export</span> <span class="no">PIPENV_IGNORE_VIRTUALENVS</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">export</span> <span class="no">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">export</span> <span class="no">PIP_REQUIRE_VIRTUALENV</span><span class="o">=</span><span class="kc">true</span>
+<span class="n">export</span> <span class="no">USER</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="n">whoami</span><span class="o">)</span>
+<span class="n">export</span> <span class="no">JDK_VERSION</span><span class="o">=</span><span class="s">"17.0.1"</span>
+<span class="n">export</span> <span class="no">MVN_VERSION</span><span class="o">=</span><span class="s">"3.8.3"</span>
+<span class="err">#</span> <span class="nc">Fix</span> <span class="nc">Strange</span> <span class="n">characters</span> <span class="n">on</span> <span class="n">jshell</span>
+<span class="n">export</span> <span class="no">TERM</span><span class="o">=</span><span class="n">cygwin</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="nc">Directories</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="n">alias</span> <span class="n">docs</span><span class="o">=</span><span class="s">"cd '/c/Users/${USER}/Documents'"</span>
+<span class="n">alias</span> <span class="n">repos</span><span class="o">=</span><span class="s">"cd '/c/Users/${USER}/Documents/repos'"</span>
+<span class="n">alias</span> <span class="n">edoc</span><span class="o">=</span><span class="s">"explorer '/c/Users/${USER}/Documents'"</span>
+<span class="n">alias</span> <span class="n">erepos</span><span class="o">=</span><span class="s">"explorer '/c/Users/${USER}/Documents/repos'"</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="nc">Python</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="n">alias</span> <span class="n">nvenv</span><span class="o">=</span><span class="err">'</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span>  <span class="n">venv</span> <span class="o">.</span><span class="na">venv_</span><span class="s">"${PWD##*/}"</span><span class="err">'</span>
+<span class="n">alias</span> <span class="n">avenv</span><span class="o">=</span><span class="err">'</span><span class="n">source</span> <span class="o">.</span><span class="na">venv_</span><span class="s">"${PWD##*/}"</span><span class="o">/</span><span class="nc">Scripts</span><span class="o">/</span><span class="n">activate</span><span class="err">'</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="nc">Java</span>
+<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="n">alias</span> <span class="n">java</span><span class="o">=</span><span class="s">"/c/'Program Files'/java/jdk-${JDK_VERSION}/bin/java.exe"</span>
+<span class="n">alias</span> <span class="n">javadoc</span><span class="o">=</span><span class="s">"/c/'Program Files'/java/jdk-${JDK_VERSION}/bin/javadoc.exe"</span>
+<span class="n">alias</span> <span class="n">mvn</span><span class="o">=</span><span class="s">"/c/Users/${USER}/Documents/Programs/apache-maven-${MVN_VERSION}/bin/mvn.cmd"</span>
 
-<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
-    <span class="kd">static</span> <span class="nc">String</span> <span class="n">userName</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
-    <span class="c1">// Execute on file call</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">getName</span><span class="o">();</span>
-        <span class="n">toGreet</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// Create a Scanner Object</span>
-        <span class="nc">Scanner</span> <span class="n">sc</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Scanner</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter username: "</span><span class="o">);</span>
-
-        <span class="c1">// Read user input</span>
-        <span class="nc">String</span> <span class="n">userName</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
-        <span class="n">sc</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-    <span class="o">}</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">toGreet</span><span class="o">()</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Hello, World! %s"</span><span class="o">,</span> <span class="n">userName</span><span class="o">));</span>
-
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<h2 id="executar">Executar</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java Hello.java
 </code></pre></div></div>
 
         
@@ -373,22 +357,21 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Java+Hello%2C+World%21%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-hello-world%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Configura%C3%A7%C3%A3o+Bash+Windows%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fbash-windows-configuracao%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-hello-world%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fbash-windows-configuracao%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-hello-world%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fbash-windows-configuracao%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/bash-windows-configuracao/" class="pagination--pager" title="Configuração Bash Windows
-">Previous</a>
+      <a href="#" class="pagination--pager disabled">Previous</a>
     
     
-      <a href="/recipes/java-oop-heranca/" class="pagination--pager" title="Java OOP Herança
+      <a href="/recipes/java-hello-world/" class="pagination--pager" title="Java Hello, World!
 ">Next</a>
     
   </nav>
