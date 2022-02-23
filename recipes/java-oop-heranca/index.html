@@ -1,0 +1,518 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Java OOP Herança - Gabriel Menezes</title>
+<meta name="description" content="Java OOP Herança.">
+
+
+  <meta name="author" content="Gabriel Menezes">
+  
+  <meta property="article:author" content="Gabriel Menezes">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="Java OOP Herança">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+
+
+  <meta property="og:description" content="Java OOP Herança.">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="Java OOP Herança">
+  <meta name="twitter:description" content="Java OOP Herança.">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpg">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2022-02-23T13:44:37-03:00">
+
+
+
+  <meta property="article:modified_time" content="2022-02-01T09:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Gabriel Menezes"></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categorias</a>
+            </li><li class="masthead__menu-item">
+              <a href="/certificados/">Certificados</a>
+            </li><li class="masthead__menu-item">
+              <a href="/recipes/java-hello-world/">Receitas</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/recipes" itemprop="item"><span itemprop="name">Recipes</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Java OOP Herança</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Java</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/recipes/java-hello-world/">Hello, World!</a></li>
+          
+            <li><a href="/recipes/java-oop-heranca/" class="active">OOP Herança</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Java OOP Herança">
+    <meta itemprop="description" content="Java OOP Herança.">
+    <meta itemprop="datePublished" content="2022-02-23T13:44:37-03:00">
+    <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Java OOP Herança
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#superclasse">Superclasse</a></li><li><a href="#subclasses">Subclasses</a></li><li><a href="#compilar-e-executar">Compilar e executar</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>Hello, Java!</p>
+
+<h2 id="superclasse">Superclasse</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
+
+<span class="c1">// Animal Superclass</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">move</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">feed</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getMove</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">move</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMove</span><span class="o">(</span><span class="nc">String</span> <span class="n">move</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">move</span> <span class="o">=</span> <span class="n">move</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getFeed</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">feed</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFeed</span><span class="o">(</span><span class="nc">String</span> <span class="n">feed</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">feed</span> <span class="o">=</span> <span class="n">feed</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="subclasses">Subclasses</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
+
+<span class="c1">// Bird subclass</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bird</span> <span class="kd">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">sing</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getSing</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">sing</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSing</span><span class="o">(</span><span class="nc">String</span> <span class="n">sing</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">sing</span> <span class="o">=</span> <span class="n">sing</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
+
+<span class="c1">// Dog subclass</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">bark</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getBark</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">bark</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBark</span><span class="o">(</span><span class="nc">String</span> <span class="n">bark</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">bark</span> <span class="o">=</span> <span class="n">bark</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
+
+<span class="c1">// Testing class</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Animal</span><span class="o">();</span>
+        <span class="n">animal</span><span class="o">.</span><span class="na">setFeed</span><span class="o">(</span><span class="s">"Every animal eats"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animal</span><span class="o">.</span><span class="na">getFeed</span><span class="o">());</span>
+
+        <span class="nc">Dog</span> <span class="n">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Dog</span><span class="o">();</span>
+        <span class="n">dog</span><span class="o">.</span><span class="na">setFeed</span><span class="o">(</span><span class="s">"Dog eats dog food"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dog</span><span class="o">.</span><span class="na">getFeed</span><span class="o">());</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="compilar-e-executar">Compilar e executar</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Compile</span>
+find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.java"</span> | xargs javac <span class="nt">-d</span> bin
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run</span>
+java <span class="nt">-classpath</span> bin com.java.view.Test
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-02-01">February 1, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Java+OOP+Heran%C3%A7a%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/recipes/java-hello-world/" class="pagination--pager" title="Java Hello, World!
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Gabriel Menezes. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

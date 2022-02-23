@@ -130,4 +130,16 @@ var store = [{
         "tags": ["Web","HTML"],
         "url": "/web/html-o-que-e/",
         "teaser": "/assets/images/covers/2021-07-04-html-snippets.jpg"
+      },{
+        "title": "Java Hello, World!",
+        "excerpt":"   Hello, Java!    Iniciando com a linguagem Java!   // --------------------------------------------------------------------------// // Linux // --------------------------------------------------------------------------// // Hello.java // Install java // sudo apt update // sudo apt upgrade // sudo apt install default-jre // sudo apt install default-jdk // 1.Compile: // javac Hello.java // 2. java Hello // --------------------------------------------------------------------------// // Windows // --------------------------------------------------------------------------// // https://www.oracle.com/java/technologies/javase-downloads.html // alias java=\"/c/'Program Files'/java/jdk-16.0.2/bin/java.exe\" // Hello.java  import java.util.Scanner;  public class Hello {     static String userName = \"\";     // Execute on file call     public static void main(String[] args) {         getName();         toGreet();     }     public static void getName() {         // Create a Scanner Object         Scanner sc = new Scanner(System.in);         System.out.println(\"Enter username: \");          // Read user input         String userName = sc.next();         sc.close();     }     public static void toGreet() {         System.out.println(String.format(\"Hello, World! %s\", userName));      } }    Executar   java Hello.java  ","categories": [],
+        "tags": [],
+        "url": "/recipes/java-hello-world/",
+        "teaser": "/assets/images/fallback-teaser.jpg"
+      },{
+        "title": "Java OOP Herança",
+        "excerpt":"Hello, Java!   Superclasse   package com.java;  // Animal Superclass public class Animal {     private String move;     private String feed;      public String getMove() {         return move;     }      public void setMove(String move) {         this.move = move;     }      public String getFeed() {         return feed;     }      public void setFeed(String feed) {         this.feed = feed;     } }   Subclasses   package com.java;  // Bird subclass public class Bird extends Animal {     private String sing;      public String getSing() {         return sing;     }      public void setSing(String sing) {         this.sing = sing;     } }   package com.java;  // Dog subclass public class Dog extends Animal {     private String bark;      public String getBark() {         return bark;     }      public void setBark(String bark) {         this.bark = bark;     } }   package com.java;  // Testing class public class Test {     public static void main(String[] args) {         Animal animal = new Animal();         animal.setFeed(\"Every animal eats\");          System.out.println(animal.getFeed());          Dog dog = new Dog();         dog.setFeed(\"Dog eats dog food\");          System.out.println(dog.getFeed());      } }   Compilar e executar   # Compile find . -name \"*.java\" | xargs javac -d bin   # Run java -classpath bin com.java.view.Test   ","categories": [],
+        "tags": [],
+        "url": "/recipes/java-oop-heranca/",
+        "teaser": "/assets/images/fallback-teaser.jpg"
       }]
