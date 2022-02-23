@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-02-23T13:56:50-03:00">
+  <meta property="article:published_time" content="2022-02-23T14:04:31-03:00">
 
 
 
@@ -275,7 +275,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Configuração Bash Windows">
     <meta itemprop="description" content="Configuração Bash Windows">
-    <meta itemprop="datePublished" content="2022-02-23T13:56:50-03:00">
+    <meta itemprop="datePublished" content="2022-02-23T14:04:31-03:00">
     <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -291,22 +291,11 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#bashrc">.bashrc</a></li></ul>
-
-            </nav>
-          </aside>
-        
         <p>Configurações para bash no Windows.</p>
 
 <h2 id="bashrc">.bashrc</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span> <span class="o">~/.</span><span class="na">bashrc</span>
-<span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
-<span class="err">#</span> <span class="n">export</span> <span class="no">USER</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="n">whoami</span><span class="o">)</span> <span class="o">&amp;&amp;</span><span class="err">\</span>
-<span class="err">#</span> <span class="n">source</span> <span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="nc">Users</span><span class="o">/</span><span class="err">$</span><span class="o">{</span><span class="no">USER</span><span class="o">}/</span><span class="nc">Documents</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">blog</span><span class="o">-</span><span class="n">source</span><span class="o">/</span><span class="n">blog</span><span class="o">/</span><span class="n">_includes</span><span class="o">/</span><span class="n">snippets</span><span class="o">/</span><span class="n">shell</span><span class="o">/</span><span class="n">win_bash_config</span><span class="o">.</span><span class="na">sh</span>
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
 <span class="err">#</span> <span class="nc">Environment</span>
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
@@ -328,13 +317,18 @@
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
 <span class="err">#</span> <span class="nc">Python</span>
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
-<span class="n">alias</span> <span class="n">nvenv</span><span class="o">=</span><span class="err">'</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span>  <span class="n">venv</span> <span class="o">.</span><span class="na">venv_</span><span class="s">"${PWD##*/}"</span><span class="err">'</span>
-<span class="n">alias</span> <span class="n">avenv</span><span class="o">=</span><span class="err">'</span><span class="n">source</span> <span class="o">.</span><span class="na">venv_</span><span class="s">"${PWD##*/}"</span><span class="o">/</span><span class="nc">Scripts</span><span class="o">/</span><span class="n">activate</span><span class="err">'</span>
+<span class="err">#</span> <span class="nc">Create</span> <span class="k">new</span> <span class="n">python</span> <span class="n">virtual</span> <span class="n">environment</span> <span class="n">at</span> <span class="o">~/</span><span class="n">environments</span><span class="o">/&lt;</span><span class="n">current_folder_name</span><span class="o">&gt;</span>
+<span class="n">alias</span> <span class="n">nvenv</span><span class="o">=</span><span class="err">'</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span>  <span class="n">venv</span> <span class="o">~/</span><span class="n">environments</span><span class="o">/</span><span class="s">"${PWD##*/}"</span><span class="err">'</span>
+<span class="err">#</span> <span class="nc">Activate</span> <span class="n">python</span> <span class="n">virtual</span> <span class="n">environment</span> <span class="n">at</span> <span class="o">~/</span><span class="n">environments</span><span class="o">/&lt;</span><span class="n">current_folder_name</span><span class="o">&gt;</span>
+<span class="n">alias</span> <span class="n">avenv</span><span class="o">=</span><span class="err">'</span><span class="n">source</span> <span class="o">~/</span><span class="n">environments</span><span class="o">/</span><span class="s">"${PWD##*/}"</span><span class="o">/</span><span class="nc">Scripts</span><span class="o">/</span><span class="n">activate</span><span class="err">'</span>
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
 <span class="err">#</span> <span class="nc">Java</span>
 <span class="err">#</span> <span class="o">---------------------------------------------------------------------------</span> <span class="err">#</span>
+<span class="err">#</span> <span class="nc">Java</span> <span class="n">executable</span> <span class="n">alias</span>
 <span class="n">alias</span> <span class="n">java</span><span class="o">=</span><span class="s">"/c/'Program Files'/java/jdk-${JDK_VERSION}/bin/java.exe"</span>
+<span class="err">#</span> <span class="nc">Java</span> <span class="nc">Doc</span> <span class="n">executable</span> <span class="n">alias</span>
 <span class="n">alias</span> <span class="n">javadoc</span><span class="o">=</span><span class="s">"/c/'Program Files'/java/jdk-${JDK_VERSION}/bin/javadoc.exe"</span>
+<span class="err">#</span> <span class="nc">Maven</span> <span class="n">executable</span> <span class="n">alias</span>
 <span class="n">alias</span> <span class="n">mvn</span><span class="o">=</span><span class="s">"/c/Users/${USER}/Documents/Programs/apache-maven-${MVN_VERSION}/bin/mvn.cmd"</span>
 
 </code></pre></div></div>
