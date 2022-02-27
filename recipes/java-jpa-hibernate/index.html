@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-02-27T12:48:48-03:00">
+  <meta property="article:published_time" content="2022-02-27T13:10:36-03:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Java JPA Hibernate">
     <meta itemprop="description" content="Java JPA Hibernate">
-    <meta itemprop="datePublished" content="2022-02-27T12:48:48-03:00">
+    <meta itemprop="datePublished" content="2022-02-27T13:10:36-03:00">
     <meta itemprop="dateModified" content="2022-02-25T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -364,15 +364,11 @@
 <div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> maven:3.8.3-openjdk-11</span>
 
 <span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> netcat
-<span class="k">ARG</span><span class="s"> USER_HOME_DIR="/root"</span>
-
-<span class="k">ENV</span><span class="s"> MAVEN_HOME /usr/share/maven</span>
-<span class="k">ENV</span><span class="s"> MAVEN_CONFIG "$USER_HOME_DIR/.m2"</span>
-
-<span class="k">VOLUME</span><span class="s"> "$USER_HOME_DIR/.m2"</span>
-<span class="k">WORKDIR</span><span class="s"> /app/src</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">COPY</span><span class="s"> src /app/src</span>
+<span class="k">COPY</span><span class="s"> pom.xml /app</span>
 <span class="c"># Add entrypoint</span>
-<span class="k">COPY</span><span class="s"> scripts/entrypoint.sh /app/scripts/entrypoint.sh</span>
+<span class="k">COPY</span><span class="s"> scripts/entrypoint-test.sh /app/scripts/entrypoint.sh</span>
 <span class="k">CMD</span><span class="s"> ["chmod", "+x", "/app/scripts/entrypoint.sh"]</span>
 <span class="k">ENTRYPOINT</span><span class="s"> ["/app/scripts/entrypoint.sh"]</span>
 
@@ -434,7 +430,7 @@ mvn clean <span class="nb">test</span>
 
 <h3 id="docker-compose">Docker Compose</h3>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hibernate/docker-compose.yml</span>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># # hibernate/docker-compose.yml</span>
 <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.9"</span>
 
 <span class="na">services</span><span class="pi">:</span>
