@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-02-27T23:52:42-03:00">
+  <meta property="article:published_time" content="2022-03-02T21:57:05-03:00">
 
 
 
@@ -279,7 +279,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Java JPA Hibernate">
     <meta itemprop="description" content="Java JPA Hibernate">
-    <meta itemprop="datePublished" content="2022-02-27T23:52:42-03:00">
+    <meta itemprop="datePublished" content="2022-03-02T21:57:05-03:00">
     <meta itemprop="dateModified" content="2022-02-25T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -313,8 +313,9 @@
   <li>Maven</li>
   <li>Open JDK 11</li>
   <li>Hibernate</li>
+  <li>PostgresSQL</li>
   <li>
-    <p>PostgresSQL</p>
+    <p>H2 Database</p>
   </li>
   <li>vscode</li>
   <li>vscode language support for Java(TM) by Red Hat</li>
@@ -367,10 +368,6 @@
 <span class="k">WORKDIR</span><span class="s"> /app</span>
 <span class="k">COPY</span><span class="s"> src /app/src</span>
 <span class="k">COPY</span><span class="s"> pom.xml /app</span>
-<span class="c"># Add entrypoint</span>
-<span class="k">COPY</span><span class="s"> scripts/entrypoint-test.sh /app/scripts/entrypoint.sh</span>
-<span class="k">CMD</span><span class="s"> ["chmod", "+x", "/app/scripts/entrypoint.sh"]</span>
-<span class="k">ENTRYPOINT</span><span class="s"> ["/app/scripts/entrypoint.sh"]</span>
 
 </code></pre></div></div>
 
@@ -406,28 +403,6 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 
 </code></pre></div></div>
 
-<p><strong>Testes</strong>:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="c"># Wait until database starts</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$DATABASE</span><span class="s2">"</span> <span class="o">=</span> <span class="s2">"postgres"</span> <span class="o">]</span>
-<span class="k">then
-    </span><span class="nb">echo</span> <span class="s2">"Waiting for postgres..."</span>
-
-    <span class="k">while</span> <span class="o">!</span> nc <span class="nt">-z</span> <span class="nv">$SQL_HOST</span> <span class="nv">$SQL_PORT</span><span class="p">;</span> <span class="k">do
-      </span><span class="nb">sleep </span>0.1
-    <span class="k">done
-
-    </span><span class="nb">echo</span> <span class="s2">"PostgreSQL started"</span>
-<span class="k">fi</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="c"># Run java application tests with maven</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-mvn clean <span class="nb">test</span>
-</code></pre></div></div>
-
 <h3 id="docker-compose">Docker Compose</h3>
 
 <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># # hibernate/docker-compose.yml</span>
@@ -448,18 +423,6 @@ mvn clean <span class="nb">test</span>
       <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">postgres</span>
     <span class="na">networks</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">prod</span>
-  <span class="c1"># ------------------------------------------------------------------------- #</span>
-  <span class="c1"># Test Database</span>
-  <span class="c1"># ------------------------------------------------------------------------- #</span>
-  <span class="na">postgres-test</span><span class="pi">:</span>
-    <span class="na">container_name</span><span class="pi">:</span> <span class="s">postgres-test</span>
-    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:14.0-alpine</span>
-    <span class="na">ports</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">5433:5432"</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">postgres</span>
-    <span class="na">networks</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">test</span>
   <span class="c1"># ------------------------------------------------------------------------- #</span>
   <span class="c1"># Database Tool</span>
   <span class="c1"># ------------------------------------------------------------------------- #</span>
@@ -502,19 +465,12 @@ mvn clean <span class="nb">test</span>
     <span class="na">build</span><span class="pi">:</span>
       <span class="na">context</span><span class="pi">:</span> <span class="s">.</span>
       <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">dockerfiles/Dockerfile-maven-test</span>
-    <span class="c1"># command: /bin/bash -c 'mvn clean test'</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="s">/bin/bash -c 'mvn clean test'</span>
     <span class="na">volumes</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">./.m2:/root/.m2</span>
       <span class="pi">-</span> <span class="s">$PWD/src:/app/src</span>
-    <span class="na">depends_on</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">postgres-test</span>
     <span class="na">networks</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">test</span>
-    <span class="na">environment</span><span class="pi">:</span>
-      <span class="c1"># entrypoint-test.sh database health check variables</span>
-      <span class="na">SQL_HOST</span><span class="pi">:</span> <span class="s">postgres-test</span>
-      <span class="na">SQL_PORT</span><span class="pi">:</span> <span class="m">5432</span>
-      <span class="na">DATABASE</span><span class="pi">:</span> <span class="s">postgres</span>
 <span class="c1"># -------------------------------------------------------------------------- #</span>
 <span class="c1"># Docker networks</span>
 <span class="c1"># -------------------------------------------------------------------------- #</span>
@@ -927,6 +883,10 @@ mvn clean <span class="nb">test</span>
 
 <p><strong>Testes</strong>:</p>
 
+<ul>
+  <li>H2 Database: banco em memória.</li>
+</ul>
+
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- src/test/resources/META-INF/persistence.xml --&gt;</span>
 <span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence"</span>
              <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
@@ -951,17 +911,17 @@ mvn clean <span class="nb">test</span>
 
         <span class="nt">&lt;properties&gt;</span>
             <span class="c">&lt;!-- Database Driver --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.postgresql.Driver"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.h2.Driver"</span> <span class="nt">/&gt;</span>
             <span class="c">&lt;!-- Database connection uri --&gt;</span>
             <span class="c">&lt;!-- "jdbc:sgdb_name://host_address:port_number/database_name" --&gt;</span>
             <span class="c">&lt;!-- - When using docker, host addres is the container name --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:postgresql://postgres-test:5432/postgres"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:h2:mem:test"</span> <span class="nt">/&gt;</span>
             <span class="c">&lt;!-- Database User --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
             <span class="c">&lt;!-- Database Password --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Database Dialect --&gt;</span>
-	    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.PostgreSQLDialect"</span><span class="nt">/&gt;</span>
+	    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.H2Dialect"</span><span class="nt">/&gt;</span>
             <span class="c">&lt;!-- create / create-drop / update --&gt;</span>
             <span class="c">&lt;!-- - create: creates database from scratch using definitions --&gt;</span>
             <span class="c">&lt;!-- - update: try to update new attributes --&gt;</span>
@@ -1035,6 +995,13 @@ mvn clean <span class="nb">test</span>
         <span class="nt">&lt;version&gt;</span>42.3.3<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
 		<span class="c">&lt;!-- end::postgres[] --&gt;</span>
+		<span class="c">&lt;!-- tag::H2[] --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span>1.4.200<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+		<span class="c">&lt;!-- end::H2[] --&gt;</span>
 		<span class="c">&lt;!-- tag::log4j[] --&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
       <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
