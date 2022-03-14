@@ -1,0 +1,579 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="pt" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>R Hello, World! - Gabriel Menezes</title>
+<meta name="description" content="R Hello, World!">
+
+
+  <meta name="author" content="Gabriel Menezes">
+  
+  <meta property="article:author" content="Gabriel Menezes">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Gabriel Menezes">
+<meta property="og:title" content="R Hello, World!">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/r-hello-world/">
+
+
+  <meta property="og:description" content="R Hello, World!">
+
+
+
+  <meta property="og:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpg">
+
+
+
+  <meta name="twitter:site" content="@dmenezesgabriel">
+  <meta name="twitter:title" content="R Hello, World!">
+  <meta name="twitter:description" content="R Hello, World!">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/r-hello-world/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="https://dmenezesgabriel.github.io/assets/images/fallback-teaser.jpg">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2022-03-14T16:35:50-03:00">
+
+
+
+  <meta property="article:modified_time" content="2022-03-14T16:00:00-03:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/r-hello-world/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Gabriel Menezes",
+      "url": "https://dmenezesgabriel.github.io/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Gabriel Menezes Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+
+<!-- Google AdSense -->
+<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Gabriel Menezes"></a>
+        
+        <a class="site-title" href="/">
+          Gabriel Menezes
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Categorias</a>
+            </li><li class="masthead__menu-item">
+              <a href="/certificados/">Certificados</a>
+            </li><li class="masthead__menu-item">
+              <a href="/recipes/java-hello-world/">Receitas</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/recipes" itemprop="item"><span itemprop="name">Recipes</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">R Hello, World!</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">Java</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/recipes/java-hello-world/">Hello, World!</a></li>
+          
+            <li><a href="/recipes/java-oop-heranca/">OOP - Herança</a></li>
+          
+            <li><a href="/recipes/java-jpa-hibernate/">JPA - Hibernate</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Shell</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/recipes/shell-windows-configuracao/">Configuração Windows</a></li>
+          
+            <li><a href="/recipes/shell-linux-configuracao/">Configuração Linux</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">R</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/recipes/r-hello-world/" class="active">Hello, World!</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="R Hello, World!">
+    <meta itemprop="description" content="R Hello, World!">
+    <meta itemprop="datePublished" content="2022-03-14T16:35:50-03:00">
+    <meta itemprop="dateModified" content="2022-03-14T16:00:00-03:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">R Hello, World!
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#jupyter-lab">Jupyter Lab</a></li><li><a href="#linha-de-comando">Linha de comando</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <blockquote>
+  <p>Hello, R!</p>
+</blockquote>
+
+<p>Iniciando com a linguagem R!</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="jupyter-lab">Jupyter Lab</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">set</span> <span class="nt">-e</span>
+
+<span class="c"># Constants</span>
+<span class="nv">R_PATH</span><span class="o">=</span><span class="s2">"c://Program Files/R/R-4.1.3/bin/Rscript.exe"</span>
+
+<span class="nv">R_ENVIRONMENTS_PATH</span><span class="o">=</span>~/renvironments
+<span class="nv">PYTHON_ENVIRONMENTS_PATH</span><span class="o">=</span>~/environments
+
+<span class="nv">ENVIRONMENT_NAME</span><span class="o">=</span><span class="s2">"r_jupyter_test"</span>
+
+<span class="nv">R_ENVIRONMENT_PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">R_ENVIRONMENTS_PATH</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">ENVIRONMENT_NAME</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENTS_PATH</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">ENVIRONMENT_NAME</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="c"># Test R installation</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Testing R installation"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"cat('Installation OK')"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c"># Create user lib if not exist</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Creating user lib"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"dir.create(path = Sys.getenv('R_LIBS_USER'), showWarnings = FALSE, recursive = TRUE)"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c"># Install renv - r virtual environments package</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Install renv"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"install.packages('renv', lib = Sys.getenv('R_LIBS_USER'), repos = 'https://cran.rstudio.com/')"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c">#  Create R virtual environment</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Create renv"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"renv::init(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">')"</span>
+py <span class="nt">-c</span> <span class="s2">"import os; print(os.path.isdir('</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'))"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c">#  Create Python virtual environment</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Create venv"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+py <span class="nt">-3</span> <span class="nt">-m</span> venv <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>
+py <span class="nt">-c</span> <span class="s2">"import os; print(os.path.isdir('</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'))"</span>
+<span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+<span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/python <span class="nt">-m</span> pip <span class="nb">install </span>jupyterlab
+
+<span class="c"># Install R kernel</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Install r kernell"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">source</span> <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/activate <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"renv::activate(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'); </span><span class="se">\</span><span class="s2">
+                renv::install(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">', </span><span class="se">\</span><span class="s2">
+                packages=c('IRkernel', 'languageserver')); </span><span class="se">\</span><span class="s2">
+                IRkernel::installspec(prefix='</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'); </span><span class="se">\</span><span class="s2">
+                renv::snapshot(type = 'all')"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="c"># Run Jupyter</span>
+<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
+<span class="nb">echo</span> <span class="s2">"Install r kernell"</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">source</span> <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/activate <span class="o">&amp;&amp;</span> <span class="se">\</span>
+jupyter lab <span class="nt">--notebook-dir</span><span class="o">=</span><span class="s2">"./notebooks"</span>
+
+</code></pre></div></div>
+
+<h2 id="linha-de-comando">Linha de comando</h2>
+
+<p><strong>Criação de ambiente virtual Python</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Create environment</span>
+py <span class="nt">-3</span> <span class="nt">-m</span> venv ~/environments/rlang
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Activate environment</span>
+<span class="nb">source</span> ~/environments/rlang/Scripts/activate
+</code></pre></div></div>
+
+<p><strong>Instalação console interativo Radian</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
+pip <span class="nb">install </span>radian
+</code></pre></div></div>
+
+<p><strong>Instalação de Pacotes</strong>:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create local user library path (not present by default)</span><span class="w">
+</span><span class="n">dir.create</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"R_LIBS_USER"</span><span class="p">),</span><span class="w"> </span><span class="n">showWarnings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">recursive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span><span class="c1"># install to local user library path</span><span class="w">
+</span><span class="n">install.packages</span><span class="p">(</span><span class="s2">"renv"</span><span class="p">,</span><span class="w"> </span><span class="n">lib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Sys.getenv</span><span class="p">(</span><span class="s2">"R_LIBS_USER"</span><span class="p">),</span><span class="w"> </span><span class="n">repos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"https://cran.rstudio.com/"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Executar script R pela linha de comando</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># R code</span>
+c://<span class="s1">'Program Files'</span>/R/R-4.1.3/bin/Rscript.exe <span class="nt">-e</span> <span class="s2">"cat('this is a test')"</span>
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># R file</span>
+c://<span class="s1">'Program Files'</span>/R/R-4.1.3/bin/Rscript.exe <span class="nt">-e</span> <span class="s2">"source('hello.R')"</span>
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-03-14">March 14, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=R+Hello%2C+World%21%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fr-hello-world%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fr-hello-world%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fr-hello-world%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/recipes/java-oop-heranca/" class="pagination--pager" title="Java OOP Herança
+">Previous</a>
+    
+    
+      <a href="/recipes/shell-linux-configuracao/" class="pagination--pager" title="Configuração Bash Linux
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/dmenezesgabriel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/dmenezesgabriel/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> Linked in</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Gabriel Menezes. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169523526-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169523526-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
