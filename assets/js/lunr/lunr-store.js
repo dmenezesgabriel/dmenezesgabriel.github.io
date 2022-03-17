@@ -131,6 +131,12 @@ var store = [{
         "url": "/web/html-o-que-e/",
         "teaser": "/assets/images/covers/2021-07-04-html-snippets.jpg"
       },{
+        "title": "Docker, sem sudo.",
+        "excerpt":"Utilizando docker sem permissões root no linux.   Script   #!/bin/sh # --------------------------------------------------------------------------- # # Run docker without sudo # --------------------------------------------------------------------------- # echo \"Removing the needs of sudo when using Docker\" sudo groupadd docker sudo gpasswd -a $USER docker newgrp docker sudo usermod -aG docker $USER  echo \"Restarting Docker\" # Restart docker sudo systemctl restart docker # --------------------------------------------------------------------------- #   ","categories": [],
+        "tags": [],
+        "url": "/recipes/docker-sem-sudo/",
+        "teaser": "/assets/images/fallback-teaser.jpg"
+      },{
         "title": "Java Hello, World!",
         "excerpt":"   Hello, Java!    Iniciando com a linguagem Java!   // --------------------------------------------------------------------------// // Linux // --------------------------------------------------------------------------// // Hello.java // Install java // sudo apt update // sudo apt upgrade // sudo apt install default-jre // sudo apt install default-jdk // 1.Compile: // javac Hello.java // 2. java Hello // --------------------------------------------------------------------------// // Windows // --------------------------------------------------------------------------// // https://www.oracle.com/java/technologies/javase-downloads.html // alias java=\"/c/'Program Files'/java/jdk-16.0.2/bin/java.exe\" // Hello.java  import java.util.Scanner;  public class Hello {     static String userName = \"\";     // Execute on file call     public static void main(String[] args) {         getName();         toGreet();     }     public static void getName() {         // Create a Scanner Object         Scanner sc = new Scanner(System.in);         System.out.println(\"Enter username: \");          // Read user input         String userName = sc.next();         sc.close();     }     public static void toGreet() {         System.out.println(String.format(\"Hello, World! %s\", userName));      } }    Executar   java Hello.java  ","categories": [],
         "tags": [],

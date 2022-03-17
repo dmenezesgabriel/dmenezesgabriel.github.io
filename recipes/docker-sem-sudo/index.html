@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Java OOP Herança - Gabriel Menezes</title>
-<meta name="description" content="Java OOP Herança.">
+<!-- begin _includes/seo.html --><title>Docker, sem sudo. - Gabriel Menezes</title>
+<meta name="description" content="Docker, sem sudo.">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Java OOP Herança">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+<meta property="og:title" content="Docker, sem sudo.">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
 
 
-  <meta property="og:description" content="Java OOP Herança.">
+  <meta property="og:description" content="Docker, sem sudo.">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Java OOP Herança">
-  <meta name="twitter:description" content="Java OOP Herança.">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+  <meta name="twitter:title" content="Docker, sem sudo.">
+  <meta name="twitter:description" content="Docker, sem sudo.">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
 
   
     <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
 
 
 
-  <meta property="article:modified_time" content="2022-02-01T09:00:00-03:00">
+  <meta property="article:modified_time" content="2022-03-16T23:44:00-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/java-oop-heranca/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
 
 
 
@@ -230,7 +230,7 @@
     
       
       
-        <li class="current">Java OOP Herança</li>
+        <li class="current">Docker, sem sudo.</li>
       
     
   </ol>
@@ -269,7 +269,7 @@
           
             <li><a href="/recipes/java-hello-world/">Hello, World!</a></li>
           
-            <li><a href="/recipes/java-oop-heranca/" class="active">OOP - Herança</a></li>
+            <li><a href="/recipes/java-oop-heranca/">OOP - Herança</a></li>
           
             <li><a href="/recipes/java-jpa-hibernate/">JPA - Hibernate</a></li>
           
@@ -315,7 +315,7 @@
         
         <ul>
           
-            <li><a href="/recipes/docker-sem-sudo/">Docker, sem sudo</a></li>
+            <li><a href="/recipes/docker-sem-sudo/" class="active">Docker, sem sudo</a></li>
           
         </ul>
         
@@ -331,15 +331,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Java OOP Herança">
-    <meta itemprop="description" content="Java OOP Herança.">
+    <meta itemprop="headline" content="Docker, sem sudo.">
+    <meta itemprop="description" content="Docker, sem sudo.">
     <meta itemprop="datePublished" content="2022-03-16T23:57:40-03:00">
-    <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
+    <meta itemprop="dateModified" content="2022-03-16T23:44:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Java OOP Herança
+          <h1 id="page-title" class="page__title" itemprop="headline">Docker, sem sudo.
 </h1>
           
 
@@ -352,105 +352,31 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#superclasse">Superclasse</a></li><li><a href="#subclasses">Subclasses</a></li><li><a href="#classe-para-testar-a-execução">Classe para testar a execução</a><ul><li><a href="#compilar-e-executar">Compilar e executar</a></li></ul></li></ul>
+              <ul class="toc__menu"><li><a href="#script">Script</a></li></ul>
 
             </nav>
           </aside>
         
-        <p>Hello, Java!</p>
+        <p>Utilizando docker sem permissões <code class="language-plaintext highlighter-rouge">root</code> no linux.</p>
 
-<h2 id="superclasse">Superclasse</h2>
+<h2 id="script">Script</h2>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="c"># Run docker without sudo</span>
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="nb">echo</span> <span class="s2">"Removing the needs of sudo when using Docker"</span>
+<span class="nb">sudo </span>groupadd docker
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker
+newgrp docker
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
 
-<span class="c1">// Animal Superclass</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Animal</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">move</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">feed</span><span class="o">;</span>
+<span class="nb">echo</span> <span class="s2">"Restarting Docker"</span>
+<span class="c"># Restart docker</span>
+<span class="nb">sudo </span>systemctl restart docker
+<span class="c"># --------------------------------------------------------------------------- #</span>
 
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getMove</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">move</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMove</span><span class="o">(</span><span class="nc">String</span> <span class="n">move</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">move</span> <span class="o">=</span> <span class="n">move</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getFeed</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">feed</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFeed</span><span class="o">(</span><span class="nc">String</span> <span class="n">feed</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">feed</span> <span class="o">=</span> <span class="n">feed</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
 </code></pre></div></div>
-
-<h2 id="subclasses">Subclasses</h2>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
-
-<span class="c1">// Bird subclass</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bird</span> <span class="kd">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">sing</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getSing</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">sing</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSing</span><span class="o">(</span><span class="nc">String</span> <span class="n">sing</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">sing</span> <span class="o">=</span> <span class="n">sing</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
-
-<span class="c1">// Dog subclass</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dog</span> <span class="kd">extends</span> <span class="nc">Animal</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">bark</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getBark</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="n">bark</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBark</span><span class="o">(</span><span class="nc">String</span> <span class="n">bark</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">bark</span> <span class="o">=</span> <span class="n">bark</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h2 id="classe-para-testar-a-execução">Classe para testar a execução</h2>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.java</span><span class="o">;</span>
-
-<span class="c1">// Testing class</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">Animal</span> <span class="n">animal</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Animal</span><span class="o">();</span>
-        <span class="n">animal</span><span class="o">.</span><span class="na">setFeed</span><span class="o">(</span><span class="s">"Every animal eats"</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">animal</span><span class="o">.</span><span class="na">getFeed</span><span class="o">());</span>
-
-        <span class="nc">Dog</span> <span class="n">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Dog</span><span class="o">();</span>
-        <span class="n">dog</span><span class="o">.</span><span class="na">setFeed</span><span class="o">(</span><span class="s">"Dog eats dog food"</span><span class="o">);</span>
-
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dog</span><span class="o">.</span><span class="na">getFeed</span><span class="o">());</span>
-
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="compilar-e-executar">Compilar e executar</h3>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Compile</span>
-find <span class="nb">.</span> <span class="nt">-name</span> <span class="s2">"*.java"</span> | xargs javac <span class="nt">-d</span> bin
-</code></pre></div></div>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run</span>
-java <span class="nt">-classpath</span> bin com.java.view.Test
-</code></pre></div></div>
-
 
         
       </section>
@@ -462,7 +388,7 @@ java <span class="nt">-classpath</span> bin com.java.view.Test
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-02-01">February 1, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-03-16">March 16, 2022</time></p>
 
 
       </footer>
@@ -470,22 +396,21 @@ java <span class="nt">-classpath</span> bin com.java.view.Test
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Java+OOP+Heran%C3%A7a%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Docker%2C+sem+sudo.%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fjava-oop-heranca%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/java-jpa-hibernate/" class="pagination--pager" title="Java JPA Hibernate
-">Previous</a>
+      <a href="#" class="pagination--pager disabled">Previous</a>
     
     
-      <a href="/recipes/r-hello-world/" class="pagination--pager" title="R Hello, World!
+      <a href="/recipes/java-hello-world/" class="pagination--pager" title="Java Hello, World!
 ">Next</a>
     
   </nav>
