@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-03-16T23:57:40-03:00">
+  <meta property="article:published_time" content="2022-03-21T20:39:19-03:00">
 
 
 
@@ -333,7 +333,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Java JPA Hibernate">
     <meta itemprop="description" content="Java JPA Hibernate">
-    <meta itemprop="datePublished" content="2022-03-16T23:57:40-03:00">
+    <meta itemprop="datePublished" content="2022-03-21T20:39:19-03:00">
     <meta itemprop="dateModified" content="2022-02-25T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -352,7 +352,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#docker">Docker</a><ul><li><a href="#dockerfiles">Dockerfiles</a></li><li><a href="#entrypoint">Entrypoint</a></li><li><a href="#docker-compose">Docker Compose</a></li></ul></li><li><a href="#código-fonte">Código fonte</a><ul><li><a href="#entidades">Entidades</a></li><li><a href="#testes">Testes</a></li><li><a href="#persistencexml">persistence.xml</a></li><li><a href="#pomxml">pom.xml</a></li><li><a href="#compilar-e-executar">Compilar e executar</a></li></ul></li><li><a href="#requirements">Requirements</a></li><li><a href="#usage">Usage</a></li><li><a href="#referências">Referências</a></li></ul>
+              <ul class="toc__menu"><li><a href="#docker">Docker</a><ul><li><a href="#dockerfiles">Dockerfiles</a></li><li><a href="#entrypoint">Entrypoint</a></li><li><a href="#docker-compose">Docker Compose</a></li></ul></li><li><a href="#código-fonte">Código fonte</a><ul><li><a href="#entidades">Entidades</a></li><li><a href="#testes">Testes</a></li><li><a href="#persistencexml">persistence.xml</a></li><li><a href="#pomxml">pom.xml</a></li><li><a href="#compilar-e-executar">Compilar e executar</a></li></ul></li><li><a href="#description">Description</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#usage">Usage</a></li><li><a href="#referências">Referências</a></li></ul>
 
             </nav>
           </aside>
@@ -397,7 +397,7 @@
 
 <p><strong>maven</strong>:</p>
 
-<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> maven:3.8.3-openjdk-11</span>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> maven:3.8.3-openjdk-17-slim</span>
 
 <span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> netcat
 <span class="k">ARG</span><span class="s"> USER_HOME_DIR="/root"</span>
@@ -406,7 +406,11 @@
 <span class="k">ENV</span><span class="s"> MAVEN_CONFIG "$USER_HOME_DIR/.m2"</span>
 
 <span class="k">VOLUME</span><span class="s"> "$USER_HOME_DIR/.m2"</span>
-<span class="k">WORKDIR</span><span class="s"> /app/src</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">COPY</span><span class="s"> src /app/src</span>
+<span class="k">COPY</span><span class="s"> pom.xml /app</span>
+
 <span class="c"># Add entrypoint</span>
 <span class="k">COPY</span><span class="s"> scripts/entrypoint.sh /app/scripts/entrypoint.sh</span>
 <span class="k">CMD</span><span class="s"> ["chmod", "+x", "/app/scripts/entrypoint.sh"]</span>
@@ -416,7 +420,7 @@
 
 <p><strong>maven test</strong>:</p>
 
-<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> maven:3.8.3-openjdk-11</span>
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> maven:3.8.3-openjdk-17-slim</span>
 
 <span class="k">RUN </span>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install</span> <span class="nt">-y</span> netcat
 <span class="k">WORKDIR</span><span class="s"> /app</span>
@@ -447,13 +451,13 @@
 <span class="c"># Compile application.</span>
 <span class="c"># --------------------------------------------------------------------------- #</span>
 mvn <span class="nt">-T</span> 2C clean package <span class="se">\</span>
-  <span class="nt">-Dmaven</span>.test.skip <span class="nt">-DskipTests</span> <span class="nt">-f</span>  /app/src  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+  <span class="nt">-Dmaven</span>.test.skip <span class="nt">-DskipTests</span> <span class="nt">-f</span>  /app  <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="c"># --------------------------------------------------------------------------- #</span>
 <span class="c"># Run application main class.</span>
 <span class="c"># --------------------------------------------------------------------------- #</span>
 mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se">\</span>
   <span class="nt">-Dexec</span>.cleanupDaemonThreads<span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-  <span class="nt">-Dexec</span>.mainClass<span class="o">=</span><span class="s2">"com.dmenezesgabriel.jpa.QueryUser"</span>
+  <span class="nt">-Dexec</span>.mainClass<span class="o">=</span><span class="s2">"com.dmenezesgabriel.jpa.view.ProfileView"</span>
 
 </code></pre></div></div>
 
@@ -504,9 +508,11 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
       <span class="na">dockerfile</span><span class="pi">:</span> <span class="s">dockerfiles/Dockerfile-maven</span>
     <span class="na">volumes</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">./.m2:/root/.m2</span>
-      <span class="pi">-</span> <span class="s">$PWD:/app/src</span>
+      <span class="pi">-</span> <span class="s">$PWD/src:/app/src</span>
     <span class="na">networks</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">prod</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">postgres</span>
     <span class="na">environment</span><span class="pi">:</span>
       <span class="c1"># entrypoint.sh database health check variables</span>
       <span class="na">SQL_HOST</span><span class="pi">:</span> <span class="s">postgres</span>
@@ -544,19 +550,19 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 <span class="kn">package</span> <span class="nn">com.dmenezesgabriel.jpa.domain.entity</span><span class="o">;</span>
 
 <span class="cm">/**
-* User entity
-*
-* @author Gabriel Menezes
-* @version 1.0
-*/</span>
+ * User entity
+ *
+ * @author Gabriel Menezes
+ * @version 1.0
+ */</span>
 <span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Column</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Entity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.EnumType</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.persistence.Enumerated</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GeneratedValue</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.GenerationType</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.Inheritance</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.InheritanceType</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.SequenceGenerator</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Table</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Temporal</span><span class="o">;</span>
@@ -569,17 +575,23 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 <span class="kn">import</span> <span class="nn">java.util.Objects</span><span class="o">;</span>
 
 <span class="nd">@Entity</span>
-<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"t_usuario"</span><span class="o">)</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"tbl_usuario"</span><span class="o">)</span>
+<span class="c1">// Each class has it's own table and subclass tables are mapped to superclass</span>
+<span class="nd">@Inheritance</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">InheritanceType</span><span class="o">.</span><span class="na">JOINED</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
     <span class="kd">protected</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">;</span>
 
     <span class="nd">@Id</span>
-    <span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"t_usuario_cd_usuario_seq"</span><span class="o">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">"t_usuario_cd_usuario_seq"</span><span class="o">,</span> <span class="n">allocationSize</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
-    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">"t_usuario_cd_usuario_seq"</span><span class="o">)</span>
+    <span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"tbl_usuario_cd_usuario_seq"</span><span class="o">,</span>
+            <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">"tbl_usuario_cd_usuario_seq"</span><span class="o">,</span> <span class="n">allocationSize</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span>
+            <span class="n">generator</span> <span class="o">=</span> <span class="s">"tbl_usuario_cd_usuario_seq"</span><span class="o">)</span>
     <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"cd_usuario"</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
-    <span class="c1">// The naming tablename_columname_seq is the PostgreSQL default sequence naming</span>
+    <span class="c1">// The naming tablename_columname_seq is the PostgreSQL default sequence</span>
+    <span class="c1">// naming</span>
     <span class="c1">// for SERIAL</span>
-    <span class="c1">// The allocationSize=1 is important if you need Hibernate to co-operate with</span>
+    <span class="c1">// The allocationSize=1 is important if you need Hibernate to co-operate</span>
+    <span class="c1">// with</span>
     <span class="c1">// other clients</span>
     <span class="c1">// Note that this sequence will have "gaps" in it if transactions roll back.</span>
     <span class="c1">// Never assume that for any id n there is an id n-1 or n+1.</span>
@@ -588,39 +600,33 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
     <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"nm_usuario"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">60</span><span class="o">)</span>
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
 
-    <span class="nd">@Temporal</span><span class="o">(</span><span class="nc">TemporalType</span><span class="o">.</span><span class="na">DATE</span><span class="o">)</span>
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"dt_nascimento"</span><span class="o">)</span>
-    <span class="kd">private</span> <span class="nc">Calendar</span> <span class="n">birthDate</span><span class="o">;</span>
-
-    <span class="nd">@Enumerated</span><span class="o">(</span><span class="nc">EnumType</span><span class="o">.</span><span class="na">STRING</span><span class="o">)</span>
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"des_genero"</span><span class="o">)</span>
-    <span class="kd">private</span> <span class="nc">Gender</span> <span class="n">gender</span><span class="o">;</span>
-
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"des_email"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">60</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"ds_email"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">unique</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">60</span><span class="o">)</span>
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">email</span><span class="o">;</span>
 
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"des_senha"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">60</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"ds_senha"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">60</span><span class="o">)</span>
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">password</span><span class="o">;</span>
 
     <span class="nd">@CreationTimestamp</span>
     <span class="nd">@Temporal</span><span class="o">(</span><span class="nc">TemporalType</span><span class="o">.</span><span class="na">TIMESTAMP</span><span class="o">)</span>
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"dt_criacao"</span><span class="o">,</span> <span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"TIMESTAMP WITH TIME ZONE"</span><span class="o">,</span> <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"dt_criacao"</span><span class="o">,</span> <span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"TIMESTAMP WITH TIME ZONE"</span><span class="o">,</span>
+            <span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
     <span class="kd">private</span> <span class="nc">Calendar</span> <span class="n">createdAt</span><span class="o">;</span>
 
     <span class="nd">@UpdateTimestamp</span>
     <span class="nd">@Temporal</span><span class="o">(</span><span class="nc">TemporalType</span><span class="o">.</span><span class="na">TIMESTAMP</span><span class="o">)</span>
-    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"dt_atualizacao"</span><span class="o">,</span> <span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"TIMESTAMP WITH TIME ZONE"</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"dt_atualizacao"</span><span class="o">,</span>
+            <span class="n">columnDefinition</span> <span class="o">=</span> <span class="s">"TIMESTAMP WITH TIME ZONE"</span><span class="o">)</span>
     <span class="kd">private</span> <span class="nc">Calendar</span> <span class="n">updatedAt</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">User</span><span class="o">()</span> <span class="o">{</span>
-    <span class="o">}</span>
+    <span class="c1">// Constructor - getters and setters</span>
 
-    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">Calendar</span> <span class="n">birthDate</span><span class="o">,</span> <span class="nc">Gender</span> <span class="n">gender</span><span class="o">,</span> <span class="nc">String</span> <span class="n">email</span><span class="o">,</span> <span class="nc">String</span> <span class="n">password</span><span class="o">,</span>
+
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">()</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="nf">User</span><span class="o">(</span><span class="kt">int</span> <span class="n">id</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">email</span><span class="o">,</span> <span class="nc">String</span> <span class="n">password</span><span class="o">,</span>
             <span class="nc">Calendar</span> <span class="n">createdAt</span><span class="o">,</span> <span class="nc">Calendar</span> <span class="n">updatedAt</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">birthDate</span> <span class="o">=</span> <span class="n">birthDate</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">gender</span> <span class="o">=</span> <span class="n">gender</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">password</span> <span class="o">=</span> <span class="n">password</span><span class="o">;</span>
         <span class="k">this</span><span class="o">.</span><span class="na">createdAt</span> <span class="o">=</span> <span class="n">createdAt</span><span class="o">;</span>
@@ -641,22 +647,6 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">Calendar</span> <span class="nf">getBirthDate</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">birthDate</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setBirthDate</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">birthDate</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">birthDate</span> <span class="o">=</span> <span class="n">birthDate</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">Gender</span> <span class="nf">getGender</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">gender</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGender</span><span class="o">(</span><span class="nc">Gender</span> <span class="n">gender</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">gender</span> <span class="o">=</span> <span class="n">gender</span><span class="o">;</span>
     <span class="o">}</span>
 
     <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getEmail</span><span class="o">()</span> <span class="o">{</span>
@@ -701,16 +691,6 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
         <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="nc">User</span> <span class="nf">birthDate</span><span class="o">(</span><span class="nc">Calendar</span> <span class="n">birthDate</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">setBirthDate</span><span class="o">(</span><span class="n">birthDate</span><span class="o">);</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="nc">User</span> <span class="nf">gender</span><span class="o">(</span><span class="nc">Gender</span> <span class="n">gender</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">setGender</span><span class="o">(</span><span class="n">gender</span><span class="o">);</span>
-        <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
-    <span class="o">}</span>
-
     <span class="kd">public</span> <span class="nc">User</span> <span class="nf">email</span><span class="o">(</span><span class="nc">String</span> <span class="n">email</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">setEmail</span><span class="o">(</span><span class="n">email</span><span class="o">);</span>
         <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
@@ -739,33 +719,31 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
             <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
         <span class="o">}</span>
         <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="nc">User</span><span class="o">)</span> <span class="n">o</span><span class="o">;</span>
-        <span class="k">return</span> <span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="na">id</span> <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">birthDate</span><span class="o">)</span>
-                <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">gender</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">gender</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span><span class="o">)</span>
-                <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">password</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">createdAt</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">createdAt</span><span class="o">)</span>
+        <span class="k">return</span> <span class="n">id</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="na">id</span> <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">name</span><span class="o">)</span>
+                <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">email</span><span class="o">)</span>
+                <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">password</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">password</span><span class="o">)</span>
+                <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">createdAt</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">createdAt</span><span class="o">)</span>
                 <span class="o">&amp;&amp;</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">updatedAt</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">updatedAt</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">int</span> <span class="nf">hashCode</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">birthDate</span><span class="o">,</span> <span class="n">gender</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">createdAt</span><span class="o">,</span> <span class="n">updatedAt</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">Objects</span><span class="o">.</span><span class="na">hash</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">createdAt</span><span class="o">,</span> <span class="n">updatedAt</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="nc">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
         <span class="nc">SimpleDateFormat</span> <span class="n">sdf</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"yyyy-MM-dd"</span><span class="o">);</span>
-        <span class="k">return</span> <span class="s">"{"</span> <span class="o">+</span>
-                <span class="s">" id='"</span> <span class="o">+</span> <span class="n">getId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", name='"</span> <span class="o">+</span> <span class="n">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", birthDate='"</span> <span class="o">+</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">birthDate</span><span class="o">.</span><span class="na">getTime</span><span class="o">())</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", gender='"</span> <span class="o">+</span> <span class="n">getGender</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", email='"</span> <span class="o">+</span> <span class="n">getEmail</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", password='"</span> <span class="o">+</span> <span class="n">getPassword</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", createdAt='"</span> <span class="o">+</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">createdAt</span><span class="o">.</span><span class="na">getTime</span><span class="o">())</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">", updatedAt='"</span> <span class="o">+</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">updatedAt</span><span class="o">.</span><span class="na">getTime</span><span class="o">())</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span>
-                <span class="s">"}"</span><span class="o">;</span>
+
+        <span class="k">return</span> <span class="s">"{"</span> <span class="o">+</span> <span class="s">" id='"</span> <span class="o">+</span> <span class="n">getId</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">", name='"</span> <span class="o">+</span> <span class="n">getName</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span>
+                <span class="o">+</span> <span class="s">", email='"</span> <span class="o">+</span> <span class="n">getEmail</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">", password='"</span>
+                <span class="o">+</span> <span class="n">getPassword</span><span class="o">()</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">", createdAt='"</span>
+                <span class="o">+</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">createdAt</span><span class="o">.</span><span class="na">getTime</span><span class="o">())</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">", updatedAt='"</span>
+                <span class="o">+</span> <span class="n">sdf</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">updatedAt</span><span class="o">.</span><span class="na">getTime</span><span class="o">())</span> <span class="o">+</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">"}"</span><span class="o">;</span>
     <span class="o">}</span>
 
 <span class="o">}</span>
+
 </code></pre></div></div>
 
 <p><strong>Gênero Enum</strong>:</p>
@@ -775,8 +753,7 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 
 <span class="kd">public</span> <span class="kd">enum</span> <span class="nc">Gender</span> <span class="o">{</span>
 
-    <span class="no">MALE</span><span class="o">(</span><span class="s">"masculino"</span><span class="o">),</span>
-    <span class="no">FEMALE</span><span class="o">(</span><span class="s">"feminino"</span><span class="o">);</span>
+    <span class="no">MALE</span><span class="o">(</span><span class="s">"masculino"</span><span class="o">),</span> <span class="no">FEMALE</span><span class="o">(</span><span class="s">"feminino"</span><span class="o">);</span>
 
     <span class="kd">private</span> <span class="nc">String</span> <span class="n">description</span><span class="o">;</span>
 
@@ -800,28 +777,20 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestUser</span> <span class="o">{</span>
     <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shoudInstanceObject</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldInstanceObjectCorrectly</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
         <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">();</span>
 
         <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">);</span>
         <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">);</span>
-        <span class="nc">Calendar</span> <span class="n">birthDate</span> <span class="o">=</span> <span class="nc">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">YEAR</span><span class="o">,</span> <span class="mi">1995</span><span class="o">);</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">MONTH</span><span class="o">,</span> <span class="nc">Calendar</span><span class="o">.</span><span class="na">MARCH</span><span class="o">);</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setBirthDate</span><span class="o">(</span><span class="n">birthDate</span><span class="o">);</span>
-        <span class="nc">Gender</span> <span class="n">gender</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">;</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setGender</span><span class="o">(</span><span class="n">gender</span><span class="o">);</span>
+        <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"123"</span><span class="o">);</span>
 
         <span class="n">assertTrue</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">));</span>
         <span class="n">assertTrue</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">));</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getBirthDate</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">));</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getGender</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">));</span>
+        <span class="n">assertTrue</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"123"</span><span class="o">));</span>
 
     <span class="o">}</span>
 <span class="o">}</span>
@@ -833,50 +802,60 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hibernate/src/test/java/com/dmenezesgabriel/jpa/TestInserUser.java</span>
 <span class="kn">package</span> <span class="nn">com.dmenezesgabriel.jpa.domain.entity</span><span class="o">;</span>
 
-<span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+
 <span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">javax.persistence.EntityManager</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.EntityManagerFactory</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.persistence.Persistence</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.criteria.CriteriaBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.persistence.criteria.CriteriaQuery</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertTrue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestInsertUser</span> <span class="o">{</span>
-    <span class="nd">@Test</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldInserUser</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
-        <span class="nc">EntityManagerFactory</span> <span class="n">entityManagerFactory</span> <span class="o">=</span> <span class="nc">Persistence</span>
-                <span class="o">.</span><span class="na">createEntityManagerFactory</span><span class="o">(</span><span class="s">"com.dmenezesgabriel.jpa"</span><span class="o">);</span>
-        <span class="nc">EntityManager</span> <span class="n">entityManager</span> <span class="o">=</span> <span class="n">entityManagerFactory</span>
-                <span class="o">.</span><span class="na">createEntityManager</span><span class="o">();</span>
+        <span class="nd">@Test</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">shouldInserUser</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+                <span class="nc">EntityManagerFactory</span> <span class="n">entityManagerFactory</span> <span class="o">=</span>
+                                <span class="nc">Persistence</span><span class="o">.</span><span class="na">createEntityManagerFactory</span><span class="o">(</span>
+                                                <span class="s">"com.dmenezesgabriel.jpa"</span><span class="o">);</span>
+                <span class="nc">EntityManager</span> <span class="n">entityManager</span> <span class="o">=</span>
+                                <span class="n">entityManagerFactory</span><span class="o">.</span><span class="na">createEntityManager</span><span class="o">();</span>
 
-        <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">();</span>
+                <span class="c1">// No users registered</span>
+                <span class="nc">CriteriaBuilder</span> <span class="n">criteriaBuilder</span> <span class="o">=</span>
+                                <span class="n">entityManager</span><span class="o">.</span><span class="na">getCriteriaBuilder</span><span class="o">();</span>
+                <span class="nc">CriteriaQuery</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">criteriaQuery</span> <span class="o">=</span>
+                                <span class="n">criteriaBuilder</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                <span class="n">criteriaQuery</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                <span class="nc">List</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">criteriaQuery</span><span class="o">)</span>
+                                <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
 
-        <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">);</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">);</span>
-        <span class="nc">Calendar</span> <span class="n">birthDate</span> <span class="o">=</span> <span class="nc">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">YEAR</span><span class="o">,</span> <span class="mi">1995</span><span class="o">);</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">MONTH</span><span class="o">,</span> <span class="nc">Calendar</span><span class="o">.</span><span class="na">MARCH</span><span class="o">);</span>
-        <span class="n">birthDate</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">Calendar</span><span class="o">.</span><span class="na">DAY_OF_MONTH</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setBirthDate</span><span class="o">(</span><span class="n">birthDate</span><span class="o">);</span>
-        <span class="nc">Gender</span> <span class="n">gender</span> <span class="o">=</span> <span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">;</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setGender</span><span class="o">(</span><span class="n">gender</span><span class="o">);</span>
-        <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"123"</span><span class="o">);</span>
+                <span class="n">assertTrue</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">());</span>
 
-        <span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">begin</span><span class="o">();</span>
-        <span class="n">entityManager</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
-        <span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">commit</span><span class="o">();</span>
+                <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">();</span>
 
-        <span class="nc">User</span> <span class="n">record</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+                <span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">);</span>
+                <span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">);</span>
+                <span class="n">user</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span><span class="s">"123"</span><span class="o">);</span>
 
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">));</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">));</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getBirthDate</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">birthDate</span><span class="o">));</span>
-        <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getGender</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="nc">Gender</span><span class="o">.</span><span class="na">MALE</span><span class="o">));</span>
+                <span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">begin</span><span class="o">();</span>
+                <span class="n">entityManager</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+                <span class="n">entityManager</span><span class="o">.</span><span class="na">getTransaction</span><span class="o">().</span><span class="na">commit</span><span class="o">();</span>
 
-        <span class="n">entityManager</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-        <span class="n">entityManagerFactory</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">users</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">criteriaQuery</span><span class="o">)</span>
+                                <span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+                <span class="n">assertTrue</span><span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">);</span>
 
-    <span class="o">}</span>
+                <span class="nc">User</span> <span class="n">record</span> <span class="o">=</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="nc">User</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">user</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+
+                <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"Gabriel"</span><span class="o">));</span>
+                <span class="n">assertTrue</span><span class="o">(</span><span class="n">record</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"gabriel@example.com"</span><span class="o">));</span>
+
+                <span class="n">entityManager</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+                <span class="n">entityManagerFactory</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+
+        <span class="o">}</span>
 <span class="o">}</span>
 
 </code></pre></div></div>
@@ -886,51 +865,55 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 <p><strong>Produção</strong>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- src/main/resources/META-INF/persistence.xml --&gt;</span>
-<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence"</span>
-             <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-             <span class="na">xsi:schemaLocation=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"</span>
-             <span class="na">version=</span><span class="s">"2.1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"</span> <span class="na">version=</span><span class="s">"2.1"</span><span class="nt">&gt;</span>
 
-    <span class="c">&lt;!-- transaction-type --&gt;</span>
-    <span class="c">&lt;!-- - RESOURCE_LOCAL --&gt;</span>
-    <span class="c">&lt;!-- - JTA --&gt;</span>
-    <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">"com.dmenezesgabriel.jpa"</span> <span class="na">transaction-type=</span><span class="s">"RESOURCE_LOCAL"</span><span class="nt">&gt;</span>
-      <span class="c">&lt;!-- Framework used for JPA especification --&gt;</span>
-      <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.User<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Product<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductState<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Provider<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Establishment<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentSegment<span class="nt">&lt;/class&gt;</span>
+  <span class="c">&lt;!-- transaction-type --&gt;</span>
+  <span class="c">&lt;!-- - RESOURCE_LOCAL --&gt;</span>
+  <span class="c">&lt;!-- - JTA --&gt;</span>
+  <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">"com.dmenezesgabriel.jpa"</span> <span class="na">transaction-type=</span><span class="s">"RESOURCE_LOCAL"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Framework used for JPA especification --&gt;</span>
+    <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.User<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Phone<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Address<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Customer<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentResponsible<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Document<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Establishment<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentSegment<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentEvaluation<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Product<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductCategory<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductType<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.GuestCheckPad<span class="nt">&lt;/class&gt;</span>
 
-        <span class="nt">&lt;properties&gt;</span>
-            <span class="c">&lt;!-- Database Driver --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.postgresql.Driver"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database connection uri --&gt;</span>
-            <span class="c">&lt;!-- "jdbc:sgdb_name://host_address:port_number/database_name" --&gt;</span>
-            <span class="c">&lt;!-- - When using docker, host addres is the container name --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:postgresql://postgres:5432/postgres"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database User --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database Password --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+      <span class="c">&lt;!-- Database Driver --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.postgresql.Driver"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database connection uri --&gt;</span>
+      <span class="c">&lt;!-- "jdbc:sgdb_name://host_address:port_number/database_name" --&gt;</span>
+      <span class="c">&lt;!-- - When using docker, host addres is the container name --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:postgresql://postgres:5432/postgres"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database User --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database Password --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">"postgres"</span> <span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Database Dialect --&gt;</span>
-	    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.PostgreSQLDialect"</span><span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- create / create-drop / update --&gt;</span>
-            <span class="c">&lt;!-- - create: creates database from scratch using definitions --&gt;</span>
-            <span class="c">&lt;!-- - update: try to update new attributes --&gt;</span>
-            <span class="c">&lt;!-- - validate: verify if the entities are compatible with db tables --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.hbm2ddl.auto"</span> <span class="na">value=</span><span class="s">"update"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Show SQL in console --&gt;</span>
-            <span class="c">&lt;!-- Should be disabled in production --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.show_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Show SQL formatted --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.format_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/properties&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.PostgreSQLDialect"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- create / create-drop / update --&gt;</span>
+      <span class="c">&lt;!-- - create: creates database from scratch using definitions --&gt;</span>
+      <span class="c">&lt;!-- - update: try to update new attributes --&gt;</span>
+      <span class="c">&lt;!-- - validate: verify if the entities are compatible with db tables --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.hbm2ddl.auto"</span> <span class="na">value=</span><span class="s">"update"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Show SQL in console --&gt;</span>
+      <span class="c">&lt;!-- Should be disabled in production --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.show_sql"</span> <span class="na">value=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Show SQL formatted --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.format_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
 
-    <span class="nt">&lt;/persistence-unit&gt;</span>
+  <span class="nt">&lt;/persistence-unit&gt;</span>
 
 <span class="nt">&lt;/persistence&gt;</span>
 </code></pre></div></div>
@@ -942,53 +925,56 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- src/test/resources/META-INF/persistence.xml --&gt;</span>
-<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence"</span>
-             <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-             <span class="na">xsi:schemaLocation=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"</span>
-             <span class="na">version=</span><span class="s">"2.1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;persistence</span> <span class="na">xmlns=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"</span> <span class="na">version=</span><span class="s">"2.1"</span><span class="nt">&gt;</span>
 
-    <span class="c">&lt;!-- transaction-type --&gt;</span>
-    <span class="c">&lt;!-- - RESOURCE_LOCAL --&gt;</span>
-    <span class="c">&lt;!-- - JTA --&gt;</span>
-    <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">"com.dmenezesgabriel.jpa"</span> <span class="na">transaction-type=</span><span class="s">"RESOURCE_LOCAL"</span><span class="nt">&gt;</span>
-      <span class="c">&lt;!-- Framework used for JPA especification --&gt;</span>
-      <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.User<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Product<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductState<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Provider<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Establishment<span class="nt">&lt;/class&gt;</span>
-      <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentSegment<span class="nt">&lt;/class&gt;</span>
+  <span class="c">&lt;!-- transaction-type --&gt;</span>
+  <span class="c">&lt;!-- - RESOURCE_LOCAL --&gt;</span>
+  <span class="c">&lt;!-- - JTA --&gt;</span>
+  <span class="nt">&lt;persistence-unit</span> <span class="na">name=</span><span class="s">"com.dmenezesgabriel.jpa"</span> <span class="na">transaction-type=</span><span class="s">"RESOURCE_LOCAL"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Framework used for JPA especification --&gt;</span>
+    <span class="nt">&lt;provider&gt;</span>org.hibernate.jpa.HibernatePersistenceProvider<span class="nt">&lt;/provider&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.User<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Phone<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Address<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Customer<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentResponsible<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Document<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Establishment<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentSegment<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.EstablishmentEvaluation<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.Product<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductCategory<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.ProductType<span class="nt">&lt;/class&gt;</span>
+    <span class="nt">&lt;class&gt;</span>com.dmenezesgabriel.jpa.domain.entity.GuestCheckPad<span class="nt">&lt;/class&gt;</span>
 
 
-
-        <span class="nt">&lt;properties&gt;</span>
-            <span class="c">&lt;!-- Database Driver --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.h2.Driver"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database connection uri --&gt;</span>
-            <span class="c">&lt;!-- "jdbc:sgdb_name://host_address:port_number/database_name" --&gt;</span>
-            <span class="c">&lt;!-- - When using docker, host addres is the container name --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:h2:mem:test"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database User --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Database Password --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+      <span class="c">&lt;!-- Database Driver --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.driver"</span> <span class="na">value=</span><span class="s">"org.h2.Driver"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database connection uri --&gt;</span>
+      <span class="c">&lt;!-- "jdbc:sgdb_name://host_address:port_number/database_name" --&gt;</span>
+      <span class="c">&lt;!-- - When using docker, host addres is the container name --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.url"</span> <span class="na">value=</span><span class="s">"jdbc:h2:mem:test"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database User --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.user"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Database Password --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"javax.persistence.jdbc.password"</span> <span class="na">value=</span><span class="s">""</span> <span class="nt">/&gt;</span>
       <span class="c">&lt;!-- Database Dialect --&gt;</span>
-	    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.H2Dialect"</span><span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- create / create-drop / update --&gt;</span>
-            <span class="c">&lt;!-- - create: creates database from scratch using definitions --&gt;</span>
-            <span class="c">&lt;!-- - update: try to update new attributes --&gt;</span>
-            <span class="c">&lt;!-- - validate: verify if the entities are compatible with db tables --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.hbm2ddl.auto"</span> <span class="na">value=</span><span class="s">"create"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Show SQL in console --&gt;</span>
-            <span class="c">&lt;!-- Should be disabled in production --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.show_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-            <span class="c">&lt;!-- Show SQL formatted --&gt;</span>
-            <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.format_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/properties&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.dialect"</span> <span class="na">value=</span><span class="s">"org.hibernate.dialect.H2Dialect"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- create / create-drop / update --&gt;</span>
+      <span class="c">&lt;!-- - create: creates database from scratch using definitions --&gt;</span>
+      <span class="c">&lt;!-- - update: try to update new attributes --&gt;</span>
+      <span class="c">&lt;!-- - validate: verify if the entities are compatible with db tables --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.hbm2ddl.auto"</span> <span class="na">value=</span><span class="s">"create"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Show SQL in console --&gt;</span>
+      <span class="c">&lt;!-- Should be disabled in production --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.show_sql"</span> <span class="na">value=</span><span class="s">"false"</span> <span class="nt">/&gt;</span>
+      <span class="c">&lt;!-- Show SQL formatted --&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"hibernate.format_sql"</span> <span class="na">value=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
 
-    <span class="nt">&lt;/persistence-unit&gt;</span>
+  <span class="nt">&lt;/persistence-unit&gt;</span>
 
 <span class="nt">&lt;/persistence&gt;</span>
 </code></pre></div></div>
@@ -996,8 +982,7 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 <h3 id="pomxml">pom.xml</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- hibernate/pom.xml --&gt;</span>
-<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-  <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
   <span class="c">&lt;!-- ==================================================================== --&gt;</span>
   <span class="c">&lt;!-- Organization --&gt;</span>
@@ -1020,43 +1005,51 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
   <span class="c">&lt;!-- ==================================================================== --&gt;</span>
   <span class="nt">&lt;properties&gt;</span>
     <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
-    <span class="nt">&lt;maven.compiler.source&gt;</span>1.7<span class="nt">&lt;/maven.compiler.source&gt;</span>
-    <span class="nt">&lt;maven.compiler.target&gt;</span>1.7<span class="nt">&lt;/maven.compiler.target&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
   <span class="nt">&lt;/properties&gt;</span>
   <span class="c">&lt;!-- ==================================================================== --&gt;</span>
   <span class="c">&lt;!-- Project's dependencies --&gt;</span>
   <span class="c">&lt;!-- ==================================================================== --&gt;</span>
   <span class="nt">&lt;dependencies&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
-		<span class="c">&lt;!-- tag::junit[] --&gt;</span>
+      <span class="c">&lt;!-- tag::junit[] --&gt;</span>
       <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
       <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
       <span class="nt">&lt;version&gt;</span>4.13.1<span class="nt">&lt;/version&gt;</span>
       <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-		<span class="c">&lt;!-- end::junit[] --&gt;</span>
-		<span class="c">&lt;!-- tag::hibernate[] --&gt;</span>
+    <span class="c">&lt;!-- end::junit[] --&gt;</span>
+    <span class="c">&lt;!-- tag::hibernate[] --&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>5.4.24.Final<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.4.24.Final<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-		<span class="c">&lt;!-- end::hibernate[] --&gt;</span>
-		<span class="c">&lt;!-- tag::postgres[] --&gt;</span>
+    <span class="c">&lt;!-- end::hibernate[] --&gt;</span>
+    <span class="c">&lt;!-- tag::oracle[] --&gt;</span>
+    <span class="c">&lt;!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 --&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>42.3.3<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.oracle.database.jdbc<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>ojdbc8<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>21.1.0.0<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-		<span class="c">&lt;!-- end::postgres[] --&gt;</span>
-		<span class="c">&lt;!-- tag::H2[] --&gt;</span>
+    <span class="c">&lt;!-- end::oracle[] --&gt;</span>
+    <span class="c">&lt;!-- tag::postgres[] --&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>1.4.200<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>42.3.3<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-		<span class="c">&lt;!-- end::H2[] --&gt;</span>
-		<span class="c">&lt;!-- tag::log4j[] --&gt;</span>
+    <span class="c">&lt;!-- end::postgres[] --&gt;</span>
+    <span class="c">&lt;!-- tag::H2[] --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.h2database<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>h2<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.4.200<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- end::H2[] --&gt;</span>
+    <span class="c">&lt;!-- tag::log4j[] --&gt;</span>
     <span class="nt">&lt;dependency&gt;</span>
       <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
       <span class="nt">&lt;artifactId&gt;</span>log4j-api<span class="nt">&lt;/artifactId&gt;</span>
@@ -1067,7 +1060,7 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
       <span class="nt">&lt;artifactId&gt;</span>log4j-core<span class="nt">&lt;/artifactId&gt;</span>
       <span class="nt">&lt;version&gt;</span>2.17.1<span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-		<span class="c">&lt;!-- end::log4j[] --&gt;</span>
+    <span class="c">&lt;!-- end::log4j[] --&gt;</span>
   <span class="nt">&lt;/dependencies&gt;</span>
   <span class="c">&lt;!-- ==================================================================== --&gt;</span>
   <span class="c">&lt;!-- Project's build --&gt;</span>
@@ -1118,17 +1111,20 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
     <span class="nt">&lt;/pluginManagement&gt;</span>
   <span class="nt">&lt;/build&gt;</span>
 <span class="nt">&lt;/project&gt;</span>
-
 </code></pre></div></div>
 
 <h3 id="compilar-e-executar">Compilar e executar</h3>
 
 <p>Instruções:</p>
 
+<h2 id="description">Description</h2>
+
+<p>General Sales Management System</p>
+
 <h2 id="requirements">Requirements</h2>
 
 <ul>
-  <li>Openjdk 11</li>
+  <li>Openjdk 17</li>
   <li>Hibernate</li>
   <li>Docker</li>
   <li>Docker Compose</li>
@@ -1138,26 +1134,28 @@ mvn <span class="nt">-e</span> <span class="nb">exec</span>:java <span class="se
 
 <p><strong>Run</strong>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up <span class="nt">-d</span> postgres
-<span class="c"># Optional</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Optional</span>
 docker-compose up <span class="nt">-d</span> pgadmin
-<span class="c"># Then</span>
+<span class="c"># Run</span>
 docker-compose run maven <span class="nt">--rm</span>
 </code></pre></div></div>
 
 <p><strong>Run tests</strong>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run maven-test
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run</span>
+docker-compose run <span class="nt">--rm</span> maven-test
 </code></pre></div></div>
 
 <p><strong>Recompile and Run</strong>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run maven <span class="nt">--rm</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Run</span>
+docker-compose run maven <span class="nt">--rm</span>
 </code></pre></div></div>
 
 <p><strong>Bring down with volumes</strong>:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose down <span class="nt">-v</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Destroy database storage</span>
+docker-compose down <span class="nt">-v</span>
 </code></pre></div></div>
 
 <h2 id="referências">Referências</h2>
