@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Docker, sem sudo. - Gabriel Menezes</title>
-<meta name="description" content="Docker, sem sudo.">
+<!-- begin _includes/seo.html --><title>Bash Linux Diretórios - Gabriel Menezes</title>
+<meta name="description" content="Bash Linux Diretórios">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Docker, sem sudo.">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+<meta property="og:title" content="Bash Linux Diretórios">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
 
 
-  <meta property="og:description" content="Docker, sem sudo.">
+  <meta property="og:description" content="Bash Linux Diretórios">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Docker, sem sudo.">
-  <meta name="twitter:description" content="Docker, sem sudo.">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+  <meta name="twitter:title" content="Bash Linux Diretórios">
+  <meta name="twitter:description" content="Bash Linux Diretórios">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
 
   
     <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
 
 
 
-  <meta property="article:modified_time" content="2022-03-16T23:44:00-03:00">
+  <meta property="article:modified_time" content="2022-04-26T18:30:00-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
 
 
 
@@ -230,7 +230,7 @@
     
       
       
-        <li class="current">Docker, sem sudo.</li>
+        <li class="current">Bash Linux Diretórios</li>
       
     
   </ol>
@@ -303,7 +303,7 @@
           
             <li><a href="/recipes/shell-linux-usuarios/">Usuários</a></li>
           
-            <li><a href="/recipes/shell-linux-diretorios/">Diretórios</a></li>
+            <li><a href="/recipes/shell-linux-diretorios/" class="active">Diretórios</a></li>
           
             <li><a href="/recipes/shell-linux-arquivos/">Arquivos</a></li>
           
@@ -335,7 +335,7 @@
         
         <ul>
           
-            <li><a href="/recipes/docker-sem-sudo/" class="active">Docker, sem sudo</a></li>
+            <li><a href="/recipes/docker-sem-sudo/">Docker, sem sudo</a></li>
           
         </ul>
         
@@ -351,15 +351,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Docker, sem sudo.">
-    <meta itemprop="description" content="Docker, sem sudo.">
+    <meta itemprop="headline" content="Bash Linux Diretórios">
+    <meta itemprop="description" content="Bash Linux Diretórios">
     <meta itemprop="datePublished" content="2022-04-26T19:12:51-03:00">
-    <meta itemprop="dateModified" content="2022-03-16T23:44:00-03:00">
+    <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Docker, sem sudo.
+          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Diretórios
 </h1>
           
 
@@ -369,34 +369,43 @@
 
       <section class="page__content" itemprop="text">
         
-          <aside class="sidebar__right ">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#script">Script</a></li></ul>
+        <p><strong>Mostrar diretório atual</strong>:</p>
 
-            </nav>
-          </aside>
-        
-        <p>Utilizando docker sem permissões <code class="language-plaintext highlighter-rouge">root</code> no linux.</p>
-
-<h2 id="script">Script</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="c"># Run docker without sudo</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="nb">echo</span> <span class="s2">"Removing the needs of sudo when using Docker"</span>
-<span class="nb">sudo </span>groupadd docker
-<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker
-newgrp docker
-<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
-
-<span class="nb">echo</span> <span class="s2">"Restarting Docker"</span>
-<span class="c"># Restart docker</span>
-<span class="nb">sudo </span>systemctl restart docker
-<span class="c"># --------------------------------------------------------------------------- #</span>
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
 </code></pre></div></div>
+
+<p><strong>Mudar de diretório</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Documents
+</code></pre></div></div>
+
+<p><strong>Criar diretório</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/Documents/repos
+</code></pre></div></div>
+
+<ul>
+  <li>p: Cria o diretório pai, caso não exista.</li>
+</ul>
+
+<p><strong>Copiar diretórios com arquivos</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-r</span> ~/Documents/repos ~/Documents/repos_bak
+</code></pre></div></div>
+
+<p><strong>Deletar diretórios vazios</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rmdir</span> ~/Documents/repos
+</code></pre></div></div>
+
+<p><strong>Deletar diretórios com arquivos</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-r</span> ~/Documents/repos
+</code></pre></div></div>
+
+<ul>
+  <li>r: recursivo</li>
+</ul>
 
         
       </section>
@@ -408,7 +417,7 @@ newgrp docker
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-03-16">March 16, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-26">April 26, 2022</time></p>
 
 
       </footer>
@@ -416,21 +425,22 @@ newgrp docker
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Docker%2C+sem+sudo.%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Diret%C3%B3rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/recipes/shell-linux-configuracao/" class="pagination--pager" title="Configuração Bash Linux
+">Previous</a>
     
     
-      <a href="/recipes/java-hello-world/" class="pagination--pager" title="Java Hello, World!
+      <a href="/recipes/shell-linux-hello-world/" class="pagination--pager" title="Bash Linux Hello, World!
 ">Next</a>
     
   </nav>

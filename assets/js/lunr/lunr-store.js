@@ -162,7 +162,7 @@ var store = [{
         "teaser": "/assets/images/fallback-teaser.jpg"
       },{
         "title": "Bash Linux Arquivos",
-        "excerpt":"Mostrar diretório atual:   pwd   Escrever conteúdo em arquivo:   echo \"Hello, World!\" &gt; hello.txt   Listar arquivos:   ls -lha      l: visualizar como lista   h: legível para humanos   a: mostrar arquivos ocultos   Mostrar documentação do comando:   man ls   Ler o conteúdo do arquivo:   cat hello.txt   Limpar tela:   clear  ","categories": [],
+        "excerpt":"Escrever conteúdo em arquivo:   echo \"Hello, World!\" &gt; hello.txt   Listar arquivos:   ls -lha      l: visualizar como lista   h: legível para humanos   a: mostrar arquivos ocultos   Mostrar documentação do comando:   man ls   Ler o conteúdo do arquivo:   cat hello.txt   Limpar tela:   clear   Copiar arquivo:   cp hello.txt teste.txt   Renomear arquivo:   mv hello.txt hello.bak  ","categories": [],
         "tags": [],
         "url": "/recipes/shell-linux-arquivos/",
         "teaser": "/assets/images/fallback-teaser.jpg"
@@ -171,6 +171,12 @@ var store = [{
         "excerpt":"Configurações para bash no Windows.   .bashrc   # ~/.bashrc echo \"Hello ${USER}\" # --------------------------------------------------------------------------- # # Environment # --------------------------------------------------------------------------- # # Always require python environment export PIP_REQUIRE_VIRTUALENV=true # Don't write __pycache__, *.pyc and similar files export PYTHONDONTWRITEBYTECODE=1 # --------------------------------------------------------------------------- # # Java JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 export JAVA_HOME # Maven MAVEN_HOME=~/Documents/programs/apache-maven-3.8.2 export MAVEN_HOME PATH=$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH export PATH # --------------------------------------------------------------------------- # # NVM export NVM_DIR=\"$([ -z \"${XDG_CONFIG_HOME-}\" ] &amp;&amp; printf %s \"${HOME}/.nvm\" || printf %s \"${XDG_CONFIG_HOME}/nvm\")\" [ -s \"$NVM_DIR/nvm.sh\" ] &amp;&amp; \\. \"$NVM_DIR/nvm.sh\" # This loads nvm   ","categories": [],
         "tags": [],
         "url": "/recipes/shell-linux-configuracao/",
+        "teaser": "/assets/images/fallback-teaser.jpg"
+      },{
+        "title": "Bash Linux Diretórios",
+        "excerpt":"Mostrar diretório atual:   pwd   Mudar de diretório:   cd ~/Documents   Criar diretório:   mkdir -p ~/Documents/repos      p: Cria o diretório pai, caso não exista.   Copiar diretórios com arquivos:   cp -r ~/Documents/repos ~/Documents/repos_bak   Deletar diretórios vazios:   rmdir ~/Documents/repos   Deletar diretórios com arquivos:   rm -r ~/Documents/repos      r: recursivo  ","categories": [],
+        "tags": [],
+        "url": "/recipes/shell-linux-diretorios/",
         "teaser": "/assets/images/fallback-teaser.jpg"
       },{
         "title": "Bash Linux Hello, World!",
