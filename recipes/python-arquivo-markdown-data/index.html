@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Docker, sem sudo. - Gabriel Menezes</title>
-<meta name="description" content="Docker, sem sudo.">
+<!-- begin _includes/seo.html --><title>Python datando arquivos .md - Gabriel Menezes</title>
+<meta name="description" content="Python datando arquivos .md">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Docker, sem sudo.">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+<meta property="og:title" content="Python datando arquivos .md">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/python-arquivo-markdown-data/">
 
 
-  <meta property="og:description" content="Docker, sem sudo.">
+  <meta property="og:description" content="Python datando arquivos .md">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Docker, sem sudo.">
-  <meta name="twitter:description" content="Docker, sem sudo.">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+  <meta name="twitter:title" content="Python datando arquivos .md">
+  <meta name="twitter:description" content="Python datando arquivos .md">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/python-arquivo-markdown-data/">
 
   
     <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
 
 
 
-  <meta property="article:modified_time" content="2022-03-16T23:44:00-03:00">
+  <meta property="article:modified_time" content="2022-04-29T19:00:00-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/docker-sem-sudo/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/python-arquivo-markdown-data/">
 
 
 
@@ -230,7 +230,7 @@
     
       
       
-        <li class="current">Docker, sem sudo.</li>
+        <li class="current">Python datando arquivos .md</li>
       
     
   </ol>
@@ -285,7 +285,7 @@
         
         <ul>
           
-            <li><a href="/recipes/python-arquivo-markdown-data/">Datando arquivos .md</a></li>
+            <li><a href="/recipes/python-arquivo-markdown-data/" class="active">Datando arquivos .md</a></li>
           
         </ul>
         
@@ -363,7 +363,7 @@
         
         <ul>
           
-            <li><a href="/recipes/docker-sem-sudo/" class="active">Docker, sem sudo</a></li>
+            <li><a href="/recipes/docker-sem-sudo/">Docker, sem sudo</a></li>
           
         </ul>
         
@@ -379,15 +379,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Docker, sem sudo.">
-    <meta itemprop="description" content="Docker, sem sudo.">
+    <meta itemprop="headline" content="Python datando arquivos .md">
+    <meta itemprop="description" content="Python datando arquivos .md">
     <meta itemprop="datePublished" content="2022-04-29T18:37:26-03:00">
-    <meta itemprop="dateModified" content="2022-03-16T23:44:00-03:00">
+    <meta itemprop="dateModified" content="2022-04-29T19:00:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Docker, sem sudo.
+          <h1 id="page-title" class="page__title" itemprop="headline">Python datando arquivos .md
 </h1>
           
 
@@ -401,29 +401,63 @@
             <nav class="toc">
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#script">Script</a></li></ul>
+              
 
             </nav>
           </aside>
         
-        <p>Utilizando docker sem permissões <code class="language-plaintext highlighter-rouge">root</code> no linux.</p>
+        <p>Renomeando arquivos markdown no formato de posts para blogs estáticos Jekyll.</p>
 
-<h2 id="script">Script</h2>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="c"># Run docker without sudo</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="nb">echo</span> <span class="s2">"Removing the needs of sudo when using Docker"</span>
-<span class="nb">sudo </span>groupadd docker
-<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker
-newgrp docker
-<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+<span class="n">logging</span><span class="p">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
 
-<span class="nb">echo</span> <span class="s2">"Restarting Docker"</span>
-<span class="c"># Restart docker</span>
-<span class="nb">sudo </span>systemctl restart docker
-<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="n">ignore_dirs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"venv"</span><span class="p">,</span> <span class="s">".ipynb"</span><span class="p">]</span>
+<span class="n">target_file_extensions</span> <span class="o">=</span> <span class="p">(</span><span class="s">".md"</span><span class="p">,</span> <span class="s">".ipynb"</span><span class="p">)</span>
+<span class="n">ignore_files</span> <span class="o">=</span> <span class="s">"README"</span>
+
+
+<span class="k">def</span> <span class="nf">date_file</span><span class="p">(</span><span class="n">base_dir</span><span class="p">):</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="n">base_dir</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">elem</span> <span class="ow">in</span> <span class="n">root</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">ignore_dirs</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># Check if already starts with date
+</span>            <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s">"\d{4}-\d{2}-\d{2}.*"</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">name</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">target_file_extensions</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ignore_files</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="ow">not</span> <span class="n">match</span>
+            <span class="p">):</span>
+                <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="nb">file</span> <span class="o">=</span> <span class="n">pathlib</span><span class="p">.</span><span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+                <span class="n">file_creation_date</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="nb">file</span><span class="p">.</span><span class="n">stat</span><span class="p">().</span><span class="n">st_ctime</span><span class="p">)</span>
+                    <span class="p">.</span><span class="n">date</span><span class="p">()</span>
+                    <span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"File path: %s"</span> <span class="o">%</span> <span class="n">file_path</span><span class="p">)</span>
+                <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"File creation date: %s"</span> <span class="o">%</span> <span class="n">file_creation_date</span><span class="p">)</span>
+                <span class="n">new_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="n">root</span><span class="p">,</span> <span class="n">file_creation_date</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="n">name</span>
+                <span class="p">)</span>
+                <span class="c1"># Avoid overwrite files
+</span>                <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">new_file_path</span><span class="p">):</span>
+                    <span class="n">logging</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="s">"File %s already exists"</span> <span class="o">%</span> <span class="n">file_path</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">os</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">new_file_path</span><span class="p">)</span>
+                <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"New file path: %s"</span> <span class="o">%</span> <span class="n">new_file_path</span><span class="p">)</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Files renamed %s"</span> <span class="o">%</span> <span class="n">counter</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">date_file</span><span class="p">(</span><span class="s">"."</span><span class="p">)</span>
 
 </code></pre></div></div>
 
@@ -437,7 +471,7 @@ newgrp docker
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-03-16">March 16, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-29">April 29, 2022</time></p>
 
 
       </footer>
@@ -445,21 +479,22 @@ newgrp docker
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Docker%2C+sem+sudo.%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Python+datando+arquivos+.md%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fpython-arquivo-markdown-data%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fpython-arquivo-markdown-data%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fdocker-sem-sudo%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fpython-arquivo-markdown-data%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/recipes/java-oop-heranca/" class="pagination--pager" title="Java OOP Herança
+">Previous</a>
     
     
-      <a href="/recipes/java-hello-world/" class="pagination--pager" title="Java Hello, World!
+      <a href="/recipes/r-hello-world/" class="pagination--pager" title="R Hello, World!
 ">Next</a>
     
   </nav>
