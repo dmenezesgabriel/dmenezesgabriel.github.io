@@ -131,6 +131,18 @@ var store = [{
         "url": "/web/html-o-que-e/",
         "teaser": "/assets/images/covers/2021-07-04-html-snippets.jpg"
       },{
+        "title": "Instalação Steam",
+        "excerpt":"1.   sudo dpkg --add-architecture i386   2.   sudo apt-get update   3.   sudo apt install libgtk2.0-0:i386 sudo apt install libxtst6:i386   4.   sudo apt install libgl1-mesa-dri:i386 libgl1-mesa-glx:i386 libc6:i386 libc6-i386   5 .   wget https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb   6.   sudo dpkg -i steam.deb   7.   sudo apt -f install   8.   steam --disable-framerate-limit   Referências      chromeunboxed   askubuntu  ","categories": [],
+        "tags": [],
+        "url": "/recipes/chromebook-crostini-steam/",
+        "teaser": "/assets/images/fallback-teaser.jpeg"
+      },{
+        "title": "Chromebook flags",
+        "excerpt":"Suporte a aceleração GPU:   chrome://flags/#crostini-gpu-support      Reinicie a maquina   Suporte a Hyper-Threading:   # https://support.google.com/chromebook/answer/9340236?hl=en chrome://flags/#scheduler-configuration Enables Hyper-Threading      Reinicie a maquina   Suporte a modo escuro:   chrome://flags/#dark-light-mode chrome://flags/#enable-force-dark      Reinicie a maquina   Abra a barra de configurações rápidas no desktop no canto inferior esquerdo e ative o tema escuro.   Melhor posicionamento do mouse e foco:   chrome://flags/#exo-pointer-lock      Reinicie a maquina  ","categories": [],
+        "tags": [],
+        "url": "/recipes/chromebook-flags/",
+        "teaser": "/assets/images/fallback-teaser.jpeg"
+      },{
         "title": "Docker, sem sudo.",
         "excerpt":"Utilizando docker sem permissões root no linux.   Script   #!/bin/sh # --------------------------------------------------------------------------- # # Run docker without sudo # --------------------------------------------------------------------------- # echo \"Removing the needs of sudo when using Docker\" sudo groupadd docker sudo gpasswd -a $USER docker newgrp docker sudo usermod -aG docker $USER  echo \"Restarting Docker\" # Restart docker sudo systemctl restart docker # --------------------------------------------------------------------------- #   ","categories": [],
         "tags": [],
