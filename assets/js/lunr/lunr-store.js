@@ -143,6 +143,12 @@ var store = [{
         "url": "/recipes/chromebook-flags/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
+        "title": "Docker, acesso ao host",
+        "excerpt":"Acessando o host de um container docker.      172.17.0.1   host.docker.internal   Referência      Stackoverflow - docker internal host  ","categories": [],
+        "tags": [],
+        "url": "/recipes/docker-internal-host/",
+        "teaser": "/assets/images/fallback-teaser.jpeg"
+      },{
         "title": "Docker, sem sudo.",
         "excerpt":"Utilizando docker sem permissões root no linux.   Script   #!/bin/sh # --------------------------------------------------------------------------- # # Run docker without sudo # --------------------------------------------------------------------------- # echo \"Removing the needs of sudo when using Docker\" sudo groupadd docker sudo gpasswd -a $USER docker newgrp docker sudo usermod -aG docker $USER  echo \"Restarting Docker\" # Restart docker sudo systemctl restart docker # --------------------------------------------------------------------------- #   ","categories": [],
         "tags": [],
