@@ -1,0 +1,17 @@
+- Arc theme
+- Papirus Icon
+- xrdp
+- plank
+- conky
+- steam
+- lutris
+- pikiss
+- pi apps
+- box64
+- box86
+- guvcview
+- vscode
+- docker
+- docker compose
+- samba
+- comitup
