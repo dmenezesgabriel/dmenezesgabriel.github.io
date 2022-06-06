@@ -15,3 +15,4 @@
 - docker compose
 - samba
 - comitup
+- breeze cursor
