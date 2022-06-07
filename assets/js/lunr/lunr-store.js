@@ -138,7 +138,7 @@ var store = [{
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
         "title": "Chromebook flags",
-        "excerpt":"Suporte a aceleração GPU:   chrome://flags/#crostini-gpu-support      Reinicie a maquina   Suporte a Hyper-Threading:   # https://support.google.com/chromebook/answer/9340236?hl=en chrome://flags/#scheduler-configuration Enables Hyper-Threading      Reinicie a maquina   Suporte a modo escuro:   chrome://flags/#dark-light-mode chrome://flags/#enable-force-dark      Reinicie a maquina   Abra a barra de configurações rápidas no desktop no canto inferior esquerdo e ative o tema escuro.   Melhor posicionamento do mouse e foco:   chrome://flags/#exo-pointer-lock      Reinicie a maquina  ","categories": [],
+        "excerpt":"Suporte a aceleração GPU   chrome://flags/#crostini-gpu-support      Reinicie a maquina   Suporte a Hyper-Threading   # https://support.google.com/chromebook/answer/9340236?hl=en chrome://flags/#scheduler-configuration Enables Hyper-Threading      Reinicie a maquina   Suporte a modo escuro   chrome://flags/#dark-light-mode chrome://flags/#enable-force-dark      Reinicie a maquina   Abra a barra de configurações rápidas no desktop no canto inferior esquerdo e ative o tema escuro.   Melhor posicionamento do mouse e foco   chrome://flags/#exo-pointer-lock      Reinicie a maquina  ","categories": [],
         "tags": [],
         "url": "/recipes/chromebook-flags/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
