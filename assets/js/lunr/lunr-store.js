@@ -204,7 +204,7 @@ var store = [{
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
         "title": "Bash Linux Diretórios",
-        "excerpt":"Mostrar diretório atual:   pwd   Mudar de diretório:   cd ~/Documents   Criar diretório:   mkdir -p ~/Documents/repos      p: Cria o diretório pai, caso não exista.   Copiar diretórios com arquivos:   cp -r ~/Documents/repos ~/Documents/repos_bak   Deletar diretórios vazios:   rmdir ~/Documents/repos   Deletar diretórios com arquivos:   rm -r ~/Documents/repos      r: recursivo  ","categories": [],
+        "excerpt":"Nomenclaturas   /   Pasta raiz, onde tudo começa. Equivalente ao C:\\ do Windows   /bin   Onde se localizam os binários que permitem que os usuários executem comandos.   /sbin   Similar a pasta /bin, porém contém comandos específicos para execução do super usuário.   /boot   Armazena os arquivos necessários para realizar o boot do sistema.   /dev   Dev é uma abreviação para devices, e no linux /dev armazena os dispositivos periféricos como mouses, impressoras, webcams e embarcados como HDs.   /home   Contém os diretórios de usuários, similar ao C:\\Users, cada usuário tem seu próprio diretório, por exempo /home/&lt;nome_usuario&gt;.   /lib e /lib64   São os diretórios onde ficam as bibliotecas de sistema para 64bits e 32bits, equivalentes a C:\\Windows\\System e C:\\Windows\\System32   /media e /mnt   São diretórios de “montagem” de volumes, como pendrives.   /opt   É um diretório opcional que pode ser utilizado para instalação alternativa de programas.   /proc   É um diretório virtual de informações do sistema, onde conseguimos obter informações sobre o processador, uso de memória, entre outros.   /root   Diretório do superusuário.   /run   Armazena os arquivos .pid dos processos em andamento.   /srv   Contém dados de serviços em execução.   /sys   Aqui encontraremos módulos para equipamentos USB em Kernels 2.6.x ou acima.   /tmp   Diretório de arquivos temporários, similar ao C:\\Windows\\Temp.   /usr   Onde ficam instalados os programas, equivalente ao C:\\Program Files   /var   Armazena diversas informações, por exemplo os arquivos que armazenam dados em um banco de dados.   /var/log   Contém logs de sistema.   Comandos   Mostrar diretório atual:   pwd   Mudar de diretório:   cd ~/Documents   Criar diretório:   mkdir -p ~/Documents/repos      p: Cria o diretório pai, caso não exista.   Copiar diretórios com arquivos:   cp -r ~/Documents/repos ~/Documents/repos_bak   Deletar diretórios vazios:   rmdir ~/Documents/repos   Deletar diretórios com arquivos:   rm -r ~/Documents/repos      r: recursivo  ","categories": [],
         "tags": [],
         "url": "/recipes/shell-linux-diretorios/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
@@ -215,8 +215,14 @@ var store = [{
         "url": "/recipes/shell-linux-hello-world/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
+        "title": "Bash Linux Pacotes",
+        "excerpt":"Atualiza pacotes disponíveis para download:   sudo apt update   Baixa e atualiza automaticamente os pacotes disponíveis para download:   sudo apt upgrade   Procura por pacotes:   apt search conky   Instala pacotes:   sudo apt install conky   Remove pacotes:   sudo apt remove conky  ","categories": [],
+        "tags": [],
+        "url": "/recipes/shell-linux-pacotes/",
+        "teaser": "/assets/images/fallback-teaser.jpeg"
+      },{
         "title": "Bash Linux Usuários",
-        "excerpt":"Nome do usuário atual:   whoami  ","categories": [],
+        "excerpt":"Nome do usuário atual:   whoami   adiciona novo usuário:   useradd   Trocar de usuário:   su &lt;nome_usuario&gt;   Adiciona o usuário ao grupo sudo:   usermod -aG sudo &lt;nome_usuario&gt;   Seu resultado pode ser visualizado no arquivo /etc/sudoers   Alterar senha do usuário:   passwd   Modifica usuário:   sudo usermod -aG &lt;nome_usuario&gt;   Cria grupo de permissões:   sudo groupadd &lt;nome_grupo&gt;  ","categories": [],
         "tags": [],
         "url": "/recipes/shell-linux-usuarios/",
         "teaser": "/assets/images/fallback-teaser.jpeg"

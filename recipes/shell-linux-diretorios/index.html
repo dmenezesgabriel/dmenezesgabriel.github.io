@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-10T18:15:13-03:00">
+  <meta property="article:published_time" content="2022-06-11T17:58:02-03:00">
 
 
 
@@ -416,7 +416,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Bash Linux Diretórios">
     <meta itemprop="description" content="Bash Linux Diretórios">
-    <meta itemprop="datePublished" content="2022-06-10T18:15:13-03:00">
+    <meta itemprop="datePublished" content="2022-06-11T17:58:02-03:00">
     <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
 
     <div class="page__inner-wrap">
@@ -432,7 +432,83 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><strong>Mostrar diretório atual</strong>:</p>
+        <h2 id="nomenclaturas">Nomenclaturas</h2>
+
+<h3>/</h3>
+
+<p>Pasta raiz, onde tudo começa. Equivalente ao <code class="language-plaintext highlighter-rouge">C:\</code> do Windows</p>
+
+<h3 id="bin">/bin</h3>
+
+<p>Onde se localizam os binários que permitem que os usuários executem comandos.</p>
+
+<h3 id="sbin">/sbin</h3>
+
+<p>Similar a pasta <code class="language-plaintext highlighter-rouge">/bin</code>, porém contém comandos específicos para execução do super usuário.</p>
+
+<h3 id="boot">/boot</h3>
+
+<p>Armazena os arquivos necessários para realizar o boot do sistema.</p>
+
+<h3 id="dev">/dev</h3>
+
+<p>Dev é uma abreviação para <em>devices</em>, e no linux <code class="language-plaintext highlighter-rouge">/dev</code> armazena os dispositivos periféricos como mouses, impressoras, webcams e embarcados como HDs.</p>
+
+<h3 id="home">/home</h3>
+
+<p>Contém os diretórios de usuários, similar ao C:\Users, cada usuário tem seu próprio diretório, por exempo <code class="language-plaintext highlighter-rouge">/home/&lt;nome_usuario&gt;</code>.</p>
+
+<h3 id="lib-e-lib64">/lib e /lib64</h3>
+
+<p>São os diretórios onde ficam as bibliotecas de sistema para 64bits e 32bits, equivalentes a <code class="language-plaintext highlighter-rouge">C:\Windows\System</code> e <code class="language-plaintext highlighter-rouge">C:\Windows\System32</code></p>
+
+<h3 id="media-e-mnt">/media e /mnt</h3>
+
+<p>São diretórios de “montagem” de volumes, como pendrives.</p>
+
+<h3 id="opt">/opt</h3>
+
+<p>É um diretório opcional que pode ser utilizado para instalação alternativa de programas.</p>
+
+<h3 id="proc">/proc</h3>
+
+<p>É um diretório virtual de informações do sistema, onde conseguimos obter informações sobre o processador, uso de memória, entre outros.</p>
+
+<h3 id="root">/root</h3>
+
+<p>Diretório do superusuário.</p>
+
+<h3 id="run">/run</h3>
+
+<p>Armazena os arquivos <code class="language-plaintext highlighter-rouge">.pid</code> dos processos em andamento.</p>
+
+<h3 id="srv">/srv</h3>
+
+<p>Contém dados de serviços em execução.</p>
+
+<h3 id="sys">/sys</h3>
+
+<p>Aqui encontraremos módulos para equipamentos USB em Kernels 2.6.x ou acima.</p>
+
+<h3 id="tmp">/tmp</h3>
+
+<p>Diretório de arquivos temporários, similar ao <code class="language-plaintext highlighter-rouge">C:\Windows\Temp.</code></p>
+
+<h3 id="usr">/usr</h3>
+
+<p>Onde ficam instalados os programas, equivalente ao <code class="language-plaintext highlighter-rouge">C:\Program Files</code></p>
+
+<h3 id="var">/var</h3>
+
+<p>Armazena diversas informações, por exemplo os arquivos que armazenam dados em um banco de dados.</p>
+
+<h4 id="varlog">/var/log</h4>
+
+<p>Contém logs de sistema.</p>
+
+<h2 id="comandos">Comandos</h2>
+
+<p><strong>Mostrar diretório atual</strong>:</p>
 
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
 </code></pre></div></div>
