@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Bash Linux Diretórios - Gabriel Menezes</title>
-<meta name="description" content="Bash Linux Diretórios">
+<!-- begin _includes/seo.html --><title>Bash Linux Usuários - Gabriel Menezes</title>
+<meta name="description" content="Bash Linux Usuários">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Bash Linux Diretórios">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
+<meta property="og:title" content="Bash Linux Usuários">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
 
 
-  <meta property="og:description" content="Bash Linux Diretórios">
+  <meta property="og:description" content="Bash Linux Usuários">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Bash Linux Diretórios">
-  <meta name="twitter:description" content="Bash Linux Diretórios">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
+  <meta name="twitter:title" content="Bash Linux Usuários">
+  <meta name="twitter:description" content="Bash Linux Usuários">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
 
   
     <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-12T16:33:16-03:00">
+  <meta property="article:published_time" content="2022-06-12T17:32:21-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/shell-linux-diretorios/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
 
 
 
@@ -233,7 +233,7 @@
     
       
       
-        <li class="current">Bash Linux Diretórios</li>
+        <li class="current">Bash Linux Usuários</li>
       
     
   </ol>
@@ -334,15 +334,15 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-linux-hello-world/">Hello, World!</a></li>
+            <li><a href="/recipes/linux-shell-hello-world/">Hello, World!</a></li>
           
-            <li><a href="/recipes/shell-linux-usuarios/">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-usuarios/" class="active">Usuários</a></li>
           
-            <li><a href="/recipes/shell-linux-diretorios/" class="active">Diretórios</a></li>
+            <li><a href="/recipes/linux-shell-diretorios/">Diretórios</a></li>
           
-            <li><a href="/recipes/shell-linux-arquivos/">Arquivos</a></li>
+            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
           
-            <li><a href="/recipes/shell-linux-configuracao/">.bashrc Linux</a></li>
+            <li><a href="/recipes/linux-shell-configuracao/">.bashrc Linux</a></li>
           
         </ul>
         
@@ -398,7 +398,7 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-windows-configuracao/">.bashrc Windows</a></li>
+            <li><a href="/recipes/windows-shell-configuracao/">.bashrc Windows</a></li>
           
         </ul>
         
@@ -414,15 +414,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Bash Linux Diretórios">
-    <meta itemprop="description" content="Bash Linux Diretórios">
-    <meta itemprop="datePublished" content="2022-06-12T16:33:16-03:00">
+    <meta itemprop="headline" content="Bash Linux Usuários">
+    <meta itemprop="description" content="Bash Linux Usuários">
+    <meta itemprop="datePublished" content="2022-06-12T17:32:21-03:00">
     <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Diretórios
+          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Usuários
 </h1>
           
 
@@ -437,186 +437,54 @@
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu">
-<li>
-<a href="#nomenclaturas">Nomenclaturas</a><ul>
-<li><a href="#bin">/bin</a></li>
-<li><a href="#sbin">/sbin</a></li>
-<li><a href="#boot">/boot</a></li>
-<li><a href="#dev">/dev</a></li>
-<li><a href="#home">/home</a></li>
-<li><a href="#lib-e-lib64">/lib e /lib64</a></li>
-<li><a href="#media-e-mnt">/media e /mnt</a></li>
-<li><a href="#opt">/opt</a></li>
-<li><a href="#proc">/proc</a></li>
-<li><a href="#root">/root</a></li>
-<li><a href="#run">/run</a></li>
-<li><a href="#srv">/srv</a></li>
-<li><a href="#sys">/sys</a></li>
-<li><a href="#tmp">/tmp</a></li>
-<li><a href="#usr">/usr</a></li>
-<li>
-<a href="#var">/var</a><ul><li><a href="#varlog">/var/log</a></li></ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#comandos">Comandos</a><ul>
-<li><a href="#mostrar-diret%C3%B3rio-atual">Mostrar diretório atual</a></li>
-<li><a href="#mudar-de-diret%C3%B3rio">Mudar de diretório</a></li>
-<li><a href="#criar-diret%C3%B3rio">Criar diretório</a></li>
-<li><a href="#copiar-diret%C3%B3rios-com-arquivos">Copiar diretórios com arquivos</a></li>
-<li><a href="#deletar-diret%C3%B3rios-vazios">Deletar diretórios vazios</a></li>
-<li><a href="#deletar-diret%C3%B3rios-com-arquivos">Deletar diretórios com arquivos</a></li>
-</ul>
-</li>
+<li><a href="#nome-do-usu%C3%A1rio-atual">Nome do usuário atual</a></li>
+<li><a href="#adiciona-novo-usu%C3%A1rio">adiciona novo usuário</a></li>
+<li><a href="#trocar-de-usu%C3%A1rio">Trocar de usuário</a></li>
+<li><a href="#adiciona-o-usu%C3%A1rio-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</a></li>
+<li><a href="#alterar-senha-do-usu%C3%A1rio">Alterar senha do usuário</a></li>
+<li><a href="#modifica-usu%C3%A1rio">Modifica usuário</a></li>
+<li><a href="#cria-grupo-de-permiss%C3%B5es">Cria grupo de permissões</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="nomenclaturas">Nomenclaturas</h2>
+        <h2 id="nome-do-usuário-atual">Nome do usuário atual</h2>
 
-<h3>/</h3>
-
-<p>Pasta raiz, onde tudo começa. Equivalente ao <code class="language-plaintext highlighter-rouge">C:\</code> do Windows</p>
-
-<h3 id="bin">/bin</h3>
-
-<p>Onde se localizam os binários que permitem que os usuários executem comandos.</p>
-
-<h3 id="sbin">/sbin</h3>
-
-<p>Similar a pasta <code class="language-plaintext highlighter-rouge">/bin</code>, porém contém comandos específicos para execução do super usuário.</p>
-
-<h3 id="boot">/boot</h3>
-
-<p>Armazena os arquivos necessários para realizar o boot do sistema.</p>
-
-<h3 id="dev">/dev</h3>
-
-<p>Dev é uma abreviação para <em>devices</em>, e no linux <code class="language-plaintext highlighter-rouge">/dev</code> armazena os dispositivos periféricos como mouses, impressoras, webcams e embarcados como HDs.</p>
-
-<h3 id="home">/home</h3>
-
-<p>Contém os diretórios de usuários, similar ao C:\Users, cada usuário tem seu próprio diretório, por exempo <code class="language-plaintext highlighter-rouge">/home/&lt;nome_usuario&gt;</code>.</p>
-
-<h3 id="lib-e-lib64">/lib e /lib64</h3>
-
-<p>São os diretórios onde ficam as bibliotecas de sistema para 64bits e 32bits, equivalentes a <code class="language-plaintext highlighter-rouge">C:\Windows\System</code> e <code class="language-plaintext highlighter-rouge">C:\Windows\System32</code></p>
-
-<h3 id="media-e-mnt">/media e /mnt</h3>
-
-<p>São diretórios de “montagem” de volumes, como pendrives.</p>
-
-<h3 id="opt">/opt</h3>
-
-<p>É um diretório opcional que pode ser utilizado para instalação alternativa de programas.</p>
-
-<h3 id="proc">/proc</h3>
-
-<p>É um diretório virtual de informações do sistema, onde conseguimos obter informações sobre o processador, uso de memória, entre outros.</p>
-
-<h3 id="root">/root</h3>
-
-<p>Diretório do superusuário.</p>
-
-<h3 id="run">/run</h3>
-
-<p>Armazena os arquivos <code class="language-plaintext highlighter-rouge">.pid</code> dos processos em andamento.</p>
-
-<h3 id="srv">/srv</h3>
-
-<p>Contém dados de serviços em execução.</p>
-
-<h3 id="sys">/sys</h3>
-
-<p>Aqui encontraremos módulos para equipamentos USB em Kernels 2.6.x ou acima.</p>
-
-<h3 id="tmp">/tmp</h3>
-
-<p>Diretório de arquivos temporários, similar ao <code class="language-plaintext highlighter-rouge">C:\Windows\Temp.</code></p>
-
-<h3 id="usr">/usr</h3>
-
-<p>Onde ficam instalados os programas, equivalente ao <code class="language-plaintext highlighter-rouge">C:\Program Files</code></p>
-
-<h3 id="var">/var</h3>
-
-<p>Armazena diversas informações, por exemplo os arquivos que armazenam dados em um banco de dados.</p>
-
-<h4 id="varlog">/var/log</h4>
-
-<p>Contém logs de sistema.</p>
-
-<h2 id="comandos">Comandos</h2>
-
-<h3 id="mostrar-diretório-atual">Mostrar diretório atual</h3>
-
-<blockquote>
-  <p>Print Work Directory</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
 </code></pre></div></div>
 
-<h3 id="mudar-de-diretório">Mudar de diretório</h3>
+<h2 id="adiciona-novo-usuário">adiciona novo usuário</h2>
 
-<blockquote>
-  <p>Change Directory</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Documents
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd
 </code></pre></div></div>
 
-<h3 id="criar-diretório">Criar diretório</h3>
+<h2 id="trocar-de-usuário">Trocar de usuário</h2>
 
-<blockquote>
-  <p>Make a directory</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/Documents/repos
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su &lt;nome_usuario&gt;
 </code></pre></div></div>
 
-<ul>
-  <li>p: Cria o diretório pai, caso não exista.</li>
-</ul>
+<h2 id="adiciona-o-usuário-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</h2>
 
-<h3 id="copiar-diretórios-com-arquivos">Copiar diretórios com arquivos</h3>
-
-<blockquote>
-  <p>To Copy</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-rvp</span> ~/Documents/repos ~/Documents/repos_bak
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usermod <span class="nt">-aG</span> <span class="nb">sudo</span> &lt;nome_usuario&gt;
 </code></pre></div></div>
 
-<ul>
-  <li>r: recursividade</li>
-  <li>p: mantém permissões</li>
-  <li>v: Executa o comando de maneira verbosa</li>
-</ul>
+<p>Seu resultado pode ser visualizado no arquivo <code class="language-plaintext highlighter-rouge">/etc/sudoers</code></p>
 
-<h3 id="deletar-diretórios-vazios">Deletar diretórios vazios</h3>
+<h2 id="alterar-senha-do-usuário">Alterar senha do usuário</h2>
 
-<blockquote>
-  <p>Remove Directory</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rmdir</span> ~/Documents/repos
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd
 </code></pre></div></div>
 
-<h3 id="deletar-diretórios-com-arquivos">Deletar diretórios com arquivos</h3>
+<h2 id="modifica-usuário">Modifica usuário</h2>
 
-<blockquote>
-  <p>Remove</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-r</span> ~/Documents/repos
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> &lt;nome_usuario&gt;
 </code></pre></div></div>
 
-<ul>
-  <li>r: recursivo</li>
-</ul>
+<h2 id="cria-grupo-de-permissões">Cria grupo de permissões</h2>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd &lt;nome_grupo&gt;
+</code></pre></div></div>
 
         
       </section>
@@ -636,22 +504,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Diret%C3%B3rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Usu%C3%A1rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-diretorios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/shell-linux-configuracao/" class="pagination--pager" title="Configuração Bash Linux
+      <a href="/recipes/linux-shell-pacotes/" class="pagination--pager" title="Bash Linux Pacotes
 ">Previous</a>
     
     
-      <a href="/recipes/shell-linux-hello-world/" class="pagination--pager" title="Bash Linux Hello, World!
+      <a href="/recipes/python-arquivo-markdown-data/" class="pagination--pager" title="Python datando arquivos .md
 ">Next</a>
     
   </nav>

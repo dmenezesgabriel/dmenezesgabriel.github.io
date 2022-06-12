@@ -16,3 +16,5 @@
 - samba
 - comitup
 - breeze cursor
+- gnome-chess
+- mindustry

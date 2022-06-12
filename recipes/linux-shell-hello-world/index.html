@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Bash Linux Usuários - Gabriel Menezes</title>
-<meta name="description" content="Bash Linux Usuários">
+<!-- begin _includes/seo.html --><title>Bash Linux Hello, World! - Gabriel Menezes</title>
+<meta name="description" content="Bash Linux Hello, World!">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Bash Linux Usuários">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-usuarios/">
+<meta property="og:title" content="Bash Linux Hello, World!">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-hello-world/">
 
 
-  <meta property="og:description" content="Bash Linux Usuários">
+  <meta property="og:description" content="Bash Linux Hello, World!">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Bash Linux Usuários">
-  <meta name="twitter:description" content="Bash Linux Usuários">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-usuarios/">
+  <meta name="twitter:title" content="Bash Linux Hello, World!">
+  <meta name="twitter:description" content="Bash Linux Hello, World!">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-hello-world/">
 
   
     <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-12T16:33:16-03:00">
+  <meta property="article:published_time" content="2022-06-12T17:32:21-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/shell-linux-usuarios/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-shell-hello-world/">
 
 
 
@@ -233,7 +233,7 @@
     
       
       
-        <li class="current">Bash Linux Usuários</li>
+        <li class="current">Bash Linux Hello, World!</li>
       
     
   </ol>
@@ -334,15 +334,15 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-linux-hello-world/">Hello, World!</a></li>
+            <li><a href="/recipes/linux-shell-hello-world/" class="active">Hello, World!</a></li>
           
-            <li><a href="/recipes/shell-linux-usuarios/" class="active">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
           
-            <li><a href="/recipes/shell-linux-diretorios/">Diretórios</a></li>
+            <li><a href="/recipes/linux-shell-diretorios/">Diretórios</a></li>
           
-            <li><a href="/recipes/shell-linux-arquivos/">Arquivos</a></li>
+            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
           
-            <li><a href="/recipes/shell-linux-configuracao/">.bashrc Linux</a></li>
+            <li><a href="/recipes/linux-shell-configuracao/">.bashrc Linux</a></li>
           
         </ul>
         
@@ -398,7 +398,7 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-windows-configuracao/">.bashrc Windows</a></li>
+            <li><a href="/recipes/windows-shell-configuracao/">.bashrc Windows</a></li>
           
         </ul>
         
@@ -414,15 +414,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Bash Linux Usuários">
-    <meta itemprop="description" content="Bash Linux Usuários">
-    <meta itemprop="datePublished" content="2022-06-12T16:33:16-03:00">
+    <meta itemprop="headline" content="Bash Linux Hello, World!">
+    <meta itemprop="description" content="Bash Linux Hello, World!">
+    <meta itemprop="datePublished" content="2022-06-12T17:32:21-03:00">
     <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Usuários
+          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Hello, World!
 </h1>
           
 
@@ -437,53 +437,21 @@
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu">
-<li><a href="#nome-do-usu%C3%A1rio-atual">Nome do usuário atual</a></li>
-<li><a href="#adiciona-novo-usu%C3%A1rio">adiciona novo usuário</a></li>
-<li><a href="#trocar-de-usu%C3%A1rio">Trocar de usuário</a></li>
-<li><a href="#adiciona-o-usu%C3%A1rio-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</a></li>
-<li><a href="#alterar-senha-do-usu%C3%A1rio">Alterar senha do usuário</a></li>
-<li><a href="#modifica-usu%C3%A1rio">Modifica usuário</a></li>
-<li><a href="#cria-grupo-de-permiss%C3%B5es">Cria grupo de permissões</a></li>
+<li><a href="#mostrar-diret%C3%B3rio-atual">Mostrar diretório atual</a></li>
+<li><a href="#limpar-tela">Limpar tela</a></li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="nome-do-usuário-atual">Nome do usuário atual</h2>
+        <h2 id="mostrar-diretório-atual">Mostrar diretório atual</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Hello, World!"</span>
 </code></pre></div></div>
 
-<h2 id="adiciona-novo-usuário">adiciona novo usuário</h2>
+<h2 id="limpar-tela">Limpar tela</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd
-</code></pre></div></div>
-
-<h2 id="trocar-de-usuário">Trocar de usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<h2 id="adiciona-o-usuário-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usermod <span class="nt">-aG</span> <span class="nb">sudo</span> &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<p>Seu resultado pode ser visualizado no arquivo <code class="language-plaintext highlighter-rouge">/etc/sudoers</code></p>
-
-<h2 id="alterar-senha-do-usuário">Alterar senha do usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd
-</code></pre></div></div>
-
-<h2 id="modifica-usuário">Modifica usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<h2 id="cria-grupo-de-permissões">Cria grupo de permissões</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd &lt;nome_grupo&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clear
 </code></pre></div></div>
 
         
@@ -504,22 +472,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Usu%C3%A1rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-usuarios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Hello%2C+World%21%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-hello-world%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-usuarios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-hello-world%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-usuarios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-hello-world%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/shell-linux-pacotes/" class="pagination--pager" title="Bash Linux Pacotes
+      <a href="/recipes/linux-shell-diretorios/" class="pagination--pager" title="Bash Linux Diretórios
 ">Previous</a>
     
     
-      <a href="/recipes/shell-windows-configuracao/" class="pagination--pager" title="Configuração Bash Windows
+      <a href="/recipes/linux-shell-pacotes/" class="pagination--pager" title="Bash Linux Pacotes
 ">Next</a>
     
   </nav>

@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Bash Linux Arquivos - Gabriel Menezes</title>
-<meta name="description" content="Bash Linux Arquivos">
+<!-- begin _includes/seo.html --><title>Bash Linux Diretórios - Gabriel Menezes</title>
+<meta name="description" content="Bash Linux Diretórios">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Bash Linux Arquivos">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-arquivos/">
+<meta property="og:title" content="Bash Linux Diretórios">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-diretorios/">
 
 
-  <meta property="og:description" content="Bash Linux Arquivos">
+  <meta property="og:description" content="Bash Linux Diretórios">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Bash Linux Arquivos">
-  <meta name="twitter:description" content="Bash Linux Arquivos">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-arquivos/">
+  <meta name="twitter:title" content="Bash Linux Diretórios">
+  <meta name="twitter:description" content="Bash Linux Diretórios">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-diretorios/">
 
   
     <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-12T16:33:16-03:00">
+  <meta property="article:published_time" content="2022-06-12T17:32:21-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/shell-linux-arquivos/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-shell-diretorios/">
 
 
 
@@ -233,7 +233,7 @@
     
       
       
-        <li class="current">Bash Linux Arquivos</li>
+        <li class="current">Bash Linux Diretórios</li>
       
     
   </ol>
@@ -334,15 +334,15 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-linux-hello-world/">Hello, World!</a></li>
+            <li><a href="/recipes/linux-shell-hello-world/">Hello, World!</a></li>
           
-            <li><a href="/recipes/shell-linux-usuarios/">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
           
-            <li><a href="/recipes/shell-linux-diretorios/">Diretórios</a></li>
+            <li><a href="/recipes/linux-shell-diretorios/" class="active">Diretórios</a></li>
           
-            <li><a href="/recipes/shell-linux-arquivos/" class="active">Arquivos</a></li>
+            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
           
-            <li><a href="/recipes/shell-linux-configuracao/">.bashrc Linux</a></li>
+            <li><a href="/recipes/linux-shell-configuracao/">.bashrc Linux</a></li>
           
         </ul>
         
@@ -398,7 +398,7 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-windows-configuracao/">.bashrc Windows</a></li>
+            <li><a href="/recipes/windows-shell-configuracao/">.bashrc Windows</a></li>
           
         </ul>
         
@@ -414,15 +414,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Bash Linux Arquivos">
-    <meta itemprop="description" content="Bash Linux Arquivos">
-    <meta itemprop="datePublished" content="2022-06-12T16:33:16-03:00">
+    <meta itemprop="headline" content="Bash Linux Diretórios">
+    <meta itemprop="description" content="Bash Linux Diretórios">
+    <meta itemprop="datePublished" content="2022-06-12T17:32:21-03:00">
     <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Arquivos
+          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Diretórios
 </h1>
           
 
@@ -437,127 +437,185 @@
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
               <ul class="toc__menu">
-<li><a href="#escrever-conte%C3%BAdo-em-arquivo">Escrever conteúdo em arquivo</a></li>
-<li><a href="#listar-arquivos">Listar arquivos</a></li>
-<li><a href="#mostrar-documenta%C3%A7%C3%A3o-do-comando">Mostrar documentação do comando</a></li>
-<li><a href="#exibe-o-conte%C3%BAdo-de-um-arquivo">Exibe o conteúdo de um arquivo</a></li>
-<li><a href="#exibe-as-primeiras-linhas-de-um-arquivo">Exibe as primeiras linhas de um arquivo</a></li>
-<li><a href="#exibe-as-%C3%BAltimas-linhas-de-um-arquivo">Exibe as últimas linhas de um arquivo</a></li>
-<li><a href="#exibe-conte%C3%BAdo-de-arquivo-com-navega%C3%A7%C3%A3o">Exibe conteúdo de arquivo com navegação</a></li>
-<li><a href="#busca-termos-dentro-de-arquivos-ou-diret%C3%B3rios">busca termos dentro de arquivos ou diretórios</a></li>
-<li><a href="#copiar-arquivo">Copiar arquivo</a></li>
-<li><a href="#renomear-ou-mover-arquivo">Renomear ou mover arquivo</a></li>
-<li><a href="#permiss%C3%A3o-pare-executar">Permissão pare executar</a></li>
-<li><a href="#descompactar-arquivos-zip">Descompactar arquivos zip</a></li>
-<li><a href="#desempacota-ou-descomprime-arquivos">(Des)empacota ou (des)comprime arquivos</a></li>
+<li>
+<a href="#nomenclaturas">Nomenclaturas</a><ul>
+<li><a href="#bin">/bin</a></li>
+<li><a href="#sbin">/sbin</a></li>
+<li><a href="#boot">/boot</a></li>
+<li><a href="#dev">/dev</a></li>
+<li><a href="#home">/home</a></li>
+<li><a href="#lib-e-lib64">/lib e /lib64</a></li>
+<li><a href="#media-e-mnt">/media e /mnt</a></li>
+<li><a href="#opt">/opt</a></li>
+<li><a href="#proc">/proc</a></li>
+<li><a href="#root">/root</a></li>
+<li><a href="#run">/run</a></li>
+<li><a href="#srv">/srv</a></li>
+<li><a href="#sys">/sys</a></li>
+<li><a href="#tmp">/tmp</a></li>
+<li><a href="#usr">/usr</a></li>
+<li>
+<a href="#var">/var</a><ul><li><a href="#varlog">/var/log</a></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#comandos">Comandos</a><ul>
+<li><a href="#mostrar-diret%C3%B3rio-atual">Mostrar diretório atual</a></li>
+<li><a href="#mudar-de-diret%C3%B3rio">Mudar de diretório</a></li>
+<li><a href="#criar-diret%C3%B3rio">Criar diretório</a></li>
+<li><a href="#copiar-diret%C3%B3rios-com-arquivos">Copiar diretórios com arquivos</a></li>
+<li><a href="#deletar-diret%C3%B3rios-vazios">Deletar diretórios vazios</a></li>
+<li><a href="#deletar-diret%C3%B3rios-com-arquivos">Deletar diretórios com arquivos</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
           </aside>
         
-        <h2 id="escrever-conteúdo-em-arquivo">Escrever conteúdo em arquivo</h2>
+        <h2 id="nomenclaturas">Nomenclaturas</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"Hello, World!"</span> <span class="o">&gt;</span> hello.txt
+<h3>/</h3>
+
+<p>Pasta raiz, onde tudo começa. Equivalente ao <code class="language-plaintext highlighter-rouge">C:\</code> do Windows</p>
+
+<h3 id="bin">/bin</h3>
+
+<p>Onde se localizam os binários que permitem que os usuários executem comandos.</p>
+
+<h3 id="sbin">/sbin</h3>
+
+<p>Similar a pasta <code class="language-plaintext highlighter-rouge">/bin</code>, porém contém comandos específicos para execução do super usuário.</p>
+
+<h3 id="boot">/boot</h3>
+
+<p>Armazena os arquivos necessários para realizar o boot do sistema.</p>
+
+<h3 id="dev">/dev</h3>
+
+<p>Dev é uma abreviação para <em>devices</em>, e no linux <code class="language-plaintext highlighter-rouge">/dev</code> armazena os dispositivos periféricos como mouses, impressoras, webcams e embarcados como HDs.</p>
+
+<h3 id="home">/home</h3>
+
+<p>Contém os diretórios de usuários, similar ao C:\Users, cada usuário tem seu próprio diretório, por exempo <code class="language-plaintext highlighter-rouge">/home/&lt;nome_usuario&gt;</code>.</p>
+
+<h3 id="lib-e-lib64">/lib e /lib64</h3>
+
+<p>São os diretórios onde ficam as bibliotecas de sistema para 64bits e 32bits, equivalentes a <code class="language-plaintext highlighter-rouge">C:\Windows\System</code> e <code class="language-plaintext highlighter-rouge">C:\Windows\System32</code></p>
+
+<h3 id="media-e-mnt">/media e /mnt</h3>
+
+<p>São diretórios de “montagem” de volumes, como pendrives.</p>
+
+<h3 id="opt">/opt</h3>
+
+<p>É um diretório opcional que pode ser utilizado para instalação alternativa de programas.</p>
+
+<h3 id="proc">/proc</h3>
+
+<p>É um diretório virtual de informações do sistema, onde conseguimos obter informações sobre o processador, uso de memória, entre outros.</p>
+
+<h3 id="root">/root</h3>
+
+<p>Diretório do superusuário.</p>
+
+<h3 id="run">/run</h3>
+
+<p>Armazena os arquivos <code class="language-plaintext highlighter-rouge">.pid</code> dos processos em andamento.</p>
+
+<h3 id="srv">/srv</h3>
+
+<p>Contém dados de serviços em execução.</p>
+
+<h3 id="sys">/sys</h3>
+
+<p>Aqui encontraremos módulos para equipamentos USB em Kernels 2.6.x ou acima.</p>
+
+<h3 id="tmp">/tmp</h3>
+
+<p>Diretório de arquivos temporários, similar ao <code class="language-plaintext highlighter-rouge">C:\Windows\Temp.</code></p>
+
+<h3 id="usr">/usr</h3>
+
+<p>Onde ficam instalados os programas, equivalente ao <code class="language-plaintext highlighter-rouge">C:\Program Files</code></p>
+
+<h3 id="var">/var</h3>
+
+<p>Armazena diversas informações, por exemplo os arquivos que armazenam dados em um banco de dados.</p>
+
+<h4 id="varlog">/var/log</h4>
+
+<p>Contém logs de sistema.</p>
+
+<h2 id="comandos">Comandos</h2>
+
+<h3 id="mostrar-diretório-atual">Mostrar diretório atual</h3>
+
+<blockquote>
+  <p>Print Work Directory</p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">pwd</span>
 </code></pre></div></div>
 
-<h2 id="listar-arquivos">Listar arquivos</h2>
+<h3 id="mudar-de-diretório">Mudar de diretório</h3>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> <span class="nt">-lha</span>
+<blockquote>
+  <p>Change Directory</p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/Documents
+</code></pre></div></div>
+
+<h3 id="criar-diretório">Criar diretório</h3>
+
+<blockquote>
+  <p>Make a directory</p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> ~/Documents/repos
 </code></pre></div></div>
 
 <ul>
-  <li>l: visualizar como lista</li>
-  <li>h: legível para humanos</li>
-  <li>a: mostrar arquivos ocultos</li>
+  <li>p: Cria o diretório pai, caso não exista.</li>
 </ul>
 
-<h2 id="mostrar-documentação-do-comando">Mostrar documentação do comando</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man <span class="nb">ls</span>
-</code></pre></div></div>
-
-<h2 id="exibe-o-conteúdo-de-um-arquivo">Exibe o conteúdo de um arquivo</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>hello.txt
-</code></pre></div></div>
-
-<h2 id="exibe-as-primeiras-linhas-de-um-arquivo">Exibe as primeiras linhas de um arquivo</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">head</span> <span class="nt">-n</span> 10 /proc/cpfuinfo
-</code></pre></div></div>
-
-<ul>
-  <li>n: Número de linhas</li>
-</ul>
-
-<h2 id="exibe-as-últimas-linhas-de-um-arquivo">Exibe as últimas linhas de um arquivo</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tail</span> <span class="nt">-n</span> 10 /proc/cpfuinfo
-</code></pre></div></div>
-
-<ul>
-  <li>n: Número de linhas</li>
-</ul>
-
-<h2 id="exibe-conteúdo-de-arquivo-com-navegação">Exibe conteúdo de arquivo com navegação</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>less /var/log/messages
-</code></pre></div></div>
-
-<h2 id="busca-termos-dentro-de-arquivos-ou-diretórios">busca termos dentro de arquivos ou diretórios</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo grep </span>gabriel /var/log/auth.log
-</code></pre></div></div>
-
-<h2 id="copiar-arquivo">Copiar arquivo</h2>
+<h3 id="copiar-diretórios-com-arquivos">Copiar diretórios com arquivos</h3>
 
 <blockquote>
   <p>To Copy</p>
 </blockquote>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>hello.txt teste.txt
-</code></pre></div></div>
-
-<h2 id="renomear-ou-mover-arquivo">Renomear ou mover arquivo</h2>
-
-<blockquote>
-  <p>To Move</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>hello.txt hello.bak
-</code></pre></div></div>
-
-<h2 id="permissão-pare-executar">Permissão pare executar</h2>
-
-<blockquote>
-  <p>Change Mode</p>
-</blockquote>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x &lt;nome_arquivo&gt;
-</code></pre></div></div>
-
-<p>Onde <code class="language-plaintext highlighter-rouge">x</code> faz referência ao <code class="language-plaintext highlighter-rouge">x</code> de <em>e## x## ecute</em></p>
-
-<h2 id="descompactar-arquivos-zip">Descompactar arquivos zip</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip <span class="nt">-tv</span> &lt;nome_arquivo&gt;.zip
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-rvp</span> ~/Documents/repos ~/Documents/repos_bak
 </code></pre></div></div>
 
 <ul>
-  <li>t: testa o arquivo antes de descompactar.</li>
-  <li>v: executa o comando de maneira verbosa.</li>
+  <li>r: recursividade</li>
+  <li>p: mantém permissões</li>
+  <li>v: Executa o comando de maneira verbosa</li>
 </ul>
 
-<h2 id="desempacota-ou-descomprime-arquivos">(Des)empacota ou (des)comprime arquivos</h2>
+<h3 id="deletar-diretórios-vazios">Deletar diretórios vazios</h3>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-czvf</span> arquivos.tgz <span class="k">*</span>.txt
+<blockquote>
+  <p>Remove Directory</p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rmdir</span> ~/Documents/repos
+</code></pre></div></div>
+
+<h3 id="deletar-diretórios-com-arquivos">Deletar diretórios com arquivos</h3>
+
+<blockquote>
+  <p>Remove</p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">rm</span> <span class="nt">-r</span> ~/Documents/repos
 </code></pre></div></div>
 
 <ul>
-  <li>c: indica que o arquivo está sendo criado.</li>
-  <li>z: indica que o arquivo será comprimido com gzip.</li>
-  <li>v: executa o comando de maneira verbosa.</li>
-  <li>f: nome do arquivo que será gerado.</li>
+  <li>r: recursivo</li>
 </ul>
 
         
@@ -578,22 +636,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Arquivos%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-arquivos%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Diret%C3%B3rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-diretorios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-arquivos%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-diretorios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-arquivos%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-diretorios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/r-hello-world/" class="pagination--pager" title="R Hello, World!
+      <a href="/recipes/linux-shell-configuracao/" class="pagination--pager" title="Configuração Bash Linux
 ">Previous</a>
     
     
-      <a href="/recipes/shell-linux-configuracao/" class="pagination--pager" title="Configuração Bash Linux
+      <a href="/recipes/linux-shell-hello-world/" class="pagination--pager" title="Bash Linux Hello, World!
 ">Next</a>
     
   </nav>

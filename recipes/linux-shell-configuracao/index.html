@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Bash Linux Pacotes - Gabriel Menezes</title>
-<meta name="description" content="Bash Linux Pacotes">
+<!-- begin _includes/seo.html --><title>Configuração Bash Linux - Gabriel Menezes</title>
+<meta name="description" content="Configuração Bash Linux">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Bash Linux Pacotes">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-pacotes/">
+<meta property="og:title" content="Configuração Bash Linux">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-configuracao/">
 
 
-  <meta property="og:description" content="Bash Linux Pacotes">
+  <meta property="og:description" content="Configuração Bash Linux">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Bash Linux Pacotes">
-  <meta name="twitter:description" content="Bash Linux Pacotes">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/shell-linux-pacotes/">
+  <meta name="twitter:title" content="Configuração Bash Linux">
+  <meta name="twitter:description" content="Configuração Bash Linux">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-configuracao/">
 
   
     <meta name="twitter:card" content="summary">
@@ -50,11 +50,11 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-12T16:33:16-03:00">
+  <meta property="article:published_time" content="2022-06-12T17:32:21-03:00">
 
 
 
-  <meta property="article:modified_time" content="2022-04-26T18:30:00-03:00">
+  <meta property="article:modified_time" content="2022-02-25T09:00:00-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/shell-linux-pacotes/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-shell-configuracao/">
 
 
 
@@ -233,7 +233,7 @@
     
       
       
-        <li class="current">Bash Linux Pacotes</li>
+        <li class="current">Configuração Bash Linux</li>
       
     
   </ol>
@@ -334,15 +334,15 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-linux-hello-world/">Hello, World!</a></li>
+            <li><a href="/recipes/linux-shell-hello-world/">Hello, World!</a></li>
           
-            <li><a href="/recipes/shell-linux-usuarios/">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
           
-            <li><a href="/recipes/shell-linux-diretorios/">Diretórios</a></li>
+            <li><a href="/recipes/linux-shell-diretorios/">Diretórios</a></li>
           
-            <li><a href="/recipes/shell-linux-arquivos/">Arquivos</a></li>
+            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
           
-            <li><a href="/recipes/shell-linux-configuracao/">.bashrc Linux</a></li>
+            <li><a href="/recipes/linux-shell-configuracao/" class="active">.bashrc Linux</a></li>
           
         </ul>
         
@@ -398,7 +398,7 @@
         
         <ul>
           
-            <li><a href="/recipes/shell-windows-configuracao/">.bashrc Windows</a></li>
+            <li><a href="/recipes/windows-shell-configuracao/">.bashrc Windows</a></li>
           
         </ul>
         
@@ -414,15 +414,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Bash Linux Pacotes">
-    <meta itemprop="description" content="Bash Linux Pacotes">
-    <meta itemprop="datePublished" content="2022-06-12T16:33:16-03:00">
-    <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
+    <meta itemprop="headline" content="Configuração Bash Linux">
+    <meta itemprop="description" content="Configuração Bash Linux">
+    <meta itemprop="datePublished" content="2022-06-12T17:32:21-03:00">
+    <meta itemprop="dateModified" content="2022-02-25T09:00:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Pacotes
+          <h1 id="page-title" class="page__title" itemprop="headline">Configuração Bash Linux
 </h1>
           
 
@@ -436,40 +436,38 @@
             <nav class="toc">
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu">
-<li><a href="#atualiza-pacotes-dispon%C3%ADveis-para-download">Atualiza pacotes disponíveis para download</a></li>
-<li><a href="#baixa-e-atualiza-automaticamente-os-pacotes-dispon%C3%ADveis-para-download">Baixa e atualiza automaticamente os pacotes disponíveis para download</a></li>
-<li><a href="#procura-por-pacotes">Procura por pacotes</a></li>
-<li><a href="#instala-pacotes">Instala pacotes</a></li>
-<li><a href="#remove-pacotes">Remove pacotes</a></li>
-</ul>
+              <ul class="toc__menu"><li><a href="#bashrc">.bashrc</a></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="atualiza-pacotes-disponíveis-para-download">Atualiza pacotes disponíveis para download</h2>
+        <p>Configurações para bash no Windows.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
-</code></pre></div></div>
+<h2 id="bashrc">.bashrc</h2>
 
-<h2 id="baixa-e-atualiza-automaticamente-os-pacotes-disponíveis-para-download">Baixa e atualiza automaticamente os pacotes disponíveis para download</h2>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ~/.bashrc</span>
+<span class="nb">echo</span> <span class="s2">"Hello </span><span class="k">${</span><span class="nv">USER</span><span class="k">}</span><span class="s2">"</span>
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="c"># Environment</span>
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="c"># Always require python environment</span>
+<span class="nb">export </span><span class="nv">PIP_REQUIRE_VIRTUALENV</span><span class="o">=</span><span class="nb">true</span>
+<span class="c"># Don't write __pycache__, *.pyc and similar files</span>
+<span class="nb">export </span><span class="nv">PYTHONDONTWRITEBYTECODE</span><span class="o">=</span>1
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="c"># Java</span>
+<span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/java-11-openjdk-amd64
+<span class="nb">export </span>JAVA_HOME
+<span class="c"># Maven</span>
+<span class="nv">MAVEN_HOME</span><span class="o">=</span>~/Documents/programs/apache-maven-3.8.2
+<span class="nb">export </span>MAVEN_HOME
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$MAVEN_HOME</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export </span>PATH
+<span class="c"># --------------------------------------------------------------------------- #</span>
+<span class="c"># NVM</span>
+<span class="nb">export </span><span class="nv">NVM_DIR</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="o">[</span> <span class="nt">-z</span> <span class="s2">"</span><span class="k">${</span><span class="nv">XDG_CONFIG_HOME</span><span class="p">-</span><span class="k">}</span><span class="s2">"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">printf</span> %s <span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span><span class="s2">/.nvm"</span> <span class="o">||</span> <span class="nb">printf</span> %s <span class="s2">"</span><span class="k">${</span><span class="nv">XDG_CONFIG_HOME</span><span class="k">}</span><span class="s2">/nvm"</span><span class="si">)</span><span class="s2">"</span>
+<span class="o">[</span> <span class="nt">-s</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="se">\.</span> <span class="s2">"</span><span class="nv">$NVM_DIR</span><span class="s2">/nvm.sh"</span> <span class="c"># This loads nvm</span>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt upgrade
-</code></pre></div></div>
-
-<h2 id="procura-por-pacotes">Procura por pacotes</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt search conky
-</code></pre></div></div>
-
-<h2 id="instala-pacotes">Instala pacotes</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>conky
-</code></pre></div></div>
-
-<h2 id="remove-pacotes">Remove pacotes</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt remove conky
 </code></pre></div></div>
 
         
@@ -482,7 +480,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-26">April 26, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-02-25">February 25, 2022</time></p>
 
 
       </footer>
@@ -490,22 +488,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Pacotes%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-pacotes%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Configura%C3%A7%C3%A3o+Bash+Linux%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-configuracao%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-pacotes%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-configuracao%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Fshell-linux-pacotes%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-configuracao%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/shell-linux-hello-world/" class="pagination--pager" title="Bash Linux Hello, World!
+      <a href="/recipes/linux-shell-arquivos/" class="pagination--pager" title="Bash Linux Arquivos
 ">Previous</a>
     
     
-      <a href="/recipes/shell-linux-usuarios/" class="pagination--pager" title="Bash Linux Usuários
+      <a href="/recipes/linux-shell-diretorios/" class="pagination--pager" title="Bash Linux Diretórios
 ">Next</a>
     
   </nav>
