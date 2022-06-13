@@ -40,6 +40,12 @@ kill -SIGSTOP <pid>
 kill -SIGCONT <pid>
 ```
 
+## Destruir processos por nome
+
+```sh
+killall <nome_processo>
+```
+
 ## Rodar processo em segundo plano
 
 ```sh

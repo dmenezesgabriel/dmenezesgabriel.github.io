@@ -1,3 +1,9 @@
+## Imagem
+
+**rpi-imager**
+
+## Programas
+
 - Arc theme
 - Papirus Icon
 - xrdp
@@ -18,3 +24,5 @@
 - breeze cursor
 - gnome-chess
 - mindustry
+- tmux
+- midnight commander
