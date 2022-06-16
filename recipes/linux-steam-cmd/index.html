@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Bash Linux Usuários - Gabriel Menezes</title>
-<meta name="description" content="Bash Linux Usuários">
+<!-- begin _includes/seo.html --><title>Steam - Gabriel Menezes</title>
+<meta name="description" content="Steam">
 
 
   <meta name="author" content="Gabriel Menezes">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Gabriel Menezes">
-<meta property="og:title" content="Bash Linux Usuários">
-<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
+<meta property="og:title" content="Steam">
+<meta property="og:url" content="https://dmenezesgabriel.github.io/recipes/linux-steam-cmd/">
 
 
-  <meta property="og:description" content="Bash Linux Usuários">
+  <meta property="og:description" content="Steam">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@dmenezesgabriel">
-  <meta name="twitter:title" content="Bash Linux Usuários">
-  <meta name="twitter:description" content="Bash Linux Usuários">
-  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
+  <meta name="twitter:title" content="Steam">
+  <meta name="twitter:description" content="Steam">
+  <meta name="twitter:url" content="https://dmenezesgabriel.github.io/recipes/linux-steam-cmd/">
 
   
     <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
 
 
 
-  <meta property="article:modified_time" content="2022-04-26T18:30:00-03:00">
+  <meta property="article:modified_time" content="2022-06-15T18:30:00-03:00">
 
 
 
@@ -63,7 +63,7 @@
   
 
 
-<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-shell-usuarios/">
+<link rel="canonical" href="https://dmenezesgabriel.github.io/recipes/linux-steam-cmd/">
 
 
 
@@ -212,7 +212,7 @@
     
       
       
-        <li class="current">Bash Linux Usuários</li>
+        <li class="current">Steam</li>
       
     
   </ol>
@@ -329,9 +329,9 @@
           
             <li><a href="/recipes/linux-rede-portas/">Redes</a></li>
           
-            <li><a href="/recipes/linux-steam-cmd/">Steam</a></li>
+            <li><a href="/recipes/linux-steam-cmd/" class="active">Steam</a></li>
           
-            <li><a href="/recipes/linux-shell-usuarios/" class="active">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
           
             <li><a href="/recipes/linux-shell-configuracao/">.bashrc Linux</a></li>
           
@@ -419,15 +419,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Bash Linux Usuários">
-    <meta itemprop="description" content="Bash Linux Usuários">
+    <meta itemprop="headline" content="Steam">
+    <meta itemprop="description" content="Steam">
     <meta itemprop="datePublished" content="2022-06-16T19:53:22-03:00">
-    <meta itemprop="dateModified" content="2022-04-26T18:30:00-03:00">
+    <meta itemprop="dateModified" content="2022-06-15T18:30:00-03:00">
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Bash Linux Usuários
+          <h1 id="page-title" class="page__title" itemprop="headline">Steam
 </h1>
           
 
@@ -441,54 +441,15 @@
             <nav class="toc">
               <header><h4 class="nav__title">
 <i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu">
-<li><a href="#nome-do-usu%C3%A1rio-atual">Nome do usuário atual</a></li>
-<li><a href="#adiciona-novo-usu%C3%A1rio">adiciona novo usuário</a></li>
-<li><a href="#trocar-de-usu%C3%A1rio">Trocar de usuário</a></li>
-<li><a href="#adiciona-o-usu%C3%A1rio-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</a></li>
-<li><a href="#alterar-senha-do-usu%C3%A1rio">Alterar senha do usuário</a></li>
-<li><a href="#modifica-usu%C3%A1rio">Modifica usuário</a></li>
-<li><a href="#cria-grupo-de-permiss%C3%B5es">Cria grupo de permissões</a></li>
-</ul>
+              <ul class="toc__menu"><li><a href="#executar-um-jogo-via-linha-de-comando">Executar um jogo via linha de comando</a></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="nome-do-usuário-atual">Nome do usuário atual</h2>
+        <h2 id="executar-um-jogo-via-linha-de-comando">Executar um jogo via linha de comando</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">whoami</span>
-</code></pre></div></div>
-
-<h2 id="adiciona-novo-usuário">adiciona novo usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd
-</code></pre></div></div>
-
-<h2 id="trocar-de-usuário">Trocar de usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<h2 id="adiciona-o-usuário-ao-grupo-sudo">Adiciona o usuário ao grupo sudo</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usermod <span class="nt">-aG</span> <span class="nb">sudo</span> &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<p>Seu resultado pode ser visualizado no arquivo <code class="language-plaintext highlighter-rouge">/etc/sudoers</code></p>
-
-<h2 id="alterar-senha-do-usuário">Alterar senha do usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd
-</code></pre></div></div>
-
-<h2 id="modifica-usuário">Modifica usuário</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> &lt;nome_usuario&gt;
-</code></pre></div></div>
-
-<h2 id="cria-grupo-de-permissões">Cria grupo de permissões</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd &lt;nome_grupo&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#  cd ~/.steam/steam/steamapps/common/game</span>
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>~/.steam/bin32/ ~/.steam/bin32/steam-runtime/run.sh ./&lt;gameexecutable&gt;
 </code></pre></div></div>
 
         
@@ -501,7 +462,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-04-26">April 26, 2022</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-06-15">June 15, 2022</time></p>
 
 
       </footer>
@@ -509,22 +470,22 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Bash+Linux+Usu%C3%A1rios%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=dmenezesgabriel&text=Steam%20https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-steam-cmd%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-steam-cmd%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-shell-usuarios%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdmenezesgabriel.github.io%2Frecipes%2Flinux-steam-cmd%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/recipes/linux-shell-processos/" class="pagination--pager" title="Bash Linux Processos
+      <a href="/recipes/linux-shell-usuarios/" class="pagination--pager" title="Bash Linux Usuários
 ">Previous</a>
     
     
-      <a href="/recipes/linux-steam-cmd/" class="pagination--pager" title="Steam
+      <a href="/recipes/python-arquivo-markdown-data/" class="pagination--pager" title="Python datando arquivos .md
 ">Next</a>
     
   </nav>

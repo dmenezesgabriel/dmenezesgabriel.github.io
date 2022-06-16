@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-13T18:47:02-03:00">
+  <meta property="article:published_time" content="2022-06-16T19:53:22-03:00">
 
 
 
@@ -109,38 +109,17 @@
 
 
     <!-- start custom head snippets -->
-
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
 
+<!-- custom styles -->
+<link rel="stylesheet" href="/assets/css/styles.css">
 <!-- Google AdSense -->
 <script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-
-<!-- Copy code to clipboard -->
-<style>
-  pre.highlight>button {
-    opacity: 0;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    border-color: white;
-    color: white;
-    background-color: #263238;
-  }
-
-  pre.highlight:hover>button {
-    opacity: 1;
-  }
-
-  pre.highlight>button:active,
-  pre.highlight>button:focus {
-    opacity: 1;
-  }
-</style>
 <!-- end custom head snippets -->
   </head>
 
@@ -181,7 +160,7 @@
               <a href="/certificados/">Certificados</a>
             </li>
 <li class="masthead__menu-item">
-              <a href="/recipes/java-hello-world/">Receitas</a>
+              <a href="/recipes/home/">Receitas</a>
             </li>
 </ul>
         
@@ -286,7 +265,11 @@
         
         <ul>
           
+            <li><a href="/recipes/css-border/">Borda</a></li>
+          
             <li><a href="/recipes/css-fontes/">Fontes</a></li>
+          
+            <li><a href="/recipes/css-grid/">Grid</a></li>
           
         </ul>
         
@@ -336,11 +319,19 @@
           
             <li><a href="/recipes/linux-shell-hello-world/">Hello, World!</a></li>
           
-            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
+            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
           
             <li><a href="/recipes/linux-shell-diretorios/">Diretórios</a></li>
           
-            <li><a href="/recipes/linux-shell-arquivos/">Arquivos</a></li>
+            <li><a href="/recipes/linux-shell-pacotes/">Pacotes</a></li>
+          
+            <li><a href="/recipes/linux-shell-processos/">Processos</a></li>
+          
+            <li><a href="/recipes/linux-rede-portas/">Redes</a></li>
+          
+            <li><a href="/recipes/linux-steam-cmd/">Steam</a></li>
+          
+            <li><a href="/recipes/linux-shell-usuarios/">Usuários</a></li>
           
             <li><a href="/recipes/linux-shell-configuracao/">.bashrc Linux</a></li>
           
@@ -392,6 +383,20 @@
     
       <li>
         
+          <span class="nav__sub-title">Editores de Texto</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/recipes/vim/">Vim</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
           <span class="nav__sub-title">Windows</span>
         
 
@@ -416,7 +421,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Java Hello, World!">
     <meta itemprop="description" content="Java Hello, World!">
-    <meta itemprop="datePublished" content="2022-06-13T18:47:02-03:00">
+    <meta itemprop="datePublished" content="2022-06-16T19:53:22-03:00">
     <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -526,7 +531,7 @@
       
   <nav class="pagination">
     
-      <a href="/recipes/docker-sem-sudo/" class="pagination--pager" title="Docker, sem sudo.
+      <a href="/recipes/home/" class="pagination--pager" title="Receitas
 ">Previous</a>
     
     
@@ -565,27 +570,7 @@
       <footer>
         <!-- start custom footer snippets -->
 <!-- Copy code to clipboard -->
-<script>
-  document
-    .querySelectorAll('pre.highlight')
-    .forEach(function (pre) {
-      var button = document.createElement('button');
-      var copyText = 'Copy';
-      button.className = 'copy';
-      button.type = 'button';
-      button.ariaLabel = 'Copy code to clipboard';
-      button.innerText = copyText;
-      button.addEventListener('click', function () {
-        var code = pre.querySelector('code').innerText.trim();
-        navigator.clipboard.writeText(code);
-        button.innerText = 'Copied';
-        setTimeout(function () {
-          button.innerText = copyText;
-        }, 4000);
-      });
-      pre.appendChild(button);
-    });
-</script>
+<script src="/assets/js/index.js"></script>
 <!-- end custom footer snippets -->
         <div class="page__footer-follow">
   <ul class="social-icons">

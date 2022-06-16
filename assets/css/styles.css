@@ -1,0 +1,18 @@
+pre.highlight > button {
+  opacity: 0;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  border-color: white;
+  color: white;
+  background-color: #263238;
+}
+
+pre.highlight:hover > button {
+  opacity: 1;
+}
+
+pre.highlight > button:active,
+pre.highlight > button:focus {
+  opacity: 1;
+}
