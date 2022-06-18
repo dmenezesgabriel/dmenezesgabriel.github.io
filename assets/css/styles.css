@@ -1,9 +1,11 @@
 pre.highlight > button {
-  font-family: monospace;
+  /* Button top right  */
   position: absolute;
   right: 0;
   top: 0;
+  /*  Button not visible */
   opacity: 0;
+  font-family: monospace;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
@@ -19,4 +21,9 @@ pre.highlight:hover > button {
 pre.highlight > button:active,
 pre.highlight > button:focus {
   opacity: 1;
+}
+
+iframe.code-output {
+  width: 100%;
+  background-color: #fff;
 }

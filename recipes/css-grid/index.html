@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-18T14:38:31-03:00">
+  <meta property="article:published_time" content="2022-06-18T16:13:47-03:00">
 
 
 
@@ -440,7 +440,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="CSS - Grid">
     <meta itemprop="description" content="CSS - Grid">
-    <meta itemprop="datePublished" content="2022-06-18T14:38:31-03:00">
+    <meta itemprop="datePublished" content="2022-06-18T16:13:47-03:00">
     <meta itemprop="dateModified" content="2022-06-15T07:20:00-03:00">
 
     <div class="page__inner-wrap">
@@ -525,67 +525,6 @@
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 1fr 1fr;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
-
 <h2 id="coluna">Coluna</h2>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
@@ -648,69 +587,6 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
-
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-    /* Item 5 occupies position 2 until 4 of the grid */
-    grid-column: 2 / 4;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 1fr 1fr;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
 
 <h2 id="linha">Linha</h2>
 
@@ -776,71 +652,6 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
-
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-    /* Item 5 occupies column 2 until 4 of the grid */
-    grid-column: 2 / 4;
-    /* Item 5 occupies row 2 until 4 of the grid */
-    grid-row: 2 / 4;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 1fr 1fr 1fr;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
 
 <h2 id="área">Área</h2>
 
@@ -910,74 +721,6 @@
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-    /* Starts at line 1, column 1 and ends before line 2 and before column 4 */
-    /* 1 2 3 4 */
-    /* 1 */
-    /* 2 */
-    /* 3 */
-    /* 4 */
-    grid-area: 1/1/2/4;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 1fr 1fr;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
-
 <h2 id="template-área">Template área</h2>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
@@ -1045,74 +788,6 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
-
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-    /* Positioning the item according to grid-template-areas naming*/
-    grid-area: head;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr 1fr 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 1fr 1fr 1fr;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-    /* Template areas */
-    grid-template-areas:
-      &quot;head head head&quot;
-      &quot;main main main&quot;
-      &quot;footer footer footer&quot;;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
 
 <h2 id="into-grid">Into grid</h2>
 
@@ -1218,110 +893,6 @@
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- header starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-    grid-area: header;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-    grid-area: advert;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-    grid-area: content;
-    display: grid;
-    grid-template-rows: auto 1fr;
-  }
-
-  .ph1 {
-    background-color: palevioletred;
-  }
-
-  .ph2 {
-    background-color: palegreen;
-  }
-
-  .d4 {
-    background-color: lightpink;
-    grid-area: footer;
-  }
-
-
-  .p5 {
-    padding: 5px;
-  }
-
-  /* Default */
-  .container {
-    min-height: 300px;
-    width: 100%;
-    background-color: lightgrey;
-    font-size: 1.5em;
-    font-family: monospace;
-    padding: 5px;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: 1fr;
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: 50px auto 1fr auto;
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-    /* Template areas */
-    grid-template-areas:
-      &quot;header&quot;
-      &quot;advert&quot;
-      &quot;content&quot;
-      &quot;footer&quot;;
-  }
-
-  @media (min-width: 300px) {
-    .container {
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto 1fr auto;
-      grid-template-areas:
-        &quot;advert header&quot;
-        &quot;advert content&quot;
-        &quot;advert footer&quot;;
-    }
-  }
-
-  @media (min-width: 600px) {
-    .container {
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto 1fr auto;
-      grid-template-areas:
-        &quot;header header&quot;
-        &quot;advert content&quot;
-        &quot;advert footer&quot;;
-    }
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- header ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;Header&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;Advert&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;
-    &lt;div class=&quot;ph1&quot;&gt;Paragraph 1&lt;/div&gt;
-    &lt;div class=&quot;ph2&quot;&gt;Paragraph 2&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;footer&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
-
 <h2 id="repeat">Repeat</h2>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
@@ -1382,67 +953,6 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
-
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    padding: 5px;
-    background-color: lightgrey;
-    display: grid;
-    /* Three columns */
-    grid-template-columns: repeat(3, 1fr);
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: repeat(2, 1fr);
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 5px 5px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
 
 <h2 id="repeat-autofill">Repeat autofill</h2>
 
@@ -1507,69 +1017,6 @@
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    background-color: lightgrey;
-    display: grid;
-    /* auto-fill dynamic number of columns according to page size */
-    /* minmax minimum and max number of grid element according to page size */
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: repeat(3, 1fr);
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 10px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
-
 <h2 id="repeat-autofit">Repeat autofit</h2>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- index.html --&gt;</span>
@@ -1632,69 +1079,6 @@
 <span class="nt">&lt;/div&gt;</span>
 <span class="c">&lt;!-- Body ends --&gt;</span>
 </code></pre></div></div>
-
-<p><strong>Output</strong>:</p>
-
-<iframe width="100%" srcdoc="&lt;!-- index.html --&gt;
-&lt;!-- Head starts --&gt;
-&lt;style&gt;
-  .d1 {
-    background-color: lightskyblue;
-  }
-
-  .d2 {
-    background-color: lightsalmon;
-  }
-
-  .d3 {
-    background-color: paleturquoise;
-  }
-
-  .d4 {
-    background-color: lightpink;
-  }
-
-  .d5 {
-    background-color: palegoldenrod;
-  }
-
-  .p5 {
-    padding: 5px;
-  }
-
-  .container {
-    font-size: 40px;
-    font-family: monospace;
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    background-color: lightgrey;
-    display: grid;
-    /* fit dynamic number of columns according to page size fitting the entire length of the container */
-    /* minmax minimum and max number of grid element according to page size */
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    /* Gap between columns */
-    /* column-gap: 5px; */
-    /* Two lines */
-    grid-template-rows: repeat(3, 1fr);
-    /* Gap between rows */
-    /* row-gap: 5px; */
-    /* Gap between rows and columns */
-    gap: 10px;
-  }
-&lt;/style&gt;
-&lt;!-- Style block end --&gt;
-&lt;!-- Head ends --&gt;
-&lt;!-- Body starts --&gt;
-&lt;div class=&quot;container&quot;&gt;
-  &lt;div class=&quot;p5 d1&quot;&gt;1&lt;/div&gt;
-  &lt;div class=&quot;p5 d2&quot;&gt;2&lt;/div&gt;
-  &lt;div class=&quot;p5 d3&quot;&gt;3&lt;/div&gt;
-  &lt;div class=&quot;p5 d4&quot;&gt;4&lt;/div&gt;
-  &lt;div class=&quot;p5 d5&quot;&gt;5&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- Body ends --&gt;">
-</iframe>
 
         
       </section>
