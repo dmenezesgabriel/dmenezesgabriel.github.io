@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-18T16:14:54-03:00">
+  <meta property="article:published_time" content="2022-06-18T16:43:26-03:00">
 
 
 
@@ -382,6 +382,8 @@
           
             <li><a href="/recipes/r-hello-world/">Hello, World!</a></li>
           
+            <li><a href="/recipes/r-jupyterlab/">Jupyterlab</a></li>
+          
         </ul>
         
       </li>
@@ -394,7 +396,7 @@
         
         <ul>
           
-            <li><a href="/recipes/sql-nomenclaturas/">Nomenclatura para entidades e atributos</a></li>
+            <li><a href="/recipes/sql-nomenclaturas/">Nomenclaturas</a></li>
           
         </ul>
         
@@ -440,7 +442,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Java Hello, World!">
     <meta itemprop="description" content="Java Hello, World!">
-    <meta itemprop="datePublished" content="2022-06-18T16:14:54-03:00">
+    <meta itemprop="datePublished" content="2022-06-18T16:43:26-03:00">
     <meta itemprop="dateModified" content="2022-02-01T09:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -459,7 +461,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#executar">Executar</a></li></ul>
+              <ul class="toc__menu"><li><a href="#instalação">Instalação</a><ul><li><a href="#linux">Linux</a></li><li><a href="#windows">Windows</a></li></ul></li><li><a href="#código">Código</a></li><li><a href="#execução">Execução</a></li></ul>
 
             </nav>
           </aside>
@@ -470,26 +472,33 @@
 
 <p>Iniciando com a linguagem Java!</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Linux</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Hello.java</span>
-<span class="c1">// Install java</span>
-<span class="c1">// sudo apt update</span>
-<span class="c1">// sudo apt upgrade</span>
-<span class="c1">// sudo apt install default-jre</span>
-<span class="c1">// sudo apt install default-jdk</span>
-<span class="c1">// 1.Compile:</span>
-<span class="c1">// javac Hello.java</span>
-<span class="c1">// 2. java Hello</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// Windows</span>
-<span class="c1">// --------------------------------------------------------------------------//</span>
-<span class="c1">// https://www.oracle.com/java/technologies/javase-downloads.html</span>
-<span class="c1">// alias java="/c/'Program Files'/java/jdk-16.0.2/bin/java.exe"</span>
-<span class="c1">// Hello.java</span>
+<h2 id="instalação">Instalação</h2>
 
-<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<h3 id="linux">Linux</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>apt upgrade <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>default-jre <span class="o">&amp;&amp;</span><span class="se">\</span>
+<span class="nb">sudo </span>apt <span class="nb">install </span>default-jdk
+</code></pre></div></div>
+
+<h3 id="windows">Windows</h3>
+
+<ol>
+  <li>
+    <p><a href="https://www.oracle.com/java/technologies/javase-downloads.html">Download</a></p>
+  </li>
+  <li>
+    <p>Denfinir alias no <code class="language-plaintext highlighter-rouge">.bashrc</code></p>
+  </li>
+</ol>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">java</span><span class="o">=</span><span class="s2">"/c/'Program Files'/java/jdk-16.0.2/bin/java.exe"</span>
+</code></pre></div></div>
+
+<h2 id="código">Código</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Hello</span> <span class="o">{</span>
     <span class="kd">static</span> <span class="nc">String</span> <span class="n">userName</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
@@ -515,9 +524,16 @@
 
 </code></pre></div></div>
 
-<h2 id="executar">Executar</h2>
+<h2 id="execução">Execução</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java Hello.java
+<p><strong>Compilar</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac Hello.java
+</code></pre></div></div>
+
+<p><strong>Executar</strong>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java Hello.java
 </code></pre></div></div>
 
         

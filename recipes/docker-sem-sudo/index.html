@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-18T16:14:54-03:00">
+  <meta property="article:published_time" content="2022-06-18T16:43:26-03:00">
 
 
 
@@ -382,6 +382,8 @@
           
             <li><a href="/recipes/r-hello-world/">Hello, World!</a></li>
           
+            <li><a href="/recipes/r-jupyterlab/">Jupyterlab</a></li>
+          
         </ul>
         
       </li>
@@ -394,7 +396,7 @@
         
         <ul>
           
-            <li><a href="/recipes/sql-nomenclaturas/">Nomenclatura para entidades e atributos</a></li>
+            <li><a href="/recipes/sql-nomenclaturas/">Nomenclaturas</a></li>
           
         </ul>
         
@@ -440,7 +442,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Docker, sem sudo.">
     <meta itemprop="description" content="Docker, sem sudo.">
-    <meta itemprop="datePublished" content="2022-06-18T16:14:54-03:00">
+    <meta itemprop="datePublished" content="2022-06-18T16:43:26-03:00">
     <meta itemprop="dateModified" content="2022-03-16T23:44:00-03:00">
 
     <div class="page__inner-wrap">
@@ -468,20 +470,19 @@
 
 <h2 id="script">Script</h2>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="c"># Run docker without sudo</span>
-<span class="c"># --------------------------------------------------------------------------- #</span>
-<span class="nb">echo</span> <span class="s2">"Removing the needs of sudo when using Docker"</span>
-<span class="nb">sudo </span>groupadd docker
-<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker
-newgrp docker
-<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span>
+<ol>
+  <li>Cria grupo <code class="language-plaintext highlighter-rouge">docker</code></li>
+  <li>Insere o usuário atual no grupo</li>
+  <li>Muda o grupo do usuário na sessão</li>
+  <li>Adiciona o usuário ao grupo</li>
+  <li>reinicia o <em>Docker</em></li>
+</ol>
 
-<span class="nb">echo</span> <span class="s2">"Restarting Docker"</span>
-<span class="c"># Restart docker</span>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>groupadd docker <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>gpasswd <span class="nt">-a</span> <span class="nv">$USER</span> docker <span class="o">&amp;&amp;</span> <span class="se">\</span>
+newgrp docker <span class="o">&amp;&amp;</span> <span class="se">\</span>
+<span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker <span class="nv">$USER</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
 <span class="nb">sudo </span>systemctl restart docker
-<span class="c"># --------------------------------------------------------------------------- #</span>
 
 </code></pre></div></div>
 

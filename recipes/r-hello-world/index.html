@@ -50,7 +50,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-06-18T16:14:54-03:00">
+  <meta property="article:published_time" content="2022-06-18T16:43:26-03:00">
 
 
 
@@ -382,6 +382,8 @@
           
             <li><a href="/recipes/r-hello-world/" class="active">Hello, World!</a></li>
           
+            <li><a href="/recipes/r-jupyterlab/">Jupyterlab</a></li>
+          
         </ul>
         
       </li>
@@ -394,7 +396,7 @@
         
         <ul>
           
-            <li><a href="/recipes/sql-nomenclaturas/">Nomenclatura para entidades e atributos</a></li>
+            <li><a href="/recipes/sql-nomenclaturas/">Nomenclaturas</a></li>
           
         </ul>
         
@@ -440,7 +442,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="R Hello, World!">
     <meta itemprop="description" content="R Hello, World!">
-    <meta itemprop="datePublished" content="2022-06-18T16:14:54-03:00">
+    <meta itemprop="datePublished" content="2022-06-18T16:43:26-03:00">
     <meta itemprop="dateModified" content="2022-03-14T16:00:00-03:00">
 
     <div class="page__inner-wrap">
@@ -459,7 +461,7 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#jupyter-lab">Jupyter Lab</a></li><li><a href="#linha-de-comando">Linha de comando</a></li></ul>
+              <ul class="toc__menu"><li><a href="#linha-de-comando">Linha de comando</a></li></ul>
 
             </nav>
           </aside>
@@ -472,81 +474,6 @@
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
-
-<h2 id="jupyter-lab">Jupyter Lab</h2>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="nb">set</span> <span class="nt">-e</span>
-
-<span class="c"># Constants</span>
-<span class="nv">R_PATH</span><span class="o">=</span><span class="s2">"c://Program Files/R/R-4.1.3/bin/Rscript.exe"</span>
-
-<span class="nv">R_ENVIRONMENTS_PATH</span><span class="o">=</span>~/renvironments
-<span class="nv">PYTHON_ENVIRONMENTS_PATH</span><span class="o">=</span>~/environments
-
-<span class="nv">ENVIRONMENT_NAME</span><span class="o">=</span><span class="s2">"r_jupyter_test"</span>
-
-<span class="nv">R_ENVIRONMENT_PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">R_ENVIRONMENTS_PATH</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">ENVIRONMENT_NAME</span><span class="k">}</span><span class="s2">"</span>
-<span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENTS_PATH</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">ENVIRONMENT_NAME</span><span class="k">}</span><span class="s2">"</span>
-
-<span class="c"># Test R installation</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Testing R installation"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"cat('Installation OK')"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-
-<span class="c"># Create user lib if not exist</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Creating user lib"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"dir.create(path = Sys.getenv('R_LIBS_USER'), showWarnings = FALSE, recursive = TRUE)"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-
-<span class="c"># Install renv - r virtual environments package</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Install renv"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"install.packages('renv', lib = Sys.getenv('R_LIBS_USER'), repos = 'https://cran.rstudio.com/')"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-
-<span class="c">#  Create R virtual environment</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Create renv"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"renv::init(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">')"</span>
-py <span class="nt">-c</span> <span class="s2">"import os; print(os.path.isdir('</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'))"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-
-<span class="c">#  Create Python virtual environment</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Create venv"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-py <span class="nt">-3</span> <span class="nt">-m</span> venv <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>
-py <span class="nt">-c</span> <span class="s2">"import os; print(os.path.isdir('</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'))"</span>
-<span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/python <span class="nt">-m</span> pip <span class="nb">install</span> <span class="nt">--upgrade</span> pip
-<span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/python <span class="nt">-m</span> pip <span class="nb">install </span>jupyterlab
-
-<span class="c"># Install R kernel</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Install r kernell"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="nb">source</span> <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/activate <span class="o">&amp;&amp;</span> <span class="se">\</span>
-<span class="s2">"</span><span class="k">${</span><span class="nv">R_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"renv::activate(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'); </span><span class="se">\</span><span class="s2">
-                renv::install(project='</span><span class="k">${</span><span class="nv">R_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">', </span><span class="se">\</span><span class="s2">
-                packages=c('IRkernel', 'languageserver')); </span><span class="se">\</span><span class="s2">
-                IRkernel::installspec(prefix='</span><span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span><span class="s2">'); </span><span class="se">\</span><span class="s2">
-                renv::snapshot(type = 'all')"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-
-<span class="c"># Run Jupyter</span>
-<span class="nb">echo</span> <span class="s2">"========================================================================"</span>
-<span class="nb">echo</span> <span class="s2">"Install r kernell"</span>
-<span class="nb">printf</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
-<span class="nb">source</span> <span class="k">${</span><span class="nv">PYTHON_ENVIRONMENT_PATH</span><span class="k">}</span>/Scripts/activate <span class="o">&amp;&amp;</span> <span class="se">\</span>
-jupyter lab <span class="nt">--notebook-dir</span><span class="o">=</span><span class="s2">"./notebooks"</span>
-
-</code></pre></div></div>
 
 <h2 id="linha-de-comando">Linha de comando</h2>
 
@@ -618,7 +545,7 @@ c://<span class="s1">'Program Files'</span>/R/R-4.1.3/bin/Rscript.exe <span clas
 ">Previous</a>
     
     
-      <a href="/recipes/sql-nomenclaturas/" class="pagination--pager" title="Nomenclatura para entidades e atributos
+      <a href="/recipes/r-jupyterlab/" class="pagination--pager" title="R &amp; Jupyterlab
 ">Next</a>
     
   </nav>
