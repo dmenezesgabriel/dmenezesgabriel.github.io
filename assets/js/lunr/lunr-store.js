@@ -246,7 +246,7 @@ var store = [{
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
         "title": "Steam",
-        "excerpt":"Executar um jogo via linha de comando   #  cd ~/.steam/steam/steamapps/common/game LD_LIBRARY_PATH=~/.steam/bin32/ ~/.steam/bin32/steam-runtime/run.sh ./&lt;gameexecutable&gt;  ","categories": [],
+        "excerpt":"Executar um jogo via linha de comando      Acessar o diretório do jogo:   cd ~/.steam/steam/steamapps/common/&lt;game_dir&gt;      Executar o jogo:   LD_LIBRARY_PATH=~/.steam/bin32/ ~/.steam/bin32/steam-runtime/run.sh ./&lt;gameexecutable&gt;  ","categories": [],
         "tags": [],
         "url": "/recipes/linux-steam-cmd/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
