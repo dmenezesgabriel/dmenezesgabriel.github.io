@@ -514,8 +514,6 @@
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"snippets-acceskey"</span> <span class="na">href=</span><span class="s">"/"</span> <span class="na">target=</span><span class="s">"_blank"</span> <span class="na">accesskey=</span><span class="s">"h"</span><span class="nt">&gt;</span>Pressione alt + h<span class="nt">&lt;/a&gt;</span>
 </code></pre></div></div>
 
-<p><a id="snippets-acceskey" href="/" target="_blank" accesskey="h">Pressione alt + h</a></p>
-
 <h3 id="tab-index">Tab Index</h3>
 
 <p>Por meio do <code class="language-plaintext highlighter-rouge">tabindex</code> é possível definir a ordem em que os elementos da página serão selecionados ao pressionar TAB (neste caso o elemento abaixo não será focado em primeiro lugar devido a pré definições do tema do site).</p>
@@ -523,16 +521,12 @@
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"snippets-tab-index"</span> <span class="na">tabindex=</span><span class="s">"0"</span><span class="nt">&gt;</span>Pressione Tab<span class="nt">&lt;/span&gt;</span>
 </code></pre></div></div>
 
-<p><span id="snippets-tab-index" tabindex="0">Pressione Tab</span></p>
-
 <h3 id="title">Title</h3>
 
 <p>Passe o mouse por cima do elemento para obter uma dica.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">title=</span><span class="s">"Hello, World!"</span><span class="nt">&gt;</span>Coloque o mouse <span class="nt">&lt;b&gt;</span>aqui<span class="nt">&lt;/b&gt;</span> por 2 segundos<span class="nt">&lt;/span&gt;</span>
 </code></pre></div></div>
-
-<p><span title="Hello, World!">Coloque o mouse <b>aqui</b> por 2 segundos</span></p>
 
 <h3 id="lista-não-ordenada">Lista não ordenada</h3>
 
@@ -543,12 +537,6 @@
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre></div></div>
 
-<ul>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-</ul>
-
 <h3 id="lista-ordenada">Lista ordenada</h3>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ol&gt;</span>
@@ -558,27 +546,16 @@
 <span class="nt">&lt;/ol&gt;</span>
 </code></pre></div></div>
 
-<ol>
-  <li>Item</li>
-  <li>Item</li>
-  <li>Item</li>
-</ol>
-
 <h3 id="barra-de-progresso">Barra de progresso</h3>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"file"</span><span class="nt">&gt;</span>Progresso do download<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;progress</span> <span class="na">id=</span><span class="s">"file"</span> <span class="na">value=</span><span class="s">"32"</span> <span class="na">max=</span><span class="s">"100"</span><span class="nt">&gt;</span> 32% <span class="nt">&lt;/progress&gt;</span>
 </code></pre></div></div>
 
-<p><label for="file">Progresso do download</label></p>
-<progress id="file" value="32" max="100"> 32% </progress>
-
 <h3 id="download">Download</h3>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">""</span> <span class="na">download</span><span class="nt">&gt;&lt;/a&gt;</span>
 </code></pre></div></div>
-
-<p><a href="" download=""></a></p>
 
 <h3 id="tabela">Tabela</h3>
 
@@ -611,35 +588,6 @@
   <span class="nt">&lt;/tfoot&gt;</span>
 <span class="nt">&lt;/table&gt;</span>
 </code></pre></div></div>
-
-<table>
-  <!-- Headers -->
-  <thead>
-    <tr>
-      <th>Coluna A</th>
-      <th>Coluna B</th>
-      <th>Coluna C</th>
-    </tr>
-  </thead>
-  <!-- Body -->
-  <tbody>
-    <!-- Table rows -->
-    <tr>
-      <td>Valor A1</td>
-      <td>Valor B1</td>
-      <td>Valor C1</td>
-    </tr>
-    <tr>
-      <td>Valor A2</td>
-      <td>Valor B2</td>
-      <td>Valor C2</td>
-    </tr>
-  </tbody>
-  <!-- Table footer -->
-  <tfoot>
-
-  </tfoot>
-</table>
 
 <h3 id="formulário">Formulário</h3>
 
@@ -706,69 +654,6 @@
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"Botão"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
-
-<form id="form" method="GET" action="./index.html">
-  <fieldset>
-    <legend>Login</legend>
-    <!-- email -->
-    <label for="email">E-mail</label>
-    <br />
-    <input type="email" id="email" autofocus="" />
-    <br />
-    <!-- password -->
-    <label for="password">Senha</label>
-    <br />
-    <input type="password" id="password" />
-
-  </fieldset>
-  <br />
-  <!-- checkbox -->
-  <label for="interest">Interesses</label>
-  <br />
-  <input type="checkbox" name="interest" value="music" />Musica
-  <br />
-  <input type="checkbox" name="interest" value="cinema" checked="" />Cinema
-  <br />
-  <!-- radio -->
-  <label for="interest-radio">Interesses</label>
-  <br />
-  <input type="radio" name="interest-radio" value="music" />Musica
-  <br />
-  <input type="radio" name="interest-radio" value="cinema" checked="" />Cinema
-  <br />
-  <!-- selector -->
-  <label for="select">Menu de seleção</label>
-  <select name="select" id="select">
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="C" selected="">C</option>
-  </select>
-  <br />
-  <!-- datalist -->
-  <label for="browser">Lista de dados</label>
-  <input list="browsers" name="browser" />
-  <datalist id="browsers">
-    <option value="Chrome">Chrome</option>
-    <option value="Opera">Opera</option>
-  </datalist>
-  <br />
-  <!-- upload file -->
-  <label for="photo">Upload</label>
-  <input type="file" id="photo" />
-  <br />
-  <!-- area -->
-  <label for="area"></label>
-  <textarea id="area" cols="30" rows="10">Área de texto</textarea>
-  <br />
-  <!-- submit -->
-  <input type="submit" value="Enviar" />
-  <br />
-  <!-- reset form values -->
-  <input type="reset" value="Limpar formulário" />
-  <br />
-  <!-- button -->
-  <input type="button" value="Botão" />
-</form>
 
         
       </section>
