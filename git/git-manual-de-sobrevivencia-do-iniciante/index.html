@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
   Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
---><html lang="pt" class="no-js">
+-->
+<html lang="pt" class="no-js">
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Git: Manual de sobrevivência do iniciante - Gabriel Menezes</title>
@@ -78,7 +78,7 @@
 </script>
 
 
-  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0">
+  <meta name="google-site-verification" content="google-site-verification=eptQx1tvt90HuPSAcIb3RnL7BEotK85Tlcr0B7Tm5T0" />
 
 
 
@@ -108,15 +108,39 @@
 
     <!-- start custom head snippets -->
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
-<link rel="apple-touch-icon" sizes="180x180" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest">
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://dmenezesgabriel.github.io/assets/images/favicon_io/apple-touch-icon.png"
+>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-32x32.png"
+>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://dmenezesgabriel.github.io/assets/images/favicon_io/favicon-16x16.png"
+>
+<link
+  rel="manifest"
+  href="https://dmenezesgabriel.github.io/assets/images/favicon_io/site.webmanifest"
+>
 
 <!-- custom styles -->
-<link rel="stylesheet" href="/assets/css/styles.css">
+<link
+  rel="stylesheet"
+  href="/assets/css/styles.css"
+>
 <!-- Google AdSense -->
-<script data-ad-client="ca-pub-2945739723839788" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script
+  data-ad-client="ca-pub-2945739723839788"
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+></script>
 
 <!-- end custom head snippets -->
   </head>
@@ -147,20 +171,15 @@
           Gabriel Menezes
           <span class="site-subtitle"></span>
         </a>
-        <ul class="visible-links">
-<li class="masthead__menu-item">
+        <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/">Blog</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/categories/">Categorias</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/certificados/">Certificados</a>
-            </li>
-<li class="masthead__menu-item">
+            </li><li class="masthead__menu-item">
               <a href="/recipes/home/">Receitas</a>
-            </li>
-</ul>
+            </li></ul>
         
         <button class="search__toggle" type="button">
           <span class="visually-hidden">Toggle search</span>
@@ -195,7 +214,7 @@
       
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="https://dmenezesgabriel.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
-          <meta itemprop="position" content="1">
+          <meta itemprop="position" content="1" />
         </li>
         <span class="sep">/</span>
       
@@ -203,7 +222,7 @@
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="/categories/#git" itemprop="item"><span itemprop="name">Git</span></a>
-          <meta itemprop="position" content="2">
+          <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
       
@@ -293,7 +312,7 @@
       
         <li>
           <a href="mailto:dmenezesgabriel.gabriel@gmail.com">
-            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com">
+            <meta itemprop="email" content="dmenezesgabriel.gabriel@gmail.com" />
             <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
           </a>
         </li>
@@ -405,30 +424,8 @@
         
           <aside class="sidebar__right ">
             <nav class="toc">
-              <header><h4 class="nav__title">
-<i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu">
-<li><a href="#como-isso-funciona">Como isso funciona?</a></li>
-<li>
-<a href="#comandos-mais-utilizados">Comandos mais utilizados</a><ul>
-<li><a href="#iniciando-um-reposit%C3%B3rio">Iniciando um repositório</a></li>
-<li><a href="#buscar-e-aplicar-modifica%C3%A7%C3%B5es-do-reposit%C3%B3rio-remoto-no-reposit%C3%B3rio-local">Buscar e aplicar modificações do repositório remoto no repositório local</a></li>
-<li><a href="#resetando-um-commit">Resetando um commit</a></li>
-<li><a href="#removendo-um-arquivo-da-%C3%A1rea-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</a></li>
-<li><a href="#rebase">Rebase</a></li>
-<li>
-<a href="#hist%C3%B3rico-de-commits">Histórico de commits:</a><ul><li><a href="#deletar-branchs-locais-cujas-modifica%C3%A7%C3%B5es-j%C3%A1-foram-aplicadas-ao-reposit%C3%B3rio-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</a></li></ul>
-</li>
-<li><a href="#arquivar-modifica%C3%A7%C3%B5es">Arquivar modificações</a></li>
-<li><a href="#mostrar-diferen%C3%A7as-entre-as-modifica%C3%A7%C3%B5es-armazenadas-e-a-ramifica%C3%A7%C3%A3o-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</a></li>
-<li><a href="#alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</a></li>
-<li><a href="#atualizar-reposit%C3%B3rio-local-com-o-remoto-incluindo-tags">Atualizar repositório local com o remoto incluindo tags</a></li>
-<li><a href="#removendo-arquivos-n%C3%A3o-rastreados">Removendo arquivos não rastreados</a></li>
-</ul>
-</li>
-<li><a href="#o-que-%C3%A9-github">O que é GitHub</a></li>
-<li><a href="#refer%C3%AAncias">Referências</a></li>
-</ul>
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#como-isso-funciona">Como isso funciona?</a></li><li><a href="#comandos-mais-utilizados">Comandos mais utilizados</a><ul><li><a href="#iniciando-um-repositório">Iniciando um repositório</a></li><li><a href="#buscar-e-aplicar-modificações-do-repositório-remoto-no-repositório-local">Buscar e aplicar modificações do repositório remoto no repositório local</a></li><li><a href="#resetando-um-commit">Resetando um commit</a></li><li><a href="#removendo-um-arquivo-da-área-de-staging-ou-desfazendo-um-git-add">Removendo um arquivo da área de staging ou desfazendo um git add</a></li><li><a href="#rebase">Rebase</a></li><li><a href="#histórico-de-commits">Histórico de commits:</a><ul><li><a href="#deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</a></li></ul></li><li><a href="#arquivar-modificações">Arquivar modificações</a></li><li><a href="#mostrar-diferenças-entre-as-modificações-armazenadas-e-a-ramificação-atual">Mostrar diferenças entre as modificações armazenadas e a ramificação atual</a></li><li><a href="#alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</a></li><li><a href="#atualizar-repositório-local-com-o-remoto-incluindo-tags">Atualizar repositório local com o remoto incluindo tags</a></li><li><a href="#removendo-arquivos-não-rastreados">Removendo arquivos não rastreados</a></li></ul></li><li><a href="#o-que-é-github">O que é GitHub</a></li><li><a href="#referências">Referências</a></li></ul>
 
             </nav>
           </aside>
@@ -549,16 +546,11 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 </code></pre></div></div>
 
 <ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">log</code>: Mostra o histórico de commits.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">--all</code>: Apresenta todas referências.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">--graph</code>: Cria uma representação gráfica do histórico de commits.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">--decorate</code>: Traz o nome da referência para cada commit mostrado.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">--oneline</code>: Esta é uma abreviação para <code class="language-plaintext highlighter-rouge">--pretty=oneline --abbrev-commi</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">log</code>: Mostra o histórico de commits.</li>
+  <li><code class="language-plaintext highlighter-rouge">--all</code>: Apresenta todas referências.</li>
+  <li><code class="language-plaintext highlighter-rouge">--graph</code>: Cria uma representação gráfica do histórico de commits.</li>
+  <li><code class="language-plaintext highlighter-rouge">--decorate</code>: Traz o nome da referência para cada commit mostrado.</li>
+  <li><code class="language-plaintext highlighter-rouge">--oneline</code>: Esta é uma abreviação para <code class="language-plaintext highlighter-rouge">--pretty=oneline --abbrev-commi</code>.</li>
 </ul>
 
 <h4 id="deletar-branchs-locais-cujas-modificações-já-foram-aplicadas-ao-repositório-remoto-master">Deletar branchs locais cujas modificações já foram aplicadas ao repositório remoto “master”</h4>
@@ -567,16 +559,11 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 </code></pre></div></div>
 
 <ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">branch</code>: Listar, criar ou deletar ramificações.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">--merged</code>: Ramificações as quais suas modificações já foram aplicadas ao repositório original.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">|</code>: Sequência de um <code class="language-plaintext highlighter-rouge">ou</code> mais comandos.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">egrep</code>: Mostrar linhas que correspondem a um padrão.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">-d, --delete:</code> Deletar ramificação.</li>
+  <li><code class="language-plaintext highlighter-rouge">branch</code>: Listar, criar ou deletar ramificações.</li>
+  <li><code class="language-plaintext highlighter-rouge">--merged</code>: Ramificações as quais suas modificações já foram aplicadas ao repositório original.</li>
+  <li><code class="language-plaintext highlighter-rouge">|</code>: Sequência de um <code class="language-plaintext highlighter-rouge">ou</code> mais comandos.</li>
+  <li><code class="language-plaintext highlighter-rouge">egrep</code>: Mostrar linhas que correspondem a um padrão.</li>
+  <li><code class="language-plaintext highlighter-rouge">-d, --delete:</code> Deletar ramificação.</li>
 </ul>
 
 <h3 id="arquivar-modificações">Arquivar modificações</h3>
@@ -590,12 +577,9 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 </code></pre></div></div>
 
 <ul>
-  <li>
-<code class="language-plaintext highlighter-rouge">stash</code>: Arquivar as alterações.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">show</code>: Mostrar as alterações arquivadas e suas diferenças em relação a ramificação original.</li>
-  <li>
-<code class="language-plaintext highlighter-rouge">-p, --patch</code>: Seleciona as diferenças entre o ponteiro <code class="language-plaintext highlighter-rouge">HEAD</code> e a branch atual.</li>
+  <li><code class="language-plaintext highlighter-rouge">stash</code>: Arquivar as alterações.</li>
+  <li><code class="language-plaintext highlighter-rouge">show</code>: Mostrar as alterações arquivadas e suas diferenças em relação a ramificação original.</li>
+  <li><code class="language-plaintext highlighter-rouge">-p, --patch</code>: Seleciona as diferenças entre o ponteiro <code class="language-plaintext highlighter-rouge">HEAD</code> e a branch atual.</li>
 </ul>
 
 <h3 id="alterando-o-nome-de-uma-branch-local">Alterando o nome de uma branch local</h3>
@@ -938,15 +922,13 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
 
     
       <div class="search-content">
-        <div class="search-content__inner-wrap">
-<form class="search-content__form" onkeydown="return event.key != 'Enter';">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
     <label class="sr-only" for="search">
       Enter your search term...
     </label>
-    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term...">
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
   </form>
-  <div id="results" class="results"></div>
-</div>
+  <div id="results" class="results"></div></div>
 
       </div>
     
@@ -991,7 +973,7 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
   </ul>
 </div>
 
-<div class="page__footer-copyright">© 2022 Gabriel Menezes. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 Gabriel Menezes. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -1037,8 +1019,7 @@ git checkout &lt;nome da ramificação <span class="o">(</span>branch<span class
       (d.head || d.body).appendChild(s);
     })();
   </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
   

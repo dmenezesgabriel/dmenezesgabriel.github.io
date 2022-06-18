@@ -1,4 +1,8 @@
 pre.highlight > button {
+  font-family: monospace;
+  position: absolute;
+  right: 0;
+  top: 0;
   opacity: 0;
   border-radius: 5px;
   padding: 5px;
