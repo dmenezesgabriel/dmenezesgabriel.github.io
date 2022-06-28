@@ -131,13 +131,13 @@ var store = [{
         "url": "/web/html-o-que-e/",
         "teaser": "/assets/images/covers/2021-07-04-html-snippets.jpg"
       },{
-        "title": "Instalação Steam",
+        "title": "Chromebook - Instalação Steam",
         "excerpt":"Adicionar arquitetura   sudo dpkg --add-architecture i386   Atualizar repositórios   sudo apt-get update   Instalar dependências   sudo apt install libgl1-mesa-dri:i386 \\                  libgl1-mesa-glx:i386  \\                  libc6:i386 \\                  libc6-i386 \\                  libgtk2.0-0:i386 \\                  libxtst6:i386   Baixar pacote de instalação steam   wget https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb   Instalar Steam   sudo dpkg -i steam.deb   Desabilitar limite de frame rate   steam --disable-framerate-limit   Referências      chromeunboxed   askubuntu  ","categories": [],
         "tags": [],
         "url": "/recipes/chromebook-crostini-steam/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
-        "title": "Chromebook flags",
+        "title": "Chromebook - flags",
         "excerpt":"Suporte a aceleração GPU   chrome://flags/#crostini-gpu-support      Reinicie a maquina   Suporte a Hyper-Threading   https://support.google.com/chromebook/answer/9340236?hl=en   chrome://flags/#scheduler-configuration      Enables Hyper-Threading   Reinicie a maquina   Suporte a modo escuro      Sistema:   chrome://flags/#dark-light-mode      Conteúdo Web:   chrome://flags/#enable-force-dark      Reinicie a maquina   Abra a barra de configurações rápidas no desktop no canto inferior esquerdo e ative o tema escuro.   Melhor posicionamento do mouse e foco   chrome://flags/#exo-pointer-lock      Reinicie a maquina  ","categories": [],
         "tags": [],
         "url": "/recipes/chromebook-flags/",
@@ -233,7 +233,7 @@ var store = [{
         "url": "/recipes/docker-sem-sudo/",
         "teaser": "/assets/images/fallback-teaser.jpeg"
       },{
-        "title": "Receitas",
+        "title": "Home",
         "excerpt":"Nesta seção você encontrará os mais diversos tipos de script.  ","categories": [],
         "tags": [],
         "url": "/recipes/home/",
